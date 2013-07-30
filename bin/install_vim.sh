@@ -8,7 +8,7 @@ cd vim/src
 make && make install
 mkdir -p $HOME/bin/
 cd $HOME/bin/
-ln -s $HOME/opt/vim/bin/vim
+#ln -s $HOME/opt/vim/bin/vim
 which vim
 vim --version
 
