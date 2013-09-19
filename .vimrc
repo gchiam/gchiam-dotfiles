@@ -68,8 +68,11 @@ set noswapfile
 
 
 " make yank copy to the global system clipboard
-set clipboard=unnamed
+"set clipboard=unnamed "windows
+set clipboard=unnamedplus
 
+" Map Ctrl+C to copy to syste, clipboard
+vmap <C-c> "+y
 
 " Improving code completion
 set completeopt=longest,menuone
