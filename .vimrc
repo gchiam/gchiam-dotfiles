@@ -1,7 +1,80 @@
+" ========================================================================
 " based on https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.vimrc"
+" ========================================================================
 
 set encoding=utf-8
 autocmd! bufwritepost .vimrc source %
+call pathogen#infect()
+
+filetype off
+filetype plugin indent on
+syntax on
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+
+" General option
+" ===============
+let mapleader = "," " rebind <Leader> key
+nnoremap . <NOP>
+set wildmode=list:longest " make TAB behave like in a shell
+set autoread " reload file when changes happen in other editors
+set tags=./tags
+
+set mouse=a
+set bs=2 " make backspace behave like normal again
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
+
+" Disable stupid backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+" make yank copy to the global system clipboard
+set clipboard=unnamed
+
+
+" Improving code completion
+set completeopt=longest,menuone
+
+
+" found here: http://stackoverflow.com/a/2170800/70778
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
+inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
+inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+
+" Quicksave command
+noremap <Leader>w :update<CR>
+vnoremap <Leader>w <C-C>:update<CR>
+inoremap <Leader>w <C-O>:update<CR>
+
+
+" Quick quit command
+noremap <Leader>q :quit<CR>
+
+
+" Bind nohl
+noremap <Leader>h :nohl<CR>
 
 set history=700
 set undolevels=700
@@ -24,73 +97,54 @@ set nowrap " don't automatically wrap on load
 set tw=79  " width of document (used by gd)
 set fo-=t  " don't automatically wrap text when typing
 
+" Awesome line number magic
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
 
-filetype off
-filetype plugin indent on
-syntax on
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+nnoremap <Leader>l :call NumberToggle()<cr>
+:au FocusLost * set number
+:au FocusGained * set relativenumber
+autocmd InsertEnter * set number
+autocmd InsertLeave * set relativenumber
+set relativenumber
 
-
-" Pathogen load
-" https://github.com/klen/python-mode#using-pathogen-recomended
-call pathogen#infect()
-call pathogen#helptags()
-filetype plugin indent on
-
-
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
-
-" General option
-" ===============
-let mapleader = "," " rebind <Leader> key
-set wildmode=list:longest " make TAB behave like in a shell
-set autoread " reload file when changes happen in other editors
-set tags=./tags
+" center the cursor vertically
+:nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
 
 
-set mouse=a
-set bs=2 " make backspace behave like normal again
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=*/coverage/*
+" easier formatting of paragraphs
+vmap Q gq
+nmap Q gqap
 
 
-" Disable stupid backup and swap files - they trigger too many events
-" for file system watchers
-set nobackup
-set nowritebackup
-set noswapfile
+" Settings for jedi-vim
+" =====================
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 
-" make yank copy to the global system clipboard
-"set clipboard=unnamed "windows
-set clipboard=unnamedplus
-
-" Map Ctrl+C to copy to syste, clipboard
-vmap <C-c> "+y
-
-" Improving code completion
-set completeopt=longest,menuone
+" Settings for vim-powerline
+" ===========================
+set laststatus=2
+" let g:Powerline_symbols = 'fancy'
 
 
-" Quicksave command
-noremap <Leader>w :update<CR>
-vnoremap <Leader>w <C-C>:update<CR>
-inoremap <Leader>w <C-O>:update<CR>
+" Settings for vim-markdown
+" ==========================
+" let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_initial_foldlevel=1
 
 
-" Quick quit command
-noremap <Leader>q :quit<CR>
-
-
-" Bind nohl
-noremap <Leader>h :nohl<CR>
-
+" Settings for ctrlp
+" ===================
+let g:ctrlp_max_height = 30
 
 "
 " Movement
@@ -101,8 +155,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+map <Leader>, <esc>:tabprevious<CR>
+map <Leader>. <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
 
 
@@ -137,7 +191,7 @@ LuciusDarkLowContrast
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
-map <Leader>v :source ~/.vimrc<cr>
+map <Leader>v :source ~/.vimrc<CR>
 
 
 " =========================
@@ -152,11 +206,3 @@ function! NumberToggle()
     "set nonumber
   endif
 endfunc
-
-noremap <Leader>l :call NumberToggle()<cr>
-:au FocusLost * set norelativenumber number
-:au FocusGained * set relativenumber nonumber
-autocmd InsertEnter * set norelativenumber number
-autocmd InsertLeave * set relativenumber nonumber
-" set relativenumber
-set number
