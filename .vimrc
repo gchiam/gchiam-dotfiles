@@ -135,7 +135,7 @@ color wombat256mod
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
-map <Leader>v :source ~/.vimrc
+map <Leader>v :source ~/.vimrc<cr>
 
 
 
