@@ -85,7 +85,7 @@ inoremap <Leader>w <C-O>:update<CR>
 
 
 " Quick quit command
-noremap <Leader>e :quit<CR>
+noremap <Leader>q :quit<CR>
 
 
 " Bind nohl
@@ -135,7 +135,28 @@ color wombat256mod
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
-map <Leader>v :source ~/.vimrc
+map <Leader>v :source ~/.vimrc<cr>
 
+
+" =========================
+" Awesome line number magic
+" =========================
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+    "set nonumber
+  endif
+endfunc
+
+noremap <Leader>l :call NumberToggle()<cr>
+:au FocusLost * set norelativenumber number
+:au FocusGained * set relativenumber nonumber
+autocmd InsertEnter * set norelativenumber number
+autocmd InsertLeave * set relativenumber nonumber
+" set relativenumber
+set number
 
 
