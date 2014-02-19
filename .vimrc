@@ -130,7 +130,9 @@ map <Leader>x :%s/\s\+$//
 " Color scheme
 " =============
 set t_Co=256
-color wombat256mod
+"color wombat256mod
+color lucius
+LuciusDarkLowContrast
 
 
 set colorcolumn=80
@@ -158,5 +160,3 @@ autocmd InsertEnter * set norelativenumber number
 autocmd InsertLeave * set relativenumber nonumber
 " set relativenumber
 set number
-
-
