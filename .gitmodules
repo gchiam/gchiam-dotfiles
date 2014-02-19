@@ -40,3 +40,9 @@
 [submodule ".vim/bundle/django"]
 	path = .vim/bundle/django
 	url = git://github.com/vim-scripts/django.vim.git
+[submodule ".vim/bundle/vim-powerline"]
+	path = .vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/SimpylFold"]
+	path = .vim/bundle/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold.git

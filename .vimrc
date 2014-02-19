@@ -194,15 +194,3 @@ highlight ColorColumn ctermbg=233
 map <Leader>v :source ~/.vimrc<CR>
 
 
-" =========================
-" Awesome line number magic
-" =========================
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber
-    set number
-  else
-    set relativenumber
-    "set nonumber
-  endif
-endfunc
