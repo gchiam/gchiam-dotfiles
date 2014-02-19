@@ -123,6 +123,11 @@ nmap Q gqap
 
 
 " Settings for jedi-vim
+" ====================
+autocmd BufWritePost *.py call Flake8()
+
+
+" Settings for jedi-vim
 " =====================
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#popup_on_dot = 0

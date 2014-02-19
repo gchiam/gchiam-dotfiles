@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/gordon.chiam/projects/tmp/gchiam-dotfiles/.vim'
+let g:netrw_dirhist_2='/home/gordon.chiam/projects/gchiam-dotfiles/.vim'
+let g:netrw_dirhist_3='/home/gordon.chiam/projects/gchiam-dotfiles/.vim/bundle/jedi-vim'
