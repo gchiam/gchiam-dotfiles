@@ -132,7 +132,7 @@ autocmd BufWritePost *.py call Flake8()
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>B Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 
 " Settings for vim-powerline
@@ -165,8 +165,14 @@ map <Leader>. <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
 
 
+" Window spliting
+" ==============
+nmap <leader>\| :vs<CR>
+nmap <leader>- :split<CR>
+
+
 " Custom mappings
-" ================
+" ===============
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 map <Leader>a ggVG  " select all
