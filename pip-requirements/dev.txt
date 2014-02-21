@@ -1,0 +1,5 @@
+ipython
+ipdb
+pudb
+virtualenv
+virtualenvwrapper
