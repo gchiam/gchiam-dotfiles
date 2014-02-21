@@ -4,3 +4,4 @@ pudb
 virtualenv
 virtualenvwrapper
 radon
+cookiecutter
