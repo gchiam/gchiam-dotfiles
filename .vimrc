@@ -132,7 +132,8 @@ autocmd BufWritePost *.py call Flake8()
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
-map <Leader>B Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>B import ipdb as _xxPDB; _xxPDB.set_trace; set_trace() # BREAKPOINT<C-c>
+map <Leader>b import pudb as _xxPDB; _xxPDB.set_trace; set_trace() # BREAKPOINT<C-c>
 
 
 " Settings for vim-powerline
