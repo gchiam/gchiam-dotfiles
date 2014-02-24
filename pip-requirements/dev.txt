@@ -1,6 +1,9 @@
 ipython
 ipdb
 pudb
+pylint
+flake8
+jedi
 virtualenv
 virtualenvwrapper
 radon
