@@ -19,8 +19,8 @@
 [submodule ".vim/bundle/vim-lucius"]
 	path = .vim/bundle/vim-lucius
 	url = git://github.com/jonathanfilip/vim-lucius.git
-[submodule ".vim/bundle/vim-tmux-navagator"]
-	path = .vim/bundle/vim-tmux-navagator
+[submodule ".vim/bundle/vim-tmux-navagitor"]
+	path = .vim/bundle/vim-tmux-navigator
 	url = git://github.com/christoomey/vim-tmux-navigator.git
 [submodule ".vim/bundle/jedi-vim"]
 	path = .vim/bundle/jedi-vim
