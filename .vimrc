@@ -100,16 +100,16 @@ set fo-=t  " don't automatically wrap text when typing
 " Awesome line number magic
 function! NumberToggle()
   if(&relativenumber == 1)
-    set number
+    set norelativenumber number
   else
     set relativenumber
   endif
 endfunc
 
 nnoremap <Leader>l :call NumberToggle()<cr>
-:au FocusLost * set number
+:au FocusLost * set norelativenumber number
 :au FocusGained * set relativenumber
-autocmd InsertEnter * set number
+autocmd InsertEnter * set norelativenumber number
 autocmd InsertLeave * set relativenumber
 set relativenumber
 
