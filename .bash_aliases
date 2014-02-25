@@ -33,6 +33,7 @@ alias gps="git push"
 alias gpl="git pull"
 alias gc="git commit"
 alias gl="git log"
+alias glg="git lg"
 
 # Django related shortcuts
 alias mprs="./manage.py runserver"
