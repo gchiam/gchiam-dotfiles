@@ -4,9 +4,13 @@
 
 set encoding=utf-8
 autocmd! bufwritepost .vimrc source %
-call pathogen#infect()
 
 filetype off
+call pathogen#incubate()
+call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
+
 filetype plugin indent on
 syntax on
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
