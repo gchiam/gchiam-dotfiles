@@ -202,8 +202,12 @@ map <Leader>x :%s/\s\+$//
 " =============
 set t_Co=256
 "color wombat256mod
-color lucius
-LuciusDarkLowContrast
+"color lucius
+"LuciusDarkLowContrast
+set background=dark
+colorscheme solarized
+map <leader>D :set background=dark<CR>
+map <leader>L :set background=light<CR>
 
 
 set colorcolumn=80
