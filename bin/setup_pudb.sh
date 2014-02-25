@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ln ~/projects/gchiam-dotfiles/pudb ~/.config/pudb
+ln -snvf ~/projects/gchiam-dotfiles/pudb ~/.config/pudb
