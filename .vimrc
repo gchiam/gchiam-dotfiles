@@ -206,8 +206,7 @@ set t_Co=256
 "LuciusDarkLowContrast
 set background=dark
 colorscheme solarized
-map <leader>D :set background=dark<CR>
-map <leader>L :set background=light<CR>
+call togglebg#map("<F5>")
 
 
 set colorcolumn=80
