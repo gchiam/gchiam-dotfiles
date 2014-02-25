@@ -102,16 +102,16 @@ function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber number
   else
-    set relativenumber
+    set number relativenumber
   endif
 endfunc
 
 nnoremap <Leader>l :call NumberToggle()<cr>
 :au FocusLost * set norelativenumber number
-:au FocusGained * set relativenumber
+:au FocusGained * set relativenumber number
 autocmd InsertEnter * set norelativenumber number
-autocmd InsertLeave * set relativenumber
-set relativenumber
+autocmd InsertLeave * set relativenumber number
+set number relativenumber
 
 " center the cursor vertically
 :nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
