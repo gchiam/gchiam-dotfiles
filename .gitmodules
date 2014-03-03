@@ -52,3 +52,6 @@
 [submodule "external/powerline-fonts"]
 	path = external/powerline-fonts
 	url = git@github.com:Lokaltog/powerline-fonts.git
+[submodule "external/powerline-shell"]
+	path = external/powerline-shell
+	url = git@github.com:milkbikis/powerline-shell.git
