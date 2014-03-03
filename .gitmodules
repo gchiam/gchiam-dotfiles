@@ -55,3 +55,6 @@
 [submodule "external/powerline-shell"]
 	path = external/powerline-shell
 	url = git@github.com:milkbikis/powerline-shell.git
+[submodule "external/solarized"]
+	path = external/solarized
+	url = git@github.com:altercation/solarized.git
