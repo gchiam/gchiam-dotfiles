@@ -28,6 +28,8 @@ alias v="vim"
 # Git related shortcuts
 alias g="git"
 alias ga="git add ."
+alias gd="git diff"
+alias gdt="git difftool"
 alias gst="git status"
 alias gps="git push"
 alias gpl="git pull"
