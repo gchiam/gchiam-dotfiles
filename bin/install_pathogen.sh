@@ -1,6 +1,4 @@
 #!/bin/bash
 
-pushd ~/.vim
-mkdir -p bundle && cd bundle
-git clone git://github.com/klen/python-mode.git
-popd
+mkdir -p ~/.vim/autoload ~/.vim/bundle 
+ln -snvf ../../external/vim-pathogen/autoload/pathogen.vim ~/.vim/autoload/
