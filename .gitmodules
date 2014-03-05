@@ -64,3 +64,6 @@
 [submodule "external/gnome-terminal-colors-solarized"]
 	path = external/gnome-terminal-colors-solarized
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+[submodule "external/oh-my-zsh"]
+	path = external/oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
