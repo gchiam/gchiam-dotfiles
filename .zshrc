@@ -18,12 +18,11 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
-bindkey -v
 # End of lines configured by zsh-newuser-install
 #
 #
 
-plugins=(git)
+plugins=(vi-mode git)
 
 source $ZSH/oh-my-zsh.sh
 
