@@ -15,6 +15,9 @@ unset file
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
 
+# django bash completion
+# https://github.com/django/django/blob/master/extras/django_bash_completion
+. ~/.django_bash_completion
 
 # append to the history file, don't overwrite it
 shopt -s histappend
