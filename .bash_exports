@@ -2,8 +2,11 @@ PATH=$HOME/.local/bin:$HOME/bin:$PATH
 export PATH
 
 export LC_CTYPE="en_US.UTF-8"
+export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 
-# For virtualenvwrapper
+###############################################################################
+# virtualenvwrapper
+###############################################################################
 export WORKON_HOME=~/Envs
 if [ -f  /usr/bin/virtualenvwrapper_lazy.sh ]; then
     source /usr/bin/virtualenvwrapper_lazy.sh
