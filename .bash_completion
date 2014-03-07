@@ -1,1 +1,6 @@
-source $HOME/.django_bash_completion.sh
+# =============================================================================
+# django bash completion
+# https://github.com/django/django/blob/master/extras/django_bash_completion
+# =============================================================================
+. ~/.django_bash_completion
+
