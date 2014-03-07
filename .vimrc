@@ -1,6 +1,7 @@
 " ========================================================================
 " based on https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.vimrc"
 " ========================================================================
+" set tabstop=4 softtabstop=4 shiftwidth=4 :
 
 set encoding=utf-8
 autocmd! bufwritepost .vimrc source %
@@ -105,12 +106,15 @@ set fo-=t  " don't automatically wrap text when typing
 function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber number
-  else
+  endif
+  set invnumber
+  if(&number == 1)
     set number relativenumber
   endif
 endfunc
 
-nnoremap <Leader>l :call NumberToggle()<cr>
+nnoremap <Leader>l :set relativenumber!<cr>
+nnoremap <Leader>L :call NumberToggle()<cr>
 :au FocusLost * set norelativenumber number
 :au FocusGained * set relativenumber number
 autocmd InsertEnter * set norelativenumber number
