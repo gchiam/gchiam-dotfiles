@@ -45,3 +45,5 @@ function install_powerline_precmd() {
 
 install_powerline_precmd
 
+
+test -d $HOME/.rvm/bin && (which rvm > /dev/null 2>&1) || PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
