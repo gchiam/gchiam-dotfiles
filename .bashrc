@@ -18,4 +18,4 @@ fi
 
 test -d $HOME/.rvm/bin && (which rvm > /dev/null 2>&1) || PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-test -d $HOME/opt/android-sdk-linux/platform-tools && PATH=$PATH:$HOME/opt/android-sdk-linux/platform-tools
+test -d $HOME/opt/android-sdk/platform-tools && PATH=$PATH:$HOME/opt/android-sdk/platform-tools
