@@ -67,3 +67,6 @@
 [submodule "external/oh-my-zsh"]
 	path = external/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".vim/bundle/bash-support"]
+	path = .vim/bundle/bash-support
+	url = git@github.com:vim-scripts/bash-support.vim.git
