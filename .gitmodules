@@ -19,12 +19,12 @@
 [submodule ".vim/bundle/jedi-vim"]
 	path = .vim/bundle/jedi-vim
 	url = git://github.com/davidhalter/jedi-vim.git
-[submodule ".vim/bundle/vim-flake8"]
-	path = .vim/bundle/vim-flake8
-	url = git://github.com/nvie/vim-flake8.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-flake8"]
+	path = .vim/bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
@@ -67,3 +67,9 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
+[submodule "external/vim-instant-markdown"]
+	path = external/vim-instant-markdown
+	url = git@github.com:suan/vim-instant-markdown.git
+[submodule ".vim/bundle/vim-instant-markdown"]
+	path = .vim/bundle/vim-instant-markdown
+	url = git@github.com:suan/vim-instant-markdown.git
