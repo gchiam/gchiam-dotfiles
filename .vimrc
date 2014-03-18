@@ -130,9 +130,21 @@ vmap Q gq
 nmap Q gqap
 
 
-" Settings for jedi-vim
+" Settings for vim-flake8
 " ====================
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
+"
+
+" Settings for Syntastic
+" ======================
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_error_symbol = 'X>'
+"let g:syntastic_warning_symbol = 'x>'
+map <F7> :SyntasticCheck<CR>
+
 
 
 " Settings for jedi-vim
@@ -148,7 +160,7 @@ map <Leader><c-b> Oimport pdb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>
 " Settings for vim-powerline
 " ===========================
 set laststatus=2
-" let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 
 " Settings for vim-markdown
