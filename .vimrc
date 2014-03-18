@@ -146,6 +146,7 @@ let g:syntastic_style_warning_symbol = '✧❭'
 let g:syntastic_error_symbol = '✗❱'
 let g:syntastic_warning_symbol = '!❭'
 map <F7> <esc>:SyntasticCheck<CR>
+map <F8> <esc>:SyntasticToggleMode<CR>
 
 
 
@@ -230,7 +231,7 @@ call togglebg#map("<F5>")
 
 
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
+highlight ColorColumn ctermbg=0
 highlight SignColumn ctermbg=10
 
 map <Leader>v :source ~/.vimrc<CR>
