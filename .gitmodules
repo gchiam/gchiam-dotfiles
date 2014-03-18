@@ -61,6 +61,7 @@
 [submodule ".vim/bundle/bash-support"]
 	path = .vim/bundle/bash-support
 	url = git@github.com:vim-scripts/bash-support.vim.git
+    ignore = untracked
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
