@@ -145,7 +145,7 @@ let g:syntastic_style_error_symbol = '❋❱'
 let g:syntastic_style_warning_symbol = '✧❭'
 let g:syntastic_error_symbol = '✗❱'
 let g:syntastic_warning_symbol = '!❭'
-map <F7> :SyntasticCheck<CR>
+map <F7> <esc>:SyntasticCheck<CR>
 
 
 
@@ -188,6 +188,8 @@ map <Leader>, <esc>:tabprevious<CR>
 map <Leader>. <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
 
+map <Leader>[ <esc>:lprevious<CR>
+map <Leader>] <esc>:lnext<CR>
 
 " Window spliting
 " ==============
