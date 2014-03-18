@@ -140,9 +140,11 @@ nmap Q gqap
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['flake8', 'pylint']
 let g:syntastic_auto_loc_list = 1
-"let g:syntastic_enable_signs = 1
-"let g:syntastic_error_symbol = 'X>'
-"let g:syntastic_warning_symbol = 'x>'
+let g:syntastic_enable_signs = 1
+let g:syntastic_style_error_symbol = '❋❱'
+let g:syntastic_style_warning_symbol = '✧❭'
+let g:syntastic_error_symbol = '✗❱'
+let g:syntastic_warning_symbol = '!❭'
 map <F7> :SyntasticCheck<CR>
 
 
@@ -227,6 +229,8 @@ call togglebg#map("<F5>")
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
+highlight SignColumn ctermbg=10
+
 map <Leader>v :source ~/.vimrc<CR>
 
 
