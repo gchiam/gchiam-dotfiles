@@ -75,7 +75,7 @@ inoremap <Leader>w <C-O>:update<CR>
 
 
 " Quick quit command
-noremap <Leader>q :quit<CR>
+noremap <Leader>q <esc>:quit<CR>
 
 
 " Bind nohl
