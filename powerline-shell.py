@@ -1,1 +1,0 @@
-external/powerline-shell/powerline-shell.py
