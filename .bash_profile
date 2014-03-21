@@ -1,15 +1,14 @@
+PATH=$HOME/.local/bin:$HOME/bin:$PATH
+[[ -d "$HOME/opt/android-sdk/platform-tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/platform-tools
+[[ -d "$HOME/.rvm/bin" ]] && (which rvm > /dev/null 2>&1) || PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{bash_extra,bash_prompt,bash_exports,bash_aliases,bash_functions,bash_completion}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
-
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
-
-
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -28,6 +27,4 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-. ~/.powerline.sh
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
