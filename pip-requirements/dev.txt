@@ -7,4 +7,7 @@ jedi
 virtualenv
 virtualenvwrapper
 radon
+pygit2
+mercurial
+psutil
 cookiecutter
