@@ -15,7 +15,7 @@ ln -snvf $DOTFILES_DIR/.dircolors $HOME
 ln -snvf $DOTFILES_DIR/.tmux.conf $HOME
 ln -snvf $DOTFILES_DIR/.vim $HOME
 ln -snvf $DOTFILES_DIR/.vimrc $HOME
-ln -snvf $DOTFILES_DIR/powerline-shell.py $HOME
+ln -snvf $DOTFILES_DIR/external/powerline/powerline/bindings/bash/powerline.sh $HOME/.powerline.sh
 
 test -d $HOME/.config || mkdir -p $HOME/.config
 for f in `find $DOTFILES_DIR/.config -mindepth 1 -maxdepth 1`

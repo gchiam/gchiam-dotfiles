@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/django"]
 	path = .vim/bundle/django
 	url = git://github.com/vim-scripts/django.vim.git
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/SimpylFold"]
 	path = .vim/bundle/SimpylFold
 	url = https://github.com/tmhedberg/SimpylFold.git
@@ -43,9 +40,6 @@
 [submodule "external/powerline-fonts"]
 	path = external/powerline-fonts
 	url = git@github.com:Lokaltog/powerline-fonts.git
-[submodule "external/powerline-shell"]
-	path = external/powerline-shell
-	url = git@github.com:milkbikis/powerline-shell.git
 [submodule "external/solarized"]
 	path = external/solarized
 	url = git@github.com:altercation/solarized.git
@@ -74,3 +68,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
+[submodule "external/powerline"]
+	path = external/powerline
+	url = https://github.com/Lokaltog/powerline
