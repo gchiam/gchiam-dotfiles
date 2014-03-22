@@ -14,6 +14,7 @@ ln -snvf $DOTFILES_DIR/.oh-my-zsh $HOME
 ln -snvf $DOTFILES_DIR/.django_bash_completion $HOME
 ln -snvf $DOTFILES_DIR/.dircolors $HOME
 ln -snvf $DOTFILES_DIR/.tmux.conf $HOME
+ln -snvf $DOTFILES_DIR/.tmux-theme-solarized.conf $HOME
 ln -snvf $DOTFILES_DIR/.vim $HOME
 ln -snvf $DOTFILES_DIR/.vimrc $HOME
 ln -snvf $DOTFILES_DIR/external/powerline/powerline/bindings/bash/powerline.sh $HOME/.powerline.sh
