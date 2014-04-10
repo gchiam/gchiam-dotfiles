@@ -7,10 +7,10 @@ set encoding=utf-8
 autocmd! bufwritepost .vimrc source %
 
 filetype off
-call pathogen#incubate()
+" Change pathogen#incubate() to pathogen#infect('bundle/{}')
+" call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 call pathogen#helptags()
-"call pathogen#infect()
-"call pathogen#helptags()
 
 filetype plugin indent on
 syntax on
