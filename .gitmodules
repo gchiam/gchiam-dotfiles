@@ -71,3 +71,6 @@
 [submodule ".vim/bundle/vim-easymotion"]
 	path = .vim/bundle/vim-easymotion
 	url = git@github.com:Lokaltog/vim-easymotion.git
+[submodule "external/Holo-Gnome3-Theme"]
+	path = external/Holo-Gnome3-Theme
+	url = git://github.com/r3gis3r/Holo-Gnome3-Theme.git
