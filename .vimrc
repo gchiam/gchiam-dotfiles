@@ -247,13 +247,6 @@ nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 imap <C-v> <Esc><C-v>a
 
 
-" Show trailing whitespace
-" =========================
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
-map <Leader>x :%s/\s\+$//
-
-
 " Color scheme
 " =============
 set t_Co=256
@@ -261,14 +254,27 @@ set t_Co=256
 "color lucius
 "LuciusDarkLowContrast
 set background=dark
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
 colorscheme solarized
 call togglebg#map("<F5>")
 
 
 set colorcolumn=80
-highlight ColorColumn ctermbg=0
-highlight SignColumn ctermbg=10
+autocmd ColorScheme * highlight ColorColumn ctermbg=0
+autocmd ColorScheme * highlight SignColumn ctermbg=10
+autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
+
+" Show trailing whitespace
+" =========================
+au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+map <Leader>x :%s/\s\+$//
+
+
+" reload .vimrc file
+" =========================
 map <Leader>v :source ~/.vimrc<CR>
 
 
