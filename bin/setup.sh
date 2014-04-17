@@ -9,6 +9,7 @@ ln -snvf $DOTFILES_DIR/.bash_profile $HOME/
 ln -snvf $DOTFILES_DIR/.bash_prompt $HOME/
 ln -snvf $DOTFILES_DIR/.bash_aliases $HOME/
 ln -snvf $DOTFILES_DIR/.bash_exports $HOME/
+ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
 ln -snvf $DOTFILES_DIR/.oh-my-zsh $HOME/
 ln -snvf $DOTFILES_DIR/.django_bash_completion $HOME/

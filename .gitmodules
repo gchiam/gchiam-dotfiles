@@ -89,3 +89,6 @@
 [submodule "external/base16-gnome-terminal"]
 	path = external/base16-gnome-terminal
 	url = git@github.com:chriskempson/base16-gnome-terminal.git
+[submodule "external/base16-shell"]
+	path = external/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git

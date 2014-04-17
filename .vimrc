@@ -257,15 +257,15 @@ set background=dark
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 "colorscheme solarized
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
 "
-"let base16colorspace=256
-"colorscheme base16-pop
+let base16colorspace=256
+colorscheme base16-railscasts
 call togglebg#map("<F5>")
 
 
 set colorcolumn=80
-autocmd ColorScheme * highlight ColorColumn ctermbg=0
+autocmd ColorScheme * highlight ColorColumn ctermbg=3
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
