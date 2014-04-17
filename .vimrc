@@ -256,8 +256,11 @@ set t_Co=256
 set background=dark
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
 colorscheme Tomorrow-Night-Eighties
+"
+"let base16colorspace=256
+"colorscheme base16-pop
 call togglebg#map("<F5>")
 
 
@@ -270,7 +273,7 @@ autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 " Show trailing whitespace
 " =========================
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
+"au InsertLeave * match ExtraWhitespace /\s\+$/
 map <Leader>x :%s/\s\+$//
 
 

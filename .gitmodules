@@ -80,3 +80,12 @@
 [submodule "external/tomorrow-theme"]
 	path = external/tomorrow-theme
 	url = git@github.com:chriskempson/tomorrow-theme.git
+[submodule ".vim/bundle/base16-vim"]
+	path = .vim/bundle/base16-vim
+	url = git@github.com:chriskempson/base16-vim.git
+[submodule "external/base16-item2"]
+	path = external/base16-item2
+	url = git@github.com:chriskempson/base16-iterm2.git
+[submodule "external/base16-gnome-terminal"]
+	path = external/base16-gnome-terminal
+	url = git@github.com:chriskempson/base16-gnome-terminal.git
