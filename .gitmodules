@@ -77,3 +77,6 @@
 [submodule ".vim/bundle/jshint.vim"]
 	path = .vim/bundle/jshint.vim
 	url = git@github.com:wookiehangover/jshint.vim.git
+[submodule "external/tomorrow-theme"]
+	path = external/tomorrow-theme
+	url = git@github.com:chriskempson/tomorrow-theme.git
