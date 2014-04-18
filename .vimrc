@@ -260,12 +260,13 @@ set background=dark
 "colorscheme Tomorrow-Night-Eighties
 "
 let base16colorspace=256
-colorscheme base16-railscasts
+"colorscheme base16-railscasts
+colorscheme base16-eighties
 call togglebg#map("<F5>")
 
 
 set colorcolumn=80
-autocmd ColorScheme * highlight ColorColumn ctermbg=3
+autocmd ColorScheme * highlight ColorColumn ctermbg=254
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
