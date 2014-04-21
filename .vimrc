@@ -91,8 +91,8 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-au BufRead,BufNewFile *.rb,*.rhtml set tabstop=2 shiftwidth=2 softtabstop=2
-au BufRead,BufNewFile *.js,*.html set tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.rb,*.rhtml,*.proto set tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.js,*.html,*.proto set tabstop=2 shiftwidth=2 softtabstop=2
 
 
 " disable formatting when pasting large chunks of code
