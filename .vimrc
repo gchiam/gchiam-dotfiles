@@ -210,8 +210,17 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-"
-"
+
+" key bindings for Tabular plugin
+" ===============================
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
+nmap <Leader>t\| :Tabularize /\|<CR>
+vmap <Leader>t\| :Tabularize /\|<CR>
+
+
 " Movement
 " =========
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
