@@ -274,7 +274,7 @@ call togglebg#map("<F5>")
 
 
 set colorcolumn=80
-autocmd ColorScheme * highlight ColorColumn ctermbg=254
+autocmd ColorScheme * highlight ColorColumn ctermbg=235
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
