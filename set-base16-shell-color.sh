@@ -1,1 +1,1 @@
-external/base16-shell/base16-eighties.dark.sh
+external/base16-shell/base16-tomorrow.dark.sh

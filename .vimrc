@@ -266,11 +266,10 @@ set background=dark
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 "colorscheme solarized
-"colorscheme Tomorrow-Night-Eighties
 "
 let base16colorspace=256
 "colorscheme base16-railscasts
-colorscheme base16-eighties
+colorscheme base16-tomorrow
 call togglebg#map("<F5>")
 
 
