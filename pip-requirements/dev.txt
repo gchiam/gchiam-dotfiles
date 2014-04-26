@@ -11,3 +11,4 @@ pygit2
 mercurial
 psutil
 cookiecutter
+awscli
