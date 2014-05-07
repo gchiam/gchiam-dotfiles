@@ -1,4 +1,4 @@
-" ========================================================================
+
 " based on https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.vimrc"
 " ========================================================================
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
@@ -248,6 +248,11 @@ vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 map <Leader>a ggVG  " select all
 
+
+" Current line & column mappings
+" ==============================
+nmap <Leader>c <esc>:set cursorline! cursorcolumn!<CR>
+set cursorline cursorcolumn
 
 " Fixing the copy & paste madness
 " ================================
