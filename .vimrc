@@ -277,7 +277,8 @@ set colorcolumn=80
 autocmd ColorScheme * highlight ColorColumn ctermbg=235
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
-
+"set the showmatch highlight
+autocmd ColorScheme * highlight MatchParen cterm=none ctermbg=238 ctermfg=5
 
 " Show trailing whitespace
 " =========================
