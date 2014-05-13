@@ -15,7 +15,7 @@
 	},
 	"ext": {
 		"ipython": {
-			"colorscheme": "default",
+			"colorscheme": "solarized",
 			"theme": "in",
 			"local_themes": {
 				"rewrite": "rewrite",
@@ -24,7 +24,7 @@
 			}
 		},
 		"shell": {
-			"colorscheme": "default",
+			"colorscheme": "base16",
 			"theme": "default_leftonly",
 			"local_themes": {
 				"continuation": "continuation",
@@ -50,7 +50,7 @@
 			}
 		},
 		"wm": {
-			"colorscheme": "default",
+			"colorscheme": "solorized",
 			"theme": "default"
 		}
 	}
