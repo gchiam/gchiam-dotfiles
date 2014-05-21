@@ -1,7 +1,7 @@
 {
 	"name": "Base16",
 	"groups": {
-		"jobnum":               { "fg": "base_0", "bg": "base_10" },
+		"jobnum":               { "fg": "base_15", "bg": "base_13" },
 		"user":                 { "fg": "base_3", "bg": "gray_4", "attr": ["bold"] },
 		"superuser":            { "fg": "gray_3", "bg": "base_1", "attr": ["bold"] },
 		"virtualenv":           { "fg": "base_0", "bg": "base_4" },
@@ -10,9 +10,9 @@
 		"branch_clean":         { "fg": "base_0", "bg": "base_2" },
 		"continuation":         { "fg": "gray_6", "bg": "base_5" },
 		"continuation:current": { "fg": "gray_10", "bg": "base_5", "attr": ["bold"] },
-		"cwd":                  { "fg": "gray_6", "bg": "gray_4" },
-		"cwd:current_folder":   { "fg": "gray_10", "bg": "gray_4", "attr": ["bold"] },
-		"cwd:divider":          { "fg": "gray_8", "bg": "gray_4" },
+		"cwd":                  { "fg": "base_4", "bg": "gray_4" },
+		"cwd:current_folder":   { "fg": "base_12", "bg": "gray_4", "attr": ["bold"] },
+		"cwd:divider":          { "fg": "base_4", "bg": "gray_4" },
 		"hostname":             { "fg": "gray_3", "bg": "gray_4" },
 		"exit_fail":            { "fg": "gray_3", "bg": "base_1" },
 		"exit_success":         { "fg": "gray_3", "bg": "base_2" },
