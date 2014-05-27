@@ -143,7 +143,7 @@ nmap Q gqap
 " Settings for Syntastic
 " ======================
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'pylint']
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_style_error_symbol = '☓❱'
