@@ -37,6 +37,9 @@ alias gc="git commit"
 alias gl="git log"
 alias glg="git lg"
 
+# python related shortcuts
+alias rmpyc="find . -name \*.pyc -exec rm {} \;"
+
 # Django related shortcuts
 alias mprs="./manage.py runserver"
 alias mpm="./manage.py migrate"
