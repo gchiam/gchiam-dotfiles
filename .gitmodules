@@ -98,3 +98,6 @@
 [submodule "external/base16-chrome-devtools"]
 	path = external/base16-chrome-devtools
 	url = git@github.com:idleberg/base16-chrome-devtools.git
+[submodule ".vim/bundle/puppet"]
+	path = .vim/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git
