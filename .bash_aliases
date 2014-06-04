@@ -36,6 +36,7 @@ alias gpl="git pull"
 alias gc="git commit"
 alias gl="git log"
 alias glg="git lg"
+alias gm="git checkout master"
 
 # python related shortcuts
 alias rmpyc="find . -name \*.pyc -exec rm {} \;"
