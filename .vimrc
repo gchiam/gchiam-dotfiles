@@ -229,6 +229,11 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+if bufwinnr(1)
+    map + <C-W>>
+    map - <C-W><
+endif
+
 map <Leader>, <esc>:tabprevious<CR>
 map <Leader>. <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
