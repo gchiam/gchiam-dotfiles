@@ -171,10 +171,10 @@ map <Leader>b Oimport pudb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>
 map <Leader><c-b> Oimport pdb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>
 
 
-" Settings for vim-powerline
+" Settings for powerline
 " ===========================
-set laststatus=2
-"let g:Powerline_symbols = 'fancy'
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 
 " Settings for vim-markdown
