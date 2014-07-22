@@ -1,36 +1,3 @@
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
-	url = git://github.com/klen/python-mode.git
-[submodule ".vim/bundle/vim-tmux-navigator"]
-	path = .vim/bundle/vim-tmux-navigator
-	url = git://github.com/christoomey/vim-tmux-navigator.git
-[submodule ".vim/bundle/jedi-vim"]
-	path = .vim/bundle/jedi-vim
-	url = git://github.com/davidhalter/jedi-vim.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
-	url = git://github.com/plasticboy/vim-markdown.git
-[submodule ".vim/bundle/django"]
-	path = .vim/bundle/django
-	url = git://github.com/vim-scripts/django.vim.git
-[submodule ".vim/bundle/SimpylFold"]
-	path = .vim/bundle/SimpylFold
-	url = https://github.com/tmhedberg/SimpylFold.git
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "dircolors-solarized"]
-	path = external/dircolors-solarized
-	url = git@github.com:seebi/dircolors-solarized.git
 [submodule "external/powerline-fonts"]
 	path = external/powerline-fonts
 	url = git@github.com:Lokaltog/powerline-fonts.git
@@ -46,40 +13,18 @@
 [submodule "external/oh-my-zsh"]
 	path = external/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".vim/bundle/bash-support"]
-	path = .vim/bundle/bash-support
-	url = git@github.com:vim-scripts/bash-support.vim.git
-    ignore = untracked
-[submodule ".vim/bundle/vim-javascript"]
-	path = .vim/bundle/vim-javascript
-	url = git@github.com:pangloss/vim-javascript.git
 [submodule "external/vim-instant-markdown"]
 	path = external/vim-instant-markdown
 	url = git@github.com:suan/vim-instant-markdown.git
-[submodule ".vim/bundle/vim-instant-markdown"]
-	path = .vim/bundle/vim-instant-markdown
-	url = git@github.com:suan/vim-instant-markdown.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = git@github.com:scrooloose/syntastic.git
 [submodule "external/powerline"]
 	path = external/powerline
 	url = git://github.com/Lokaltog/powerline.git
-[submodule ".vim/bundle/vim-easymotion"]
-	path = .vim/bundle/vim-easymotion
-	url = git@github.com:Lokaltog/vim-easymotion.git
 [submodule "external/Holo-Gnome3-Theme"]
 	path = external/Holo-Gnome3-Theme
 	url = git://github.com/r3gis3r/Holo-Gnome3-Theme.git
-[submodule ".vim/bundle/jshint.vim"]
-	path = .vim/bundle/jshint.vim
-	url = git@github.com:wookiehangover/jshint.vim.git
 [submodule "external/tomorrow-theme"]
 	path = external/tomorrow-theme
 	url = git@github.com:chriskempson/tomorrow-theme.git
-[submodule ".vim/bundle/base16-vim"]
-	path = .vim/bundle/base16-vim
-	url = git@github.com:chriskempson/base16-vim.git
 [submodule "external/base16-item2"]
 	path = external/base16-item2
 	url = git@github.com:chriskempson/base16-iterm2.git
@@ -89,15 +34,57 @@
 [submodule "external/base16-shell"]
 	path = external/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
-[submodule ".vim/bundle/tabular"]
-	path = .vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
-[submodule ".vim/bundle/xterm-color-table.vim"]
-	path = .vim/bundle/xterm-color-table.vim
-	url = git@github.com:guns/xterm-color-table.vim.git
 [submodule "external/base16-chrome-devtools"]
 	path = external/base16-chrome-devtools
 	url = git@github.com:idleberg/base16-chrome-devtools.git
-[submodule ".vim/bundle/puppet"]
-	path = .vim/bundle/puppet
+[submodule "external/ctrlp.vim"]
+	path = external/ctrlp.vim
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "external/SimplyFold"]
+	path = external/SimplyFold
+	url = https://github.com/tmhedberg/SimpylFold.git
+[submodule "external/nerdcommenter"]
+	path = external/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "external/vim-tmux-navigator"]
+	path = external/vim-tmux-navigator
+	url = git://github.com/christoomey/vim-tmux-navigator.git
+[submodule "external/jedi-vim"]
+	path = external/jedi-vim
+	url = git://github.com/davidhalter/jedi-vim.git
+[submodule "external/vim-fugitive"]
+	path = external/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "external/vim-markdown"]
+	path = external/vim-markdown
+	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "external/django.vim"]
+	path = external/django.vim
+	url = git://github.com/vim-scripts/django.vim.git
+[submodule "external/bash-support.vim"]
+	path = external/bash-support.vim
+	url = git@github.com:vim-scripts/bash-support.vim.git
+[submodule "external/vim-javascript"]
+	path = external/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "external/syntastic"]
+	path = external/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "external/vim-easymotion"]
+	path = external/vim-easymotion
+	url = git@github.com:Lokaltog/vim-easymotion.git
+[submodule "external/jshint.vim"]
+	path = external/jshint.vim
+	url = git@github.com:wookiehangover/jshint.vim.git
+[submodule "external/base16-vim"]
+	path = external/base16-vim
+	url = git@github.com:chriskempson/base16-vim.git
+[submodule "external/tabular"]
+	path = external/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "xterm-color-table.vim"]
+	path = external/xterm-color-table.vim
+	url = git@github.com:guns/xterm-color-table.vim.git
+[submodule "external/vim-puppet"]
+	path = external/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git

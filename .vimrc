@@ -280,7 +280,6 @@ set background=dark
 let base16colorspace=256
 "colorscheme base16-railscasts
 colorscheme base16-ocean
-call togglebg#map("<F5>")
 
 
 set colorcolumn=80
