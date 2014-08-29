@@ -295,7 +295,7 @@ highlight CursorColumn ctermfg=7
 highlight DiffAdd cterm=none ctermbg=2 ctermfg=18
 highlight DiffDelete cterm=none ctermbg=1 ctermfg=18
 highlight DiffChange cterm=none ctermbg=249 ctermfg=18
-highlight DiffText cterm=none ctermbg=5 ctermfg=18
+highlight DiffText cterm=none ctermbg=6 ctermfg=18
 
 " Show trailing whitespace
 " =========================
