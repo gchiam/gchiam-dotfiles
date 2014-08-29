@@ -283,7 +283,7 @@ colorscheme base16-ocean
 
 
 set colorcolumn=80
-autocmd ColorScheme * highlight ColorColumn ctermbg=235
+autocmd ColorScheme * highlight ColorColumn ctermbg=235 ctermfg=7
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 "set the showmatch highlight
@@ -291,7 +291,11 @@ highlight MatchParen cterm=none ctermbg=238 ctermfg=5
 "set the linenumber highlight
 highlight LineNr ctermfg=241
 "keep the original fg color at cursor column
-highlight CursorColumn ctermfg=none
+highlight CursorColumn ctermfg=7
+highlight DiffAdd cterm=none ctermbg=2 ctermfg=18
+highlight DiffDelete cterm=none ctermbg=1 ctermfg=18
+highlight DiffChange cterm=none ctermbg=249 ctermfg=18
+highlight DiffText cterm=none ctermbg=5 ctermfg=18
 
 " Show trailing whitespace
 " =========================
