@@ -88,3 +88,6 @@
 [submodule "external/vim-puppet"]
 	path = external/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule "external/MultipleSearch2"]
+	path = external/MultipleSearch2
+	url = https://github.com/vim-scripts/MultipleSearch2.vim
