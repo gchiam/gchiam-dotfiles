@@ -91,3 +91,6 @@
 [submodule "external/MultipleSearch2"]
 	path = external/MultipleSearch2
 	url = https://github.com/vim-scripts/MultipleSearch2.vim
+[submodule "external/base16-ipython-notebook"]
+	path = external/base16-ipython-notebook
+	url = git@github.com:nsonnad/base16-ipython-notebook.git
