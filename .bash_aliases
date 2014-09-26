@@ -17,10 +17,8 @@ alias lsd='ls -l | grep "^d"'  # only directories as a list
 
 # Personal shortcuts
 alias e="cd ~/Envs"
-alias f="cd ~/Forks"
 alias d="cd ~/projects/gchiam-dotfiles"
 alias p="cd ~/projects"
-#alias r="cd ~/Repos"
 alias c="clear"
 alias sbrc="source ~/.bashrc"
 alias v="vim"
