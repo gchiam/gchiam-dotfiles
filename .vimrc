@@ -146,6 +146,13 @@ nmap Q gqap
 let g:Powerline_colorscheme = 'base16'
 
 
+" Settings for Airline
+" ====================
+let g:airline_theme = 'base16'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+
 " Settings for Syntastic
 " ======================
 let g:syntastic_always_populate_loc_list = 1
