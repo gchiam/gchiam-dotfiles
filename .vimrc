@@ -1,6 +1,7 @@
 
 " based on https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.vimrc"
 " ========================================================================
+"
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
 set encoding=utf-8
@@ -139,6 +140,11 @@ nmap Q gqap
 " ====================
 "autocmd BufWritePost *.py call Flake8()
 "
+
+" Settings for Powerline
+" ======================
+let g:Powerline_colorscheme = 'base16'
+
 
 " Settings for Syntastic
 " ======================
