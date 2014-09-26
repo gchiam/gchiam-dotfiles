@@ -280,7 +280,7 @@ set background=dark
 "
 let base16colorspace=256
 "colorscheme base16-railscasts
-colorscheme base16-ocean
+colorscheme base16-eighties
 
 
 set colorcolumn=80
