@@ -12,3 +12,4 @@ mercurial
 psutil
 cookiecutter
 awscli
+cdiff

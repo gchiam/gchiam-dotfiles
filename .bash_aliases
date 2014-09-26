@@ -43,6 +43,9 @@ alias rmpyc="find . -name \*.pyc -exec rm {} \;"
 alias mprs="./manage.py runserver"
 alias mpm="./manage.py migrate"
 
+# Misc tools
+alias cdiff="cdiff --side-by-side"
+
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
