@@ -3,6 +3,10 @@ PATH=$HOME/.local/bin:$HOME/bin:$PATH
 [[ -d "$HOME/.rvm/bin" ]] && (which rvm > /dev/null 2>&1) || PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+[[ -d /Library/Frameworks/Python.framework/Versions/3.4/bin ]] && PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{bash_extra,bash_prompt,bash_exports,bash_aliases,bash_functions,bash_completion,bash_local}; do
@@ -28,3 +32,5 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 
+
+export PATH
