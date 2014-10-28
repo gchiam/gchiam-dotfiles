@@ -313,8 +313,12 @@ highlight DiffText cterm=none ctermbg=6 ctermfg=18
 
 " Show trailing whitespace
 " =========================
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"
+highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
 map <Leader>x :%s/\s\+$//
 
 
