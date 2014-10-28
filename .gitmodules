@@ -97,3 +97,6 @@
 [submodule "external/delimitMate"]
 	path = external/delimitMate
 	url = git@github.com:Raimondi/delimitMate.git
+[submodule "external/vim-multiple-cursors"]
+	path = external/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
