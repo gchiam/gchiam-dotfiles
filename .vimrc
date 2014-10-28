@@ -236,6 +236,11 @@ nmap <Leader>t\| :Tabularize /\|<CR>
 vmap <Leader>t\| :Tabularize /\|<CR>
 
 
+" key bindings for tagbar plugin
+" ==============================
+nmap <F8> :TagbarToggle<CR>
+
+
 " Movement
 " =========
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>

@@ -100,3 +100,6 @@
 [submodule "external/vim-multiple-cursors"]
 	path = external/vim-multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "external/tagbar"]
+	path = external/tagbar
+	url = git@github.com:majutsushi/tagbar.git
