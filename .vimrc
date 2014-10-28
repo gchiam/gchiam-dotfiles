@@ -141,10 +141,6 @@ nmap Q gqap
 "autocmd BufWritePost *.py call Flake8()
 "
 
-" Settings for Powerline
-" ======================
-let g:Powerline_colorscheme = 'base16'
-
 
 " Settings for Airline
 " ====================
@@ -289,16 +285,9 @@ imap <C-v> <Esc><C-v>a
 " Color scheme
 " =============
 set t_Co=256
-"color wombat256mod
-"color lucius
-"LuciusDarkLowContrast
 set background=dark
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"colorscheme solarized
 "
 let base16colorspace=256
-"colorscheme base16-railscasts
 colorscheme base16-eighties
 
 
