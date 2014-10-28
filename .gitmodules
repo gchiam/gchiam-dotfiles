@@ -94,3 +94,6 @@
 [submodule "external/tmuxline.vim"]
 	path = external/tmuxline.vim
 	url = git@github.com:edkolev/tmuxline.vim.git
+[submodule "external/delimitMate"]
+	path = external/delimitMate
+	url = git@github.com:Raimondi/delimitMate.git
