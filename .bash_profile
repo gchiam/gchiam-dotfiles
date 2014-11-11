@@ -1,4 +1,5 @@
 PATH=$HOME/.local/bin:$HOME/bin:$PATH
+[[ -d "$HOME/opt/android-sdk/tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/tools
 [[ -d "$HOME/opt/android-sdk/platform-tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/platform-tools
 [[ -d "$HOME/.rvm/bin" ]] && (which rvm > /dev/null 2>&1) || PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
