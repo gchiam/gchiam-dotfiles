@@ -103,3 +103,6 @@
 [submodule "external/tagbar"]
 	path = external/tagbar
 	url = git@github.com:majutsushi/tagbar.git
+[submodule "external/paper-gtk-theme"]
+	path = external/paper-gtk-theme
+	url = git@github.com:snwh/paper-gtk-theme.git
