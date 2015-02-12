@@ -198,6 +198,18 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let g:vim_markdown_initial_foldlevel=1
 
 
+" UltiSnips
+" =========
+set runtimepath+=~/.vim/bundle/UltiSnips
+set runtimepath+=~/.vim/ulti_snippets
+set runtimepath+=~/.vim/ulti_snippets
+let g:UltiSnipsSnippetsDir = "~/.vim/ulti_snippets/"
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'ulti_snippets', 'vim_snippets']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
 " Settings for ctrlp
 " ===================
 let g:ctrlp_max_height = 30

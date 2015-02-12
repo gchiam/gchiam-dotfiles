@@ -106,3 +106,9 @@
 [submodule "external/paper-gtk-theme"]
 	path = external/paper-gtk-theme
 	url = git@github.com:snwh/paper-gtk-theme.git
+[submodule "external/ultisnips"]
+	path = external/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule "external/vim-snippets"]
+	path = external/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
