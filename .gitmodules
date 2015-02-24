@@ -112,3 +112,6 @@
 [submodule "external/vim-snippets"]
 	path = external/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
+[submodule "external/paper-icon-theme"]
+	path = external/paper-icon-theme
+	url = git@github.com:snwh/paper-icon-theme.git
