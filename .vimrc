@@ -313,7 +313,7 @@ autocmd ColorScheme * highlight ColorColumn ctermbg=235 ctermfg=7
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 "set the showmatch highlight
-highlight MatchParen cterm=none ctermbg=238 ctermfg=5
+"highlight MatchParen cterm=none ctermbg=238 ctermfg=5
 "set the linenumber highlight
 highlight LineNr ctermfg=241
 "keep the original fg color at cursor column
