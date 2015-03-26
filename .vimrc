@@ -253,6 +253,11 @@ vmap <Leader>t\| :Tabularize /\|<CR>
 nmap <F8> :TagbarToggle<CR>
 
 
+" key bindings for tagbar plugin
+" ==============================
+let g:ackprg = 'ag --vimgrep'
+
+
 " Movement
 " =========
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
@@ -337,5 +342,3 @@ map <Leader>x :%s/\s\+$//
 " reload .vimrc file
 " =========================
 map <Leader>v :source ~/.vimrc<CR>
-
-
