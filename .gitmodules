@@ -118,3 +118,6 @@
 [submodule "external/act.vim"]
 	path = external/act.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "external/vim-dispatch"]
+	path = external/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
