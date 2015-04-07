@@ -18,6 +18,8 @@ ln -snvf $DOTFILES_DIR/.tmux-theme.conf $HOME/
 ln -snvf $DOTFILES_DIR/.tmux-powerline.conf $HOME/
 ln -snvf $DOTFILES_DIR/.vim $HOME/
 ln -snvf $DOTFILES_DIR/.vimrc $HOME/
+ln -snvf $DOTFILES_DIR/.nvim $HOME/
+ln -snvf $DOTFILES_DIR/.nvimrc $HOME/
 ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
 ln -snvf $DOTFILES_DIR/external/powerline/powerline/bindings/bash/powerline.sh $HOME/.powerline.sh
 ln -snvf $DOTFILES_DIR/external/powerline/powerline/bindings/zsh/powerline.zsh $HOME/.powerline.zsh
