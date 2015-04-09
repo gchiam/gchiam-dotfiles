@@ -4,4 +4,4 @@ pushd external/paper-gtk-theme
 cd ../paper-icon-theme
 ./install.sh
 popd
-gnome-shell --replace
+#gnome-shell --replace
