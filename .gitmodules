@@ -121,3 +121,6 @@
 [submodule "external/vim-dispatch"]
 	path = external/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "external/vim-args"]
+	path = external/vim-args
+	url = https://github.com/gabesoft/vim-ags.git
