@@ -1,5 +1,5 @@
-
 " based on https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.vimrc"
+"
 " ========================================================================
 "
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
@@ -317,6 +317,9 @@ set colorcolumn=80
 autocmd ColorScheme * highlight ColorColumn ctermbg=235 ctermfg=7
 autocmd ColorScheme * highlight SignColumn ctermbg=10
 autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
+
+highlight Search ctermfg=0
+
 "set the showmatch highlight
 "highlight MatchParen cterm=none ctermbg=238 ctermfg=5
 "set the linenumber highlight
@@ -334,8 +337,15 @@ highlight DiffText cterm=none ctermbg=6 ctermfg=18
 "
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+highlight airline_tab cterm=NONE ctermfg=18 ctermbg=8
+highlight airline_tabmod cterm=NONE ctermfg=18 ctermbg=2
+highlight airline_tabsel cterm=NONE ctermfg=18 ctermbg=1
+
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
+
+
 map <Leader>x :%s/\s\+$//
 
 
