@@ -85,9 +85,6 @@
 [submodule "external/base16-ipython-notebook"]
 	path = external/base16-ipython-notebook
 	url = git@github.com:nsonnad/base16-ipython-notebook.git
-[submodule "external/base16-vim-powerline"]
-	path = external/base16-vim-powerline
-	url = git@github.com:terlar/base16-vim-powerline.git
 [submodule "external/vim-airline"]
 	path = external/vim-airline
 	url = git@github.com:bling/vim-airline.git
