@@ -213,6 +213,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Settings for ctrlp
 " ===================
 let g:ctrlp_max_height = 30
+" https://twitter.com/mbrochh/status/603071630848339968
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Settings for vim-easymotion
 " ===========================
