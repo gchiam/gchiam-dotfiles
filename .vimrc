@@ -312,6 +312,7 @@ set t_Co=256
 set background=dark
 "
 let base16colorspace=256
+let g:base16_shell_path="~/dotfiles/external/base16-shell"
 colorscheme base16-tomorrow
 
 
