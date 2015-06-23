@@ -14,3 +14,4 @@ cookiecutter
 awscli
 cdiff
 pep8radius
+neovim
