@@ -118,3 +118,6 @@
 [submodule "external/vim-args"]
 	path = external/vim-args
 	url = https://github.com/gabesoft/vim-ags.git
+[submodule "external/vim-material-theme"]
+	path = external/vim-material-theme
+	url = https://github.com/jdkanani/vim-material-theme
