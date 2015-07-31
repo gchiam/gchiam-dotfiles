@@ -10,9 +10,6 @@
 [submodule "external/vim-instant-markdown"]
 	path = external/vim-instant-markdown
 	url = git@github.com:suan/vim-instant-markdown.git
-[submodule "external/powerline"]
-	path = external/powerline
-	url = git://github.com/Lokaltog/powerline.git
 [submodule "external/Holo-Gnome3-Theme"]
 	path = external/Holo-Gnome3-Theme
 	url = git://github.com/r3gis3r/Holo-Gnome3-Theme.git
