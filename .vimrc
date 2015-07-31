@@ -311,9 +311,10 @@ imap <C-v> <Esc><C-v>a
 set t_Co=256
 set background=dark
 "
-let base16colorspace=256
 let g:base16_shell_path="~/dotfiles/external/base16-shell"
-colorscheme base16-tomorrow
+"let base16colorspace=256
+"colorscheme base16-tomorrow
+colorscheme papercolor
 
 
 set colorcolumn=80
@@ -342,9 +343,9 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 highlight airline_tab cterm=NONE ctermfg=18 ctermbg=8
-highlight airline_tabmod cterm=NONE ctermfg=18 ctermbg=2
-highlight airline_tabsel cterm=NONE ctermfg=18 ctermbg=1
-
+highlight airline_tabmod cterm=NONE ctermfg=18 ctermbg=9
+highlight airline_tabsel cterm=NONE ctermfg=0 ctermbg=5
+ 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
