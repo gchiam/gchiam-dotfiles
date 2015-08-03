@@ -144,7 +144,7 @@ nmap Q gqap
 
 " Settings for Airline
 " ====================
-let g:airline_theme = 'base16'
+let g:airline_theme = 'papercolor'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -342,10 +342,6 @@ highlight DiffText cterm=none ctermbg=6 ctermfg=18
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
-highlight airline_tab cterm=NONE ctermfg=18 ctermbg=8
-highlight airline_tabmod cterm=NONE ctermfg=18 ctermbg=9
-highlight airline_tabsel cterm=NONE ctermfg=0 ctermbg=5
- 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
