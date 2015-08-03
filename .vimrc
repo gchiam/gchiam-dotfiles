@@ -314,7 +314,7 @@ set background=dark
 let g:base16_shell_path="~/dotfiles/external/base16-shell"
 "let base16colorspace=256
 "colorscheme base16-tomorrow
-colorscheme papercolor
+colorscheme PaperColor
 
 
 set colorcolumn=80
