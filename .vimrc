@@ -326,6 +326,7 @@ set colorcolumn=80
 "autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
 highlight Search ctermfg=232
+highlight Visual ctermfg=15 ctermbg=24
 autocmd ColorScheme * highlight Visual ctermfg=15 ctermbg=24
 
 "set the showmatch highlight
