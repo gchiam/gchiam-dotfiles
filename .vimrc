@@ -310,6 +310,9 @@ imap <C-v> <Esc><C-v>a
 " =============
 set t_Co=256
 set background=dark
+" http://tilvim.com/2013/07/31/swapping-bg.html
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 "
 let g:base16_shell_path="~/dotfiles/external/base16-shell"
 "let base16colorspace=256
@@ -318,22 +321,22 @@ colorscheme PaperColor
 
 
 set colorcolumn=80
-autocmd ColorScheme * highlight ColorColumn ctermbg=235 ctermfg=7
-autocmd ColorScheme * highlight SignColumn ctermbg=10
-autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
+"autocmd ColorScheme * highlight ColorColumn ctermbg=235 ctermfg=7
+"autocmd ColorScheme * highlight SignColumn ctermbg=10
+"autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
-highlight Search ctermfg=0
+"highlight Search ctermfg=0
 
 "set the showmatch highlight
 "highlight MatchParen cterm=none ctermbg=238 ctermfg=5
 "set the linenumber highlight
-highlight LineNr ctermfg=241
+"highlight LineNr ctermfg=241
 "keep the original fg color at cursor column
 highlight CursorColumn ctermfg=7
-highlight DiffAdd cterm=none ctermbg=2 ctermfg=18
-highlight DiffDelete cterm=none ctermbg=1 ctermfg=18
-highlight DiffChange cterm=none ctermbg=249 ctermfg=18
-highlight DiffText cterm=none ctermbg=6 ctermfg=18
+"highlight DiffAdd cterm=none ctermbg=2 ctermfg=18
+"highlight DiffDelete cterm=none ctermbg=1 ctermfg=18
+"highlight DiffChange cterm=none ctermbg=249 ctermfg=18
+"highlight DiffText cterm=none ctermbg=6 ctermfg=18
 
 " Show trailing whitespace
 " =========================
