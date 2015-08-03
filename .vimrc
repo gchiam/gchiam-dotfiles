@@ -325,7 +325,7 @@ set colorcolumn=80
 "autocmd ColorScheme * highlight SignColumn ctermbg=10
 "autocmd ColorScheme * highlight SpellBad ctermfg=7 ctermbg=1
 
-"highlight Search ctermfg=0
+highlight Search ctermfg=232
 
 "set the showmatch highlight
 "highlight MatchParen cterm=none ctermbg=238 ctermfg=5
