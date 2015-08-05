@@ -7,8 +7,7 @@ cd vim/src
 ./configure --enable-pythoninterp --with-features=huge --prefix=$HOME/opt/vim
 make && make install
 mkdir -p $HOME/bin/
-cd $HOME/bin/
-#ln -s $HOME/opt/vim/bin/vim
+ln -snvf $HOME/opt/vim/bin/vim $HOME/bin/
 which vim
 vim --version
 
