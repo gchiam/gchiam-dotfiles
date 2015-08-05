@@ -1,6 +1,13 @@
 #!/bin/bash
 
-# https://github.com/neovim/neovim/wiki/Installing-Neovim
+test -d $HOME/projects || mkdir $HOME/projects
+cd $HOME/projects
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX:PATH=$HOME/opt/neovim" install
+mkdir -p $HOME/bin/
+ln -snvf $HOME/opt/neovim/bin/nvim $HOME/bin/
+which nvim
+nvim --version
 
-brew tap neovim/homebrew-neovim
-brew install --HEAD neovim
+echo "pip install neovim"
