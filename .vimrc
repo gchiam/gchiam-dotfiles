@@ -302,8 +302,8 @@ set cursorline cursorcolumn
 
 " Diff mappings
 " =============
-nmap <Leader>d <esc>:diffthis<CR> <esc>:set nocursorline nocursorcolumn<CR>
-nmap <Leader>D <esc>:diffoff<CR> <esc>:set cursorline cursorcolumn<CR>
+nmap <Leader><Leader>d <esc>:diffthis<CR> <esc>:set nocursorline nocursorcolumn<CR>
+nmap <Leader><Leader>D <esc>:diffoff<CR> <esc>:set cursorline cursorcolumn<CR>
 
 " Fixing the copy & paste madness
 " ================================
