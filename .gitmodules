@@ -130,3 +130,6 @@
 [submodule "external/nerdtree-git-plugin"]
 	path = external/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "external/vim-surround"]
+	path = external/vim-surround
+	url = https://github.com/tpope/vim-surround
