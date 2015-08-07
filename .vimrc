@@ -260,6 +260,14 @@ nmap <F8> :TagbarToggle<CR>
 let g:ackprg = 'ag --vimgrep'
 
 
+" NerdTree
+" =========================
+map <Leader>nt :NERDTreeToggle<CR>
+
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
 " Movement
 " =========
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>

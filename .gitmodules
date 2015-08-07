@@ -124,3 +124,9 @@
 [submodule "external/papercolor-theme"]
 	path = external/papercolor-theme
 	url = git@github.com:NLKNguyen/papercolor-theme.git
+[submodule "external/nerdtree"]
+	path = external/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "external/nerdtree-git-plugin"]
+	path = external/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
