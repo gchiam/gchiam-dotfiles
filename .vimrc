@@ -371,3 +371,12 @@ map <Leader>x :%s/\s\+$//
 " reload .vimrc file
 " =========================
 map <Leader>v :source ~/.vimrc<CR>
+
+
+if has("unix")
+  let s:uname = system("uname")
+  let g:python_host_prog='/usr/bin/python'
+  if s:uname == "Darwin\n"
+    let g:python_host_prog='/usr/local/bin/python' # found via `which python`
+  endif
+endif
