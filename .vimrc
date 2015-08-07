@@ -299,6 +299,12 @@ map <Leader>a ggVG  " select all
 nmap <Leader>c <esc>:set cursorline! cursorcolumn!<CR>
 set cursorline cursorcolumn
 
+
+" Diff mappings
+" =============
+nmap <Leader>d <esc>:diffthis<CR> <esc>:set nocursorline nocursorcolumn<CR>
+nmap <Leader>D <esc>:diffoff<CR> <esc>:set cursorline cursorcolumn<CR>
+
 " Fixing the copy & paste madness
 " ================================
 vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
@@ -335,10 +341,10 @@ autocmd ColorScheme * highlight Visual ctermfg=15 ctermbg=24
 "highlight LineNr ctermfg=241
 "keep the original fg color at cursor column
 highlight CursorColumn ctermfg=7
-"highlight DiffAdd cterm=none ctermbg=2 ctermfg=18
-"highlight DiffDelete cterm=none ctermbg=1 ctermfg=18
-"highlight DiffChange cterm=none ctermbg=249 ctermfg=18
-"highlight DiffText cterm=none ctermbg=6 ctermfg=18
+highlight DiffAdd cterm=none ctermbg=194 ctermfg=244
+highlight DiffDelete cterm=none ctermbg=210 ctermfg=232
+highlight DiffChange cterm=none ctermbg=229 ctermfg=232
+highlight DiffText cterm=none ctermbg=3 ctermfg=232
 
 " Show trailing whitespace
 " =========================
