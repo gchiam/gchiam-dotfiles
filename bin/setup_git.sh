@@ -11,6 +11,7 @@ git config --global alias.ms 'checkout master'
 git config --global alias.ci 'commit'
 git config --global alias.pl 'pull'
 git config --global alias.s 'status -s'
+git config --global alias.sm 'submodule'
 git config --global alias.st 'status'
 git config --global alias.unstage 'reset HEAD --'
 
