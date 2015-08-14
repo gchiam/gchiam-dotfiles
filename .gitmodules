@@ -133,3 +133,9 @@
 [submodule "external/vim-surround"]
 	path = external/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule "external/Dockerfile.vim"]
+	path = external/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "external/vim-startify"]
+	path = external/vim-startify
+	url = https://github.com/mhinz/vim-startify.git

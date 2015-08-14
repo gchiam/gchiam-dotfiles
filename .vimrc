@@ -216,9 +216,9 @@ let g:ctrlp_max_height = 30
 " https://twitter.com/mbrochh/status/603071630848339968
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
+
 " Settings for vim-easymotion
 " ===========================
-
 let g:EasyMotion_do_mapping = 1 " Disable default mappings
 
 map <Leader>m <Plug>(easymotion-prefix)
@@ -266,6 +266,11 @@ map <Leader>nt :NERDTreeToggle<CR>
 
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+" Startify
+" ========
+let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 
 
 " Movement
