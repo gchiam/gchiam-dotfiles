@@ -19,8 +19,9 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-git submodule foreach git pull origin master
-
 rm external/bash-support.vim/doc/tags*
 rm external/xterm-color-table.vim/doc/tags
 rm external/vim-multiple-cursors/doc/tags
+rm external/vim-startify/doc/tags
+
+git submodule foreach git pull origin master
