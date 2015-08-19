@@ -130,3 +130,6 @@
 [submodule "external/vim-startify"]
 	path = external/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
+[submodule "external/vim-indent-guides"]
+	path = external/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git

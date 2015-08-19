@@ -273,6 +273,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 
 
+" IndentGuides
+" ==========================
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+
+
 " Movement
 " =========
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
@@ -363,6 +371,14 @@ highlight DiffText cterm=none ctermbg=3 ctermfg=232
 " =========================
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+" Highlight for IndentGuides
+" ==========================
+highlight IndentGuidesOdd ctermbg=235
+highlight IndentGuidesEven ctermbg=237
+autocmd ColorScheme * highlight IndentGuidesOdd ctermbg=235
+autocmd ColorScheme * highlight IndentGuidesEven ctermbg=237
+
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
