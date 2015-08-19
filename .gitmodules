@@ -22,9 +22,6 @@
 [submodule "external/base16-shell"]
 	path = external/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
-[submodule "external/base16-chrome-devtools"]
-	path = external/base16-chrome-devtools
-	url = git@github.com:idleberg/base16-chrome-devtools.git
 [submodule "external/ctrlp.vim"]
 	path = external/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
