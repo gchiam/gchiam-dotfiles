@@ -1,1 +1,0 @@
-../../external/bash-support.vim

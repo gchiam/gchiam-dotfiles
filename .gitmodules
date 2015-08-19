@@ -49,9 +49,6 @@
 [submodule "external/django.vim"]
 	path = external/django.vim
 	url = git://github.com/vim-scripts/django.vim.git
-[submodule "external/bash-support.vim"]
-	path = external/bash-support.vim
-	url = git@github.com:vim-scripts/bash-support.vim.git
 [submodule "external/vim-javascript"]
 	path = external/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
