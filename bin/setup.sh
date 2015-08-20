@@ -12,6 +12,7 @@ ln -snvf $DOTFILES_DIR/.bash_exports $HOME/
 ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
 ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
+ln -snvf $DOTFILES_DIR/.oh-my-fish $HOME/
 ln -snvf $DOTFILES_DIR/.oh-my-zsh $HOME/
 ln -snvf $DOTFILES_DIR/.django_bash_completion $HOME/
 ln -snvf $DOTFILES_DIR/.tmux.conf $HOME/

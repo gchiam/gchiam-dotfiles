@@ -136,3 +136,6 @@
 [submodule "external/vim-expand-region"]
 	path = external/vim-expand-region
 	url = https://github.com/terryma/vim-expand-region
+[submodule "external/oh-my-fish"]
+	path = external/oh-my-fish
+	url = git://github.com/oh-my-fish/oh-my-fish.git
