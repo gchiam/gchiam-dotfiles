@@ -281,6 +281,16 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 
 
+" vim-expand-region
+" =================
+" Hit v to select one character
+" Hit v again to expand selection to word
+" Hit v again to expand to paragraph
+" Hit <C-v> go back to previous selection if I went too far
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+
 " Movement
 " =========
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>

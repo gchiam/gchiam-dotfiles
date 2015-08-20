@@ -133,3 +133,6 @@
 [submodule "external/vim-indent-guides"]
 	path = external/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "external/vim-expand-region"]
+	path = external/vim-expand-region
+	url = https://github.com/terryma/vim-expand-region
