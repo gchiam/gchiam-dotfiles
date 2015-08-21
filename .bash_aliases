@@ -21,7 +21,7 @@ alias d="cd ~/projects/gchiam-dotfiles"
 alias p="cd ~/projects"
 alias c="clear"
 alias sbrc="source ~/.bashrc"
-alias v="vim"
+alias v="nvim"
 
 # Git related shortcuts
 alias g="git"
