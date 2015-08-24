@@ -14,3 +14,7 @@ set fish_path $HOME/.oh-my-fish
 # Plugins and themes can be found at https://github.com/oh-my-fish/
 # Theme 'robbyrussell'
 # Plugin 'theme'
+#
+
+# load aliases
+. ~/.config/fish/aliases.fish
