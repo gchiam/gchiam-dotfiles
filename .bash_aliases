@@ -36,6 +36,11 @@ alias gl="git log"
 alias glg="git lg"
 alias gm="git checkout master"
 
+# ag related shortcuts
+alias agpy="ag --python"
+alias agjs="ag --js"
+alias aghtml="ag --html"
+
 # python related shortcuts
 alias rmpyc="find . -name \*.pyc -exec rm {} \;"
 
