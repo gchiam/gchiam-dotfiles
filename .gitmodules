@@ -109,9 +109,6 @@
 [submodule "external/vim-material-theme"]
 	path = external/vim-material-theme
 	url = https://github.com/jdkanani/vim-material-theme
-[submodule "external/powerline"]
-	path = external/powerline
-	url = git://github.com/Lokaltog/powerline.git
 [submodule "external/papercolor-theme"]
 	path = external/papercolor-theme
 	url = git@github.com:NLKNguyen/papercolor-theme.git
