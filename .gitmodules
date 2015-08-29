@@ -136,3 +136,6 @@
 [submodule "external/oh-my-fish"]
 	path = external/oh-my-fish
 	url = git://github.com/oh-my-fish/oh-my-fish.git
+[submodule "external/powerline"]
+	path = external/powerline
+	url = git@github.com:powerline/powerline.git
