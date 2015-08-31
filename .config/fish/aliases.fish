@@ -15,6 +15,7 @@ alias p="cd ~/projects"
 alias c="clear"
 alias sbrc="source ~/.bashrc"
 alias v="nvim"
+alias vi="nvim"
 
 # Git related shortcuts
 alias g="git"
