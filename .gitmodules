@@ -139,3 +139,6 @@
 [submodule "external/xterm-color-table.vim"]
 	path = external/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule "external/monoid"]
+	path = external/monoid
+	url = git@github.com:larsenwork/monoid.git
