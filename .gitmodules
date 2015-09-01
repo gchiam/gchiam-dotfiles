@@ -139,3 +139,6 @@
 [submodule "external/xterm-color-table.vim"]
 	path = external/xterm-color-table.vim
 	url = git@github.com:guns/xterm-color-table.vim.git
+[submodule "external/powerline-fonts"]
+	path = external/powerline-fonts
+	url = https://github.com/powerline/fonts.git
