@@ -58,9 +58,6 @@
 [submodule "external/tabular"]
 	path = external/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "xterm-color-table.vim"]
-	path = external/xterm-color-table.vim
-	url = git@github.com:guns/xterm-color-table.vim.git
 [submodule "external/vim-puppet"]
 	path = external/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
@@ -136,9 +133,9 @@
 [submodule "external/powerline"]
 	path = external/powerline
 	url = git@github.com:powerline/powerline.git
-[submodule "external/xterm-color-table.vim"]
-	path = external/xterm-color-table.vim
-	url = git@github.com:guns/xterm-color-table.vim.git
 [submodule "external/powerline-fonts"]
 	path = external/powerline-fonts
 	url = https://github.com/powerline/fonts.git
+[submodule "external/xterm-color-table.vim"]
+	path = external/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git
