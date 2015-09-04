@@ -142,3 +142,6 @@
 [submodule "external/monoid"]
 	path = external/monoid
 	url = git@github.com:larsenwork/monoid.git
+[submodule "external/vim-conceal"]
+	path = external/vim-conceal
+	url = https://github.com/khzaw/vim-conceal.git
