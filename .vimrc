@@ -4,7 +4,9 @@
 "
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
-set encoding=utf-8  " The encoding displayed.
+if &encoding !=# 'utf-8'
+    set encoding=utf-8  " The encoding displayed.
+endif
 set fileencoding=utf-8  " The encoding written to file.<F37>
 
 autocmd! bufwritepost .vimrc source %
@@ -400,9 +402,10 @@ autocmd ColorScheme * highlight IndentGuidesEven ctermbg=237
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
+" if &listchars ==# 'eol:$'
+"   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" endif
+set listchars=eol:¬,tab:›-,trail:.,extends:»,precedes:«
 set list                " Show problematic characters.
 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
