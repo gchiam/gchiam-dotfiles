@@ -359,7 +359,8 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 "let g:base16_shell_path="~/dotfiles/external/base16-shell"
 "let base16colorspace=256
 "colorscheme base16-tomorrow
-colorscheme PaperColor
+"colorscheme PaperColor
+colorscheme hybrid_material
 
 
 set colorcolumn=80
