@@ -4,7 +4,9 @@
 "
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
-set encoding=utf-8
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.<F37>
+
 autocmd! bufwritepost .vimrc source %
 
 filetype off
@@ -144,7 +146,7 @@ nmap Q gqap
 
 " Settings for Airline
 " ====================
-let g:airline_theme = 'PaperColor'
+let g:airline_theme = 'hybridline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -345,7 +347,7 @@ imap <C-v> <Esc><C-v>a
 
 " Color scheme
 " =============
-set t_Co=256
+" set t_Co=256
 set background=dark
 
 " tmux doesn't support true color, so need to install a patched version of tmux
