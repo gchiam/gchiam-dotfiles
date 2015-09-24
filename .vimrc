@@ -405,7 +405,7 @@ autocmd ColorScheme * highlight IndentGuidesEven ctermbg=237
 " if &listchars ==# 'eol:$'
 "   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " endif
-set listchars=eol:¬,tab:›-,trail:.,extends:»,precedes:«
+set listchars=eol:¬,tab:▸▸,trail:.,extends:»,precedes:«
 set list                " Show problematic characters.
 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
