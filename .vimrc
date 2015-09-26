@@ -4,7 +4,11 @@
 "
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
-set encoding=utf-8
+if &encoding !=# 'utf-8'
+    set encoding=utf-8  " The encoding displayed.
+endif
+set fileencoding=utf-8  " The encoding written to file.<F37>
+
 autocmd! bufwritepost .vimrc source %
 
 filetype off
@@ -144,7 +148,7 @@ nmap Q gqap
 
 " Settings for Airline
 " ====================
-let g:airline_theme = 'PaperColor'
+let g:airline_theme = 'hybridline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -345,16 +349,22 @@ imap <C-v> <Esc><C-v>a
 
 " Color scheme
 " =============
-set t_Co=256
+" set t_Co=256
 set background=dark
+
+" tmux doesn't support true color, so need to install a patched version of tmux
+" brew install https://raw.githubusercontent.com/choppsv1/homebrew-term24/master/tmux.rb
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " http://tilvim.com/2013/07/31/swapping-bg.html
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 "
-let g:base16_shell_path="~/dotfiles/external/base16-shell"
+"let g:base16_shell_path="~/dotfiles/external/base16-shell"
 "let base16colorspace=256
 "colorscheme base16-tomorrow
-colorscheme PaperColor
+"colorscheme PaperColor
+colorscheme hybrid_material
 
 
 set colorcolumn=80
@@ -392,9 +402,10 @@ autocmd ColorScheme * highlight IndentGuidesEven ctermbg=237
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
+" if &listchars ==# 'eol:$'
+"   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" endif
+set listchars=eol:¬,tab:▸▸,trail:.,extends:»,precedes:«
 set list                " Show problematic characters.
 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
