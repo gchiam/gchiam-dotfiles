@@ -148,10 +148,10 @@ nmap Q gqap
 
 " Settings for Airline
 " ====================
-let g:airline_theme = 'hybridline'
-let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'hybridline'
 
 
 " Settings for tmuxline
@@ -217,8 +217,18 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Settings for ctrlp
 " ===================
 let g:ctrlp_max_height = 30
-" https://twitter.com/mbrochh/status/603071630848339968
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+" configures CtrlP to use git or silver searcher for autocompletion
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
