@@ -11,7 +11,7 @@ PATH=$HOME/.local/bin:$HOME/bin:$PATH
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{bash_extra,bash_prompt,bash_exports,bash_aliases,bash_functions,bash_completion,bash_local}; do
+for file in ~/.{bash_extra,bash_prompt,bash_exports,bash_aliases,bash_functions,bash_completion,bash_local,bash_motd}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
@@ -36,3 +36,4 @@ shopt -s checkwinsize
 
 
 export PATH
+

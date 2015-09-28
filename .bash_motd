@@ -1,0 +1,4 @@
+figlet $(date)
+
+cowsay "$(fortune zippy)"
+echo
