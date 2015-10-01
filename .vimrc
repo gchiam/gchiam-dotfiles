@@ -394,8 +394,9 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 "let base16colorspace=256
 "colorscheme base16-tomorrow
 "colorscheme PaperColor
-colorscheme hybrid_material
-
+" colorscheme hybrid_material
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 set colorcolumn=80
 "autocmd ColorScheme * highlight ColorColumn ctermbg=235 ctermfg=7
@@ -411,7 +412,7 @@ autocmd ColorScheme * highlight Visual ctermfg=15 ctermbg=24
 "set the linenumber highlight
 "highlight LineNr ctermfg=241
 "keep the original fg color at cursor column
-highlight CursorColumn ctermfg=7
+highlight CursorColumn ctermfg=7 guibg=grey20
 highlight DiffAdd cterm=none ctermbg=194 ctermfg=244
 highlight DiffDelete cterm=none ctermbg=210 ctermfg=232
 highlight DiffChange cterm=none ctermbg=229 ctermfg=232
