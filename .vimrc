@@ -148,7 +148,7 @@ nmap Q gqap
 
 " Settings for Airline
 " ====================
-let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
@@ -156,7 +156,8 @@ let g:airline_theme = 'gruvbox'
 
 " Settings for tmuxline
 " =====================
-let g:tmuxline_preset = 'tmux'
+let g:tmuxline_preset = 'powerline'
+let g:tmuxline_theme = 'airline'
 
 
 " Settings for Syntastic
@@ -396,6 +397,8 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 "colorscheme PaperColor
 " colorscheme hybrid_material
 let g:gruvbox_italic=1
+let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_dark='soft'
 colorscheme gruvbox
 
 set colorcolumn=80
