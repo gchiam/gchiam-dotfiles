@@ -3,4 +3,4 @@ export PATH
 export LC_CTYPE="en_US.UTF-8"
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 
-bash $DOTFILES_DIR/set-base16-shell-color.sh
+source $DOTFILES_DIR/set_shell_color.sh

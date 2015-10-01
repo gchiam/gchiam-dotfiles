@@ -1,0 +1,1 @@
+external/gruvbox/gruvbox_256palette.sh
