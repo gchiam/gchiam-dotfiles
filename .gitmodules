@@ -148,3 +148,6 @@
 [submodule "external/gruvbox"]
 	path = external/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "external/gruvbox-contrib"]
+	path = external/gruvbox-contrib
+	url = https://github.com/morhetz/gruvbox-contrib
