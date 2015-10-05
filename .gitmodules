@@ -151,3 +151,6 @@
 [submodule "external/gruvbox-contrib"]
 	path = external/gruvbox-contrib
 	url = https://github.com/morhetz/gruvbox-contrib
+[submodule "external/gruvbox-terminal"]
+	path = external/gruvbox-terminal
+	url = https://github.com/flipxfx/gruvbox-terminal
