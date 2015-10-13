@@ -422,7 +422,7 @@ autocmd ColorScheme * highlight Visual ctermfg=15 ctermbg=24
 "set the linenumber highlight
 "highlight LineNr ctermfg=241
 "keep the original fg color at cursor column
-highlight CursorColumn ctermfg=7 guibg=grey20
+highlight CursorColumn ctermfg=7 guifg=white guibg=grey20
 highlight DiffAdd cterm=none ctermbg=194 ctermfg=244
 highlight DiffDelete cterm=none ctermbg=210 ctermfg=232
 highlight DiffChange cterm=none ctermbg=229 ctermfg=232
