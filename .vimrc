@@ -182,8 +182,8 @@ map <F12> <esc>:JSHintUpdate<CR>
 " Settings for jedi-vim
 " =====================
 let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 1
+let g:jedi#popup_select_first = 1
 
 
 map <Leader>B Oimport ipdb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>
