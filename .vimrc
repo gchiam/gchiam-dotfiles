@@ -380,7 +380,7 @@ vmap <Leader>P "+P
 
 " Color scheme
 " =============
-" set t_Co=256
+set t_Co=256
 set background=dark
 
 " tmux doesn't support true color, so need to install a patched version of tmux
