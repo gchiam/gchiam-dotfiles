@@ -16,3 +16,4 @@ cdiff
 pep8radius
 neovim
 mycli
+ohmu
