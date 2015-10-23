@@ -169,8 +169,19 @@ let g:syntastic_style_error_symbol = '☓❱'
 let g:syntastic_style_warning_symbol = '⚐❭'
 let g:syntastic_error_symbol = '😑 '
 let g:syntastic_warning_symbol = '😭 '
-map <F7> <esc>:SyntasticCheck<CR>
-map <F8> <esc>:SyntasticToggleMode<CR>
+"map <F7> <esc>:SyntasticCheck<CR>
+"map <F8> <esc>:SyntasticToggleMode<CR>
+
+
+" Settings for Neomake
+" ===================
+let g:neomake_open_list = 1
+map <F7> <esc>:Neomake<CR>
+map <F9> <esc>:NeomakeSh ./invoke testpy<CR>
+let g:neomake_python_pylama_maker = {
+    \ 'args': ['--verbose', '--linters="pep8,pep257,mccabe"'],
+    \ }
+autocmd! BufWritePost * Neomake
 
 
 " Settings for JSHint
