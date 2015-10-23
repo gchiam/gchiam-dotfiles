@@ -2,7 +2,8 @@ ipython
 ipdb
 pudb
 pylint
-flake8
+pyflakes
+pylama
 jedi
 virtualenv
 virtualenvwrapper
