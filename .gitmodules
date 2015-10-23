@@ -157,3 +157,6 @@
 [submodule "external/base16-builder"]
 	path = external/base16-builder
 	url = https://github.com/chriskempson/base16-builder.git
+[submodule "external/neomake"]
+	path = external/neomake
+	url = https://github.com/benekastah/neomake.git
