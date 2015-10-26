@@ -163,3 +163,6 @@
 [submodule "external/lightline"]
 	path = external/lightline
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "external/YouCompleteMe"]
+	path = external/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
