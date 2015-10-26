@@ -160,3 +160,6 @@
 [submodule "external/neomake"]
 	path = external/neomake
 	url = https://github.com/benekastah/neomake.git
+[submodule "external/lightline"]
+	path = external/lightline
+	url = https://github.com/itchyny/lightline.vim.git
