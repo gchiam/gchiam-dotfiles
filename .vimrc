@@ -172,6 +172,7 @@ let g:lightline = {
     \   'filetype': 'LightLineFiletype',
     \   'fileencoding': 'LightLineFileencoding',
     \   'mode': 'LightLineMode',
+    \   'ctrlpmark': 'CtrlPMark',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
