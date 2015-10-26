@@ -334,6 +334,13 @@ autocmd! BufWritePost * Neomake
 map <F12> <esc>:JSHintUpdate<CR>
 
 
+" Settings for YouCompleteMe
+" ==========================
+let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>jk :YcmCompleter GetDoc<CR>
+
+
 " Settings for jedi-vim
 " =====================
 let g:jedi#completions_enabled = 0
