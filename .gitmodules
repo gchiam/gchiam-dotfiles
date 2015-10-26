@@ -166,3 +166,6 @@
 [submodule "external/YouCompleteMe"]
 	path = external/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "external/lightline-gruvbox.vim"]
+	path = external/lightline-gruvbox.vim
+	url = https://github.com/shinchu/lightline-gruvbox.vim.git
