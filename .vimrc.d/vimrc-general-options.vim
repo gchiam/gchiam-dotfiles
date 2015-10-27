@@ -46,4 +46,4 @@ set tw=79  " width of document (used by gd)
 set fo-=t  " don't automatically wrap text when typing
 
 
-source .vimrc.d/vimrc-tabs.vim
+source ~/.vimrc.d/vimrc-tabs.vim
