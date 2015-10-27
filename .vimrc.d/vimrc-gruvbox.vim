@@ -1,0 +1,11 @@
+let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_invert_tabline=1
+let g:gruvbox_invert_selection=1
+let g:gruvbox_invert_signs=1
+let g:gruvbox_improved_strings=0
+let g:gruvbox_improved_warnings=1
+let g:gruvbox_vert_split='bg3'
+let g:gruvbox_color_column='bg1'
+let g:gruvbox_sign_column='bg2'
+colorscheme gruvbox

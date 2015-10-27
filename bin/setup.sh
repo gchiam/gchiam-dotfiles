@@ -21,6 +21,7 @@ ln -snvf $DOTFILES_DIR/.tmux-theme.conf $HOME/
 ln -snvf $DOTFILES_DIR/.tmux-powerline.conf $HOME/
 ln -snvf $DOTFILES_DIR/.vim $HOME/
 ln -snvf $DOTFILES_DIR/.vimrc $HOME/
+ln -snvf $DOTFILES_DIR/.vimrc.d $HOME/
 ln -snvf $DOTFILES_DIR/.nvim $HOME/
 ln -snvf $DOTFILES_DIR/.nvimrc $HOME/
 ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
