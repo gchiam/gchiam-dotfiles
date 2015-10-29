@@ -56,6 +56,7 @@ vnoremap <Leader>s :sort<CR>
 map <Leader>[ <esc>:lprevious<CR>
 map <Leader>] <esc>:lnext<CR>
 
+
 " Window spliting
 " ==============
 nmap <leader>\| :vs<CR>
@@ -71,13 +72,18 @@ map <Leader>a ggVG  " select all
 
 " Current line & column mappings
 " ==============================
-nmap <Leader>c <esc>:set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 set cursorline cursorcolumn
+
+
+" Line wrapping
+" =============
+nnoremap <Leader>W :set wrap!<CR>
 
 
 " center the cursor vertically
 " ============================
-:nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
+nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
 
 
 " Diff mappings
