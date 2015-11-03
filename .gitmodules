@@ -169,3 +169,6 @@
 [submodule "external/lightline-gruvbox.vim"]
 	path = external/lightline-gruvbox.vim
 	url = https://github.com/shinchu/lightline-gruvbox.vim.git
+[submodule "external/fantasque-sans"]
+	path = external/fantasque-sans
+	url = https://github.com/belluzj/fantasque-sans.git
