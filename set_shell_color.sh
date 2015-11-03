@@ -1,1 +1,1 @@
-base16-gruvbox.dark.sh
+.vim/bundle/gruvbox/gruvbox_256palette.sh
