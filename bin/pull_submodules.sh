@@ -25,4 +25,4 @@ rm -f external/vim-multiple-cursors/doc/tags
 rm -f external/vim-startify/doc/tags
 rm -f external/vim-expand-region/doc/tags
 
-git submodule foreach --recursive git pull origin master
+git submodule foreach git pull origin master
