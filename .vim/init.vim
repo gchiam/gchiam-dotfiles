@@ -1,0 +1,1 @@
+/home/gordon.chiam/.nvimrc
