@@ -5,7 +5,6 @@
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
 source ~/.vimrc.d/vimrc-vim-plug.vim
-source ~/.vimrc.d/vimrc-pathogen.vim
 
 source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
