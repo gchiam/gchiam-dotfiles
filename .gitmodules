@@ -52,9 +52,6 @@
 [submodule "external/jshint.vim"]
 	path = external/jshint.vim
 	url = git@github.com:wookiehangover/jshint.vim.git
-[submodule "external/base16-vim"]
-	path = external/base16-vim
-	url = git@github.com:chriskempson/base16-vim.git
 [submodule "external/tabular"]
 	path = external/tabular
 	url = git://github.com/godlygeek/tabular.git
@@ -100,9 +97,6 @@
 [submodule "external/vim-args"]
 	path = external/vim-args
 	url = https://github.com/gabesoft/vim-ags.git
-[submodule "external/vim-material-theme"]
-	path = external/vim-material-theme
-	url = https://github.com/jdkanani/vim-material-theme
 [submodule "external/papercolor-theme"]
 	path = external/papercolor-theme
 	url = git@github.com:NLKNguyen/papercolor-theme.git
