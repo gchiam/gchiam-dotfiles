@@ -1,12 +1,6 @@
-[submodule "external/vim-pathogen"]
-	path = external/vim-pathogen
-	url = git@github.com:tpope/vim-pathogen.git
 [submodule "external/oh-my-zsh"]
 	path = external/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "external/vim-instant-markdown"]
-	path = external/vim-instant-markdown
-	url = git@github.com:suan/vim-instant-markdown.git
 [submodule "external/base16-item2"]
 	path = external/base16-item2
 	url = git@github.com:chriskempson/base16-iterm2.git
@@ -16,129 +10,30 @@
 [submodule "external/base16-shell"]
 	path = external/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
-[submodule "external/ctrlp.vim"]
-	path = external/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule "external/SimplyFold"]
 	path = external/SimplyFold
 	url = https://github.com/tmhedberg/SimpylFold.git
-[submodule "external/nerdcommenter"]
-	path = external/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "external/vim-tmux-navigator"]
-	path = external/vim-tmux-navigator
-	url = git://github.com/christoomey/vim-tmux-navigator.git
-[submodule "external/jedi-vim"]
-	path = external/jedi-vim
-	url = git://github.com/davidhalter/jedi-vim.git
-[submodule "external/vim-fugitive"]
-	path = external/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "external/vim-markdown"]
-	path = external/vim-markdown
-	url = git://github.com/plasticboy/vim-markdown.git
-[submodule "external/django.vim"]
-	path = external/django.vim
-	url = git://github.com/vim-scripts/django.vim.git
-[submodule "external/vim-javascript"]
-	path = external/vim-javascript
-	url = git@github.com:pangloss/vim-javascript.git
-[submodule "external/syntastic"]
-	path = external/syntastic
-	url = git@github.com:scrooloose/syntastic.git
-[submodule "external/vim-easymotion"]
-	path = external/vim-easymotion
-	url = git@github.com:Lokaltog/vim-easymotion.git
-[submodule "external/jshint.vim"]
-	path = external/jshint.vim
-	url = git@github.com:wookiehangover/jshint.vim.git
-[submodule "external/tabular"]
-	path = external/tabular
-	url = git://github.com/godlygeek/tabular.git
-[submodule "external/vim-puppet"]
-	path = external/vim-puppet
-	url = git://github.com/rodjek/vim-puppet.git
-[submodule "external/MultipleSearch2"]
-	path = external/MultipleSearch2
-	url = https://github.com/vim-scripts/MultipleSearch2.vim
 [submodule "external/base16-ipython-notebook"]
 	path = external/base16-ipython-notebook
 	url = git@github.com:nsonnad/base16-ipython-notebook.git
-[submodule "external/vim-airline"]
-	path = external/vim-airline
-	url = git@github.com:bling/vim-airline.git
-[submodule "external/tmuxline.vim"]
-	path = external/tmuxline.vim
-	url = git@github.com:edkolev/tmuxline.vim.git
-[submodule "external/delimitMate"]
-	path = external/delimitMate
-	url = git@github.com:Raimondi/delimitMate.git
-[submodule "external/vim-multiple-cursors"]
-	path = external/vim-multiple-cursors
-	url = git@github.com:terryma/vim-multiple-cursors.git
 [submodule "external/tagbar"]
 	path = external/tagbar
 	url = git@github.com:majutsushi/tagbar.git
 [submodule "external/paper-gtk-theme"]
 	path = external/paper-gtk-theme
 	url = git@github.com:snwh/paper-gtk-theme.git
-[submodule "external/ultisnips"]
-	path = external/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
-[submodule "external/vim-snippets"]
-	path = external/vim-snippets
-	url = git@github.com:honza/vim-snippets.git
 [submodule "external/paper-icon-theme"]
 	path = external/paper-icon-theme
 	url = git@github.com:snwh/paper-icon-theme.git
-[submodule "external/vim-dispatch"]
-	path = external/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
-[submodule "external/vim-args"]
-	path = external/vim-args
-	url = https://github.com/gabesoft/vim-ags.git
-[submodule "external/papercolor-theme"]
-	path = external/papercolor-theme
-	url = git@github.com:NLKNguyen/papercolor-theme.git
-[submodule "external/nerdtree"]
-	path = external/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "external/nerdtree-git-plugin"]
-	path = external/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
-[submodule "external/vim-surround"]
-	path = external/vim-surround
-	url = https://github.com/tpope/vim-surround
-[submodule "external/Dockerfile.vim"]
-	path = external/Dockerfile.vim
-	url = https://github.com/ekalinin/Dockerfile.vim.git
-[submodule "external/vim-startify"]
-	path = external/vim-startify
-	url = https://github.com/mhinz/vim-startify.git
-[submodule "external/vim-indent-guides"]
-	path = external/vim-indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "external/vim-expand-region"]
-	path = external/vim-expand-region
-	url = https://github.com/terryma/vim-expand-region
 [submodule "external/powerline-fonts"]
 	path = external/powerline-fonts
 	url = https://github.com/powerline/fonts.git
-[submodule "external/xterm-color-table.vim"]
-	path = external/xterm-color-table.vim
-	url = https://github.com/guns/xterm-color-table.vim.git
 [submodule "external/monoid"]
 	path = external/monoid
 	url = git@github.com:larsenwork/monoid.git
-[submodule "external/vim-conceal"]
-	path = external/vim-conceal
-	url = https://github.com/khzaw/vim-conceal.git
 [submodule "external/powerline"]
 	path = external/powerline
 	url = https://github.com/powerline/powerline.git
-[submodule "external/vim-hybrid-material"]
-	path = external/vim-hybrid-material
-	url = https://github.com/kristijanhusak/vim-hybrid-material.git
 [submodule "external/gruvbox-contrib"]
 	path = external/gruvbox-contrib
 	url = https://github.com/morhetz/gruvbox-contrib
@@ -148,18 +43,6 @@
 [submodule "external/base16-builder"]
 	path = external/base16-builder
 	url = https://github.com/chriskempson/base16-builder.git
-[submodule "external/neomake"]
-	path = external/neomake
-	url = https://github.com/benekastah/neomake.git
-[submodule "external/lightline"]
-	path = external/lightline
-	url = https://github.com/itchyny/lightline.vim.git
-[submodule "external/YouCompleteMe"]
-	path = external/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "external/lightline-gruvbox.vim"]
-	path = external/lightline-gruvbox.vim
-	url = https://github.com/shinchu/lightline-gruvbox.vim.git
 [submodule "external/fantasque-sans"]
 	path = external/fantasque-sans
 	url = https://github.com/belluzj/fantasque-sans.git
