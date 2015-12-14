@@ -1,1 +1,0 @@
-../../external/lightline-gruvbox.vim

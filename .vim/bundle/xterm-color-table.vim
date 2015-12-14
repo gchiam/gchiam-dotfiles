@@ -1,1 +1,0 @@
-../../external/xterm-color-table.vim
