@@ -16,6 +16,12 @@ alias c="clear"
 alias sbrc="source ~/.bashrc"
 alias v="nvim"
 alias vi="nvim"
+alias vim="nvim"
+
+#https://www.reddit.com/r/neovim/comments/3hz2zv/how_to_accomodate_a_mental_failing_alias_envim/
+alias :e='nvim'
+alias :E='nvim .'
+alias :q='exit'
 
 # Git related shortcuts
 alias g="git"
