@@ -5,10 +5,6 @@ Plug 'morhetz/gruvbox'
 Plug 'benekastah/neomake'
 Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'vim-scripts/django.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'wookiehangover/jshint.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'vim-scripts/MultipleSearch2.vim'
@@ -23,10 +19,23 @@ Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
-Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-fugitive'
-Plug 'plasticboy/vim-markdown'
-Plug 'pangloss/vim-javascript'
+
+" Loaded when Dockerfile is opened
+Plug 'ekalinin/Dockerfile.vim'
+
+" Loaded when javascript file is opened
+Plug 'davidhalter/jedi-vim', { 'for': 'python '}
+Plug 'vim-scripts/django.vim', { 'for': 'python '}
+
+" Loaded when markdown file is opened
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown '}
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown '}
+
+" Loaded when javascript file is opened
+Plug 'wookiehangover/jshint.vim', { 'for': 'javascript '}
+Plug 'pangloss/vim-javascript', { 'for': 'javascript '}
+
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rodjek/vim-puppet'
 Plug 'terryma/vim-multiple-cursors'
