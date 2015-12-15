@@ -49,3 +49,6 @@
 [submodule "external/vim-plug"]
 	path = external/vim-plug
 	url = https://github.com/junegunn/vim-plug
+[submodule "external/oh-my-fish"]
+	path = external/oh-my-fish
+	url = https://github.com/oh-my-fish/oh-my-fish.git
