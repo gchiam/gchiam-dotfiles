@@ -52,4 +52,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 Plug 'SirVer/ultisnips'
 
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+
 call plug#end()
