@@ -60,6 +60,7 @@ map <Leader>] <esc>:lnext<CR>
 " Window spliting
 " ==============
 nmap <leader>\| :vs<CR>
+nmap <leader>\ :vs<CR>
 nmap <leader>- :split<CR>
 
 
