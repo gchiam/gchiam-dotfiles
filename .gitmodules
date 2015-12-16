@@ -10,9 +10,6 @@
 [submodule "external/base16-shell"]
 	path = external/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
-[submodule "external/SimplyFold"]
-	path = external/SimplyFold
-	url = https://github.com/tmhedberg/SimpylFold.git
 [submodule "external/base16-ipython-notebook"]
 	path = external/base16-ipython-notebook
 	url = git@github.com:nsonnad/base16-ipython-notebook.git
