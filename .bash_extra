@@ -4,3 +4,14 @@ export LC_CTYPE="en_US.UTF-8"
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 
 source $DOTFILES_DIR/set_shell_color.sh
+
+
+# fzf
+# https://github.com/junegunn/fzf
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_DEFAULT_OPTS="--color=dark,fg:245,hl:15,fg+:16,bg+:2"

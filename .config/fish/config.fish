@@ -18,3 +18,4 @@ set fish_path $HOME/.oh-my-fish
 
 # load aliases
 . ~/.config/fish/aliases.fish
+. ~/.config/fish/extras.fish
