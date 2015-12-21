@@ -1,3 +1,6 @@
+# vim: set filetype=sh:
+
+
 PATH=$HOME/.local/bin:$HOME/bin:$PATH
 [[ -d "$HOME/opt/android-sdk/tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/tools
 [[ -d "$HOME/opt/android-sdk/platform-tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/platform-tools
@@ -34,6 +37,4 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 
-
 export PATH
-

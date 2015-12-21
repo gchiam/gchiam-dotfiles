@@ -1,3 +1,6 @@
+# vim: set filetype=sh:
+
+
 # ============================================================================
 # Copied from
 # https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.bash_aliases
