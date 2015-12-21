@@ -68,4 +68,6 @@ Plug 'SirVer/ultisnips'
 
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
+Plug 'rednaks/vim-split_term'
+
 call plug#end()
