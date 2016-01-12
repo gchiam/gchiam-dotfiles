@@ -1,7 +1,7 @@
 # vim: set filetype=sh:
 
 
-figlet -fdigital "$(whoami)@$(hostname)"
+#figlet -fdigital "$(whoami)@$(hostname)"
 
-cowsay "$(fortune zippy)"
+#cowsay "$(fortune zippy)"
 echo
