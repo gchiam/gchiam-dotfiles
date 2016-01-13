@@ -1,4 +1,4 @@
-let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_light='soft'
 let g:gruvbox_contrast_dark='soft'
 let g:gruvbox_invert_tabline=1
 let g:gruvbox_invert_selection=1
