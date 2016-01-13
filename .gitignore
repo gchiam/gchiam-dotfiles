@@ -1,3 +1,4 @@
+**/.DS_Store
 .vim/.netrwhist
 *.swp
 .config/pudb/saved-breakpoints-2.7
