@@ -4,7 +4,7 @@
 export PATH
 
 export LC_CTYPE="en_US.UTF-8"
-export EDITOR="~/bin/nvim"
+export EDITOR="`which nvim`"
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 
 ###############################################################################
