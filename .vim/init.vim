@@ -1,1 +1,1 @@
-/home/gordon.chiam/.nvimrc
+../.nvimrc
