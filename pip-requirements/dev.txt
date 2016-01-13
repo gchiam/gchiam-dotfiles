@@ -8,8 +8,8 @@ jedi
 virtualenv
 virtualenvwrapper
 radon
-pygit2
-mercurial
+#pygit2
+#mercurial
 psutil
 cookiecutter
 awscli
