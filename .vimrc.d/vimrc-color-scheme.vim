@@ -23,8 +23,8 @@ source ~/.vimrc.d/vimrc-gruvbox.vim
 
 " Making background transparent
 " https://www.reddit.com/r/neovim/comments/3v06lo/making_the_background_transparent/
-highlight Normal guibg=none
-au ColorScheme * highlight Normal ctermbg=none guibg=none
+" highlight Normal guibg=none
+" au ColorScheme * highlight Normal ctermbg=none guibg=none
 
 highlight Search ctermfg=232
 highlight Visual ctermfg=15 ctermbg=24
