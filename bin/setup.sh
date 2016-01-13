@@ -50,3 +50,7 @@ done
 
 # get rpm4opera
 wget -O bin/rpm4opera.sh https://gist.githubusercontent.com/ruario/3ed0d3a6c0764c4ae9f9/raw/9ceed104b81adf43c515dbbdb3ef9f714a2c5b1c/rpm4opera
+
+
+# git bash completion
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash
