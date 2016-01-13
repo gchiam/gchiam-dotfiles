@@ -51,6 +51,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
 Plug 'guns/xterm-color-table.vim'
+Plug 'tpope/vim-sleuth'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
