@@ -1,4 +1,5 @@
 ipython
+bpython
 ipdb
 pudb
 pylint
