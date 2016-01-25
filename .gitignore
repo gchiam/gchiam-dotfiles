@@ -5,3 +5,4 @@
 .config/fish/fish_history
 .config/fish/fishd.*
 .tmux/resurrect
+.tmux/plugins/tmux*
