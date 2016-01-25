@@ -1,1 +1,1 @@
-/Users/gchiam/Projects/gchiam-dotfiles/.vim/plugged/fzf/shell/key-bindings.fish
+../../../.vim/plugged/fzf/shell/key-bindings.fish
