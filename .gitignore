@@ -6,3 +6,4 @@
 .config/fish/fishd.*
 .tmux/resurrect
 .tmux/plugins/tmux*
+.vim/plugged/*
