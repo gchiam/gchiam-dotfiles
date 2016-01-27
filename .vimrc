@@ -11,7 +11,6 @@ source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
 
 source ~/.vimrc.d/vimrc-copy-paste.vim
-source ~/.vimrc.d/vimrc-code-completion.vim
 
 source ~/.vimrc.d/vimrc-line-number.vim
 
