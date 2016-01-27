@@ -7,8 +7,8 @@ set clipboard=unnamed
 
 " Fixing the copy & paste madness
 " ================================
-vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+vmap <C-y> y:call system("DISPLAY=:0 xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+nmap <C-v> :call setreg("\"",system("DISPLAY=:0 xclip -o -selection clipboard"))<CR>p
 imap <C-v> <Esc><C-v>a
 
 
