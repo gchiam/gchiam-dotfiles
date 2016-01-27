@@ -7,6 +7,11 @@ export LC_CTYPE="en_US.UTF-8"
 export EDITOR="`which nvim`"
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 
+(test -d /work && WORK=/work) || test -d ~/work && WORK=~/work || WORK=~/
+export WORK
+alias W="cd $WORK"
+
+
 ###############################################################################
 # virtualenvwrapper
 ###############################################################################
