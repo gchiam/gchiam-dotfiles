@@ -2,8 +2,11 @@ ipython
 bpython
 ipdb
 pudb
+pep8
+pep8radius
 pylint
 pyflakes
+flake8
 pylama
 jedi
 virtualenv
@@ -15,7 +18,6 @@ psutil
 cookiecutter
 awscli
 cdiff
-pep8radius
 neovim
 mycli
 ohmu
