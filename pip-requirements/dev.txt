@@ -21,3 +21,4 @@ cdiff
 neovim
 mycli
 ohmu
+thefuck
