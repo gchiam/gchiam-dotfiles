@@ -1,12 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
-
 Plug 'benekastah/neomake'
 Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'vim-scripts/MultipleSearch2.vim'
 
 Plug 'junegunn/vim-emoji'
@@ -52,6 +49,10 @@ Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
 Plug 'guns/xterm-color-table.vim'
 Plug 'tpope/vim-sleuth'
+
+
+Plug 'morhetz/gruvbox'
+
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
