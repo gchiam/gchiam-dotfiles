@@ -15,6 +15,7 @@ vnoremap <Leader>w <C-C>:update<CR>
 " Quick quit command
 " ==================
 noremap <Leader>q <esc>:quit<CR>
+noremap <Leader>Q <esc>:quit!<CR>
 
 
 " Bind nohl
@@ -30,7 +31,7 @@ nmap Q gqap
 
 " Movement
 " ========
-" bind Ctrl+<movement> keys to move around the windows, instead of using 
+" bind Ctrl+<movement> keys to move around the windows, instead of using
 " Ctrl+w + <movement>
 map <c-j> <c-w>j
 map <c-k> <c-w>k
