@@ -22,9 +22,6 @@
 [submodule "external/monoid"]
 	path = external/monoid
 	url = git@github.com:larsenwork/monoid.git
-[submodule "external/powerline"]
-	path = external/powerline
-	url = https://github.com/powerline/powerline.git
 [submodule "external/gruvbox-contrib"]
 	path = external/gruvbox-contrib
 	url = https://github.com/morhetz/gruvbox-contrib
