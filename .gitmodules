@@ -13,9 +13,6 @@
 [submodule "external/base16-ipython-notebook"]
 	path = external/base16-ipython-notebook
 	url = git@github.com:nsonnad/base16-ipython-notebook.git
-[submodule "external/tagbar"]
-	path = external/tagbar
-	url = git@github.com:majutsushi/tagbar.git
 [submodule "external/powerline-fonts"]
 	path = external/powerline-fonts
 	url = https://github.com/powerline/fonts.git
