@@ -49,6 +49,7 @@ Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
 Plug 'guns/xterm-color-table.vim'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-git'
 
 
 Plug 'morhetz/gruvbox'
