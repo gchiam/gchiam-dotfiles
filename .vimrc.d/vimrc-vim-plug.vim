@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'benekastah/neomake'
-Plug 'kien/ctrlp.vim'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'

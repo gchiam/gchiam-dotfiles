@@ -25,7 +25,6 @@ source ~/.vimrc.d/vimrc-python.vim
 
 source ~/.vimrc.d/vimrc-markdown.vim
 source ~/.vimrc.d/vimrc-ultisnips.vim
-source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-vim-ctrlspace.vim
 
 source ~/.vimrc.d/vimrc-ags.vim
