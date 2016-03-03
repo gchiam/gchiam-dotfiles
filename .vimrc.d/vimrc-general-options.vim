@@ -41,6 +41,8 @@ set incsearch
 set ignorecase
 set smartcase
 
+set hidden " required by vim-ctrlspace
+
 set nowrap " don't automatically wrap on load
 set tw=79  " width of document (used by gd)
 set fo-=t  " don't automatically wrap text when typing

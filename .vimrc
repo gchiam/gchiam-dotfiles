@@ -26,6 +26,7 @@ source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-markdown.vim
 source ~/.vimrc.d/vimrc-ultisnips.vim
 source ~/.vimrc.d/vimrc-ctrlp.vim
+source ~/.vimrc.d/vimrc-vim-ctrlspace.vim
 
 source ~/.vimrc.d/vimrc-ags.vim
 source ~/.vimrc.d/vimrc-easymotion.vim
@@ -39,3 +40,5 @@ source ~/.vimrc.d/vimrc-startify.vim
 
 source ~/.vimrc.d/vimrc-color-scheme.vim
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
+
+source ~/.vimrc.d/vimrc-braceless.vim
