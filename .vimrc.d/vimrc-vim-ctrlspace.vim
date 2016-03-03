@@ -26,7 +26,6 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
 
 " key mappings
-nnoremap <Leader>o :CtrlSpace O<CR>
-nnoremap <Leader>p :CtrlSpace o<CR>
-nnoremap <Leader>l :CtrlSpace L<CR>
-nnoremap <Leader>h :CtrlSpace H<CR>
+nnoremap <Leader>o :CtrlSpace o<CR>
+nnoremap <Leader>l :CtrlSpace l<CR>
+nnoremap <Leader>h :CtrlSpace h<CR>
