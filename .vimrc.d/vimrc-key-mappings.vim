@@ -7,7 +7,6 @@ set pastetoggle=<F2>
 
 " Open and Save
 " =============
-nnoremap <Leader>o :CtrlP<CR>
 noremap <Leader>w :update<CR>
 vnoremap <Leader>w <C-C>:update<CR>
 
