@@ -18,22 +18,28 @@ Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
+
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-git'
+Plug 'mhinz/vim-signify'
 
 " Loaded when Dockerfile is opened
 Plug 'ekalinin/Dockerfile.vim'
 
-" Loaded when javascript file is opened
-Plug 'davidhalter/jedi-vim', { 'for': 'python '}
-Plug 'vim-scripts/django.vim', { 'for': 'python '}
+
+" Loaded when python file is opened
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'vim-scripts/django.vim', { 'for': 'python' }
+Plug 'tweekmonster/braceless.vim', { 'for': 'python' }
 
 " Loaded when markdown file is opened
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown '}
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown '}
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Loaded when javascript file is opened
-Plug 'wookiehangover/jshint.vim', { 'for': 'javascript '}
-Plug 'pangloss/vim-javascript', { 'for': 'javascript '}
+Plug 'wookiehangover/jshint.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rodjek/vim-puppet'
@@ -48,8 +54,6 @@ Plug 'terryma/vim-expand-region'
 Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
 Plug 'guns/xterm-color-table.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-git'
 
 
 Plug 'morhetz/gruvbox'
