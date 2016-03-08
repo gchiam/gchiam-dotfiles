@@ -2,7 +2,7 @@
 
 
 # install xcode
-xcode-select –install
+xcode-select --install
 
 # install homebrew
 ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
