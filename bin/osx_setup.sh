@@ -44,7 +44,7 @@ brew install --HEAD mobile-shell
 brew cask install --HEAD iterm2-beta
 
 # install node.js and npm
-brew instal1l node.js
+brew install node.js
 
 # install NyaoVim: GUI frontend of NeoVim
 npm install -g nyaovim
@@ -64,7 +64,7 @@ brew cask install anvil  # manage local website
 brew install android-sdk
 brew cask install android-studio
 
-brew cask install github
+brew cask install github-desktop
 
 
 # communications
