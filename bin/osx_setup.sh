@@ -53,9 +53,12 @@ npm install -g nyaovim
 brew cask install atom
 brew cask install brackets
 
-# install virtualbox
+# install virtualbox & docker
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
+brew install docker
+brew install docker-machineo
+brew install docker-compose
 
 # install anvil
 brew cask install anvil  # manage local website
@@ -67,6 +70,11 @@ brew cask install android-studio
 brew cask install github-desktop
 
 
+# multimedia
+brew cask install vlc
+brew install imagemagick --with-librsvg
+brew cask install gimp
+
 # communications
 # ~~~~~~~~~~~~~~
 
@@ -76,11 +84,24 @@ brew cask install slack
 
 # system
 # ~~~~~~
+brew cask install 1password
 brew cask install appcleaner
 brew cask install battery-guardian
 brew cask install dropbox
+brew cask install flux
+brew cask install keepingyouawake
+brew cask install keycastr
 brew cask install mattr-slate
+brew cask install shortcat:w
+
 brew cask install the-unarchiver
+
+# osx fuse
+brew cask install osxfuse
+brew tap homebrew/fuse
+brew install ntfs-3g
+sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
+sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 
 # productivity
 ~~~~~~~~~~~~~~
