@@ -32,8 +32,21 @@ alias first-quarter move screenOriginX;screenOriginY screenSizeX/4;screenSizeY
 alias second-quarter move screenOriginX+screenSizeX/4;screenOriginY screenSizeX/4;screenSizeY
 alias third-quarter move screenOriginX+screenSizeX*2/4;screenOriginY screenSizeX/4;screenSizeY
 alias fourth-quarter move screenOriginX+screenSizeX*3/4;screenOriginY screenSizeX/4;screenSizeY
-alias leftthree-quarter move screenOriginX;screenOriginY screenSizeX*3/4;screenSizeY
-alias rightthree-quarter move screenOriginX+screenSizeX/4;screenOriginY screenSizeX*3/4;screenSizeY
+alias left-three-quarter move screenOriginX;screenOriginY screenSizeX*3/4;screenSizeY
+alias right-three-quarter move screenOriginX+screenSizeX/4;screenOriginY screenSizeX*3/4;screenSizeY
+
+alias first-fifth move screenOriginX;screenOriginY screenSizeX/5;screenSizeY
+alias second-fifth move screenOriginX+screenSizeX/5;screenOriginY screenSizeX/5;screenSizeY
+alias third-fifth move screenOriginX+screenSizeX*2/5;screenOriginY screenSizeX/5;screenSizeY
+alias fourth-fifth move screenOriginX+screenSizeX*3/5;screenOriginY screenSizeX/5;screenSizeY
+alias fifth-fifth move screenOriginX+screenSizeX*4/5;screenOriginY screenSizeX/5;screenSizeY
+alias first-two-fifth move screenOriginX;screenOriginY screenSizeX*2/5;screenSizeY
+alias second-two-fifth move screenOriginX+screenSizeX/5;screenOriginY screenSizeX*2/5;screenSizeY
+alias third-two-fifth move screenOriginX+screenSizeX*2/5;screenOriginY screenSizeX*2/5;screenSizeY
+alias fourth-two-fifth move screenOriginX+screenSizeX*3/5;screenOriginY screenSizeX*2/5;screenSizeY
+alias first-three-fifth move screenOriginX;screenOriginY screenSizeX*3/5;screenSizeY
+alias second-three-fifth move screenOriginX+screenSizeX/5;screenOriginY screenSizeX*3/5;screenSizeY
+alias third-three-fifth move screenOriginX+screenSizeX*2/5;screenOriginY screenSizeX*3/5;screenSizeY
 
 bind 1:ctrl relaunch
 bind tab:alt;cmd switch
@@ -47,12 +60,12 @@ alias triple2 alt;ctrl;shift
 
 # Location bindings
 bind left:${triple} ${left-half}
-bind f:${triple} ${full}
+bind 0:${triple} ${full}
 bind right:${triple} ${right-half}
 bind up:${triple} ${top-half}
 bind down:${triple} ${bottom-half}
-bind c:${triple} ${center}
-bind v:${triple} ${big-center}
+bind 8:${triple} ${center}
+bind 9:${triple} ${big-center}
 bind down:${triple2} ${bottom-left}
 bind right:${triple2} ${bottom-right}
 bind left:${triple2} ${top-left}
@@ -69,7 +82,20 @@ bind 5:${triple} ${second-quarter}
 bind 6:${triple} ${third-quarter}
 bind 7:${triple} ${fourth-quarter}
 bind r:${triple} ${left-two-third}
-bind y:${triple} ${right-two-third}
+bind t:${triple} ${right-two-third}
+
+bind a:${triple} ${first-fifth}
+bind s:${triple} ${second-fifth}
+bind d:${triple} ${third-fifth}
+bind f:${triple} ${fourth-fifth}
+bind g:${triple} ${fifth-fifth}
+bind z:${triple} ${first-two-fifth}
+bind x:${triple} ${second-two-fifth}
+bind c:${triple} ${third-two-fifth}
+bind v:${triple} ${fourth-two-fifth}
+bind b:${triple} ${first-three-fifth}
+bind n:${triple} ${second-three-fifth}
+bind m:${triple} ${third-three-fifth}
 
 # Monitor switching bindings
 bind right:alt,ctrl throw 1 resize
