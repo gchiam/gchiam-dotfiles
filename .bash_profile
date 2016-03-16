@@ -1,6 +1,7 @@
 # vim: set filetype=sh:
 
 
+PATH=/usr/local/sbin:$PATH
 PATH=$HOME/.local/bin:$HOME/bin:$PATH
 [[ -d "$HOME/opt/android-sdk/tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/tools
 [[ -d "$HOME/opt/android-sdk/platform-tools" ]] && PATH=$PATH:$HOME/opt/android-sdk/platform-tools
