@@ -25,7 +25,7 @@ pushd /tmp
 curl -O http://python-distribute.org/distribute_setup.py
 python distribute_setup.py
 python3 distribute_setup.py
-curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 python3 get-pip.py
 pip install -U pip
