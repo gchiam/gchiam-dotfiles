@@ -31,6 +31,7 @@ ln -snvf $DOTFILES_DIR/external/powerline/scripts/powerline $HOME/bin/
 ln -snvf $DOTFILES_DIR/external/powerline/scripts/powerline-lint $HOME/bin/
 ln -snvf $DOTFILES_DIR/external/base16-shell/colortest $HOME/bin/
 
+mkdir -p $HOME/bin
 for f in `find $DOTFILES_DIR/bin/deploy -mindepth 1 -maxdepth 1`
 do
     ln -snvf $f $HOME/bin/
