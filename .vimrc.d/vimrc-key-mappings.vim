@@ -32,6 +32,8 @@ nmap Q gqap
 " ========
 " bind Ctrl+<movement> keys to move around the windows, instead of using
 " Ctrl+w + <movement>
+" Ctrl+h doesn't work under iTerm2 by default
+" See https://github.com/neovim/neovim/issues/2048#issuecomment-98307896
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
