@@ -10,13 +10,17 @@ brew doctor
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
+brew install ruby
+
 brew install axel
 brew install curl
+brew install wget
+
 brew install git
 brew install --HEAD mobile-shell
 brew install the_silver_searcher
 brew install tmux --HEAD
-brew install wget
+gem install tmuxinator
 
 # install python2 & python3
 brew install python
