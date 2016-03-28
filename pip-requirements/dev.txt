@@ -9,6 +9,7 @@ pyflakes
 flake8
 pylama
 jedi
+isort
 virtualenv
 virtualenvwrapper
 radon
