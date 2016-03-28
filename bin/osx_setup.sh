@@ -34,6 +34,7 @@ python get-pip.py
 python3 get-pip.py
 pip install -U pip
 pip3 install -U pip
+brew install pkg-config
 popd
 
 
