@@ -2,8 +2,6 @@
 
 DOTFILES_DIR="$HOME/dotfiles"
 
-wget -O $DOTFILES_DIR/.bash_private https://gist.githubusercontent.com/gchiam/c5d4a8993ee8ac9d607b/raw/b290669d9bfeaca4fb932c9728f40d267a9deb76/.bash_private
-
 ln -snvf $HOME/projects/gchiam-dotfiles $DOTFILES_DIR
 
 ln -snvf $DOTFILES_DIR/.bashrc $HOME/
