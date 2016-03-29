@@ -37,3 +37,6 @@
 [submodule "external/tmux-plugins"]
 	path = external/tpm
 	url = git@github.com:tmux-plugins/tpm.git
+[submodule "external/external/powerline"]
+	path = external/external/powerline
+	url = https://github.com/powerline/powerline.git
