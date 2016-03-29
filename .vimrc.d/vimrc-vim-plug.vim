@@ -32,6 +32,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'vim-scripts/django.vim', { 'for': 'python' }
 Plug 'tweekmonster/braceless.vim', { 'for': 'python' }
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 " Loaded when markdown file is opened
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }

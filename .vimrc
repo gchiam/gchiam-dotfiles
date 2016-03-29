@@ -17,11 +17,12 @@ source ~/.vimrc.d/vimrc-line-number.vim
 source ~/.vimrc.d/vimrc-lightline.vim
 source ~/.vimrc.d/vimrc-tmuxline.vim
 
+source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-neomake.vim
 source ~/.vimrc.d/vimrc-jshint.vim
 source ~/.vimrc.d/vimrc-youcompleteme.vim
 source ~/.vimrc.d/vimrc-jedi.vim
-source ~/.vimrc.d/vimrc-python.vim
+source ~/.vimrc.d/vimrc-vim-isort.vim
 
 source ~/.vimrc.d/vimrc-markdown.vim
 source ~/.vimrc.d/vimrc-ultisnips.vim
