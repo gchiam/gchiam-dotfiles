@@ -43,3 +43,13 @@ if has('nvim')
   let g:terminal_color_7 = "#a89984"
   let g:terminal_color_15 = "#ebdbb2"
 endif
+
+
+" https://github.com/morhetz/gruvbox/wiki/Usage
+nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+
+nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
