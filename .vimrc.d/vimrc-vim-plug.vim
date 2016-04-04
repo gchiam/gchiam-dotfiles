@@ -60,17 +60,19 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'morhetz/gruvbox'
 
 
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
+"function! BuildYCM(info)
+"  " info is a dictionary with 3 fields
+"  " - name:   name of the plugin
+"  " - status: 'installed', 'updated', or 'unchanged'
+"  " - force:  set on PlugInstall! or PlugUpdate!
+"  if a:info.status == 'installed' || a:info.force
+"    !./install.py
+"  endif
+"endfunction
 
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
+Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
 
 Plug 'SirVer/ultisnips'
 
