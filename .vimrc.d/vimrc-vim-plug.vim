@@ -4,6 +4,7 @@ Plug 'benekastah/neomake'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'vim-scripts/MultipleSearch2.vim'
 
 Plug 'junegunn/vim-emoji'
@@ -55,7 +56,6 @@ Plug 'terryma/vim-expand-region'
 Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
 Plug 'guns/xterm-color-table.vim'
-
 
 Plug 'morhetz/gruvbox'
 
