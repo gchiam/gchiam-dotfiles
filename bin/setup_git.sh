@@ -19,3 +19,6 @@ git config --global alias.last 'log -1 HEAD'
 
 git config --global diff.tool 'vimdiff'
 git config --global difftool.prompt 'no'
+
+git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX"
+git config --global pager.show "diff-so-fancy | less --tabs=4 -RFX"
