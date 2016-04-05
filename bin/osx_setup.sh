@@ -98,7 +98,7 @@ brew cask install flux
 brew cask install keepingyouawake
 brew cask install keycastr
 brew cask install mattr-slate
-brew cask install shortcat:w
+brew cask install shortcat
 
 brew cask install the-unarchiver
 
