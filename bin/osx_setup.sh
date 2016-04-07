@@ -75,8 +75,13 @@ brew cask install android-studio
 
 brew cask install github-desktop
 
+# http://facebook.github.io/PathPicker/
+brew install fpp
+
 
 # multimedia
+# ~~~~~~~~~~
+
 brew cask install vlc
 brew install imagemagick --with-librsvg
 brew cask install gimp
