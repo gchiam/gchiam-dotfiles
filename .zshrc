@@ -81,4 +81,5 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+[ -f ~/.powerline.zsh ] && source ~/.powerline.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
