@@ -16,6 +16,7 @@ source ~/.vimrc.d/vimrc-line-number.vim
 
 source ~/.vimrc.d/vimrc-lightline.vim
 source ~/.vimrc.d/vimrc-tmuxline.vim
+source ~/.vimrc.d/vimrc-promptline.vim
 
 source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-neomake.vim

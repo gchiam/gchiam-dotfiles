@@ -50,6 +50,7 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_exports
 source $HOME/.bash_aliases
+source $HOME/.bash_prompt
 
 # User configuration
 
@@ -81,5 +82,4 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-[ -f ~/.powerline.zsh ] && source ~/.powerline.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
