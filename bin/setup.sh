@@ -26,10 +26,7 @@ ln -snvf $DOTFILES_DIR/.nvim $HOME/
 ln -snvf $DOTFILES_DIR/.nvimrc $HOME/
 ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
 ln -snvf $DOTFILES_DIR/.Xresources $HOME/
-ln -snvf $DOTFILES_DIR/external/powerline/powerline/bindings/bash/powerline.sh $HOME/.powerline.sh
-ln -snvf $DOTFILES_DIR/external/powerline/powerline/bindings/zsh/powerline.zsh $HOME/.powerline.zsh
-ln -snvf $DOTFILES_DIR/external/powerline/scripts/powerline $HOME/bin/
-ln -snvf $DOTFILES_DIR/external/powerline/scripts/powerline-lint $HOME/bin/
+ln -snvf $DOTFILES_DIR/.promptline.sh $HOME/
 ln -snvf $DOTFILES_DIR/external/base16-shell/colortest $HOME/bin/
 
 mkdir -p $HOME/bin
