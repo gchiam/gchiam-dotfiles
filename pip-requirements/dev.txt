@@ -9,6 +9,8 @@ pyflakes
 flake8
 pylama
 pylama_pylint
+mccabe
+mccabe-console-script
 jedi
 isort
 virtualenv
