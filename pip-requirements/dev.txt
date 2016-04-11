@@ -8,6 +8,7 @@ pylint
 pyflakes
 flake8
 pylama
+pylama_pylint
 jedi
 isort
 virtualenv
