@@ -19,4 +19,5 @@ let g:neomake_python_pylint_maker = {
     \   '--ignore=C0330,W0312'
     \   ],
     \ }
+let g:neomake_python_enabled_makers = ['pylama', 'pep8', 'pylint', 'pyflakes']
 autocmd! BufWritePost * Neomake
