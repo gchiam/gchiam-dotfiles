@@ -74,6 +74,7 @@ Plug 'morhetz/gruvbox'
 "Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 Plug 'SirVer/ultisnips'
 
