@@ -124,6 +124,10 @@ brew cask install awareness
 brew cask install spotify
 
 
+# https://gist.github.com/CFXd/9ddbba4607ceec5a2a2e
+brew install fontforge ttf2eot ttfautohint
+
+
 # references:
 # * https://gist.github.com/kevinelliott/0726211d17020a6abc1f
 # * https://gist.github.com/kevinelliott/e12aa642a8388baf2499
