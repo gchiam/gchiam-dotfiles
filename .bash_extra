@@ -6,7 +6,7 @@ export PATH
 export LC_CTYPE="en_US.UTF-8"
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 
-source $DOTFILES_DIR/set_shell_color.sh
+#source $DOTFILES_DIR/set_shell_color.sh
 
 
 # fzf
