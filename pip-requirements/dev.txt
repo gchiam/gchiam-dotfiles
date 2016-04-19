@@ -11,6 +11,7 @@ pylama
 pylama_pylint
 mccabe
 mccabe-console-script
+Pygments
 jedi
 isort
 virtualenv
