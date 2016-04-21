@@ -17,6 +17,7 @@ ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
 ln -snvf $DOTFILES_DIR/.oh-my-fish $HOME/
 ln -snvf $DOTFILES_DIR/.oh-my-zsh $HOME/
 ln -snvf $DOTFILES_DIR/.django_bash_completion $HOME/
+ln -snvf $DOTFILES_DIR/.tigrc $HOME/
 ln -snvf $DOTFILES_DIR/.tmux $HOME/
 ln -snvf $DOTFILES_DIR/.tmux*.conf $HOME/
 ln -snvf $DOTFILES_DIR/.vim $HOME/

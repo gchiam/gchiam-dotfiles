@@ -1,0 +1,7 @@
+set reference-format = (branch) <tag>
+
+set main-view = \
+    id \
+    date \
+    author:abbreviated \
+    commit-title:graph=v2,refs
