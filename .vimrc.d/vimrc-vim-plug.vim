@@ -7,6 +7,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'edkolev/promptline.vim'
 Plug 'vim-scripts/MultipleSearch2.vim'
+Plug 't9md/vim-choosewin'
 
 Plug 'junegunn/vim-emoji'
 
