@@ -6,6 +6,7 @@ git config --global alias.lg "log --all --color --graph --pretty=format:'%Cred%h
 git config --global alias.standup "log --color --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
 
 git config --global alias.br "branch"
+git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
 git config --global alias.master "checkout master"
 git config --global alias.ms "checkout master"
