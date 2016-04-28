@@ -25,6 +25,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-git'
+Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-signify'
 
 " Loaded when Dockerfile is opened
