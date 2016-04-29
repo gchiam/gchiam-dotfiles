@@ -167,7 +167,7 @@ function! TmuxResize(direction, amount)
 endfunction
 
 " Map to Ctrl+hjkl to resize panes
-nnoremap <S-h> :call TmuxResize('h', 1)<CR>
-nnoremap <S-j> :call TmuxResize('j', 1)<CR>
-nnoremap <S-k> :call TmuxResize('k', 1)<CR>
-nnoremap <S-l> :call TmuxResize('l', 1)<CR>
+nnoremap <M-S-h> :call TmuxResize('h', 1)<CR>
+nnoremap <M-S-j> :call TmuxResize('j', 1)<CR>
+nnoremap <M-S-k> :call TmuxResize('k', 1)<CR>
+nnoremap <M-S-l> :call TmuxResize('l', 1)<CR>
