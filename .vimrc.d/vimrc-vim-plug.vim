@@ -31,6 +31,7 @@ Plug 'mhinz/vim-signify'
 " Loaded when Dockerfile is opened
 Plug 'ekalinin/Dockerfile.vim'
 
+Plug 'tmux-plugins/vim-tmux'
 
 " Loaded when python file is opened
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
