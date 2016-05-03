@@ -8,6 +8,7 @@ ln -snvf $DOTFILES_DIR/.bashrc $HOME/
 ln -snvf $DOTFILES_DIR/.bash_profile $HOME/
 ln -snvf $DOTFILES_DIR/.bash_prompt $HOME/
 ln -snvf $DOTFILES_DIR/.bash_aliases $HOME/
+ln -snvf $DOTFILES_DIR/.bash_completion $HOME/
 ln -snvf $DOTFILES_DIR/.bash_exports $HOME/
 ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.bash_motd $HOME/
