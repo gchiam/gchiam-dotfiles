@@ -47,6 +47,9 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'wookiehangover/jshint.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
+" For tmux.conf
+Plug 'tmux-plugins/vim-tmux'
+
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rodjek/vim-puppet'
 Plug 'terryma/vim-multiple-cursors'
