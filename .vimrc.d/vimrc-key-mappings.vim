@@ -88,7 +88,7 @@ map <Leader>a ggVG  " select all
 " Current line & column mappings
 " ==============================
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-set cursorline cursorcolumn
+" set cursorline cursorcolumn
 
 
 " Line wrapping
