@@ -26,7 +26,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim'
-Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 
 " Loaded when Dockerfile is opened
 Plug 'ekalinin/Dockerfile.vim'

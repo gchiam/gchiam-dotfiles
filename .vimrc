@@ -37,6 +37,7 @@ source ~/.vimrc.d/vimrc-tagbar.vim
 source ~/.vimrc.d/vimrc-nerdtree.vim
 source ~/.vimrc.d/vimrc-indentguides.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
+source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 
 source ~/.vimrc.d/vimrc-startify.vim
 
