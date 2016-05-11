@@ -6,8 +6,8 @@
 nmap <silent> <C-M-G>  <Plug>GoldenViewSplit
 
 " 2. quickly switch current window with the main pane and toggle back
-nmap <silent> <C-M-F8> <Plug>GoldenViewSwitchMain
-nmap <silent> <C-M-F9> <Plug>GoldenViewSwitchToggle
+nmap <silent> <F8> <Plug>GoldenViewSwitchMain
+nmap <silent> <F9> <Plug>GoldenViewSwitchToggle
 
 " 3. jump to next and previous window
 nmap <silent> <C-M-N>  <Plug>GoldenViewNext

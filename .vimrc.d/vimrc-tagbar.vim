@@ -1,3 +1,3 @@
 " key bindings for tagbar plugin
 " ==============================
-nmap <F8> :TagbarToggle<CR>
+nmap <F6> :TagbarToggle<CR>
