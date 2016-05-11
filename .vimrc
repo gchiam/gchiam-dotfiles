@@ -10,6 +10,7 @@ source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
 source ~/.vimrc.d/vimrc-vim-choosewin.vim
+source ~/.vimrc.d/vimrc-golden-view.vim
 
 source ~/.vimrc.d/vimrc-copy-paste.vim
 
