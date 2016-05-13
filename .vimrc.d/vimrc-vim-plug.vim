@@ -9,6 +9,7 @@ Plug 'edkolev/promptline.vim'
 Plug 'vim-scripts/MultipleSearch2.vim'
 Plug 't9md/vim-choosewin'
 Plug 'zhaocai/GoldenView.Vim'
+Plug 'kopischke/vim-stay'
 
 Plug 'junegunn/vim-emoji'
 
