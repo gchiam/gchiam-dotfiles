@@ -9,7 +9,7 @@ let g:gruvbox_invert_selection=0
 let g:gruvbox_invert_signs=0
 let g:gruvbox_improved_strings=0
 let g:gruvbox_improved_warnings=1
-let g:gruvbox_vert_split='bg0'
+let g:gruvbox_vert_split='bg1'
 let g:gruvbox_color_column='bg1'
 let g:gruvbox_sign_column='bg1'
 colorscheme gruvbox
