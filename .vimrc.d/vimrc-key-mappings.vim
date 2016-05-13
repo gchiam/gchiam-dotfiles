@@ -39,6 +39,10 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" Move to begining of line
+nmap 0 ^
+" Move to end of line
+nmap . $
 
 " switch between tabs with Meta+1, Meta+2,...
 map <M-1> 1gt
