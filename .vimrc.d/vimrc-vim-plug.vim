@@ -82,7 +82,11 @@ Plug 'morhetz/gruvbox'
 "Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/neopairs.vim'
+Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'Konfekt/FastFold'
 
 Plug 'SirVer/ultisnips'
 

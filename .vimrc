@@ -26,6 +26,7 @@ source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-neomake.vim
 source ~/.vimrc.d/vimrc-jshint.vim
 source ~/.vimrc.d/vimrc-deoplete.vim
+source ~/.vimrc.d/vimrc-deoplete-jedi.vim
 source ~/.vimrc.d/vimrc-jedi.vim
 source ~/.vimrc.d/vimrc-vim-isort.vim
 
