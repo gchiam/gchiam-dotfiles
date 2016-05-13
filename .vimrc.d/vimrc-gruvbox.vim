@@ -9,14 +9,16 @@ let g:gruvbox_invert_selection=0
 let g:gruvbox_invert_signs=0
 let g:gruvbox_improved_strings=0
 let g:gruvbox_improved_warnings=1
-let g:gruvbox_vert_split='bg1'
+let g:gruvbox_vert_split='bg0'
 let g:gruvbox_color_column='bg1'
 let g:gruvbox_sign_column='bg1'
 colorscheme gruvbox
 
+highlight! link VertSplit GruvboxBg0
+
 if has('nvim')
   " dark0 + gray
-  let g:terminal_color_0 = "#282828"
+  let g:terminal_color_0 = "#32302F"
   let g:terminal_color_8 = "#928374"
 
   " neurtral_red + bright_red

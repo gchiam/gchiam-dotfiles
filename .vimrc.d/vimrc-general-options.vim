@@ -41,6 +41,8 @@ set incsearch
 set ignorecase
 set smartcase
 
+set fillchars=vert:\ 
+
 set hidden " required by vim-ctrlspace
 
 set nowrap " don't automatically wrap on load
