@@ -90,7 +90,8 @@ Plug 'Konfekt/FastFold'
 
 Plug 'SirVer/ultisnips'
 
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install --no-completion' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'vimlab/split-term.vim'
 
