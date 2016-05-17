@@ -9,6 +9,7 @@ Plug 'edkolev/promptline.vim'
 Plug 'vim-scripts/MultipleSearch2.vim'
 Plug 't9md/vim-choosewin'
 Plug 'zhaocai/GoldenView.Vim'
+Plug 'ctjhoa/spacevim'
 
 Plug 'junegunn/vim-emoji'
 
@@ -85,7 +86,7 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 Plug 'SirVer/ultisnips'
 
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install --no-completion' }
 
 Plug 'vimlab/split-term.vim'
 
