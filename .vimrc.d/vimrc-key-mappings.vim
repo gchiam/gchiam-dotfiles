@@ -61,6 +61,8 @@ map <M-9> 9gt
 if bufwinnr(1)
     map + <C-W>>
     map - <C-W><
+    map <M-+> 5<C-W>>
+    map <M--> 5<C-W><
 endif
 
 
