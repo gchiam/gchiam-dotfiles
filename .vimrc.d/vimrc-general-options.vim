@@ -41,7 +41,7 @@ set incsearch
 set ignorecase
 set smartcase
 
-set fillchars=vert:\ 
+" set fillchars=vert:⏐
 
 set hidden " required by vim-ctrlspace
 
