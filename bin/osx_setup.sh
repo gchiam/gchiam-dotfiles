@@ -20,6 +20,7 @@ brew install git
 brew install --HEAD mobile-shell
 brew install the_silver_searcher
 brew install tmux  # --HEAD
+brew install fzf
 gem install tmuxinator
 
 # install python2 & python3
