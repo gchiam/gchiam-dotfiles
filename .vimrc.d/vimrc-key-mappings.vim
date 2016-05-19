@@ -28,6 +28,12 @@ vmap Q gq
 nmap Q gqap
 
 
+" Use tab and shift-tab to cycle through windows.
+" http://howivim.com/2016/andy-stewart/
+nnoremap <Tab> <C-W>w
+nnoremap <S-Tab> <C-W>W
+
+
 " Movement
 " ========
 " bind Ctrl+<movement> keys to move around the windows, instead of using
