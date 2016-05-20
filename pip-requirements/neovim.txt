@@ -1,0 +1,13 @@
+pep8
+pep8radius
+pylint
+pyflakes
+flake8
+pylama
+pylama_pylint
+mccabe
+mccabe-console-script
+jedi
+isort
+radon
+neovim
