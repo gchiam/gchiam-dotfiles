@@ -8,7 +8,7 @@ map <Leader><c-b> Oimport pdb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>
 if has("unix")
   let s:uname = system("uname")
   let g:python3_host_prog=$HOME . '/Envs/neovim-py3/bin/python3'
-  let g:python_host_prog=$HOME . '/Envs/neovim-py3/bin/python'
+  let g:python_host_prog=$HOME . '/Envs/neovim-py2/bin/python'
   " if s:uname == "Darwin\n"
   "  let g:python_host_prog='/usr/local/bin/python'  " found via `which python`
   "endif
