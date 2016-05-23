@@ -22,6 +22,7 @@ brew install the_silver_searcher
 brew install tmux  # --HEAD
 brew install fzf
 gem install tmuxinator
+gem install grepg
 
 # install python2 & python3
 brew install python
