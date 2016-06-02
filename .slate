@@ -11,6 +11,8 @@ config windowHintsIgnoreHiddenWindows true
 
 # Abstract positions
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias top-half move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottom-half move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 alias left-half move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias right-half move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias top-half move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
