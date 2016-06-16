@@ -1,6 +1,5 @@
 # vim: set filetype=sh:
 
-
 export PATH
 
 export EDITOR="`which nvim`"
@@ -9,10 +8,6 @@ export LESS=' -R -X -F '
 export LESSOPEN="| pygmentize %s"
 
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
-
-(test -d ~/work && WORK=~/work) || test -d /work && WORK=/work || WORK=~/
-export WORK
-alias W="cd $WORK"
 
 
 ###############################################################################
