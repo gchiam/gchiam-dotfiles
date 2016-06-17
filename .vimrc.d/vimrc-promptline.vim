@@ -1,13 +1,13 @@
 "https://github.com/edkolev/promptline.vim
 "
 let g:promptline_theme = {
-        \'a'      : [241, 166],
-        \'b'      : [241, 4],
-        \'c'      : [7, 245],
-        \'x'      : [7, 243],
-        \'y'      : [243, 6],
-        \'z'      : [243, 14],
-        \'warn'   : [15, 1]}
+        \'a'      : [239, 4],
+        \'b'      : [241, 12],
+        \'c'      : [239, 245],
+        \'x'      : [239, 243],
+        \'y'      : [239, 6],
+        \'z'      : [239, 14],
+        \'warn'   : [239, 9]}
 
 let g:promptline_preset = {
     \'a' : [ promptline#slices#host() ],
