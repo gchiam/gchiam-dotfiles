@@ -9,3 +9,4 @@
 .tmux/plugins/tmux*
 .vim/plugged/*
 .vim/.init.vim-rplugin~
+.config/fish/functions/fzf_key_bindings.fish
