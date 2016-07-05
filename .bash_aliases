@@ -48,6 +48,8 @@ alias gl="git log"
 alias glg="git lg"
 alias gm="git checkout master"
 
+alias testgithub="ssh -T git@github.com"
+
 # ag related shortcuts
 alias agpy="ag --python"
 alias agjs="ag --js"
