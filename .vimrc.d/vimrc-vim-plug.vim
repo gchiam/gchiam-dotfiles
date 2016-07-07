@@ -65,6 +65,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
 Plug 'guns/xterm-color-table.vim'
+Plug 'sunaku/vim-hicterm'
 
 Plug 'morhetz/gruvbox'
 
