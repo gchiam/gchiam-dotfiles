@@ -64,6 +64,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'terryma/vim-expand-region'
 Plug 'khzaw/vim-conceal'
 Plug 'junegunn/vim-plug'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'sunaku/vim-hicterm'
 
