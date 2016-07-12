@@ -56,6 +56,8 @@ alias agjs="ag --js"
 alias aghtml="ag --html"
 
 # python related shortcuts
+alias mkvirtualenv2="mkvirtualenv -p `which python2`"
+alias mkvirtualenv3="mkvirtualenv -p `which python3`"
 alias rmpyc="find . -name \*.pyc -exec rm {} \;"
 
 # Django related shortcuts
