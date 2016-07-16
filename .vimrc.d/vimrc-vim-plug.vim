@@ -46,9 +46,8 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Loaded when javascript file is opened
-Plug 'wookiehangover/jshint.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx'
 
 " For tmux.conf
 Plug 'tmux-plugins/vim-tmux'
