@@ -14,19 +14,7 @@ export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 # virtualenvwrapper
 ###############################################################################
 export WORKON_HOME=~/Envs
-if [ -f  /usr/bin/virtualenvwrapper_lazy.sh ]; then
-    source /usr/bin/virtualenvwrapper_lazy.sh
-elif [ -f  /usr/bin/virtualenvwrapper.sh ]; then
-    source /usr/bin/virtualenvwrapper.sh
-elif [ -f  $HOME/.linuxbrew/virtualenvwrapper_lazy.sh ]; then
-    source $HOME/.linuxbrew/virtualenvwrapper_lazy.sh
-elif [ -f  $HOME/.linuxbrew/virtualenvwrapper.sh ]; then
-    source $HOME/.linuxbrew/virtualenvwrapper.sh
-elif [ -f  /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
-    source /usr/local/bin/virtualenvwrapper_lazy.sh
-elif [ -f  /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+. ~/.bash_virtualenv_wrapper
 
 
 if [ -f /usr/libexec/java_home ]; then
