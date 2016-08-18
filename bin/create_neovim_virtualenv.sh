@@ -1,9 +1,19 @@
-mkvirtualenv -p `which python2` neovim-py2; workon neovim-py2
-pip install -U pip
-pip install -U -r pip-requirements/neovim.txt
-deactivate
+# vim: set filetype=sh:
 
-mkvirtualenv -p `which python3` neovim-py3; workon neovim-py3
-pip install -U pip
-pip install -U -r pip-requirements/neovim.txt
-deactivate
+
+. ~/.bash_virtualenvwrapper
+
+make_venv() {
+    venv_name="$1"
+    venv_dir="${WORKON_HOME}/${venv_name}"
+
+    test -e ${venv_dir} && rm -rf ${venv_dir}
+
+    mkvirtualenv -p `which python2` ${venv_name}
+    PIP="${venv_dir}/bin/pip"
+    $PIP install -U pip
+    $PIP install -U -r pip-requirements/neovim.txt
+}
+
+make_venv neovim-py2
+make_venv neovim-py3
