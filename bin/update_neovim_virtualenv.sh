@@ -1,8 +1,6 @@
 # vim: set filetype=sh:
 
 
-. ~/.bash_virtualenvwrapper
-
 update_env() {
     venv_name="$1"
     venv_dir="${WORKON_HOME}/${venv_name}"
