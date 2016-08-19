@@ -28,6 +28,7 @@ ln -snvf $DOTFILES_DIR/.vimrc $HOME/
 ln -snvf $DOTFILES_DIR/.vimrc.d $HOME/
 ln -snvf $DOTFILES_DIR/.nvim $HOME/
 ln -snvf $DOTFILES_DIR/.nvimrc $HOME/
+ln -snvf $DOTFILES_DIR/.ptpython $HOME/
 ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
 ln -snvf $DOTFILES_DIR/.Xresources $HOME/
 ln -snvf $DOTFILES_DIR/.promptline.sh $HOME/
