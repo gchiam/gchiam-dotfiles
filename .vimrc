@@ -23,6 +23,7 @@ source ~/.vimrc.d/vimrc-tmuxline.vim
 source ~/.vimrc.d/vimrc-promptline.vim
 
 source ~/.vimrc.d/vimrc-python.vim
+source ~/.vimrc.d/vimrc-simpyl-fold.vim
 source ~/.vimrc.d/vimrc-neomake.vim
 source ~/.vimrc.d/vimrc-jshint.vim
 source ~/.vimrc.d/vimrc-deoplete.vim
