@@ -14,6 +14,7 @@ ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.bash_motd $HOME/
 ln -snvf $DOTFILES_DIR/.bash_private $HOME/
 ln -snvf $DOTFILES_DIR/.bash_virtualenvwrapper $HOME/
+ln -snvf $DOTFILES_DIR/.inputrc $HOME/
 ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
 ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
