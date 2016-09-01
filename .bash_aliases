@@ -17,6 +17,8 @@ alias la='ls -A'  # directories and files incl. hidden in columns
 alias ll='ls -ahlF'  # everything with extra info as a list
 alias lsd='ls -l | grep "^d"'  # only directories as a list
 
+# pretty cat
+alias prettycat='pygmentize <'
 
 # Personal shortcuts
 alias e="cd ~/Envs"
