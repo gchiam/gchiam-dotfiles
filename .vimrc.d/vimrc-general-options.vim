@@ -59,3 +59,4 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 
 source ~/.vimrc.d/vimrc-tabs.vim
+source ~/.vimrc.d/vimrc-terminal.vim
