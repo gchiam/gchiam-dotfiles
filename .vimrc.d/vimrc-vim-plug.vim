@@ -88,7 +88,6 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'Konfekt/FastFold'
 
 " Plug 'SirVer/ultisnips'
 
