@@ -14,6 +14,8 @@ set colorcolumn=80
 
 source ~/.vimrc.d/vimrc-gruvbox.vim
 
+highlight TermCursor ctermfg=red guifg=red
+
 " Making background transparent
 " https://www.reddit.com/r/neovim/comments/3v06lo/making_the_background_transparent/
 " highlight Normal guibg=none
