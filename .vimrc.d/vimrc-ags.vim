@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 "" Settings for Ags
 " =================
 let g:ags_agargs = {

@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for Copy & Paste
 " =========================
 

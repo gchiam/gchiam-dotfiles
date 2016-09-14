@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " UltiSnips
 " =========
 set runtimepath+=~/.vim/bundle/UltiSnips

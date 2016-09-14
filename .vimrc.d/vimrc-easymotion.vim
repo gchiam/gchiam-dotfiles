@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for vim-easymotion
 " ===========================
 let g:EasyMotion_do_mapping = 1 " Disable default mappings

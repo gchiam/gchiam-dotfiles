@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " key bindings for Tabular plugin
 " ===============================
 nmap <Leader>t= :Tabularize /=<CR>

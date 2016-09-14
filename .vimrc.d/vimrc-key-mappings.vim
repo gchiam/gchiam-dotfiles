@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let mapleader = "\<Space>" " rebind <Leader> key
 nnoremap . <NOP>
 

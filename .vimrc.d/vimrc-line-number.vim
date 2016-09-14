@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Setting for displaying line numbers
 " ===================================
 

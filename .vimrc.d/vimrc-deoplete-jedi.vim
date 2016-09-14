@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " zchee/deoplete-jedi
 " deoplete.nvim source for Python
 " https://github.com/zchee/deoplete-jedi

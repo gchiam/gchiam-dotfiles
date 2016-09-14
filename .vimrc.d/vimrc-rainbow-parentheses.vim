@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Better Rainbow Parentheses
 " https://github.com/kien/rainbow_parentheses.vim
 

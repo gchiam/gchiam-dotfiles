@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Extra Whitespace
 " ================
 

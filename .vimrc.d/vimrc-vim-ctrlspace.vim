@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " https://github.com/vim-ctrlspace/vim-ctrlspace
 "
 "

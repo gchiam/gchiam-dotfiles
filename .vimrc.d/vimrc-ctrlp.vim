@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for ctrlp
 " ===================
 let g:ctrlp_max_height = 30

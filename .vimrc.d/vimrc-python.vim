@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Mapping keys to set python breakpoints
 " "======================================
 map <Leader>B Oimport ipdb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>

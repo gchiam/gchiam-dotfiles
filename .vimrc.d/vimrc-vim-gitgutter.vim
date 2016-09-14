@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " https://github.com/airblade/vim-gitgutter
 "
 let g:gitgutter_sign_added = '+'

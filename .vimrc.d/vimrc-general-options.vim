@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " General option
 " ===============
 set wildmode=list:longest  " make TAB behave like in a shell

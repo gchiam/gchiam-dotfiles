@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for Airline
 " ====================
 let g:airline_theme = 'gruvbox'

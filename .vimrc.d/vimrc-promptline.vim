@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 "https://github.com/edkolev/promptline.vim
 "
 let g:promptline_theme = {

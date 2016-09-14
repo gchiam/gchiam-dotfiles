@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " vimlab/split-term.vim
 " Utilites around neovim's :terminal.
 " https://github.com/vimlab/split-term.vim

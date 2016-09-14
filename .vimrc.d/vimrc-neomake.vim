@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for Neomake
 " ===================
 let g:neomake_open_list = 2

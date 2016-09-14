@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " based on https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.vimrc"
 "
 " ========================================================================

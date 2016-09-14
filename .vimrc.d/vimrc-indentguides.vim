@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " IndentGuides
 " ==========================
 let g:indent_guides_auto_colors = 1

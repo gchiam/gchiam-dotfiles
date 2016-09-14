@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Always have a nice view for vim split windows!
 " https://github.com/zhaocai/GoldenView.Vim
 

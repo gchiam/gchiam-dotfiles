@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for jedi-vim
 " =====================
 let g:jedi#completions_enabled = 0

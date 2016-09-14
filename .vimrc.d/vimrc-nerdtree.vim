@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " NerdTree
 " ========
 map <Leader>nt :NERDTreeToggle<CR>

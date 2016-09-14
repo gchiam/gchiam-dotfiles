@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " vim-expand-region
 " =================
 " Hit v to select one character

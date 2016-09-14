@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for Syntastic
 " ======================
 let g:syntastic_always_populate_loc_list = 1

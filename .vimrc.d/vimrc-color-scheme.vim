@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Color scheme
 " =============
 set background=dark

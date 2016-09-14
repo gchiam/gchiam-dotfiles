@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+
 " Settings for vim-markdown
 " ==========================
 " let g:vim_markdown_folding_disabled=1
