@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-let mapleader = "\<Space>" " rebind <Leader> key
+let g:mapleader = "\<Space>" " rebind <Leader> key
 nnoremap . <NOP>
 
 " disable formatting when pasting large chunks of code
@@ -129,12 +129,12 @@ nmap <Leader><Leader>D <esc>:diffoff<CR> <esc>:set cursorline cursorcolumn<CR>
 " Tmux-like window resizing
 function! IsEdgeWindowSelected(direction)
     let l:curwindow = winnr()
-    exec "wincmd ".a:direction
+    exec 'wincmd '.a:direction
     let l:result = l:curwindow == winnr()
 
     if (!l:result)
         " Go back to the previous window
-        exec l:curwindow."wincmd w"
+        exec l:curwindow.'wincmd w'
     endif
 
     return l:result
@@ -154,7 +154,7 @@ endfunction
 
 function! TmuxResize(direction, amount)
     " v >
-    if (a:direction == 'j' || a:direction == 'l')
+    if (a:direction ==# 'j' || a:direction ==# 'l')
         if IsEdgeWindowSelected(a:direction)
             let l:opposite = GetOpposite(a:direction)
             let l:curwindow = winnr()
@@ -165,7 +165,7 @@ function! TmuxResize(direction, amount)
             return
         endif
     " < ^
-    elseif (a:direction == 'h' || a:direction == 'k')
+    elseif (a:direction ==# 'h' || a:direction ==# 'k')
         let l:opposite = GetOpposite(a:direction)
         if IsEdgeWindowSelected(l:opposite)
             let l:curwindow = winnr()
