@@ -4,7 +4,11 @@ scriptencoding utf-8
 " Settings for Neomake
 " ===================
 let g:neomake_open_list = 2
-map <F7> <esc>:Neomake<CR>
+
+nnoremap <F7> :Neomake<CR>
+inoremap <F7> <C-O>:Neomake<CR>
+vnoremap <F7> :Neomake<CR>
+
 let g:neomake_python_pylama_maker = {
     \ 'args': [
     \   '--verbose',
