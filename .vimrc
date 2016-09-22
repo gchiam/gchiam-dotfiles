@@ -16,6 +16,7 @@ source ~/.vimrc.d/vimrc-vim-choosewin.vim
 source ~/.vimrc.d/vimrc-golden-view.vim
 source ~/.vimrc.d/vimrc-split-term.vim
 source ~/.vimrc.d/vimrc-vim-stay.vim
+source ~/.vimrc.d/vimrc-winteract.vim
 
 source ~/.vimrc.d/vimrc-copy-paste.vim
 

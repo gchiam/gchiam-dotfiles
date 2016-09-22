@@ -106,11 +106,6 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 " set cursorline cursorcolumn
 
 
-" Line wrapping
-" =============
-nnoremap <Leader>W :set wrap!<CR>
-
-
 " center the cursor vertically
 " ============================
 nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>

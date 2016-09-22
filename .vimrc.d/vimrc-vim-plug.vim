@@ -12,6 +12,7 @@ Plug 'edkolev/promptline.vim'
 Plug 't9md/vim-choosewin'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'kopischke/vim-stay'
+Plug 'romgrk/winteract.vim'
 
 Plug 'junegunn/vim-emoji'
 
