@@ -49,10 +49,6 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
-" Loaded when javascript file is opened
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx'
-
 " For tmux.conf
 Plug 'tmux-plugins/vim-tmux'
 
