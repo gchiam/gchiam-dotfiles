@@ -49,9 +49,6 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'tmux-plugins/vim-tmux'
 
 Plug 'Lokaltog/vim-easymotion'
-Plug 'rodjek/vim-puppet'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'honza/vim-snippets'
 Plug 'gabesoft/vim-ags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
@@ -65,24 +62,10 @@ Plug 'sunaku/vim-hicterm'
 
 Plug 'morhetz/gruvbox'
 
-
-"function! BuildYCM(info)
-"  " info is a dictionary with 3 fields
-"  " - name:   name of the plugin
-"  " - status: 'installed', 'updated', or 'unchanged'
-"  " - force:  set on PlugInstall! or PlugUpdate!
-"  if a:info.status == 'installed' || a:info.force
-"    !./install.py
-"  endif
-"endfunction
-
-"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
 Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
-Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neopairs.vim'
-Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/echodoc.vim'
 
 " Plug 'SirVer/ultisnips'
 
