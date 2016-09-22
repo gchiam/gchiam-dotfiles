@@ -50,6 +50,3 @@ source ~/.vimrc.d/vimrc-startify.vim
 source ~/.vimrc.d/vimrc-color-scheme.vim
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
 source ~/.vimrc.d/vimrc-rainbow-parentheses.vim
-
-
-source ~/.vimrc.d/vimrc-braceless.vim

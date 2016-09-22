@@ -43,7 +43,6 @@ Plug 'tmux-plugins/vim-tmux'
 
 " Loaded when python file is opened
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'tweekmonster/braceless.vim', { 'for': 'python' }
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 Plug 'Shutnik/jshint2.vim', { 'for': 'javascript' }
