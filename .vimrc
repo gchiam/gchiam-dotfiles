@@ -33,7 +33,6 @@ source ~/.vimrc.d/vimrc-deoplete.vim
 source ~/.vimrc.d/vimrc-jedi.vim
 source ~/.vimrc.d/vimrc-vim-isort.vim
 
-source ~/.vimrc.d/vimrc-markdown.vim
 source ~/.vimrc.d/vimrc-ultisnips.vim
 source ~/.vimrc.d/vimrc-vim-ctrlspace.vim
 
