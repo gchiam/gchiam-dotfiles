@@ -69,8 +69,6 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 
-" Plug 'SirVer/ultisnips'
-
 Plug 'junegunn/fzf.vim'
 
 Plug 'vimlab/split-term.vim'
