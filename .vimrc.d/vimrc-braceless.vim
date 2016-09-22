@@ -1,4 +1,6 @@
 scriptencoding utf-8
 
 
-autocmd FileType haml,yaml,coffee BracelessEnable +indent +fold +highlight
+augroup BraceLess
+    autocmd FileType python,yaml,coffee BracelessEnable +indent +highlight
+augroup END
