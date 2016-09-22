@@ -33,6 +33,9 @@ Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 
+" A solid language pack for Vim
+Plug 'sheerun/vim-polyglot'
+
 " Loaded when Dockerfile is opened
 Plug 'ekalinin/Dockerfile.vim'
 
