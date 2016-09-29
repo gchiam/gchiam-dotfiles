@@ -16,7 +16,7 @@ vnoremap <Leader>w <C-C>:update<CR>
 " Quick quit command
 " ==================
 noremap <Leader>q <esc>:quit<CR>
-noremap <Leader>Q <esc>:quit!<CR>
+noremap <Leader>Q <esc>:quitall<CR>
 
 
 " Bind nohl
