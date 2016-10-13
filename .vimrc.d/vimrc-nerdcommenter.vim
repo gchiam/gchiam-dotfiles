@@ -26,5 +26,5 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 
-map <leader>\ :call NERDComment('nx', 'Toggle')<CR>
+map <leader>// :call NERDComment('nx', 'Toggle')<CR>
 map <leader>/ :call NERDComment('nx', 'Invert')<CR>
