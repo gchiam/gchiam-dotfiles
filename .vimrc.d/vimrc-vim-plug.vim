@@ -32,6 +32,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'solars/github-vim'
 
 " A solid language pack for Vim
 Plug 'sheerun/vim-polyglot'
