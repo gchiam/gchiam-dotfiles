@@ -30,4 +30,5 @@ let g:neomake_python_pylint_maker = {
 " let g:neomake_python_enabled_makers = ['python', 'frosted', 'pylama' ]
 augroup neomake
     autocmd! BufWritePost * Neomake
+    autocmd ColorScheme * hi NeomakeWarningSign ctermfg=yellow
 augroup END
