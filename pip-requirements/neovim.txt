@@ -1,6 +1,6 @@
 pep8
 pep8radius
-pylint
+pylint==1.5.4
 pyflakes
 flake8
 pylama
