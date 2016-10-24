@@ -35,6 +35,8 @@ Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'solars/github-vim'
 
+Plug 'matze/vim-move'
+
 " A solid language pack for Vim
 Plug 'sheerun/vim-polyglot'
 
