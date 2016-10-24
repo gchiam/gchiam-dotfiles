@@ -11,10 +11,11 @@ vnoremap <F7> :Neomake<CR>
 
 let g:neomake_python_pylama_maker = {
     \ 'args': [
-    \   '--verbose',
-    \   '--linters="pep8,pylint,pyflakes,pep257,mccabe"',
+    \   '--format=pep8',
+    \   '--linters=pep8,pylint,pep257,mccabe',
     \   '--ignore=W191,D203,D206,C0330,W0312'
     \   ],
+    \ 'errorformat': '%f:%l:%c: %t%m',
     \ }
 let g:neomake_python_pep8_maker = {
     \ 'args': [
@@ -26,5 +27,7 @@ let g:neomake_python_pylint_maker = {
     \   '--ignore=C0330,W0312'
     \   ],
     \ }
-let g:neomake_python_enabled_makers = ['pylama', 'pep8', 'pylint', 'pyflakes']
-autocmd! BufWritePost * Neomake
+" let g:neomake_python_enabled_makers = ['python', 'frosted', 'pylama' ]
+augroup neomake
+    autocmd! BufWritePost * Neomake
+augroup END
