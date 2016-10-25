@@ -14,6 +14,7 @@ source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
 source ~/.vimrc.d/vimrc-vim-choosewin.vim
 source ~/.vimrc.d/vimrc-golden-view.vim
+source ~/.vimrc.d/vimrc-neoterm.vim
 source ~/.vimrc.d/vimrc-split-term.vim
 source ~/.vimrc.d/vimrc-vim-stay.vim
 source ~/.vimrc.d/vimrc-winteract.vim

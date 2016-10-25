@@ -76,5 +76,6 @@ Plug 'Shougo/echodoc.vim'
 Plug 'junegunn/fzf.vim'
 
 Plug 'vimlab/split-term.vim'
+Plug 'kassio/neoterm'
 
 call plug#end()
