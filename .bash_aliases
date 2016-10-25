@@ -30,6 +30,7 @@ alias sbrc="source ~/.bashrc"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias nvim_update_plugins="nvim +PlugUpdate +PlugClean +PlugDiff +UpdateRemotePlugins"
 alias cleanpyc='find . -name \*.pyc -print -delete'
 
 #https://www.reddit.com/r/neovim/comments/3hz2zv/how_to_accomodate_a_mental_failing_alias_envim/
