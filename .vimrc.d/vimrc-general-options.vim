@@ -26,9 +26,27 @@ let g:html_indent_style1 = "inc"
 set mouse=a
 set bs=2 " make backspace behave like normal again
 set timeoutlen=500
+set wildignore+=*.a
+set wildignore+=*.class
+set wildignore+=*.gif
+set wildignore+=*.jpg
+set wildignore+=*.la
+set wildignore+=*.mo
+set wildignore+=*.o
+set wildignore+=*.obj
+set wildignore+=*.png
 set wildignore+=*.pyc
-set wildignore+=*_build/*
+set wildignore+=*.so
+set wildignore+=*.swp
+set wildignore+=*.tags
+set wildignore+=*.xpm
 set wildignore+=*/coverage/*
+set wildignore+=*_build/*
+set wildignore+=.git
+set wildignore+=.svn
+set wildignore+=CVS
+set wildignore+=tags
+
 "
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
