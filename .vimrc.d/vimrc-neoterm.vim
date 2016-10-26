@@ -31,6 +31,5 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " ptpython command
 command! Tp :T ptpython
 
-
 " Git commands
-command! -nargs=+ Tg :T git <args:>
+command! -nargs=+ Tg :T git <args>
