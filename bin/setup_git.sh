@@ -29,6 +29,7 @@ git config --global alias.unstage "reset HEAD --"
 
 git config --global alias.last "log -1 HEAD"
 
+# diff
 git config --global diff.tool "vimdiff"
 git config --global diff.guitool "opendiff"
 git config --global difftool.prompt "no"
@@ -40,3 +41,25 @@ git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$
 
 git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
 git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
+
+# colors
+git config --global color.ui "true"
+git config --global color.pager "true"
+
+git config --global color.branch.current "green bold"
+git config --global color.branch.local "normal"
+git config --global color.branch.remote "blue bold"
+git config --global color.branch.plain "normal"
+git config --global color.diff.meta "yellow"
+git config --global color.diff.frag "cyan reverse"
+git config --global color.diff.old "red bold"
+git config --global color.diff.new "green bold"
+git config --global color.diff.plain "normal"
+git config --global color.diff.commit "magenta reverse"
+git config --global color.diff.whitespace "normal"
+git config --global color.grep.match "yellow bold"
+git config --global color.status.header "normal"
+git config --global color.status.added "green bold"
+git config --global color.status.changed "red bold"
+git config --global color.status.untracked "yellow"
+git config --global color.status.nobranch "cyan"
