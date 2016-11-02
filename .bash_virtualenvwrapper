@@ -5,6 +5,10 @@ if [ -f  /usr/bin/virtualenvwrapper_lazy.sh ]; then
     source /usr/bin/virtualenvwrapper_lazy.sh
 elif [ -f  /usr/bin/virtualenvwrapper.sh ]; then
     source /usr/bin/virtualenvwrapper.sh
+elif [ -f  $HOME/.local/bin/virtualenvwrapper_lazy.sh ]; then
+    source $HOME/.local/bin/virtualenvwrapper_lazy.sh
+elif [ -f  $HOME/.local/bin/virtualenvwrapper.sh ]; then
+    source $HOME/.local/bin/virtualenvwrapper.sh
 elif [ -f  $HOME/.linuxbrew/bin/virtualenvwrapper_lazy.sh ]; then
     source $HOME/.linuxbrew/bin/virtualenvwrapper_lazy.sh
 elif [ -f  $HOME/.linuxbrew/bin/virtualenvwrapper.sh ]; then
