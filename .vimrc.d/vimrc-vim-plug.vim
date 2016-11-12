@@ -74,6 +74,7 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 
 Plug 'junegunn/fzf.vim'
+Plug 'cloudhead/neovim-fuzzy'
 
 Plug 'vimlab/split-term.vim'
 Plug 'kassio/neoterm'
