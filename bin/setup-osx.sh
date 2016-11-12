@@ -19,6 +19,7 @@ brew install wget
 brew install git
 brew install --HEAD mobile-shell
 brew install the_silver_searcher
+brew install ripgrep
 brew install tmux  # --HEAD
 brew install fzf
 

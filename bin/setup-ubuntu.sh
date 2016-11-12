@@ -33,6 +33,7 @@ popd
 brew install golang
 brew install tig
 brew install the_silver_searcher
+brew install ripgrep
 brew install tmux --HEAD
 brew install node.js
 brew install docker
