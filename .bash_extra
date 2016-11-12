@@ -11,7 +11,16 @@ source $DOTFILES_DIR/set_gruvbox_256palette.sh
 # fzf
 # https://github.com/junegunn/fzf
 # Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=fg:15,hl:3,hl+:11,fg+:7,bg+:4,prompt:7,pointer:7,info:6,header:3  --algo=v2"
