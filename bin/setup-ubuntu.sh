@@ -44,6 +44,10 @@ brew install --HEAD --with-release neovim
 
 brew install fpp
 brew install fzf
+
+brew tap jhawthorn/fzy
+brew install fzy
+
 brew install diff-so-fancy
 
 brew install cowsay

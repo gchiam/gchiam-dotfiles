@@ -21,6 +21,10 @@ brew install --HEAD mobile-shell
 brew install the_silver_searcher
 brew install tmux  # --HEAD
 brew install fzf
+
+brew tap jhawthorn/fzy
+brew install fzy
+
 gem install tmuxinator
 gem install grepg
 
