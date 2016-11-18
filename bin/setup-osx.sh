@@ -26,8 +26,8 @@ brew install fzf
 brew tap jhawthorn/fzy
 brew install fzy
 
-gem install tmuxinator
-gem install grepg
+/usr/local/bin/gem install tmuxinator
+/usr/local/bin/gem install grepg
 
 # install python2 & python3
 brew install python
