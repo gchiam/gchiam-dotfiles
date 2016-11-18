@@ -71,7 +71,7 @@ brew cask install brackets
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew install docker
-brew install docker-machineo
+brew install docker-machine
 brew install docker-compose
 
 # install anvil
