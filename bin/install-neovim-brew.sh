@@ -3,4 +3,4 @@
 brew tap neovim/homebrew-neovim
 brew install --HEAD --with-release neovim
 
-gem install neovim
+/usr/local/bin/gem install neovim
