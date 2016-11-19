@@ -53,7 +53,7 @@ brew install --HEAD mobile-shell
 # development
 # ~~~~~~~~~~~
 
-brew cask install --HEAD iterm2-beta
+brew cask install iterm2
 brew install diff-so-fancy
 brew install ctags
 
