@@ -136,6 +136,10 @@ brew cask install spotify
 brew install fontforge ttf2eot ttfautohint
 
 
+brew cask install adobe-creative-cloud
+brew cask install adobe-creative-cloud-cleaner-tool
+
+
 # references:
 # * https://gist.github.com/kevinelliott/0726211d17020a6abc1f
 # * https://gist.github.com/kevinelliott/e12aa642a8388baf2499
