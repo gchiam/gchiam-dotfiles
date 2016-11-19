@@ -414,7 +414,7 @@
 		</dict>
 	</dict>
 	<key>Default Bookmark Guid</key>
-	<string>B31883B6-5D92-4A6A-B6C6-CEDFBB1A3053</string>
+	<string>F6A14B17-18C2-4D0F-904C-BDCBEF0006A1</string>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
@@ -454,14 +454,15 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1409 82 445 77 0 0 1920 1177 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 93 606 456 0 0 1920 1177 </string>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>484 215 796 473 0 0 1920 1177 </string>
+	<string>269 192 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>552 659 570 402 0 0 1920 1177 </string>
+	<string>718 110 1130 858 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -761,7 +762,7 @@
 				<real>0.92156862745098</real>
 			</dict>
 			<key>Guid</key>
-			<string>B31883B6-5D92-4A6A-B6C6-CEDFBB1A3053</string>
+			<string>F6A14B17-18C2-4D0F-904C-BDCBEF0006A1</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>Idle Code</key>
@@ -1154,17 +1155,9 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>9CA8A657-CD75-4A49-A98B-A25D5DF6DE8B</string>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
+	<string>45E0B8E0-89E7-4DAC-A3AB-BC93F78770D3</string>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>501175480.271595</real>
-	<key>OpenArrangementAtStartup</key>
-	<false/>
-	<key>OpenNoWindowsAtStartup</key>
-	<false/>
+	<real>501221035.28106499</real>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1205,15 +1198,13 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=92</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=71</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-11-18T15:25:18Z</date>
+	<date>2016-11-19T04:25:08Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
-	<key>SmartPlacement</key>
-	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
