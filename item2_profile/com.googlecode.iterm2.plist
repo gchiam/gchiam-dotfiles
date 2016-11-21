@@ -459,8 +459,10 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>160 1809 445 103 -752 1200 2560 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 192 796 473 0 0 1920 1177 </string>
+	<string>-330 1367 796 473 -752 1200 2560 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>718 110 1130 858 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
@@ -674,10 +676,14 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Blink Allowed</key>
+			<false/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
+			<key>Blur Radius</key>
+			<real>8.9932992788461537</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -764,7 +770,7 @@
 			<key>Guid</key>
 			<string>F6A14B17-18C2-4D0F-904C-BDCBEF0006A1</string>
 			<key>Horizontal Spacing</key>
-			<real>1</real>
+			<real>0.91992775790662651</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -1080,6 +1086,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>NotoMono 12</string>
+			<key>Open Toolbelt</key>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1130,8 +1138,10 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>2</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.076927699704142011</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1202,7 +1212,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-11-19T04:25:08Z</date>
+	<date>2016-11-20T14:16:55Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>WordCharacters</key>
