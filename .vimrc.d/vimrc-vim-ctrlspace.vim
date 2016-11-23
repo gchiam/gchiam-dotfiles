@@ -11,7 +11,7 @@ scriptencoding utf-8
 if executable('rg')
     let g:CtrlSpaceGlobCommand = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 elseif executable('ag')
-    let g:CtrlSpaceGlobCommand = 'ag -S --nocolor --hidden -g ""'
+    let g:CtrlSpaceGlobCommand = 'ag -S --nocolor --hidden --ignore-dir=.git -g ""'
 endif
 
 
