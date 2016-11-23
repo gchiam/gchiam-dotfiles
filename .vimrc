@@ -35,7 +35,6 @@ source ~/.vimrc.d/vimrc-deoplete.vim
 source ~/.vimrc.d/vimrc-jedi.vim
 source ~/.vimrc.d/vimrc-vim-isort.vim
 
-source ~/.vimrc.d/vimrc-vim-ctrlspace.vim
 source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-fzy.vim
 

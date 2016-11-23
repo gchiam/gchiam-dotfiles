@@ -4,7 +4,6 @@ scriptencoding utf-8
 call plug#begin('~/.vim/plugged')
 
 Plug 'benekastah/neomake'
-Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
