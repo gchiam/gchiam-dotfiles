@@ -8,7 +8,11 @@ scriptencoding utf-8
 " Another important setting is the Glob command. This command is used to
 " collect all files in your project directory. Specifically, ag is recommended,
 " as it respects .gitignore rules and is really fast.
-let g:CtrlSpaceGlobCommand = 'ag -S --nocolor --hidden -g ""'
+if executable('rg')
+    let g:CtrlSpaceGlobCommand = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+elseif executable('ag')
+    let g:CtrlSpaceGlobCommand = 'ag -S --nocolor --hidden -g ""'
+endif
 
 
 " Search Timing
