@@ -3,18 +3,25 @@ scriptencoding utf-8
 
 " Always have a nice view for vim split windows!
 " https://github.com/zhaocai/GoldenView.Vim
+"
+let g:goldenview__enable_default_mapping = 0
+let g:goldenview__enable_at_startup = 1
 
 
 " Split to tiled windows
-nmap <silent> <C-M-G>  <Plug>GoldenViewSplit
+nmap <M-g>  <Plug>GoldenViewSplit
 
 " Quickly switch current window with the main pane and toggle back
-nmap <silent> <F8> <Plug>GoldenViewSwitchMain
-nmap <silent> <F9> <Plug>GoldenViewSwitchToggle
+nmap <M-m> <Plug>GoldenViewSwitchMain
+nmap <M-t> <Plug>GoldenViewSwitchToggle
+
+nmap <M-l> <Plug>GoldenViewSwitchWithLargest
+nmap <M-s> <Plug>GoldenViewSwitchWithSmallest
 
 " Jump to next and previous window
-nmap <silent> <C-M-N>  <Plug>GoldenViewNext
-nmap <silent> <C-M-P>  <Plug>GoldenViewPrevious
+nmap <leader>n <Plug>GoldenViewNext
+nmap <leader>p <Plug>GoldenViewPrevious
+nmap <M-tab> <Plug>GoldenViewNext
 
 "
-nmap <silent> <F5> <Plug>GoldenViewResize
+nmap <F5> <Plug>GoldenViewResize
