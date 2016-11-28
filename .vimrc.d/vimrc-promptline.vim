@@ -4,13 +4,13 @@ scriptencoding utf-8
 "https://github.com/edkolev/promptline.vim
 "
 let g:promptline_theme = {
-        \'a'      : [239, 4],
-        \'b'      : [235, 12],
-        \'c'      : [15, 245],
-        \'x'      : [234, 5],
-        \'y'      : [234, 3],
-        \'z'      : [239, 14],
-        \'warn'   : [239, 9]}
+        \'a'      : [0, 12],
+        \'b'      : [0, 4],
+        \'c'      : [0, 7],
+        \'x'      : [0, 13],
+        \'y'      : [0, 3],
+        \'z'      : [0, 6],
+        \'warn'   : [0, 9]}
 
 let g:promptline_preset = {
     \'a' : [ promptline#slices#host() ],
