@@ -3,7 +3,8 @@ scriptencoding utf-8
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
+Plug 'milkypostman/vim-togglelist'
 Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
