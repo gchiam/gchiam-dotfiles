@@ -22,6 +22,7 @@ source ~/.vimrc.d/vimrc-winteract.vim
 source ~/.vimrc.d/vimrc-copy-paste.vim
 
 source ~/.vimrc.d/vimrc-line-number.vim
+source ~/.vimrc.d/vimrc-vim-togglelist.vim
 
 source ~/.vimrc.d/vimrc-lightline.vim
 source ~/.vimrc.d/vimrc-tmuxline.vim
