@@ -45,12 +45,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git python vi-mode theme web-search)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_exports
 source $HOME/.bash_aliases
 source $HOME/.bash_prompt
+test -e $HOME/.bash_local && source $HOME/.bash_local
 
 # User configuration
 
