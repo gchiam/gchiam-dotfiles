@@ -59,6 +59,7 @@ set undolevels=700
 
 set hlsearch
 set incsearch
+set inccommand=split
 set ignorecase
 set smartcase
 
