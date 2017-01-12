@@ -44,7 +44,6 @@ source ~/.vimrc.d/vimrc-ags.vim
 source ~/.vimrc.d/vimrc-easymotion.vim
 source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
-source ~/.vimrc.d/vimrc-nerdtree.vim
 source ~/.vimrc.d/vimrc-nerdcommenter.vim
 source ~/.vimrc.d/vimrc-indentguides.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
