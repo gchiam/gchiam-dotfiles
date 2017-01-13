@@ -10,7 +10,8 @@ let g:netrw_browse_split = 2
 let g:netrw_keepdir = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 10
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
