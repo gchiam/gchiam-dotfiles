@@ -15,13 +15,10 @@ Plug 'zhaocai/GoldenView.Vim'
 Plug 'kopischke/vim-stay'
 Plug 'romgrk/winteract.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-vinegar'
 
 Plug 'junegunn/vim-emoji'
 
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/SimpylFold'
 Plug 'godlygeek/tabular'

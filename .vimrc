@@ -12,6 +12,7 @@ source ~/.vimrc.d/vimrc-vim-plug.vim
 source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
+source ~/.vimrc.d/vimrc-netrw.vim
 source ~/.vimrc.d/vimrc-vim-choosewin.vim
 source ~/.vimrc.d/vimrc-golden-view.vim
 source ~/.vimrc.d/vimrc-neoterm.vim
@@ -43,7 +44,6 @@ source ~/.vimrc.d/vimrc-ags.vim
 source ~/.vimrc.d/vimrc-easymotion.vim
 source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
-source ~/.vimrc.d/vimrc-nerdtree.vim
 source ~/.vimrc.d/vimrc-nerdcommenter.vim
 source ~/.vimrc.d/vimrc-indentguides.vim
 source ~/.vimrc.d/vimrc-expand-region.vim

@@ -1,0 +1,33 @@
+{
+  "hotkey": "alt+space",
+  "theme": "tinytacoteam/zazu-dark-theme",
+  "plugins": [
+    "tinytacoteam/zazu-ascii-search",
+    "tinytacoteam/zazu-calculator",
+    "tinytacoteam/zazu-clipboard",
+    "tinytacoteam/zazu-file-finder",
+    "tinytacoteam/zazu-mac-1password",
+    "tinytacoteam/zazu-system",
+    "tinytacoteam/zazu-snippets",
+    "tinytacoteam/zazu-template",
+    "amjith/zazu-mac-open-terminal",
+    "blakek/zazu-emoj",
+    {
+      "name": "tinytacoteam/zazu-fallback",
+      "variables": {
+        "rootSearches": [
+          "google",
+          "amazon",
+          "giphy",
+          "gh"
+        ]
+      }
+    },
+    {
+      "name": "tinytacoteam/zazu-clipboard",
+      "variables": {
+        "ClipboardKey": "cmd+shift+v"
+      }
+    }
+  ]
+}
