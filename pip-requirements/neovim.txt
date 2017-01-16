@@ -3,6 +3,7 @@ pep8radius
 pylint==1.5.4
 pyflakes
 flake8
+flake8-docstrings
 pylama
 pylama_pylint
 mccabe
