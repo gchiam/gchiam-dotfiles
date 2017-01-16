@@ -15,6 +15,7 @@ Plug 'zhaocai/GoldenView.Vim'
 Plug 'kopischke/vim-stay'
 Plug 'romgrk/winteract.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-vinegar'
 
 Plug 'junegunn/vim-emoji'
 
