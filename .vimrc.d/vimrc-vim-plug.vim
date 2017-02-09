@@ -66,8 +66,9 @@ Plug 'sunaku/vim-hicterm'
 
 Plug 'morhetz/gruvbox'
 
-Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'roxma/nvim-completion-manager'
+" Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
 
