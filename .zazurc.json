@@ -1,25 +1,28 @@
 {
   "hotkey": "alt+space",
-  "theme": "tinytacoteam/zazu-dark-theme",
+  "theme": "singuerinc/zazu-clean-dark-theme",
   "plugins": [
+    "amjith/zazu-mac-open-terminal",
+    "blainesch/zazu-weather",
+    "blakek/zazu-emoj",
+    "blakek/zazu-ip-address",
+    "brpaz/zazu-encode-decode",
+    "gabrielpoca/zazu-github-repos",
     "tinytacoteam/zazu-ascii-search",
     "tinytacoteam/zazu-calculator",
     "tinytacoteam/zazu-clipboard",
     "tinytacoteam/zazu-file-finder",
     "tinytacoteam/zazu-mac-1password",
-    "tinytacoteam/zazu-system",
+    "tinytacoteam/zazu-mac-1password",
+    "tinytacoteam/zazu-package-manager",
     "tinytacoteam/zazu-snippets",
+    "tinytacoteam/zazu-system",
     "tinytacoteam/zazu-template",
-    "amjith/zazu-mac-open-terminal",
-    "blakek/zazu-emoj",
     {
       "name": "tinytacoteam/zazu-fallback",
       "variables": {
         "rootSearches": [
-          "google",
-          "amazon",
-          "giphy",
-          "gh"
+          "google"
         ]
       }
     },
