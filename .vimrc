@@ -10,6 +10,7 @@ scriptencoding utf-8
 source ~/.vimrc.d/vimrc-vim-plug.vim
 
 source ~/.vimrc.d/vimrc-general-options.vim
+source ~/.vimrc.d/vimrc-auto-complete.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
 source ~/.vimrc.d/vimrc-netrw.vim

@@ -15,9 +15,6 @@ set fileencoding=utf-8  " The encoding written to file.<F37>
 filetype off
 filetype plugin indent on
 syntax on
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
