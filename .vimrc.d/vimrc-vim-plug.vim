@@ -69,8 +69,11 @@ Plug 'morhetz/gruvbox'
 Plug 'roxma/nvim-completion-manager'
 " Plug 'Shougo/deoplete.nvim', { 'for': 'python', 'do': 'UpdateRemotePlugins'}
 " Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/echodoc.vim'
+Plug 'chemzqm/vim-easygit'
+Plug 'chemzqm/denite-git'
 
 Plug 'junegunn/fzf.vim'
 Plug 'cloudhead/neovim-fuzzy'
