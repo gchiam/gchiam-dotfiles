@@ -34,6 +34,8 @@ call dein#add('jacoborus/tender.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('shinchu/lightline-gruvbox.vim')
 call dein#add('ryanoasis/vim-devicons')
+call dein#add('machakann/vim-highlightedyank')
+call dein#add('sunaku/vim-hicterm')
 
 " Syntax - python
 call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
@@ -66,6 +68,8 @@ call dein#add('khzaw/vim-conceal')
 call dein#add('Raimondi/delimitMate', {'on_ft': [
     \ 'python', 'javascript', 'typescript', 'css', 'scss'
     \ ]})
+call dein#add('sheerun/vim-polyglot')
+call dein#add('scrooloose/nerdcommenter')
 
 " UI
 call dein#add('Shougo/unite.vim')
@@ -91,17 +95,15 @@ call dein#add('mattn/gist-vim')
 
 call dein#add('w0rp/ale')
 call dein#add('milkypostman/vim-togglelist')
-call dein#add('kien/ctrlp.vim')
+call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('edkolev/promptline.vim')
 call dein#add('zhaocai/GoldenView.Vim')
 call dein#add('kopischke/vim-stay')
 call dein#add('romgrk/winteract.vim')
-call dein#add('machakann/vim-highlightedyank')
 call dein#add('tpope/vim-vinegar')
 
 call dein#add('junegunn/vim-emoji')
 
-call dein#add('scrooloose/nerdcommenter')
 call dein#add('godlygeek/tabular')
 call dein#add('majutsushi/tagbar')
 call dein#add('christoomey/vim-tmux-navigator')
@@ -111,7 +113,6 @@ call dein#add('edkolev/tmuxline.vim')
 call dein#add('matze/vim-move')
 
 " A solid language pack for Vim
-call dein#add('sheerun/vim-polyglot')
 
 call dein#add('Lokaltog/vim-easymotion')
 call dein#add('gabesoft/vim-ags')
@@ -120,12 +121,11 @@ call dein#add('mhinz/vim-startify')
 call dein#add('terryma/vim-expand-region')
 " Plug 'kien/rainbow_parentheses.vim'
 call dein#add('guns/xterm-color-table.vim')
-call dein#add('sunaku/vim-hicterm')
 
 
 call dein#add('roxma/nvim-completion-manager')
-" Plug 'Shougo/deoplete.nvim', { 'on_ft': 'python', 'do': 'UpdateRemotePlugins'}
-" Plug 'zchee/deoplete-jedi', { 'on_ft': 'python' }
+" call dein#add('Shougo/deoplete.nvim', { 'on_ft': 'python', 'do': 'UpdateRemotePlugins'})
+" call dein#add('zchee/deoplete-jedi', { 'on_ft': 'python' })
 call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('Shougo/echodoc.vim')
