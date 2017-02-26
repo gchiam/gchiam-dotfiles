@@ -22,9 +22,6 @@
 [submodule "external/fantasque-sans"]
 	path = external/fantasque-sans
 	url = https://github.com/belluzj/fantasque-sans.git
-[submodule "external/vim-plug"]
-	path = external/vim-plug
-	url = https://github.com/junegunn/vim-plug
 [submodule "external/tmux-plugins"]
 	path = external/tpm
 	url = git@github.com:tmux-plugins/tpm.git
