@@ -10,7 +10,7 @@ scriptencoding utf-8
 source ~/.vimrc.d/vimrc-neobundle.vim
 
 source ~/.vimrc.d/vimrc-general-options.vim
-source ~/.vimrc.d/vimrc-auto-complete.vim
+" source ~/.vimrc.d/vimrc-auto-complete.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
 source ~/.vimrc.d/vimrc-netrw.vim
@@ -34,7 +34,7 @@ source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-simpyl-fold.vim
 source ~/.vimrc.d/vimrc-ale.vim
 source ~/.vimrc.d/vimrc-jshint2.vim
-" source ~/.vimrc.d/vimrc-deoplete.vim
+source ~/.vimrc.d/vimrc-deoplete.vim
 source ~/.vimrc.d/vimrc-jedi.vim
 source ~/.vimrc.d/vimrc-vim-isort.vim
 

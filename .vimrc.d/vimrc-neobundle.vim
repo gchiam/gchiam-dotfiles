@@ -123,9 +123,9 @@ call dein#add('terryma/vim-expand-region')
 call dein#add('guns/xterm-color-table.vim')
 
 
-call dein#add('roxma/nvim-completion-manager')
-" call dein#add('Shougo/deoplete.nvim', { 'on_ft': 'python', 'do': 'UpdateRemotePlugins'})
-" call dein#add('zchee/deoplete-jedi', { 'on_ft': 'python' })
+" call dein#add('roxma/nvim-completion-manager')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('zchee/deoplete-jedi', { 'on_ft': 'python' })
 call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('Shougo/echodoc.vim')
