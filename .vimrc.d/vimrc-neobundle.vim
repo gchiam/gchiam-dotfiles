@@ -28,6 +28,23 @@ let pluginsExist = 0
 call dein#add('Shougo/dein.vim')
 call dein#add('haya14busa/dein-command.vim')
 
+" Colorschemes
+call dein#add('morhetz/gruvbox')
+
+" Syntax - python
+call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
+call dein#add('fisadev/vim-isort', { 'on_ft': 'python' })
+
+" Syntac - js
+call dein#add('Shutnik/jshint2.vim', { 'on_ft': 'javascript' })
+
+" Syntax - tmux config
+call dein#add('tmux-plugins/vim-tmux')
+
+" Syntax - Dockerfile
+call dein#add('ekalinin/Dockerfile.vim')
+
+
 call dein#add('w0rp/ale')
 call dein#add('milkypostman/vim-togglelist')
 call dein#add('kien/ctrlp.vim')
@@ -63,20 +80,6 @@ call dein#add('matze/vim-move')
 " A solid language pack for Vim
 call dein#add('sheerun/vim-polyglot')
 
-" Loaded when Dockerfile is opened
-call dein#add('ekalinin/Dockerfile.vim')
-
-call dein#add('tmux-plugins/vim-tmux')
-
-" Loaded when python file is opened
-call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
-call dein#add('fisadev/vim-isort', { 'on_ft': 'python' })
-
-call dein#add('Shutnik/jshint2.vim', { 'on_ft': 'javascript' })
-
-" For tmux.conf
-call dein#add('tmux-plugins/vim-tmux')
-
 call dein#add('Lokaltog/vim-easymotion')
 call dein#add('gabesoft/vim-ags')
 call dein#add('tpope/vim-surround')
@@ -88,7 +91,6 @@ call dein#add('khzaw/vim-conceal')
 call dein#add('guns/xterm-color-table.vim')
 call dein#add('sunaku/vim-hicterm')
 
-call dein#add('morhetz/gruvbox')
 
 call dein#add('roxma/nvim-completion-manager')
 " Plug 'Shougo/deoplete.nvim', { 'on_ft': 'python', 'do': 'UpdateRemotePlugins'}
