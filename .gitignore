@@ -11,6 +11,7 @@
 .tmux/resurrect
 .tmux/plugins/tmux*
 .vim/plugged/*
+.vim/repos/*
 .vim/.init.vim-rplugin~
 .config/fish/functions/fzf_key_bindings.fish
 .ptpython/history
