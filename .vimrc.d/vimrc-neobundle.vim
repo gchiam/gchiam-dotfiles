@@ -30,6 +30,7 @@ call dein#add('haya14busa/dein-command.vim')
 
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
+call dein#add('joshdick/onedark.vim')
 call dein#add('jacoborus/tender.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ryanoasis/vim-devicons')
