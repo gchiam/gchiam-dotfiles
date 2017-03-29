@@ -9,9 +9,25 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 
 let g:lightline = {
     \ 'colorscheme': 'onedark',
+    \ 'mode_map': {
+    \   'n': 'NORMAL', 'i': 'INSERT', 'R': 'REPLACE', 'v': 'VISUAL', 'V': 'V-LINE', "\<C-v>": 'V-BLOCK',
+    \   'c': 'COMMAND', 's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK', 't': 'TERMINAL'
+    \ },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
     \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'inactive': {
+    \   'left': [ [ 'filename' ] ],
+    \   'right': [ [ 'lineinfo' ], [ 'percent' ] ]
+    \ },
+    \ 'tabline': {
+    \   'left': [ [ 'tabs' ] ],
+    \   'right': [ [ 'close' ] ]
+    \ },
+    \ 'tab': {
+    \   'active': [ 'tabnum', 'filename', 'modified' ],
+    \   'inactive': [ 'tabnum', 'filename', 'modified' ]
     \ },
     \ 'component_function': {
     \   'fugitive': 'LightLineFugitive',
@@ -25,7 +41,22 @@ let g:lightline = {
     \   'ctrlpmark': 'CtrlPMark',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' }
+    \ 'subseparator': { 'left': '|', 'right': '|' },
+    \ 'component_function_visible_condition': {},
+    \ 'component_expand': {
+    \   'tabs': 'lightline#tabs'
+    \ },
+    \ 'component_type': {
+    \   'tabs': 'tabsel', 'close': 'raw'
+    \ },
+    \ 'tab_component': {},
+    \ 'tab_component_function': {
+    \   'filename': 'lightline#tab#filename', 'modified': 'lightline#tab#modified',
+    \   'readonly': 'lightline#tab#readonly', 'tabnum': 'lightline#tab#tabnum'
+    \ },
+    \ 'tabline_separator': {},
+    \ 'tabline_subseparator': {},
+    \ 'enable': { 'statusline': 1, 'tabline': 1 },
     \ }
 
 function! LightLineModified()
