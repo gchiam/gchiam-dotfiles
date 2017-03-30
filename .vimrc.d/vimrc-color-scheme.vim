@@ -15,9 +15,9 @@ map <Leader>tb :highlight Normal guibg=None ctermbg=None<CR> :highlight NonText 
 "
 set colorcolumn=80
 
-source ~/.vimrc.d/vimrc-onedark.vim
+" source ~/.vimrc.d/vimrc-onedark.vim
 
-" source ~/.vimrc.d/vimrc-gruvbox.vim
+source ~/.vimrc.d/vimrc-gruvbox.vim
 
 " highlight TermCursor ctermfg=red guifg=red
 " highlight CursorLineNr ctermbg=None guibg=None
