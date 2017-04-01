@@ -8,6 +8,8 @@ set background=dark
 " tmux doesn't support true color, so need to install a patched version of tmux
 " brew install https://raw.githubusercontent.com/choppsv1/homebrew-term24/master/tmux.rb
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2  " blinking cursor
+set termguicolors
 
 " http://tilvim.com/2013/07/31/swapping-bg.html
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
@@ -16,8 +18,8 @@ map <Leader>tb :highlight Normal guibg=None ctermbg=None<CR> :highlight NonText 
 set colorcolumn=80
 
 " source ~/.vimrc.d/vimrc-onedark.vim
-
 source ~/.vimrc.d/vimrc-gruvbox.vim
+" source ~/.vimrc.d/vimrc-srcery.vim
 
 " highlight TermCursor ctermfg=red guifg=red
 " highlight CursorLineNr ctermbg=None guibg=None

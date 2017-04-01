@@ -40,6 +40,7 @@ call dein#add('kana/vim-textobj-entire')
 
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
+call dein#add('roosta/srcery')
 call dein#add('joshdick/onedark.vim')
 call dein#add('jacoborus/tender.vim')
 call dein#add('mkitt/tabline.vim')
