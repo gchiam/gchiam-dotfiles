@@ -109,6 +109,7 @@ brew cask install appcleaner
 brew cask install battery-guardian
 brew cask install dropbox
 brew cask install flux
+brew cask install flycut
 brew cask install keepingyouawake
 brew cask install keycastr
 brew cask install mattr-slate
