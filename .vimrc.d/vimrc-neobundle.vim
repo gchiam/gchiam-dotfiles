@@ -136,6 +136,7 @@ call dein#add('cloudhead/neovim-fuzzy')
 
 call dein#add('vimlab/split-term.vim')
 call dein#add('kassio/neoterm')
+call dein#add('francoiscabrol/ranger.vim')
 
 if dein#check_install()
     call dein#install()

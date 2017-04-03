@@ -30,6 +30,8 @@ sudo pip install --user -U pip
 sudo pip3 install --user -U pip
 popd
 
+sudo apt-get install -y ranger
+
 brew install golang
 brew install tig
 brew install the_silver_searcher
