@@ -104,6 +104,7 @@ brew cask install slack
 
 # system
 # ~~~~~~
+brew install ranger
 brew cask install 1password
 brew cask install appcleaner
 brew cask install battery-guardian
