@@ -16,4 +16,9 @@ endif
 let g:onedark_terminal_italic=1
 
 syntax on
+
+augroup onedark
+   au ColorScheme onedark highlight Normal ctermbg=None guibg=None
+augroup END
+
 colorscheme onedark
