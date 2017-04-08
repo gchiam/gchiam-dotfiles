@@ -25,3 +25,6 @@
 [submodule "external/gruvbox-pygments"]
 	path = external/gruvbox-pygments
 	url = https://github.com/daveyarwood/gruvbox-pygments.git
+[submodule "external/atom-one-dark-terminal"]
+	path = external/atom-one-dark-terminal
+	url = https://github.com/nathanbuchar/atom-one-dark-terminal.git
