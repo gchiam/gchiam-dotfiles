@@ -17,7 +17,7 @@ map <Leader>tb :highlight Normal guibg=None ctermbg=None<CR> :highlight NonText 
 "
 set colorcolumn=80
 
-source ~/.vimrc.d/vimrc-colorscheme-onehalfdark.vim
+source ~/.vimrc.d/vimrc-colorscheme-$VIM_COLORSCHEME.vim
 " source ~/.vimrc.d/vimrc-gruvbox.vim
 " source ~/.vimrc.d/vimrc-srcery.vim
 

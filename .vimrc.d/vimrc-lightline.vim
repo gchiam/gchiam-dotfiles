@@ -8,7 +8,7 @@ set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 let g:lightline = {
-    \ 'colorscheme': 'onehalfdark',
+    \ 'colorscheme': $VIM_COLORSCHEME,
     \ 'mode_map': {
     \   'n': 'NORMAL', 'i': 'INSERT', 'R': 'REPLACE', 'v': 'VISUAL', 'V': 'V-LINE', "\<C-v>": 'V-BLOCK',
     \   'c': 'COMMAND', 's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK', 't': 'TERMINAL'
