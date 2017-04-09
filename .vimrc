@@ -42,10 +42,8 @@ source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-fzy.vim
 
 source ~/.vimrc.d/vimrc-ags.vim
-source ~/.vimrc.d/vimrc-easymotion.vim
 source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
-source ~/.vimrc.d/vimrc-nerdcommenter.vim
 source ~/.vimrc.d/vimrc-indentguides.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
 source ~/.vimrc.d/vimrc-vim-gitgutter.vim

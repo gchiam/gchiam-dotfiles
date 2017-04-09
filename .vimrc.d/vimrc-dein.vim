@@ -122,7 +122,6 @@ call dein#add('matze/vim-move')
 
 " A solid language pack for Vim
 
-call dein#add('Lokaltog/vim-easymotion')
 call dein#add('gabesoft/vim-ags')
 call dein#add('mhinz/vim-startify')
 call dein#add('terryma/vim-expand-region')
