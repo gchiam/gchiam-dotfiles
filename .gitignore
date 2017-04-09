@@ -15,3 +15,4 @@
 .vim/.init.vim-rplugin~
 .config/fish/functions/fzf_key_bindings.fish
 .ptpython/history
+.vim/plugin/kite.vim
