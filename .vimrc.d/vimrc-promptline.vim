@@ -6,7 +6,7 @@ scriptencoding utf-8
 let g:promptline_theme = {
         \'a'      : [0, 11],
         \'b'      : [0, 3],
-        \'c'      : [7, 15],
+        \'c'      : [0, 7],
         \'x'      : [0, 6],
         \'y'      : [0, 10],
         \'z'      : [0, 2],
