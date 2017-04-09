@@ -52,6 +52,6 @@ source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 
 source ~/.vimrc.d/vimrc-startify.vim
 
-source ~/.vimrc.d/vimrc-color-scheme.vim
+source ~/.vimrc.d/vimrc-colorscheme.vim
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
 " source ~/.vimrc.d/vimrc-rainbow-parentheses.vim
