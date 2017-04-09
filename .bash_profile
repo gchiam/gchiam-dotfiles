@@ -19,6 +19,7 @@ for file in ~/.{bash_extra,bash_prompt,bash_exports,bash_aliases,bash_functions,
     [ -r "$file" ] && . "$file"
 done
 unset file
+export VIM_COLORSCHEME=${VIM_COLORSCHEME:-gruvbox}
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
