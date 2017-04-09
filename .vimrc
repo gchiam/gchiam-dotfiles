@@ -7,7 +7,7 @@ scriptencoding utf-8
 "
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
-source ~/.vimrc.d/vimrc-neobundle.vim
+source ~/.vimrc.d/vimrc-dein.vim
 
 source ~/.vimrc.d/vimrc-general-options.vim
 " source ~/.vimrc.d/vimrc-auto-complete.vim
