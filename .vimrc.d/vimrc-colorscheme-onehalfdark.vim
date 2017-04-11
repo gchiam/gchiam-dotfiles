@@ -17,8 +17,10 @@ let g:onedark_terminal_italic=1
 
 syntax on
 
-augroup onedark
-   au ColorScheme onedark highlight Normal ctermbg=None guibg=None
+augroup onehalfdark
+   au ColorScheme onehalfdark highlight Normal ctermbg=None guibg=None
+   au ColorScheme onehalfdark highlight SpecialKey ctermfg=241 guifg=#383a42
+   au ColorScheme onehalfdark highlight ColorColumn ctermbg=241 guibg=#282c34
 augroup END
 
 colorscheme onehalfdark
