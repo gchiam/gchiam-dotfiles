@@ -19,4 +19,4 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-python -m SimpleHTTPServer
+python -m SimpleHTTPServer $@
