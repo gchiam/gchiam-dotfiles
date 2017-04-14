@@ -19,3 +19,9 @@
 [submodule "external/gruvbox-pygments"]
 	path = external/gruvbox-pygments
 	url = https://github.com/daveyarwood/gruvbox-pygments.git
+[submodule "external/flat-terminal"]
+	path = external/flat-terminal
+	url = https://github.com/ahmetsulek/flat-terminal.git
+[submodule "external/iterm2-material-design"]
+	path = external/iterm2-material-design
+	url = https://github.com/MartinSeeler/iterm2-material-design.git
