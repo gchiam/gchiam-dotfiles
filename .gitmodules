@@ -1,18 +1,9 @@
 [submodule "external/oh-my-zsh"]
 	path = external/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "external/powerline-fonts"]
-	path = external/powerline-fonts
-	url = https://github.com/powerline/fonts.git
-[submodule "external/monoid"]
-	path = external/monoid
-	url = git@github.com:larsenwork/monoid.git
 [submodule "external/gruvbox-contrib"]
 	path = external/gruvbox-contrib
 	url = https://github.com/morhetz/gruvbox-contrib
-[submodule "external/fantasque-sans"]
-	path = external/fantasque-sans
-	url = https://github.com/belluzj/fantasque-sans.git
 [submodule "external/tmux-plugins"]
 	path = external/tpm
 	url = git@github.com:tmux-plugins/tpm.git
