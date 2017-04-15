@@ -42,12 +42,6 @@ do
     ln -snvf $f $HOME/bin/
 done
 
-test -d $HOME/.themes || mkdir -p $HOME/.themes
-for f in `find $DOTFILES_DIR/.themes -mindepth 1 -maxdepth 1`
-do
-    ln -snvf $f $HOME/.themes/
-done
-
 test -d $HOME/.config || mkdir -p $HOME/.config
 for f in `find $DOTFILES_DIR/.config -mindepth 1 -maxdepth 1`
 do
