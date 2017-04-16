@@ -33,7 +33,6 @@ ln -snvf $DOTFILES_DIR/.ptpython $HOME/
 ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
 ln -snvf $DOTFILES_DIR/.Xresources $HOME/
 ln -snvf $DOTFILES_DIR/.promptline.sh $HOME/
-ln -snvf $DOTFILES_DIR/.zazurc.json $HOME/
 ln -snvf $DOTFILES_DIR/external/base16-shell/colortest $HOME/bin/
 
 mkdir -p $HOME/bin
