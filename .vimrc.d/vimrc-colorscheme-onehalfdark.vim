@@ -19,7 +19,7 @@ syntax on
 
 augroup onehalfdark
    au ColorScheme onehalfdark highlight Normal ctermbg=None guibg=None
-   au ColorScheme onehalfdark highlight SpecialKey ctermfg=241 guifg=#383a42
+   au ColorScheme onehalfdark highlight SpecialKey ctermfg=241 guifg=#5c6370
    au ColorScheme onehalfdark highlight ColorColumn ctermbg=241 guibg=#282c34
 augroup END
 
