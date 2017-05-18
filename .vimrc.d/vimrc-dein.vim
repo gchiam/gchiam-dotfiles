@@ -56,24 +56,15 @@ call dein#add('fisadev/vim-isort', { 'on_ft': 'python' })
 call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
 call dein#add('bps/vim-textobj-python')
 
-" Syntac - js
+" Syntax - js
 call dein#add('Shutnik/jshint2.vim', { 'on_ft': 'javascript' })
 call dein#add('elzr/vim-json', {'on_ft': 'json'})
-
-" Syntax - tmux config
-call dein#add('tmux-plugins/vim-tmux', {'on_ft': 'tmux'})
-
-" Syntax - Dockerfile
-call dein#add('ekalinin/Dockerfile.vim', {'on_ft': 'dockerfile'})
 
 " Syntax - html
 call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 
 " Syntax - css
 call dein#add('ap/vim-css-color')
-
-" Syntax - Markdown
-call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
 
 " Syntax - General
 call dein#add('tpope/vim-sleuth')
