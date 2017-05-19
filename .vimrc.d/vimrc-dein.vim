@@ -134,8 +134,6 @@ call dein#add('vimlab/split-term.vim')
 call dein#add('kassio/neoterm')
 call dein#add('francoiscabrol/ranger.vim')
 
-call dein#add('xolox/vim-misc')
-call dein#add('xolox/vim-notes')
 
 if dein#check_install()
     call dein#install()
