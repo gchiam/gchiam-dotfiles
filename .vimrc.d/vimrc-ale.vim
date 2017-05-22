@@ -3,6 +3,13 @@
 "==============================================================================
 scriptencoding utf-8
 
+
+let g:ale_sign_column_always = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
 let &runtimepath.=',~/.vim/bundle/ale'
 
 let g:ale_sign_error='⚡︎'

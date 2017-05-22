@@ -15,7 +15,7 @@ let g:lightline = {
     \ },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
-    \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \   'right': [ [ 'lineinfo' ], ['percent'], [ 'ale', 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
     \ 'inactive': {
     \   'left': [ [ 'filename' ] ],
@@ -30,6 +30,7 @@ let g:lightline = {
     \   'inactive': [ 'tabnum', 'filename', 'modified' ]
     \ },
     \ 'component_function': {
+    \   'ale': 'LightLineAle',
     \   'fugitive': 'LightLineFugitive',
     \   'readonly': 'LightLineReadonly',
     \   'modified': 'LightLineModified',
@@ -59,6 +60,7 @@ let g:lightline = {
     \ 'enable': { 'statusline': 1, 'tabline': 1 },
     \ }
 
+
 function! LightLineModified()
   if &filetype == "help"
     return ""
@@ -70,6 +72,7 @@ function! LightLineModified()
     return ""
   endif
 endfunction
+
 
 function! LightLineReadonly()
   if &filetype == "help"
@@ -94,6 +97,7 @@ function! LightLineFugitive()
   return ''
 endfunction
 
+
 function! LightLineFilename()
   let fname = expand('%:t')
   return fname == 'ControlP' ? g:lightline.ctrlp_item :
@@ -107,19 +111,28 @@ function! LightLineFilename()
         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
+
 function! LightLineFileformat()
   " return winwidth(0) > 70 ? &fileformat : ''
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
+
 
 function! LightLineFiletype()
   " return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
+
 function! LightLineFileencoding()
   return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
+
+
+function! LightLineAle()
+  return ALEGetStatusLine()
+endfunction
+
 
 function! LightLineMode()
   let fname = expand('%:t')
@@ -144,10 +157,12 @@ function! CtrlPMark()
   endif
 endfunction
 
+
 let g:ctrlp_status_func = {
   \ 'main': 'CtrlPStatusFunc_1',
   \ 'prog': 'CtrlPStatusFunc_2',
   \ }
+
 
 function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
   let g:lightline.ctrlp_regex = a:regex
@@ -157,9 +172,11 @@ function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
   return lightline#statusline(0)
 endfunction
 
+
 function! CtrlPStatusFunc_2(str)
   return lightline#statusline(0)
 endfunction
+
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
@@ -167,6 +184,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
+
 
 augroup AutoSyntastic
   autocmd!
@@ -177,7 +195,7 @@ function! s:syntastic()
   call lightline#update()
 endfunction
 
+
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
