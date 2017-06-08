@@ -12,7 +12,6 @@ source ~/.vimrc.d/vimrc-dein.vim
 source ~/.vimrc.d/vimrc-general-options.vim
 " source ~/.vimrc.d/vimrc-auto-complete.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
-source ~/.vimrc.d/vimrc-vimrc-files.vim
 source ~/.vimrc.d/vimrc-netrw.vim
 source ~/.vimrc.d/vimrc-vim-choosewin.vim
 source ~/.vimrc.d/vimrc-golden-view.vim
@@ -37,6 +36,7 @@ source ~/.vimrc.d/vimrc-jshint2.vim
 source ~/.vimrc.d/vimrc-deoplete.vim
 source ~/.vimrc.d/vimrc-jedi.vim
 source ~/.vimrc.d/vimrc-vim-isort.vim
+source ~/.vimrc.d/vimrc-vim-polyglot.vim
 
 source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-fzy.vim
