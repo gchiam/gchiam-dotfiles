@@ -39,12 +39,7 @@ call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-entire')
 
 " Colorschemes & Apprerances
-call dein#add('trevordmiller/nova-vim')
 call dein#add('morhetz/gruvbox')
-call dein#add('sonph/onehalf', {'rtp': 'vim'})
-call dein#add('roosta/srcery')
-call dein#add('joshdick/onedark.vim')
-call dein#add('jacoborus/tender.vim')
 call dein#add('mkitt/tabline.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ryanoasis/vim-devicons')
