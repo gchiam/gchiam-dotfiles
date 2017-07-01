@@ -69,7 +69,7 @@ set tw=79  " width of document (used by gd)
 set fo-=t  " don't automatically wrap text when typing
 
 
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+" set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 
 source ~/.vimrc.d/vimrc-tabs.vim
