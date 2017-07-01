@@ -69,9 +69,7 @@ set tw=79  " width of document (used by gd)
 set fo-=t  " don't automatically wrap text when typing
 
 
-" Make cursor a pipe in insert-mode, and a block in normal-mode
-" https://github.com/neovim/neovim/wiki/FAQ#how-can-i-change-the-cursor-shape-in-the-terminal
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 
 source ~/.vimrc.d/vimrc-tabs.vim

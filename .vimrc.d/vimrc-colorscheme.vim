@@ -5,10 +5,6 @@ scriptencoding utf-8
 " =============
 set background=dark
 
-" tmux doesn't support true color, so need to install a patched version of tmux
-" brew install https://raw.githubusercontent.com/choppsv1/homebrew-term24/master/tmux.rb
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2  " blinking cursor
 set termguicolors
 
 " http://tilvim.com/2013/07/31/swapping-bg.html
