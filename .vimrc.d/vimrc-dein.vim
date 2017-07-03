@@ -84,7 +84,7 @@ call dein#add('jreybert/vimagit')
 call dein#add('junegunn/gv.vim')
 call dein#add('mhinz/vim-signify')
 call dein#add('solars/github-vim')
-call dein#add('jaxbot/github-issues.vim')
+" call dein#add('jaxbot/github-issues.vim')
 call dein#add('rhysd/github-complete.vim')
 call dein#add('mattn/gist-vim')
 
