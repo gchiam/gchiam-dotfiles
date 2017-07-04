@@ -123,7 +123,7 @@ call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('Shougo/echodoc.vim')
 
-call dein#add('junegunn/fzf.vim')
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('cloudhead/neovim-fuzzy')
 
 call dein#add('vimlab/split-term.vim')
