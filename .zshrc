@@ -91,4 +91,4 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source .zshrc-spaceship
+source ~/.zshrc-spaceship
