@@ -30,8 +30,6 @@ call dein#add('haya14busa/dein-command.vim')
 
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-commentary')
-call dein#add('vim-scripts/ReplaceWithRegister')
-call dein#add('christoomey/vim-titlecase')
 call dein#add('christoomey/vim-sort-motion')
 call dein#add('christoomey/vim-system-copy')
 call dein#add('michaeljsmith/vim-indent-object')
@@ -43,8 +41,8 @@ call dein#add('morhetz/gruvbox')
 call dein#add('mkitt/tabline.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ryanoasis/vim-devicons')
-call dein#add('machakann/vim-highlightedyank')
 call dein#add('sunaku/vim-hicterm')
+call dein#add('machakann/vim-highlightedyank')
 
 " Syntax - python
 call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
@@ -72,10 +70,15 @@ call dein#add('Raimondi/delimitMate', {'on_ft': [
 call dein#add('sheerun/vim-polyglot')
 
 " UI
-call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/denite.nvim')
 call dein#add('chemzqm/denite-git')
 call dein#add('Shougo/unite-outline')
 call dein#add('ujihisa/unite-colorscheme')
+call dein#add('maralla/completor.vim')
+" call dein#add('Shougo/deoplete.nvim')
+" call dein#add('zchee/deoplete-jedi', { 'on_ft': 'python' })
+call dein#add('Shougo/context_filetype.vim')
+call dein#add('Shougo/echodoc.vim')
 
 " Versioning control
 call dein#add('tpope/vim-fugitive')
@@ -94,17 +97,13 @@ call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('edkolev/promptline.vim')
 " call dein#add('zhaocai/GoldenView.Vim')
 call dein#add('kopischke/vim-stay')
-call dein#add('romgrk/winteract.vim')
-call dein#add('tpope/vim-vinegar')
 call dein#add('justincampbell/vim-eighties')
 
 call dein#add('junegunn/vim-emoji')
 
-call dein#add('godlygeek/tabular')
 call dein#add('majutsushi/tagbar')
 call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('edkolev/tmuxline.vim')
-
 
 call dein#add('matze/vim-move')
 
@@ -115,19 +114,12 @@ call dein#add('mhinz/vim-startify')
 call dein#add('terryma/vim-expand-region')
 call dein#add('guns/xterm-color-table.vim')
 
-
-call dein#add('maralla/completor.vim')
-" call dein#add('Shougo/deoplete.nvim')
-" call dein#add('zchee/deoplete-jedi', { 'on_ft': 'python' })
-call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/context_filetype.vim')
-call dein#add('Shougo/echodoc.vim')
-
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('cloudhead/neovim-fuzzy')
 
 call dein#add('vimlab/split-term.vim')
 call dein#add('kassio/neoterm')
+call dein#add('rbgrouleff/bclose.vim')
 call dein#add('francoiscabrol/ranger.vim')
 
 

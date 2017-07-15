@@ -17,6 +17,7 @@ ln -snvf $DOTFILES_DIR/.bash_virtualenvwrapper $HOME/
 ln -snvf $DOTFILES_DIR/.inputrc $HOME/
 ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
+ln -snvf $DOTFILES_DIR/.zshrc-spaceship $HOME/
 ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
 ln -snvf $DOTFILES_DIR/.oh-my-fish $HOME/
 ln -snvf $DOTFILES_DIR/.oh-my-zsh $HOME/
