@@ -9,7 +9,7 @@
 .config/fish/fish_history
 .config/fish/fishd.*
 .tmux/resurrect
-.tmux/plugins/tmux*
+.tmux/plugins/*
 .vim/plugged/*
 .vim/repos/*
 .vim/.init.vim-rplugin~
