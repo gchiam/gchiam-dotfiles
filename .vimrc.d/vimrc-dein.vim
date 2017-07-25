@@ -103,7 +103,6 @@ call dein#add('junegunn/vim-emoji')
 
 call dein#add('majutsushi/tagbar')
 call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('edkolev/tmuxline.vim')
 
 call dein#add('matze/vim-move')
 
