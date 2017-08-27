@@ -8,10 +8,13 @@ PATH=$HOME/.local/bin:$HOME/bin:$PATH
 [[ -d "$HOME/.rvm/bin" ]] && (which rvm > /dev/null 2>&1) || PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.linuxbrew/bin" ]] && PATH=$HOME/.linuxbrew/bin:$PATH
+[[ -d "$HOME/.cargo/bin" ]] && PATH="$HOME/.cargo/bin:$PATH"
 
 # Setting PATH for Python 3.4
 # The orginal version is saved in .bash_profile.pysave
 [[ -d /Library/Frameworks/Python.framework/Versions/3.4/bin ]] && PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+
+export PATH
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
@@ -37,8 +40,5 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-
-export PATH
 
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
