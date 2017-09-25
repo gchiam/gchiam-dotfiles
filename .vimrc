@@ -13,7 +13,6 @@ source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-auto-complete.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-netrw.vim
-source ~/.vimrc.d/vimrc-vim-choosewin.vim
 source ~/.vimrc.d/vimrc-neoterm.vim
 source ~/.vimrc.d/vimrc-split-term.vim
 source ~/.vimrc.d/vimrc-vim-stay.vim
