@@ -44,8 +44,6 @@ source ~/.vimrc.d/vimrc-tagbar.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
 source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 
-source ~/.vimrc.d/vimrc-startify.vim
-
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
 
 source ~/.vimrc.d/vimrc-colorscheme.vim
