@@ -64,7 +64,6 @@ call dein#add('ap/vim-css-color')
 
 " Syntax - General
 call dein#add('tpope/vim-sleuth')
-call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('khzaw/vim-conceal')
 call dein#add('Raimondi/delimitMate', {'on_ft': [
     \ 'python', 'javascript', 'typescript', 'css', 'scss'

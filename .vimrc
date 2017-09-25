@@ -9,8 +9,6 @@ scriptencoding utf-8
 
 source ~/.vimrc.d/vimrc-dein.vim
 
-source ~/.vimrc.d/vimrc-colorscheme.vim
-
 source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-auto-complete.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
@@ -45,7 +43,6 @@ source ~/.vimrc.d/vimrc-fzf.vim
 source ~/.vimrc.d/vimrc-ags.vim
 source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
-source ~/.vimrc.d/vimrc-indentguides.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
 source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 
@@ -53,3 +50,5 @@ source ~/.vimrc.d/vimrc-startify.vim
 
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
 " source ~/.vimrc.d/vimrc-rainbow-parentheses.vim
+
+source ~/.vimrc.d/vimrc-colorscheme.vim
