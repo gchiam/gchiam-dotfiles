@@ -3,6 +3,7 @@ scriptencoding utf-8
 
 au ColorScheme gruvbox highlight ALEErrorSign ctermfg=1 ctermbg=1 guifg=#cc241d guibg=#3c3836
 au ColorScheme gruvbox highlight ALEWarningSign ctermfg=1 ctermbg=1 guifg=#d79921 guibg=#3c3836
+au ColorScheme gruvbox highlight link agsvLineNumMatch GruvboxYellowBold
 
 
 let g:gruvbox_italic=1

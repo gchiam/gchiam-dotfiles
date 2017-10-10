@@ -20,6 +20,13 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<c-cr>', '<2-LeftMouse>'],
+  \ 'AcceptSelection("v")': ['<cr>', '<c-v>', '<RightMouse>'],
+  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
+  \ }
+
+
 if executable('rg')
   set grepprg=rg\ --no-heading\ --color=none
   let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow --glob "!.git/*" %s'
