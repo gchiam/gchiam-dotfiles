@@ -15,6 +15,7 @@ git config --global alias.lo "log --color --graph --pretty=format:'%C(magenta)%h
 git config --global alias.standup "log --color --pretty=format:'%C(magenta)%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
 
 git config --global alias.br "branch"
+git config --global alias.cleanup branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
 git config --global alias.master "checkout master"
