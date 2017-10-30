@@ -17,3 +17,6 @@ let g:ags_agargs = {
     \ '--max-count'         : [ 'g:ags_agmaxcount', '-m' ],
     \ '--numbers'           : [ '', '' ]
     \ }
+
+
+nmap <Leader>A :Ags "\b<cword>\b"<CR>
