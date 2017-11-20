@@ -100,7 +100,3 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias run_postgresql="postgres -D /usr/local/var/postgres"
 fi
-
-
-# https://github.com/nvbn/thefuck
-eval "$(thefuck --alias wtf)"
