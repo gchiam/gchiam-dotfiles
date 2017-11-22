@@ -71,6 +71,9 @@ call dein#add('Raimondi/delimitMate', {'on_ft': [
 call dein#add('sheerun/vim-polyglot')
 
 " UI
+call dein#add('scrooloose/nerdtree')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 call dein#add('Shougo/denite.nvim')
 call dein#add('chemzqm/denite-git')
 call dein#add('Shougo/unite-outline')
