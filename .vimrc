@@ -43,6 +43,7 @@ source ~/.vimrc.d/vimrc-ags.vim
 source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
+source ~/.vimrc.d/vimrc-vim-devicons.vim
 source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
