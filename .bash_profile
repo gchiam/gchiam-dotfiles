@@ -8,6 +8,7 @@ PATH=$HOME/.local/bin:$HOME/bin:$PATH
 [[ -d "$HOME/.rvm/bin" ]] && (which rvm > /dev/null 2>&1) || PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.linuxbrew/bin" ]] && PATH=$HOME/.linuxbrew/bin:$PATH
+[[ -s "$HOME/.linuxbrew/sbin" ]] && PATH=$HOME/.linuxbrew/sbin:$PATH
 [[ -d "$HOME/.cargo/bin" ]] && PATH="$HOME/.cargo/bin:$PATH"
 
 # Setting PATH for Python 3.4
