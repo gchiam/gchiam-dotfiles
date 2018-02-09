@@ -38,8 +38,7 @@ call dein#add('kana/vim-textobj-entire')
 
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
-call dein#add('ayu-theme/ayu-vim')
-call dein#add('KeitaNakamura/neodark.vim')
+call dein#add('arcticicestudio/nord-vim')
 call dein#add('mkitt/tabline.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ryanoasis/vim-devicons')
