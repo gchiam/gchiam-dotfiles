@@ -76,7 +76,6 @@ call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 call dein#add('Shougo/denite.nvim')
 call dein#add('chemzqm/denite-git')
 call dein#add('Shougo/unite-outline')
-call dein#add('ujihisa/unite-colorscheme')
 call dein#add('maralla/completor.vim')
 " call dein#add('Shougo/deoplete.nvim')
 " call dein#add('zchee/deoplete-jedi', { 'on_ft': 'python' })
@@ -117,12 +116,10 @@ call dein#add('terryma/vim-expand-region')
 call dein#add('guns/xterm-color-table.vim')
 
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('cloudhead/neovim-fuzzy')
 
 call dein#add('vimlab/split-term.vim')
 call dein#add('kassio/neoterm')
 call dein#add('rbgrouleff/bclose.vim')
-call dein#add('francoiscabrol/ranger.vim')
 
 
 if dein#check_install()
