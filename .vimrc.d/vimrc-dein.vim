@@ -47,8 +47,9 @@ call dein#add('sunaku/vim-hicterm')
 call dein#add('machakann/vim-highlightedyank')
 
 " Syntax - python
-call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
-call dein#add('fisadev/vim-isort', { 'on_ft': 'python' })
+call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
+call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
+call dein#add('fisadev/vim-isort', {'on_ft': 'python'})
 call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
 call dein#add('bps/vim-textobj-python')
 

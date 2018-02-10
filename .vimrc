@@ -25,6 +25,7 @@ source ~/.vimrc.d/vimrc-lightline.vim
 source ~/.vimrc.d/vimrc-promptline.vim
 
 source ~/.vimrc.d/vimrc-python.vim
+source ~/.vimrc.d/vimrc-python-syntax.vim
 source ~/.vimrc.d/vimrc-simpyl-fold.vim
 source ~/.vimrc.d/vimrc-ale.vim
 source ~/.vimrc.d/vimrc-jshint2.vim
