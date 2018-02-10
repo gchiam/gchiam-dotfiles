@@ -9,4 +9,4 @@ autocmd! bufwritepost vimrc-*.vim source %
 "
 " reload .vimrc file
 " =========================
-map <Leader>v :source ~/.vimrc<CR>
+map <Leader>v :source ~/dotfiles/.vimrc<CR>
