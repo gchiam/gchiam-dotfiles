@@ -34,7 +34,6 @@ source ~/.vimrc.d/vimrc-vim-isort.vim
 source ~/.vimrc.d/vimrc-vim-polyglot.vim
 
 source ~/.vimrc.d/vimrc-ctrlp.vim
-source ~/.vimrc.d/vimrc-ctrlsf.vim
 source ~/.vimrc.d/vimrc-fzf.vim
 
 source ~/.vimrc.d/vimrc-ags.vim
