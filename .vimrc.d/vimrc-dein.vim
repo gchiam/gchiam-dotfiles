@@ -47,6 +47,7 @@ call dein#add('sunaku/vim-hicterm')
 call dein#add('machakann/vim-highlightedyank')
 
 " Syntax - python
+call dein#add('raimon49/requirements.txt.vim')
 call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('fisadev/vim-isort', {'on_ft': 'python'})
