@@ -21,7 +21,6 @@ source ~/.vimrc.d/vimrc-copy-paste.vim
 source ~/.vimrc.d/vimrc-line-number.vim
 source ~/.vimrc.d/vimrc-vim-togglelist.vim
 
-source ~/.vimrc.d/vimrc-lightline.vim
 source ~/.vimrc.d/vimrc-promptline.vim
 
 source ~/.vimrc.d/vimrc-python.vim
@@ -47,3 +46,4 @@ source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
 
 source ~/.vimrc.d/vimrc-colorscheme.vim
+source ~/.vimrc.d/vimrc-lightline.vim

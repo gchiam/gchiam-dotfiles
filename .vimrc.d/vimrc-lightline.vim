@@ -7,12 +7,11 @@ scriptencoding utf-8
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
-if (!exists("$VIM_COLORSCHEME"))
-    let $VIM_COLORSCHEME='gruvbox'
-endif
+let g:lightline_colorscheme = get(g:, 'lightline_colorscheme', "powerline")
+
 
 let g:lightline = {
-    \ 'colorscheme': $VIM_COLORSCHEME,
+    \ 'colorscheme': get(g:, 'lightline_colorscheme'),
     \ 'mode_map': {
     \   'n': 'NORMAL', 'i': 'INSERT', 'R': 'REPLACE', 'v': 'VISUAL', 'V': 'V-LINE', "\<C-v>": 'V-BLOCK',
     \   'c': 'COMMAND', 's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK', 't': 'TERMINAL'
