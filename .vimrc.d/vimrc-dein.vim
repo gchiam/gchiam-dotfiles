@@ -117,7 +117,6 @@ call dein#add('guns/xterm-color-table.vim')
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
 call dein#add('vimlab/split-term.vim')
-call dein#add('kassio/neoterm')
 call dein#add('rbgrouleff/bclose.vim')
 
 
