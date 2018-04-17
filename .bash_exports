@@ -6,6 +6,7 @@ export EDITOR="`which nvim`"
 export LC_CTYPE="en_US.UTF-8"
 export LESS=' -R -X -F '
 export LESSOPEN="| pygmentize %s"
+export PYTHONDONTWRITEBYTECODE=1
 
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 export GOPATH=$HOME/go
