@@ -23,6 +23,7 @@ else
 fi
 
 # pretty cat
+alias pcat='pygmentize <'
 alias prettycat='pygmentize <'
 
 # Personal shortcuts
