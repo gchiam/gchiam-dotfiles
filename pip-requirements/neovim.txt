@@ -1,6 +1,6 @@
 pep8
 pep8radius
-pylint==1.5.4
+pylint
 pyflakes
 flake8
 flake8-docstrings
