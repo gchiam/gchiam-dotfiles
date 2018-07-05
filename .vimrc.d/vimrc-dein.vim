@@ -51,7 +51,7 @@ call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('fisadev/vim-isort', {'on_ft': 'python'})
 call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
-call dein#add('bps/vim-textobj-python')
+call dein#add('jeetsukumaran/vim-pythonsense')
 
 " Syntax - js
 call dein#add('Shutnik/jshint2.vim', { 'on_ft': 'javascript' })
