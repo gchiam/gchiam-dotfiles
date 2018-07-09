@@ -38,7 +38,6 @@ call dein#add('kana/vim-textobj-entire')
 
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
-call dein#add('ajh17/Spacegray.vim')
 call dein#add('arcticicestudio/nord-vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('felixjung/vim-base16-lightline')
@@ -51,7 +50,7 @@ call dein#add('raimon49/requirements.txt.vim')
 call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
-call dein#add('bps/vim-textobj-python')
+call dein#add('jeetsukumaran/vim-pythonsense')
 
 " Syntax - js
 call dein#add('Shutnik/jshint2.vim', { 'on_ft': 'javascript' })
