@@ -44,6 +44,12 @@ call dein#add('felixjung/vim-base16-lightline')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('sunaku/vim-hicterm')
 call dein#add('machakann/vim-highlightedyank')
+call dein#add('kamwitsta/nordisk')
+call dein#add('easysid/mod8.vim')
+call dein#add('kristijanhusak/vim-hybrid-material')
+call dein#add('andreypopp/vim-colors-plain')
+call dein#add('ayu-theme/ayu-vim')
+call dein#add('mhartington/oceanic-next')
 
 " Syntax - python
 call dein#add('raimon49/requirements.txt.vim')
