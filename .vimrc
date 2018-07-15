@@ -27,7 +27,6 @@ source ~/.vimrc.d/vimrc-python-syntax.vim
 source ~/.vimrc.d/vimrc-simpyl-fold.vim
 source ~/.vimrc.d/vimrc-ale.vim
 source ~/.vimrc.d/vimrc-jshint2.vim
-source ~/.vimrc.d/vimrc-deoplete.vim
 source ~/.vimrc.d/vimrc-jedi.vim
 source ~/.vimrc.d/vimrc-vim-isort.vim
 source ~/.vimrc.d/vimrc-vim-polyglot.vim
@@ -40,7 +39,6 @@ source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
 source ~/.vimrc.d/vimrc-vim-devicons.vim
-source ~/.vimrc.d/vimrc-vim-gitgutter.vim
 
 source ~/.vimrc.d/vimrc-extra-whitespace.vim
 

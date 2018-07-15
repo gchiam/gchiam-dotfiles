@@ -89,13 +89,7 @@ call dein#add('Shougo/echodoc.vim')
 
 " Versioning control
 call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-git')
-call dein#add('jreybert/vimagit')
-call dein#add('junegunn/gv.vim')
 call dein#add('mhinz/vim-signify')
-call dein#add('solars/github-vim')
-call dein#add('rhysd/github-complete.vim')
-call dein#add('mattn/gist-vim')
 
 call dein#add('w0rp/ale')
 call dein#add('milkypostman/vim-togglelist')
