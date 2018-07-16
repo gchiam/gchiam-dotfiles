@@ -99,7 +99,6 @@ call dein#add('mhinz/vim-signify')
 call dein#add('w0rp/ale')
 call dein#add('milkypostman/vim-togglelist')
 call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('edkolev/promptline.vim')
 call dein#add('kopischke/vim-stay')
 call dein#add('justincampbell/vim-eighties')
 

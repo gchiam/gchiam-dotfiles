@@ -20,8 +20,6 @@ source ~/.vimrc.d/vimrc-copy-paste.vim
 source ~/.vimrc.d/vimrc-line-number.vim
 source ~/.vimrc.d/vimrc-vim-togglelist.vim
 
-source ~/.vimrc.d/vimrc-promptline.vim
-
 source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-python-syntax.vim
 source ~/.vimrc.d/vimrc-simpyl-fold.vim
