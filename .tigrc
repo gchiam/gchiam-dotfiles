@@ -5,3 +5,60 @@ set main-view = \
     date \
     author:abbreviated \
     commit-title:graph=v2,refs
+
+
+# Copied from https://github.com/jonas/tig/wiki/Bindings
+
+## Move in diff view with arrow keys
+bind diff <Up> move-up and bind diff <Down> move-down
+
+## Intent to add
+bind status N !@git add -N %(file) (might be useful if you want to add-patch a newly created file)
+
+## Stage a single line
+bind stage 1 stage-update-line
+
+## Interactive rebase
+bind main B !git rebase -i %(commit)
+
+## Revert
+bind main ! !git revert %(commit)
+
+## Create a new branch
+bind refs n !@git branch "%(prompt Enter branch name: )"
+
+## Add/edit notes for the current commit used during a review
+bind generic T !git notes edit %(commit)
+
+## less-like page scrolling
+bind generic <Ctrl-F> scroll-page-down and bind generic ^b scroll-page-up
+
+## Add verbose flag to git-commit
+bind generic C !git commit -v
+
+## Amend last commit
+bind generic + !git commit --amend
+
+## Drop the selected stash
+bind stash D !?git stash drop %(stash)
+
+## Apply the selected stash
+bind stash A !?git stash apply %(stash)
+
+## Stash the unstaged changes
+bind status S !?git stash save --keep-index %(prompt)
+
+## Delete a file
+bind status D !@?rm %(file)
+
+## Tag the selected commit
+bind main T !@git tag %(prompt) %(commit)
+
+## Push local changes to origin
+bind status P !git push origin
+
+## Open the commit on Github
+bind generic B @sh -c "xdg-open 'https://'$(git remote -v | grep -Eo 'github.com[:/][^.]+' | head -1 | tr : /)'/commit/%(commit)'"
+
+## *Patch the file under the cursor
+bind status P !git add --patch %(file)
