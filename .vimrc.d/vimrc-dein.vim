@@ -55,8 +55,10 @@ call dein#add('mhartington/oceanic-next')
 call dein#add('raimon49/requirements.txt.vim')
 call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
+call dein#add('kalekundert/vim-coiled-snake')
+call dein#add('Konfekt/FastFold')
 call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
-call dein#add('jeetsukumaran/vim-pythonsense')
+call dein#add('jeetsukumaran/vim-pythonsense', {'on_ft': 'python'})
 
 " Syntax - js
 call dein#add('Shutnik/jshint2.vim', { 'on_ft': 'javascript' })
