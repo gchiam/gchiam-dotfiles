@@ -9,23 +9,20 @@ source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
 source ~/.vimrc.d/vimrc-auto-complete.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
-source ~/.vimrc.d/vimrc-netrw.vim
 source ~/.vimrc.d/vimrc-nerdtree.vim
 source ~/.vimrc.d/vimrc-split-term.vim
-source ~/.vimrc.d/vimrc-vim-stay.vim
-source ~/.vimrc.d/vimrc-winteract.vim
 
 source ~/.vimrc.d/vimrc-copy-paste.vim
 
 source ~/.vimrc.d/vimrc-line-number.vim
 source ~/.vimrc.d/vimrc-vim-togglelist.vim
+source ~/.vimrc.d/vimrc-vim-illuminate.vim
 
 source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-python-syntax.vim
 source ~/.vimrc.d/vimrc-ale.vim
 source ~/.vimrc.d/vimrc-jshint2.vim
 source ~/.vimrc.d/vimrc-jedi.vim
-source ~/.vimrc.d/vimrc-vim-isort.vim
 source ~/.vimrc.d/vimrc-vim-polyglot.vim
 
 source ~/.vimrc.d/vimrc-ctrlp.vim

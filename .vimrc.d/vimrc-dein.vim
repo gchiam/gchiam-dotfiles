@@ -50,6 +50,7 @@ call dein#add('kristijanhusak/vim-hybrid-material')
 call dein#add('andreypopp/vim-colors-plain')
 call dein#add('ayu-theme/ayu-vim')
 call dein#add('mhartington/oceanic-next')
+call dein#add('RRethy/vim-illuminate')
 
 " Syntax - python
 call dein#add('raimon49/requirements.txt.vim')
