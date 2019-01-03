@@ -18,6 +18,7 @@ git config --global alias.br "branch"
 git config --global alias.cleanup branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
+git config --global alias.cp "cherry-pick"
 git config --global alias.master "checkout master"
 git config --global alias.ms "checkout master"
 git config --global alias.ci "commit"
