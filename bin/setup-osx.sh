@@ -20,6 +20,7 @@ brew install git
 brew install tig
 brew install --HEAD mobile-shell
 brew install the_silver_searcher
+brew install nnn
 brew install ripgrep
 brew install tmux  # --HEAD
 brew install fzf
