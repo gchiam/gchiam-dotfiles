@@ -87,6 +87,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -94,3 +98,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 source "${HOME}/.zshrc-spaceship"
 
 source "${HOME}/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/gchiam/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/gchiam/Projects/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc'; fi
