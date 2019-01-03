@@ -71,6 +71,8 @@ call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
 call dein#add('ap/vim-css-color')
 
 " Syntax - General
+"
+call dein#add('mcchrish/nnn.vim')
 call dein#add('tpope/vim-sleuth')
 call dein#add('khzaw/vim-conceal')
 call dein#add('Raimondi/delimitMate', {'on_ft': [
