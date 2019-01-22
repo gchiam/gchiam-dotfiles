@@ -81,7 +81,7 @@ brew install docker-compose
 brew cask install anvil  # manage local website
 
 # install android
-brew install android-sdk
+brew cask install android-sdk
 brew cask install android-studio
 
 brew cask install github-desktop
