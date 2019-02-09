@@ -20,6 +20,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_python_flake8_args='--ignore=W191,D203,D206,C0330,W0312'
+let g:ale_python_flake8_options='--ignore=W191,D203,D206,C0330,W0312'
 
 nmap <leader>k <Plug>(ale_previous_wrap)
 nmap <leader>j <Plug>(ale_next_wrap)
