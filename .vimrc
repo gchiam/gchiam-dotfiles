@@ -18,13 +18,6 @@ source ~/.vimrc.d/vimrc-line-number.vim
 source ~/.vimrc.d/vimrc-vim-togglelist.vim
 source ~/.vimrc.d/vimrc-vim-illuminate.vim
 
-source ~/.vimrc.d/vimrc-python.vim
-source ~/.vimrc.d/vimrc-python-syntax.vim
-source ~/.vimrc.d/vimrc-ale.vim
-source ~/.vimrc.d/vimrc-jshint2.vim
-source ~/.vimrc.d/vimrc-jedi.vim
-source ~/.vimrc.d/vimrc-vim-polyglot.vim
-
 source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-fzf.vim
 
