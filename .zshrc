@@ -104,3 +104,8 @@ if [ -f '/Users/gchiam/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc'; fi
+fpath=($fpath "/home/gordonchiam/.zfunctions")
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
