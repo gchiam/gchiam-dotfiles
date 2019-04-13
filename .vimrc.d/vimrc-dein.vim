@@ -53,7 +53,6 @@ call dein#add('jeetsukumaran/vim-pythonsense', {'on_ft': 'python'})
 
 " Syntax - General
 "
-call dein#add('mcchrish/nnn.vim')
 call dein#add('tpope/vim-sleuth')
 call dein#add('khzaw/vim-conceal')
 
@@ -93,7 +92,6 @@ call dein#add('guns/xterm-color-table.vim')
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
 call dein#add('vimlab/split-term.vim')
-call dein#add('rbgrouleff/bclose.vim')
 
 
 if dein#check_install()

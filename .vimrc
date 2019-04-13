@@ -16,13 +16,11 @@ source ~/.vimrc.d/vimrc-copy-paste.vim
 
 source ~/.vimrc.d/vimrc-line-number.vim
 source ~/.vimrc.d/vimrc-vim-togglelist.vim
-source ~/.vimrc.d/vimrc-vim-illuminate.vim
 
 source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-fzf.vim
 
 source ~/.vimrc.d/vimrc-ags.vim
-source ~/.vimrc.d/vimrc-tabular.vim
 source ~/.vimrc.d/vimrc-tagbar.vim
 source ~/.vimrc.d/vimrc-expand-region.vim
 source ~/.vimrc.d/vimrc-vim-devicons.vim
