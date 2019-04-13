@@ -38,19 +38,10 @@ call dein#add('kana/vim-textobj-entire')
 
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
-call dein#add('arcticicestudio/nord-vim')
 call dein#add('itchyny/lightline.vim')
-call dein#add('felixjung/vim-base16-lightline')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('sunaku/vim-hicterm')
 call dein#add('machakann/vim-highlightedyank')
-call dein#add('kamwitsta/nordisk')
-call dein#add('easysid/mod8.vim')
-call dein#add('kristijanhusak/vim-hybrid-material')
-call dein#add('andreypopp/vim-colors-plain')
-call dein#add('ayu-theme/ayu-vim')
-call dein#add('mhartington/oceanic-next')
-call dein#add('RRethy/vim-illuminate')
 
 " Syntax - python
 call dein#add('raimon49/requirements.txt.vim')
@@ -84,7 +75,6 @@ call dein#add('mhinz/vim-signify')
 call dein#add('milkypostman/vim-togglelist')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('kopischke/vim-stay')
-call dein#add('justincampbell/vim-eighties')
 
 call dein#add('junegunn/vim-emoji')
 
