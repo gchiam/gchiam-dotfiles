@@ -27,4 +27,3 @@ neovim
 mycli
 ohmu
 thefuck
-vmprof
