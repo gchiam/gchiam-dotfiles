@@ -10,6 +10,7 @@ PATH=$HOME/.local/bin:$HOME/bin:$PATH
 [[ -s "$HOME/.linuxbrew/bin" ]] && PATH=$HOME/.linuxbrew/bin:$PATH
 [[ -s "$HOME/.linuxbrew/sbin" ]] && PATH=$HOME/.linuxbrew/sbin:$PATH
 [[ -d "$HOME/.cargo/bin" ]] && PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.yarn/bin" ]] && PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Setting PATH for Python 3.4
 # The orginal version is saved in .bash_profile.pysave
