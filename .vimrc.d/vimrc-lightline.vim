@@ -17,8 +17,8 @@ let g:lightline = {
     \   'c': 'COMMAND', 's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK', 't': 'TERMINAL'
     \ },
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
-    \   'right': [ [ 'lineinfo' ], ['percent'], [ 'ale', 'fileformat', 'fileencoding', 'filetype' ] ]
+    \   'left': [ [ 'mode', 'paste' ], [ 'cocstatus', 'fugitive', 'filename' ], ['ctrlpmark'] ],
+    \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
     \ 'inactive': {
     \   'left': [ [ 'filename' ] ],
@@ -33,7 +33,7 @@ let g:lightline = {
     \   'inactive': [ 'tabnum', 'filename', 'modified' ]
     \ },
     \ 'component_function': {
-    \   'ale': 'LightLineAle',
+    \   'cocstatus': 'coc#status',
     \   'fugitive': 'LightLineFugitive',
     \   'readonly': 'LightLineReadonly',
     \   'modified': 'LightLineModified',
@@ -129,20 +129,6 @@ endfunction
 
 function! LightLineFileencoding()
   return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-
-function! LightLineAle() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
 endfunction
 
 

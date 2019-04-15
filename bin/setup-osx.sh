@@ -58,6 +58,7 @@ brew install --HEAD mobile-shell
 brew cask install iterm2
 brew install diff-so-fancy
 brew install ctags
+brew install fx
 
 # install node.js and npm
 brew install node.js
@@ -80,7 +81,7 @@ brew install docker-compose
 brew cask install anvil  # manage local website
 
 # install android
-brew install android-sdk
+brew cask install android-sdk
 brew cask install android-studio
 
 brew cask install github-desktop
@@ -107,6 +108,7 @@ brew cask install slack
 # ~~~~~~
 brew install ranger
 brew cask install 1password
+brew cask install amethyst
 brew cask install appcleaner
 brew cask install battery-guardian
 brew cask install dropbox
