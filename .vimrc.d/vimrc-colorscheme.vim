@@ -9,7 +9,7 @@ set termguicolors
 
 " http://tilvim.com/2013/07/31/swapping-bg.html
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-map <Leader>tb :highlight Normal guibg=None ctermbg=None<CR> :highlight NonText guibg=None ctermbg=None<CR>
+" map <Leader>tb :highlight Normal guibg=None ctermbg=None<CR> :highlight NonText guibg=None ctermbg=None<CR>
 "
 set colorcolumn=80
 

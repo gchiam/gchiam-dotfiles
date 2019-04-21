@@ -77,7 +77,7 @@ endif
 
 " Tab
 " ===
-map <Leader>t <esc>:tabnew<CR>
+" map <Leader>t <esc>:tabnew<CR>
 map <Leader>, <esc>:tabprevious<CR>
 map <Leader>. <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
