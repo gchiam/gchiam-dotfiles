@@ -52,6 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git python vi-mode theme zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.bash_path
 source $HOME/.bash_exports
 source $HOME/.bash_aliases
 # source $HOME/.bash_prompt
@@ -104,8 +105,18 @@ if [ -f '/Users/gchiam/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc'; fi
+
 fpath=($fpath "/home/gordonchiam/.zfunctions")
 
   # Set Spaceship ZSH as a prompt
   autoload -U promptinit; promptinit
-  prompt spaceship
+  # prompt spaceship
+
+
+source "/Users/gchiam/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/gchiam/.sdkman"
+[[ -s "/Users/gchiam/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gchiam/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

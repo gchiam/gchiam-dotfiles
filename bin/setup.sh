@@ -6,6 +6,7 @@ ln -snvf $HOME/projects/gchiam-dotfiles $DOTFILES_DIR
 
 ln -snvf $DOTFILES_DIR/.bashrc $HOME/
 ln -snvf $DOTFILES_DIR/.bash_profile $HOME/
+ln -snvf $DOTFILES_DIR/.bash_path $HOME/
 ln -snvf $DOTFILES_DIR/.bash_prompt $HOME/
 ln -snvf $DOTFILES_DIR/.bash_aliases $HOME/
 ln -snvf $DOTFILES_DIR/.bash_completion $HOME/
