@@ -16,3 +16,6 @@
 [submodule "external/oceanic-next-iterm"]
 	path = external/oceanic-next-iterm
 	url = https://github.com/mhartington/oceanic-next-iterm.git
+[submodule "external/onehalf"]
+	path = external/onehalf
+	url = https://github.com/sonph/onehalf.git
