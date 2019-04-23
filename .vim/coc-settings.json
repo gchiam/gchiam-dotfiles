@@ -1,4 +1,9 @@
 {
-    "suggest.enablePreview": true,
-    "coc.preferences.jumpCommand": "vsplit"
+  "coc.preferences.jumpCommand": "vsplit",
+  "diagnostic.errorSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.warningSign": "•",
+  "suggest.echodocSupport": true,
+  "suggest.enablePreview": true,
+  "suggest.maxCompleteItemCount": 20
 }
