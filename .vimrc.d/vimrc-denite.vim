@@ -16,27 +16,33 @@ nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
 try
 " === Denite setup ==="
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob
-"            (aka ignore .git files)
+" https://gist.github.com/dlants/8d7fadfb691b511f1376ba437a9aaea9
 "
-call denite#custom#var('file/rec', 'command', ['ag', '--hidden', '--ignore .git', '-l', '-g'])
+" denite file search (c-p uses gitignore, c-o looks at everything)
+map <C-P> :DeniteProjectDir -buffer-name=git -direction=top file/rec/git<CR>
+map <C-O> :DeniteProjectDir -buffer-name=files -direction=top file/rec<CR>
 
-" Use ag in place of "grep"
+" -u flag to unrestrict (see ag docs)
+call denite#custom#var('file/rec', 'command',
+  \ ['ag', '--follow', '--nocolor', '--nogroup', '-u', '-g', ''])
+
+call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+call denite#custom#var('file/rec/git', 'command',
+  \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+
+" denite content search
+map <leader>a :DeniteProjectDir -buffer-name=grep -default-action=quickfix grep:::!<CR>
+
+call denite#custom#source(
+  \ 'grep', 'matchers', ['matcher_regexp'])
+
+" use ag for content search
 call denite#custom#var('grep', 'command', ['ag'])
-
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
+call denite#custom#var('grep', 'default_opts',
+  \ ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 

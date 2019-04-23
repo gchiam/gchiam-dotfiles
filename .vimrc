@@ -4,7 +4,6 @@ scriptencoding utf-8
 " set tabstop=4 softtabstop=4 shiftwidth=4 :
 
 source ~/.vimrc.d/vimrc-dein.vim
-source ~/.vimrc.d/vimrc-denite.vim
 
 source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
@@ -30,3 +29,5 @@ source ~/.vimrc.d/vimrc-extra-whitespace.vim
 
 source ~/.vimrc.d/vimrc-colorscheme.vim
 source ~/.vimrc.d/vimrc-lightline.vim
+
+source ~/.vimrc.d/vimrc-denite.vim
