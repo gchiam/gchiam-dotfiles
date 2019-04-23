@@ -14,7 +14,7 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 set colorcolumn=80
 
 if (!exists("$VIM_COLORSCHEME"))
-    let $VIM_COLORSCHEME='gruvbox'
+    let $VIM_COLORSCHEME='onehalfdark'
 endif
 source ~/.vimrc.d/vimrc-colorscheme-$VIM_COLORSCHEME.vim
 " source ~/.vimrc.d/vimrc-gruvbox.vim

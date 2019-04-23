@@ -38,6 +38,7 @@ call dein#add('kana/vim-textobj-entire')
 
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
+call dein#add('sonph/onehalf', {'rtp': 'vim/'})
 call dein#add('mhartington/oceanic-next')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ryanoasis/vim-devicons')
@@ -53,7 +54,7 @@ call dein#add('jeetsukumaran/vim-pythonsense', {'on_ft': 'python'})
 
 
 " Syntax - General
-"
+call dein#add('sheerun/vim-polyglot')
 call dein#add('tpope/vim-sleuth')
 call dein#add('khzaw/vim-conceal')
 
