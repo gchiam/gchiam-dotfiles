@@ -50,5 +50,9 @@ do
 done
 
 
+# setup zsh
+$DOTFILES_DIR/bin/setup-zsh.sh
+
+
 # git bash completion
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash

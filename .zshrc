@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python vi-mode theme zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git python vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_path
@@ -98,7 +98,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 source "${HOME}/.zshrc-spaceship"
 
-source "${HOME}/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gchiam/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/gchiam/Projects/google-cloud-sdk/path.zsh.inc'; fi
@@ -108,12 +107,6 @@ if [ -f '/Users/gchiam/Projects/google-cloud-sdk/completion.zsh.inc' ]; then sou
 
 fpath=($fpath "/home/gordonchiam/.zfunctions")
 
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  # prompt spaceship
-
-
-source "/Users/gchiam/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/gchiam/.sdkman"
