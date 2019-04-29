@@ -1,6 +1,8 @@
 # vim: set filetype=sh:
 
 
+export LANG=en_US.UTF-8
+
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
 for file in ~/.{bash_path,ash_extra,bash_prompt,bash_exports,bash_aliases,bash_functions,bash_completion,bash_completion-homebrew,bash_local,bash_private,bash_motd}; do

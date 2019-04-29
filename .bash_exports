@@ -23,3 +23,6 @@ if [ -f /usr/libexec/java_home ]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
     export JDK_HOME=$JAVA_HOME
 fi
+
+
+eval "$(pyenv init -)"
