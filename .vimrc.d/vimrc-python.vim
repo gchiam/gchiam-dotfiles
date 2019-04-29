@@ -1,6 +1,8 @@
 scriptencoding utf-8
 
 
+let g:python_highlight_all = 1
+
 " Mapping keys to set python breakpoints
 " "======================================
 map <Leader>B Oimport ipdb as _xxPDB; _xxPDB.set_trace();  # BREAKPOINT<C-c>
