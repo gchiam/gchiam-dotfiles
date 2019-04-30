@@ -47,6 +47,8 @@ COMPLETION_WAITING_DOTS="true"
 
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+source $HOME/.bash_path
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -55,7 +57,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 plugins=(fzf git python tmux vi-mode z)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.bash_path
 source $HOME/.bash_exports
 source $HOME/.bash_aliases
 test -e $HOME/.bash_local && source $HOME/.bash_local
