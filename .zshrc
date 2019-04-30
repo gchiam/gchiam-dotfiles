@@ -45,6 +45,9 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# User configuration
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -55,12 +58,8 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_path
 source $HOME/.bash_exports
 source $HOME/.bash_aliases
-# source $HOME/.bash_prompt
 test -e $HOME/.bash_local && source $HOME/.bash_local
 
-# User configuration
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
