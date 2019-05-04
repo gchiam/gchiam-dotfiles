@@ -11,6 +11,7 @@ export PYTHONDONTWRITEBYTECODE=1
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 export GOPATH=$HOME/go
 
+export VIM_COLORSCHEME=${VIM_COLORSCHEME:-nord}
 
 ###############################################################################
 # virtualenvwrapper
