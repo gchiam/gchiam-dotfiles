@@ -25,3 +25,12 @@
 [submodule "external/spaceship-prompt"]
 	path = external/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule "external/nord-xresources"]
+	path = external/nord-xresources
+	url = git@github.com:arcticicestudio/nord-xresources.git
+[submodule "external/nord-iterm2"]
+	path = external/nord-iterm2
+	url = https://github.com/arcticicestudio/nord-iterm2
+[submodule "external/nord-dircolors"]
+	path = external/nord-dircolors
+	url = git@github.com:arcticicestudio/nord-dircolors.git
