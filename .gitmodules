@@ -34,3 +34,6 @@
 [submodule "external/nord-dircolors"]
 	path = external/nord-dircolors
 	url = git@github.com:arcticicestudio/nord-dircolors.git
+[submodule "external/ayu-iTerm"]
+	path = external/ayu-iTerm
+	url = git@github.com:hwyncho/ayu-iTerm.git
