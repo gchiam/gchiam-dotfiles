@@ -37,3 +37,6 @@
 [submodule "external/ayu-iTerm"]
 	path = external/ayu-iTerm
 	url = git@github.com:hwyncho/ayu-iTerm.git
+[submodule "external/pyenv"]
+	path = external/pyenv
+	url = git@github.com:pyenv/pyenv.git
