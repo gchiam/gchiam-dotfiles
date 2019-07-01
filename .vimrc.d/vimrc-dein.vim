@@ -61,6 +61,7 @@ call dein#add('tpope/vim-sleuth')
 call dein#add('khzaw/vim-conceal')
 
 " UI
+call dein#add('roman/golden-ratio')
 call dein#add('scrooloose/nerdtree')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
