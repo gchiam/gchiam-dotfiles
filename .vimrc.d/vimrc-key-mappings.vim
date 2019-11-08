@@ -48,7 +48,6 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " Move to begining of line
-nmap 0 ^
 nmap , ^
 " Move to end of line
 nmap . $
