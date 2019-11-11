@@ -1,9 +1,12 @@
 {
   "coc.preferences.jumpCommand": "vsplit",
-  "diagnostic.errorSign": "•",
-  "diagnostic.infoSign": "•",
-  "diagnostic.warningSign": "•",
+  "diagnostic.errorSign": "▀",
+  "diagnostic.infoSign": "▀",
+  "diagnostic.warningSign": "▀",
   "suggest.echodocSupport": true,
   "suggest.enablePreview": true,
-  "suggest.maxCompleteItemCount": 20
+  "suggest.maxCompleteItemCount": 20,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true
 }

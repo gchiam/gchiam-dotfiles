@@ -79,7 +79,6 @@ endif
 " map <Leader>t <esc>:tabnew<CR>
 map <Leader>, <esc>:tabprevious<CR>
 map <Leader>. <esc>:tabnext<CR>
-vnoremap <Leader>s :sort<CR>
 
 map <Leader>[ <esc>:lprevious<CR>
 map <Leader>] <esc>:lnext<CR>
@@ -101,7 +100,7 @@ map <Leader>a ggVG  " select all
 
 " Current line & column mappings
 " ==============================
-nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>C :set cursorline! cursorcolumn!<CR>
 " set cursorline cursorcolumn
 
 

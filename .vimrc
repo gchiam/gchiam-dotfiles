@@ -8,7 +8,7 @@ source ~/.vimrc.d/vimrc-dein.vim
 source ~/.vimrc.d/vimrc-general-options.vim
 source ~/.vimrc.d/vimrc-python.vim
 source ~/.vimrc.d/vimrc-vimrc-files.vim
-source ~/.vimrc.d/vimrc-auto-complete.vim
+source ~/.vimrc.d/vimrc-coc.vim
 source ~/.vimrc.d/vimrc-key-mappings.vim
 source ~/.vimrc.d/vimrc-nerdtree.vim
 source ~/.vimrc.d/vimrc-split-term.vim

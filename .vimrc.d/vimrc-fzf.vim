@@ -34,7 +34,7 @@ nmap <Leader>: :History:<CR>
 nmap <Leader>M :Maps<CR>
 
 " Misc
-nmap <Leader>s :Filetypes<CR>
+nmap <Leader>S :Filetypes<CR>
 
 
 let g:fzf_action = {
