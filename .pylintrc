@@ -1,7 +1,15 @@
 [MESSAGES CONTROL]
 # Disable the following PyLint messages:
-W0312 - Found indentation with tabs instead of spaces
+# W0312 - Found indentation with tabs instead of spaces
 disable-msg=W0312
+disable=mixed-indentation,bad-continuation
 
 [TYPECHECK]
 generated-members=objects,DoesNotExist,MultipleObjectsReturned
+
+[FORMAT]
+indent-string="\t"
+indent-after-paren=1
+
+[REPORTS]
+output-format=colorized
