@@ -47,7 +47,7 @@ call dein#add('machakann/vim-highlightedyank')
 
 " Syntax - python
 call dein#add('raimon49/requirements.txt.vim')
-call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
+call dein#add('numirias/semshi', {'do': ':UpdateRemotePlugins'})
 call dein#add('kalekundert/vim-coiled-snake', {'on_ft': 'python'})
 call dein#add('Konfekt/FastFold', {'on_ft': 'python'})
 call dein#add('jeetsukumaran/vim-pythonsense', {'on_ft': 'python'})
@@ -92,7 +92,7 @@ call dein#add('mhinz/vim-startify')
 call dein#add('terryma/vim-expand-region')
 call dein#add('guns/xterm-color-table.vim')
 
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+call dein#add('junegunn/fzf.vim')
 
 call dein#add('vimlab/split-term.vim')
 
