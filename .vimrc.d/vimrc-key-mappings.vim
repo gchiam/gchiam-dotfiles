@@ -21,7 +21,7 @@ noremap <Leader>Q <esc>:quitall<CR>
 
 " Bind nohl
 " =========
-noremap <Leader>h :nohl<CR>
+noremap // :nohl<CR>
 
 
 " easier formatting of paragraphs
