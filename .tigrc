@@ -58,7 +58,7 @@ bind main T !@git tag %(prompt) %(commit)
 bind status P !git push origin
 
 ## Open the commit on Github
-bind generic B @sh -c "xdg-open 'https://'$(git remote -v | grep -Eo 'github.com[:/][^.]+' | head -1 | tr : /)'/commit/%(commit)'"
+bind generic H @sh -c "open 'https://'$(git remote -v | grep -Eo 'github.com[:/][^.]+' | head -1 | tr : /)'/commit/%(commit)'"
 
 ## *Patch the file under the cursor
-bind status P !git add --patch %(file)
+bind status p !git add --patch %(file)
