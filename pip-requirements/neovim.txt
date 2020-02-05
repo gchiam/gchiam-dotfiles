@@ -11,4 +11,4 @@ mccabe-console-script
 jedi
 isort
 radon
-neovim
+pynvim
