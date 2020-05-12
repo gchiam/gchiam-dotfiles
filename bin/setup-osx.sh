@@ -57,6 +57,7 @@ brew install --HEAD mobile-shell
 
 brew cask install iterm2
 brew install diff-so-fancy
+brew install delta
 brew install ctags
 brew install fx
 

@@ -52,6 +52,7 @@ brew tap jhawthorn/fzy
 brew install fzy
 
 brew install diff-so-fancy
+brew install delta
 
 brew install cowsay
 brew install fortune

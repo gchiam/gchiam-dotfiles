@@ -15,6 +15,10 @@ git config --global alias.lo "log --color --graph --pretty=format:'%C(magenta)%h
 git config --global alias.standup "log --color --pretty=format:'%C(magenta)%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
 
 git config --global alias.br "branch"
+git config --global alias.bo 'branch --all --verbose --verbose'
+git config --global alias.bom 'branch --all --list "*gchiam*" --verbose --verbose'
+git config --global alias.bv 'branch --verbose --verbose'
+git config --global alias.bvm 'branch --list "*gchiam*" --verbose --verbose'
 git config --global alias.cleanup branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
@@ -42,8 +46,10 @@ git config --global merge.tool "vimdiff"
 git config --global mergetool.prompt "true"
 git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$MERGED\" -c '\$wincmd w' -c 'wincmd J'"
 
-git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
-git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
+# git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
+# git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
+git config --global core.pager "delta --theme='Nord' --plus-color='#1d2626' --minus-color='#2b1618'"
+got config --global interactive.diffFilter "delta --color-only"
 
 # colors
 git config --global color.ui "true"
