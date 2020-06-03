@@ -36,6 +36,8 @@ call dein#add('michaeljsmith/vim-indent-object')
 call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-entire')
 
+call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+
 " Colorschemes & Apprerances
 call dein#add('morhetz/gruvbox')
 call dein#add('lifepillar/vim-gruvbox8')
@@ -66,7 +68,6 @@ call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 call dein#add('Shougo/denite.nvim')
 call dein#add('chemzqm/denite-git')
 call dein#add('Shougo/unite-outline')
-call dein#add('neoclide/coc.nvim', {'merge':0, 'build': './install.sh nightly'})
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('Shougo/echodoc.vim')
 
