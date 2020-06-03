@@ -27,6 +27,6 @@ fi
 
 
 eval "$(pyenv init -)"
-
-# echo “$(pyenv virtualenv-init -)”
 # eval “$(pyenv virtualenv-init -)”
+
+eval "$(rbenv init -)"
