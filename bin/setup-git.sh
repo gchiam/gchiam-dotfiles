@@ -48,8 +48,8 @@ git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$
 
 # git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
 # git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
-git config --global core.pager "delta --theme='Nord' --plus-color='#1d2626' --minus-color='#2b1618'"
-got config --global interactive.diffFilter "delta --color-only"
+git config --global core.pager "delta --theme='Nord' --plus-color='#142e26' --minus-color='#2b1618'"
+git config --global interactive.diffFilter "delta --color-only"
 
 # colors
 git config --global color.ui "true"
