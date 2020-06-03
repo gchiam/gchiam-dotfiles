@@ -3,6 +3,7 @@
 .bash_private
 **/.DS_Store
 .vim/.netrwhist
+.vim/sessions/*
 .vim/view
 *.swp
 .config/pudb/saved-breakpoints-2.7
