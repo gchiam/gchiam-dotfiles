@@ -1,15 +1,9 @@
 [submodule "external/oh-my-zsh"]
 	path = external/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "external/gruvbox-contrib"]
-	path = external/gruvbox-contrib
-	url = https://github.com/morhetz/gruvbox-contrib
 [submodule "external/tmux-plugins"]
 	path = external/tpm
 	url = git@github.com:tmux-plugins/tpm.git
-[submodule "external/gruvbox-pygments"]
-	path = external/gruvbox-pygments
-	url = https://github.com/daveyarwood/gruvbox-pygments.git
 [submodule "external/spaceship-prompt"]
 	path = external/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
