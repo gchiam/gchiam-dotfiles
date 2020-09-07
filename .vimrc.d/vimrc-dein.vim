@@ -39,8 +39,6 @@ call dein#add('kana/vim-textobj-entire')
 call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 
 " Colorschemes & Apprerances
-call dein#add('morhetz/gruvbox')
-call dein#add('lifepillar/vim-gruvbox8')
 call dein#add('arcticicestudio/nord-vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('ryanoasis/vim-devicons')
