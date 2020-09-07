@@ -36,8 +36,6 @@ call dein#add('michaeljsmith/vim-indent-object')
 call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-entire')
 
-call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
-
 " Colorschemes & Apprerances
 call dein#add('arcticicestudio/nord-vim')
 call dein#add('itchyny/lightline.vim')

@@ -17,7 +17,7 @@ let g:lightline = {
     \   'c': 'COMMAND', 's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK', 't': 'TERMINAL'
     \ },
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'cocstatus', 'fugitive', 'filename' ], ['ctrlpmark'] ],
+    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
     \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
     \ 'inactive': {
@@ -33,7 +33,6 @@ let g:lightline = {
     \   'inactive': [ 'tabnum', 'filename', 'modified' ]
     \ },
     \ 'component_function': {
-    \   'cocstatus': 'coc#status',
     \   'fugitive': 'LightLineFugitive',
     \   'readonly': 'LightLineReadonly',
     \   'modified': 'LightLineModified',
