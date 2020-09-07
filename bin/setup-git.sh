@@ -19,7 +19,7 @@ git config --global alias.bo 'branch --all --verbose --verbose'
 git config --global alias.bom 'branch --all --list "*gchiam*" --verbose --verbose'
 git config --global alias.bv 'branch --verbose --verbose'
 git config --global alias.bvm 'branch --list "*gchiam*" --verbose --verbose'
-git config --global alias.cleanup branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+git config --global alias.cleanup '!git branch --merged | grep -v "*\|master" | xargs -n 1 git branch -d'
 git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
 git config --global alias.cp "cherry-pick"
@@ -35,6 +35,7 @@ git config --global alias.st "status -b"
 git config --global alias.unstage "reset HEAD --"
 
 git config --global alias.last "log -1 HEAD"
+git config --global pull.rebase false
 
 # diff
 git config --global diff.tool "vimdiff"
