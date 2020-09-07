@@ -16,7 +16,6 @@ source ~/.vimrc.d/vimrc-split-term.vim
 source ~/.vimrc.d/vimrc-copy-paste.vim
 
 source ~/.vimrc.d/vimrc-line-number.vim
-source ~/.vimrc.d/vimrc-vim-togglelist.vim
 
 source ~/.vimrc.d/vimrc-ctrlp.vim
 source ~/.vimrc.d/vimrc-fzf.vim
