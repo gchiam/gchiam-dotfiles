@@ -9,7 +9,6 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="agnoster"
 # ZSH_THEME="ys"
 # ZSH_THEME="refined"
-ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -95,8 +94,6 @@ export KEYTIMEOUT=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-source "${HOME}/.zshrc-spaceship"
 
 
 # The next line updates PATH for the Google Cloud SDK.
