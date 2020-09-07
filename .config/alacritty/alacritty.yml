@@ -32,6 +32,8 @@ window:
   # Setting this to false will result in window without borders and title bar.
   decorations: full
 
+  dynamic_title: true
+
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
@@ -237,7 +239,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -283,8 +285,6 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-dynamic_title: true
 
 mouse.hide_when_typing: true
 
