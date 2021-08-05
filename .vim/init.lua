@@ -5,9 +5,7 @@ require "package-manager.user"
 
 require "plugins"
 
-vim.cmd "source ~/.vimrc.d/vimrc-general-options.vim"
-vim.cmd "source ~/.vimrc.d/vimrc-key-mappings.vim"
-
+require "options"
 
 -- lua << EOF
 --     local nvim_lsp = require"nvim_lsp"
