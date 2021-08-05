@@ -20,10 +20,31 @@ lua << EPF
   -- user.nvim can manage itself!
   use "faerryn/user.nvim"
 
+  --
   -- color scheme
+  --
+
   -- https://github.com/shaunsingh/nord.nvim
   use "shaunsingh/nord.nvim"
   require('nord').set()
+
+  --
+  -- UI
+  --
+
+  -- optional requirement of lualime.vim
+  use 'kyazdani42/nvim-web-devicons'
+
+  -- optional requirement of lualime.vim
+  use 'ryanoasis/vim-devicons'
+
+  -- lualine.vim
+  use 'hoob3rt/lualine.nvim'
+  require('lualine').setup {
+  options = {
+    theme = 'nord'
+  }
+}
 EPF
 
 source ~/.vimrc.d/vimrc-dein.vim
