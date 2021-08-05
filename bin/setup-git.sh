@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git config --global alias.adddiff "!git st | grep modified | sed 's/modified: //' | xargs git add"
+
 # http://fredkschott.com/post/2014/02/git-log-is-so-2005/
 git config --global alias.d "diff"
 git config --global alias.dc "diff --cached"
@@ -11,6 +13,7 @@ git config --global alias.dtg "difftool --gui"
 git config --global alias.l "log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.lg "log --all --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.lm "log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit master..."
+git config --global alias.lmn "log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit main..."
 git config --global alias.lo "log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit origin/HEAD..."
 git config --global alias.standup "log --color --pretty=format:'%C(magenta)%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
 
@@ -19,10 +22,12 @@ git config --global alias.bo 'branch --all --verbose --verbose'
 git config --global alias.bom 'branch --all --list "*gchiam*" --verbose --verbose'
 git config --global alias.bv 'branch --verbose --verbose'
 git config --global alias.bvm 'branch --list "*gchiam*" --verbose --verbose'
-git config --global alias.cleanup '!git branch --merged | grep -v "*\|master" | xargs -n 1 git branch -d'
+git config --global alias.cleanup '!git branch --merged | grep -v "*\|main|master" | xargs -n 1 git branch -d'
 git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
 git config --global alias.cp "cherry-pick"
+git config --global alias.main "checkout main"
+git config --global alias.mn "checkout main"
 git config --global alias.master "checkout master"
 git config --global alias.ms "checkout master"
 git config --global alias.ci "commit"
