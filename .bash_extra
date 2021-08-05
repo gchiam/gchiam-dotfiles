@@ -26,6 +26,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=fg:15,hl:3,hl+:11,fg+:7,bg+:4,prompt:7,pointer:7,info:6,header:3  --algo=v2"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+. /usr/local/opt/asdf/asdf.sh
 
 # nvm
 export NVM_DIR="~/.nvm"
