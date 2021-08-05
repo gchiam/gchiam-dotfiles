@@ -25,8 +25,8 @@ window:
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 2
-    y: 2
+    x: 0
+    y: 0
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
@@ -59,30 +59,29 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: "Monoid Nerd Font Mono"
+    family: "Victor Mono"
     # Style can be specified to pick a specific face.
-    style: Retina
+  style: Thin
 
   # The bold font face
   bold:
-    family: "Monoid Nerd Font Mono"
+    family: "Victor Mono"
     # Style can be specified to pick a specific face.
-    style: Retina
+    style: Regular
 
   # The italic font face
   italic:
-    family: "Monoid Nerd Font Mono"
-    # Style can be specified to pick a specific face.
-    style: Italic
+    family: "Victor Mono"
+    style: Thin Italic
 
   # Point size of the font
-  size: 10.0
+  size: 13.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: 0
-    y: 4
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
@@ -93,11 +92,6 @@ font:
 
   rgba: None
   antialias: true
-
-  # OS X only: use thin stroke font rendering. Thin strokes are suitable
-  # for retina displays, but for non-retina you probably want this set to
-  # false.
-  use_thin_strokes: true
 
 # Colors (nord)
 # Copied from https://github.com/arcticicestudio/nord-alacritty/
@@ -127,95 +121,6 @@ colors:
     cyan: '0x8FBCBB'
     white: '0xECEFF4'
 
-# Colors (Spacegray)
-# colors:
-#   # Default colors
-#   primary:
-#     # background: '0x111314'
-#     backgound: '0x242424'
-#     foreground: '0xB7BBB7'
-# 
-#   # Normal colors
-#   normal:
-#     black:   '0x2C2F33'
-#     red:     '0xB04C50'
-#     green:   '0x919652'
-#     yellow:  '0xE2995C'
-#     blue:    '0x66899D'
-#     magenta: '0x8D6494'
-#     cyan:    '0x527C77'
-#     white:   '0x606360'
-# 
-#   # Bright colors
-#   bright:
-#     black:   '0x4B5056'
-#     red:     '0xB04C50'
-#     green:   '0x919652'
-#     yellow:  '0xE2995C'
-#     blue:    '0x66899D'
-#     magenta: '0x8D6494'
-#     cyan:    '0x527C77'
-#     white:   '0xDDE3DC'
-
-
-# # Colors (Gruvbox dark)
-# colors:
-#   # Default colors
-#   primary:
-#     # hard contrast: background = '0x1d2021'
-#     background: '0x282828'
-#     # soft contrast: background = '0x32302f'
-#     foreground: '0xebdbb2'
-
-#   # Normal colors
-#   normal:
-#     black:   '0x282828'
-#     red:     '0xcc241d'
-#     green:   '0x98971a'
-#     yellow:  '0xd79921'
-#     blue:    '0x458588'
-#     magenta: '0xb16286'
-#     cyan:    '0x689d6a'
-#     white:   '0xa89984'
-
-#   # Bright colors
-#   bright:
-#     black:   '0x928374'
-#     red:     '0xfb4934'
-#     green:   '0xb8bb26'
-#     yellow:  '0xfabd2f'
-#     blue:    '0x83a598'
-#     magenta: '0xd3869b'
-#     cyan:    '0x8ec07c'
-#     white:   '0xebdbb2'
-
-
-# # Colors (One Half Dark)
-# colors:
-#   primary:
-#     background: '0x282c34'
-#     foreground: '0xdcdfe4'
-
-#   normal:
-#     black: '0x282c34'
-#     red: '0xe06c75'
-#     green: '0x98c379'
-#     yellow: '0xe5c07b'
-#     blue: '0x61afef'
-#     magenta: '0xc678dd'
-#     cyan: '0x56b6c2'
-#     white: '0xdcdfe4'
-
-#   bright:
-#     black: '0x282c34'
-#     red: '0xe06c75'
-#     green: '0x98c379'
-#     yellow: '0xe5c07b'
-#     blue: '0x61afef'
-#     magenta: '0xc678dd'
-#     cyan: '0x56b6c2'
-#     white: '0xdcdfe4'
-
 
 # Visual Bell
 #
@@ -244,7 +149,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.90
+background_opacity: 0.98
 
 # Mouse bindings
 #
@@ -294,7 +199,7 @@ mouse.hide_when_typing: true
 # - Block
 # - Underline
 # - Beam
-cursor.style: Block
+cursor.style: Beam
 
 # Live config reload (changes require restart)
 live_config_reload: true
