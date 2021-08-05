@@ -28,6 +28,13 @@ let pluginsExist = 0
 call dein#add('Shougo/dein.vim')
 call dein#add('haya14busa/dein-command.vim')
 
+call dein#add('neovim/nvim-lspconfig')
+call dein#add('RishabhRD/popfix')
+call dein#add('RishabhRD/nvim-lsputils')
+
+ call dein#add('Shougo/deoplete.nvim')
+ call dein#add('Shougo/deoplete-lsp')
+
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-commentary')
 call dein#add('christoomey/vim-sort-motion')
@@ -71,7 +78,6 @@ call dein#add('Shougo/echodoc.vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('mhinz/vim-signify')
 
-call dein#add('milkypostman/vim-togglelist')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('kopischke/vim-stay')
 
