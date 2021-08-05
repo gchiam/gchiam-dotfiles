@@ -31,6 +31,7 @@ lua << EPF
   vim.g.nord_disable_background = true
   vim.g.nord_enable_sidebar_background = true
   vim.g.nord_italic = true
+  vim.cmd[[au VimEnter * highlight Comment gui=italic]]
   require('nord').set()
 
   --
