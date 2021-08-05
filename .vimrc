@@ -19,6 +19,11 @@ lua << EPF
 
   -- user.nvim can manage itself!
   use "faerryn/user.nvim"
+
+  -- color scheme
+  -- https://github.com/shaunsingh/nord.nvim
+  use "shaunsingh/nord.nvim"
+  require('nord').set()
 EPF
 
 source ~/.vimrc.d/vimrc-dein.vim
