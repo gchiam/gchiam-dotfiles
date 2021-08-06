@@ -2,24 +2,10 @@
 
 --
 -- color scheme
---
-require "plugins.nord-config"
-
+require "plugins.nord"
 
 --
 -- UI
---
+require "plugins.nvim-web-devicons"
+require "plugins.lualine"
 
--- optional requirement of lualime.vim
-use "kyazdani42/nvim-web-devicons"
-
--- optional requirement of lualime.vim
-use "ryanoasis/vim-devicons"
-
--- lualine.vim
-use "hoob3rt/lualine.nvim"
-require("lualine").setup {
-options = {
-    theme = "nord"
-  }
-}
