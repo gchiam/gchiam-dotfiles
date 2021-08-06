@@ -28,13 +28,6 @@ let pluginsExist = 0
 call dein#add('Shougo/dein.vim')
 call dein#add('haya14busa/dein-command.vim')
 
-call dein#add('neovim/nvim-lspconfig')
-call dein#add('RishabhRD/popfix')
-call dein#add('RishabhRD/nvim-lsputils')
-
- call dein#add('Shougo/deoplete.nvim')
- call dein#add('Shougo/deoplete-lsp')
-
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-commentary')
 call dein#add('christoomey/vim-sort-motion')
