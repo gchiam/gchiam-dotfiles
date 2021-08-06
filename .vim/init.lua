@@ -38,15 +38,7 @@ require "options"
 
 
 -- source ~/.vimrc.d/vimrc-python.vim
--- source ~/.vimrc.d/vimrc-vimrc-files.vim
--- source ~/.vimrc.d/vimrc-nerdtree.vim
 -- source ~/.vimrc.d/vimrc-split-term.vim
--- 
--- source ~/.vimrc.d/vimrc-copy-paste.vim
--- 
--- source ~/.vimrc.d/vimrc-line-number.vim
--- 
--- source ~/.vimrc.d/vimrc-deoplete.vim
 -- 
 -- source ~/.vimrc.d/vimrc-ctrlp.vim
 -- source ~/.vimrc.d/vimrc-fzf.vim
@@ -54,11 +46,3 @@ require "options"
 -- source ~/.vimrc.d/vimrc-ags.vim
 -- source ~/.vimrc.d/vimrc-tagbar.vim
 -- source ~/.vimrc.d/vimrc-expand-region.vim
--- source ~/.vimrc.d/vimrc-vim-devicons.vim
--- 
--- source ~/.vimrc.d/vimrc-extra-whitespace.vim
--- 
--- source ~/.vimrc.d/vimrc-colorscheme.vim
--- source ~/.vimrc.d/vimrc-lightline.vim
--- 
--- source ~/.vimrc.d/vimrc-denite.vim
