@@ -3,7 +3,10 @@
 -- Setting for displaying line numbers
 -- ===================================
 
-vim.cmd "nnoremap <Leader>l :set relativenumber!<cr>"
+local opts = { noremap=true, silent=false }
+
+vim.api.nvim_set_keymap('n', '<Leader>l', ':set relativenumber!<CR>', opts)
+
 vim.cmd ":augroup FocusLost * set norelativenumber number"
 vim.cmd ":augroup FocusGained * set relativenumber number"
 vim.cmd "autocmd InsertEnter * set norelativenumber number"
