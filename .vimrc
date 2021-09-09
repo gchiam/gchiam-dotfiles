@@ -82,8 +82,8 @@ EPF
 "     vim.lsp.callbacks['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 " EOF
 
-source ~/.vimrc.d/vimrc-general-options.vim
-source ~/.vimrc.d/vimrc-key-mappings.vim
+" source ~/.vimrc.d/vimrc-general-options.vim
+" source ~/.vimrc.d/vimrc-key-mappings.vim
 
 " source ~/.vimrc.d/vimrc-python.vim
 " source ~/.vimrc.d/vimrc-vimrc-files.vim

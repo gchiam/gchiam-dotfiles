@@ -9,3 +9,5 @@ require "options.line-number"
 require "options.extra-whitespace"
 
 vim.cmd "source ~/.vimrc.d/vimrc-tabs.vim"
+vim.cmd "source ~/.vimrc.d/vimrc-python.vim"
+vim.cmd "source ~/.vimrc.d/vimrc-ruby.vim"
