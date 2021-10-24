@@ -12,7 +12,7 @@ brew tap homebrew/cask-fonts
 
 brew install zsh
 
-brew install font-noto-sans font-noto-serif font-victor-mono
+brew install font-noto-sans font-noto-serif font-victor-mono font-victor-mono-nerd-font
 
 brew install axel
 brew install curl
@@ -36,8 +36,8 @@ pip3 install -U pip
 # ~~~~~~~~~~~
 
 brew install diff-so-fancy
-brew install delta
-# brew install ctags
+brew install git-delta
+# brew instal
 brew install fx
 brew install jq
 
@@ -116,9 +116,9 @@ brew install fontforge ttf2eot ttfautohint
 brew install adobe-creative-cloud
 brew install adobe-creative-cloud-cleaner-tool
 
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
-asdf install java adoptopenjdk-17.0.0+35
-asdf global java adoptopenjdk-17.0.0+35
+# SDKMan
+curl -s "https://get.sdkman.io" | bash
+
 
 # references:
 # * https://gist.github.com/kevinelliott/0726211d17020a6abc1f
