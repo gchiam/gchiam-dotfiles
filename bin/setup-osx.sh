@@ -7,10 +7,12 @@ xcode-select --install
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
+brew tap homebrew/cask
+brew tap homebrew/cask-fonts
 
-brew install ruby
+brew install zsh
+
+brew install font-noto-sans font-noto-serif font-victor-mono font-victor-mono-nerd-font
 
 brew install axel
 brew install curl
@@ -18,74 +20,46 @@ brew install wget
 
 brew install git
 brew install tig
-brew install --HEAD mobile-shell
 brew install the_silver_searcher
-brew install nnn
-brew install ripgrep
-brew install tmux  # --HEAD
+brew install tmux
 brew install fzf
 
-brew tap jhawthorn/fzy
-brew install fzy
-
-/usr/local/bin/gem install tmuxinator
-/usr/local/bin/gem install grepg
-
-# install python2 & python3
-brew install python
-brew install python3
-pushd /tmp
-curl -O http://python-distribute.org/distribute_setup.py
-python distribute_setup.py
-python3 distribute_setup.py
-curl -O https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
-python3 get-pip.py
-pip install -U pip
+# install Python3
+brew install python  # install Python 3
+python -m ensurepip --upgrade
 pip3 install -U pip
-brew install pkg-config
-popd
 
-
-# mosh
-brew install --HEAD mobile-shell
 
 
 
 # development
 # ~~~~~~~~~~~
 
-brew cask install iterm2
 brew install diff-so-fancy
-brew install delta
-brew install ctags
+brew install git-delta
+# brew instal
 brew install fx
+brew install jq
 
-# install node.js and npm
 brew install node.js
 
-# install NyaoVim: GUI frontend of NeoVim
-npm install -g nyaovim
 
 # install editors
-brew cask install atom
-brew cask install brackets
+brew install --HEAD neovim
+brew install pyenv
+brew install rbenv
+brew install asdf
 
 # install virtualbox & docker
-brew cask install virtualbox
-brew cask install virtualbox-extension-pack
+brew install virtualbox virtualbox-extension-pack
 brew install docker
 brew install docker-machine
 brew install docker-compose
 
-# install anvil
-brew cask install anvil  # manage local website
-
 # install android
-brew cask install android-sdk
-brew cask install android-studio
+brew install android-sdk android-platform-tools android-studio
 
-brew cask install github-desktop
+brew install github
 
 # http://facebook.github.io/PathPicker/
 brew install fpp
@@ -94,36 +68,33 @@ brew install fpp
 # multimedia
 # ~~~~~~~~~~
 
-brew cask install vlc
 brew install imagemagick --with-librsvg
-brew cask install gimp
+brew install gimp
 
 # communications
 # ~~~~~~~~~~~~~~
 
 # install slack
-brew cask install slack
+brew install slack
+brew install zoom
 
 
 # system
 # ~~~~~~
-brew install ranger
-brew cask install 1password
-brew cask install amethyst
-brew cask install appcleaner
-brew cask install battery-guardian
-brew cask install dropbox
-brew cask install flux
-brew cask install flycut
-brew cask install keepingyouawake
-brew cask install keycastr
-brew cask install mattr-slate
-brew cask install shortcat
+brew install 1password
+brew install amethyst
+brew install appcleaner
+brew install dropbox
+brew install flux
+brew install flycut
+brew install caffeine
+brew install keycastr
+brew install shortcat
 
-brew cask install the-unarchiver
+brew install the-unarchiver
 
 # osx fuse
-brew cask install osxfuse
+brew install osxfuse
 brew tap homebrew/fuse
 brew install ntfs-3g
 sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
@@ -131,20 +102,22 @@ sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 
 # productivity
 ~~~~~~~~~~~~~~
-brew cask install evernote
-brew cask install gimp
+brew install evernote
+brew install remnote
 
 # enjoy
-brew cask install awareness
-brew cask install spotify
+brew install spotify
 
 
 # https://gist.github.com/CFXd/9ddbba4607ceec5a2a2e
 brew install fontforge ttf2eot ttfautohint
 
 
-brew cask install adobe-creative-cloud
-brew cask install adobe-creative-cloud-cleaner-tool
+brew install adobe-creative-cloud
+brew install adobe-creative-cloud-cleaner-tool
+
+# SDKMan
+curl -s "https://get.sdkman.io" | bash
 
 
 # references:

@@ -27,8 +27,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
-
 umask 002
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
