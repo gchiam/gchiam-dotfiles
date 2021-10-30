@@ -3,6 +3,8 @@
 use "hoob3rt/lualine.nvim"
 require("lualine").setup {
 options = {
-    theme = "nord"
+    theme = "nord",
+    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''}
   }
 }
