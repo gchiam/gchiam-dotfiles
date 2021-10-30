@@ -22,7 +22,8 @@ require "plugins.vim-emoji"
 require "plugins.vim-highlightedyank"
 
 --
--- Coding
+-- IDE
+require "plugins.fzf"
 require "plugins.gitsigns"
 require "plugins.semshi"
 require "plugins.vim-commentary"
