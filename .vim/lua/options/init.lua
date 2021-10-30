@@ -7,7 +7,7 @@ require "options.general"
 require "options.copy-paste"
 require "options.line-number"
 require "options.extra-whitespace"
+require "options.tabs"
 
-vim.cmd "source ~/.vimrc.d/vimrc-tabs.vim"
 vim.cmd "source ~/.vimrc.d/vimrc-python.vim"
 vim.cmd "source ~/.vimrc.d/vimrc-ruby.vim"
