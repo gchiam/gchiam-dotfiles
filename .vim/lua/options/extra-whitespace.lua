@@ -6,7 +6,7 @@ vim.cmd "highlight ExtraWhitespace ctermbg=red guibg=red"
 vim.cmd "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red"
 
 vim.opt.listchars = {
-  space = '_',
+  space = ' ',
   tab = '→ ',
   trail = "·",
   extends = "⟩",
