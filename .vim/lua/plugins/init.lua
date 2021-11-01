@@ -9,7 +9,7 @@ require "plugins.nvim-compe"
 
 --
 -- color scheme
-require "plugins.nord"
+require "plugins.onenord"
 
 --
 -- UI
