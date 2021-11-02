@@ -1,7 +1,5 @@
 -- vim: set tabstop=2 softtabstop=2 shiftwidth=2 expandtab:
 
-local opt = vim.opt
-
 -- General option
 -- ===============
 opt.wildmode = "list:longest"  -- make TAB behave like in a shell

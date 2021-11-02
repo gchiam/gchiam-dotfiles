@@ -5,36 +5,34 @@
 use "junegunn/fzf"
 use "junegunn/fzf.vim"
 
-local opts = { noremap=true, silent=true }
-
 --  File Finder
-vim.api.nvim_set_keymap("n", "<Leader>f", "<cmd>:GFiles<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>F", "<cmd>:Files<CR>", opts)
+nmap("<Leader>f", "<cmd>:GFiles<CR>")
+nmap("<Leader>F", "<cmd>:Files<CR>")
 --  Buffer Finder
-vim.api.nvim_set_keymap("n", "<Leader>b", "<cmd>:Buffers<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>h", "<cmd>:History<CR>", opts)
+nmap("<Leader>b", "<cmd>:Buffers<CR>")
+nmap("<Leader>h", "<cmd>:History<CR>")
 
 --  Tag Finder
-vim.api.nvim_set_keymap("n", "<Leader>t", "<cmd>:BTags<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>T", "<cmd>:Tags<CR>", opts)
+nmap("<Leader>t", "<cmd>:BTags<CR>")
+nmap("<Leader>T", "<cmd>:Tags<CR>")
 
 --  Line Finder
-vim.api.nvim_set_keymap("n", "<Leader>l", "<cmd>:BLines<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>L", "<cmd>:Lines<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>'", "<cmd>:Marks<CR>", opts)
+nmap("<Leader>l", "<cmd>:BLines<CR>")
+nmap("<Leader>L", "<cmd>:Lines<CR>")
+nmap("<Leader>'", "<cmd>:Marks<CR>")
 
 --  Project Finder
-vim.api.nvim_set_keymap("n", "<Leader>/", "<cmd>:Ag<Space>", opts)
+nmap("<Leader>/", "<cmd>:Ag<Space>")
 
 --  Help Finder
-vim.api.nvim_set_keymap("n", "<Leader>H", "<cmd>:Helptags!<CR>", opts)
+nmap("<Leader>H", "<cmd>:Helptags!<CR>")
 
 --  Command Finder
-vim.api.nvim_set_keymap("n", "<Leader>c", "<cmd>:Commands<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>:", "<cmd>:History:<CR>", opts)
+nmap("<Leader>c", "<cmd>:Commands<CR>")
+nmap("<Leader>:", "<cmd>:History:<CR>")
 
 --  Key Mapping Finder
-vim.api.nvim_set_keymap("n", "<Leader>M", "<cmd>:Maps<CR>", opts)
+nmap("<Leader>M", "<cmd>:Maps<CR>")
 
 --  Misc
-vim.api.nvim_set_keymap("n", "<Leader>S", "<cmd>:Filetypes<CR>", opts)
+nmap("<Leader>S", "<cmd>:Filetypes<CR>")

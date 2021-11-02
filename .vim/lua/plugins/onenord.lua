@@ -1,8 +1,5 @@
 use "rmehri01/onenord.nvim"
 
-local opt = vim.opt
-local cmd = vim.api.nvim_command
-
 opt.termguicolors = true
 
 require('onenord').setup({

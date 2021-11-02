@@ -9,3 +9,5 @@ cmd([[
     "endif
   endif
 ]])
+
+cmd("autocmd BufRead,BufNewFile *.py set tabstop=4 shiftwidth=4 softtabstop=4")

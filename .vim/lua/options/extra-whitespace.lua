@@ -2,20 +2,20 @@
 
 
 -- Show trailing whitespace
-vim.cmd "highlight ExtraWhitespace ctermbg=red guibg=red"
-vim.cmd "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red"
+cmd "highlight ExtraWhitespace ctermbg=red guibg=red"
+cmd "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red"
 
-vim.opt.listchars = {
+opt.listchars = {
   space = ' ',
   tab = '→ ',
   trail = "·",
   extends = "⟩",
   precedes = "⟨"
 }
-vim.opt.list = true
+opt.list = true
 
-vim.cmd "au InsertEnter * match ExtraWhitespace /\\s\\+\\%#\\@<!$/"
-vim.cmd "au InsertLeave * match ExtraWhitespace /\\s\\+$/"
+cmd "au InsertEnter * match ExtraWhitespace /\\s\\+\\%#\\@<!$/"
+cmd "au InsertLeave * match ExtraWhitespace /\\s\\+$/"
 
-vim.cmd "match ErrorMsg '\\s\\+$'"
-vim.cmd "map <Leader>x :%s/\\s\\+$//"
+cmd "match ErrorMsg '\\s\\+$'"
+cmd "map <Leader>x :%s/\\s\\+$//"
