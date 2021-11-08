@@ -27,7 +27,6 @@ require "plugins.fzf"
 require "plugins.gitsigns"
 require "plugins.semshi"
 require "plugins.vim-commentary"
-require "plugins.vim-polyglot"
 require "plugins.vim-sleuth"
 
 require("user").flush()
