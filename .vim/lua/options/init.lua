@@ -2,6 +2,7 @@
 
 
 require "options.general"
+require "options.neovide"
 require "options.key-mappings"
 require "options.copy-paste"
 require "options.line-number"

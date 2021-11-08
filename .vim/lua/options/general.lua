@@ -11,6 +11,8 @@ opt.fileencoding = "utf-8"  -- The encoding written to file.<F37>
 
 opt.syntax = "on"
 
+opt.guifont = "VictorMono Nerd Font:h18"
+
 vim.g.html_indent_inctags = "html,body,head,tbody"
 vim.g.html_indent_script1 = "inc"
 vim.g.html_indent_style1 = "inc"
