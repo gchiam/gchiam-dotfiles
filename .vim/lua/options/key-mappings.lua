@@ -1,4 +1,4 @@
-vim.g.mapleader = "<Space>"  -- rebind <Leader> key
+vim.g.mapleader = " "  -- rebind <Leader> key
 nmap('.', '<NOP>')
 
 -- disable formatting when pasting large chunks of code
