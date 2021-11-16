@@ -13,8 +13,8 @@ vmap('<Leader>w', '<C-C>:update<CR>')
 
 --  Quick quit command
 --  ==================
-nmap('<Leader>X', '<sc>:quit<CR>')
-nmap('<Leader>X', '<esc>:quitall<CR>')
+nmap('<Leader>q', '<esc>:quit<CR>')
+nmap('<Leader>Q', '<esc>:quitall<CR>')
 
 
 --  Bind nohl

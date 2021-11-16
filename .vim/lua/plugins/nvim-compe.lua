@@ -60,11 +60,9 @@ _G.s_tab_complete = function()
   end
 end
 
-imap("<Tab>", "v:lua.tab_complete()", {expr = true})
-smap("<Tab>", "v:lua.tab_complete()", {expr = true})
-imap("<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-smap("<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
---This line is important for auto-import
-imap('<cr>', 'compe#confirm("<cr>")', { expr = true })
-imap('<c-space>', 'compe#complete()', { expr = true })
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
