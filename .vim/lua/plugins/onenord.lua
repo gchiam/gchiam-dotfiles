@@ -19,4 +19,9 @@ require('onenord').setup({
   custom_highlights = {}, -- Overwrite default highlight groups
 })
 
+cmd([[
+augroup MyOneNordColors
+  autocmd ColorScheme onenord highlight Normal guibg=None
+augroup END
+]])
 cmd("colorscheme onenord")
