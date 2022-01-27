@@ -45,6 +45,7 @@ git config --global alias.last "log -1 HEAD"
 git config --global pull.rebase false
 
 # diff
+git config --global diff.algorithm "histogram"
 git config --global diff.tool "vimdiff"
 git config --global diff.guitool "opendiff"
 git config --global difftool.prompt "no"
