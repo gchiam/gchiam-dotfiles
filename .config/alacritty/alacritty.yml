@@ -20,6 +20,7 @@ window:
   dimensions:
     columns: 0
     lines: 0
+  opacity: 0.9
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -179,9 +180,6 @@ colors:
 bell:
   animation: EaseOutExpo
   duration: 0
-
-# Background opacity
-background_opacity: 0.9
 
 # Mouse bindings
 #
