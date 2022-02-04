@@ -13,8 +13,8 @@ git config --global alias.dtg "difftool --gui"
 
 git config --global alias.l "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit"
 git config --global alias.lg "log --all --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit"
-git config --global alias.lm "log --color --graph --pretty=format:'%C(magenta)%h%Creset -→ %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit master..."
-git config --global alias.lmn "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit main..."
+git config --global alias.lm "log --color --graph --pretty=format:'%C(magenta)%h%Creset -→ %C(italic)%s %Creset%Cgreen(%cr) C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit main..."
+git config --global alias.lms "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit master..."
 git config --global alias.lo "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit origin/HEAD..."
 git config --global alias.standup "log --color --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cD) C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
 
@@ -46,6 +46,7 @@ git config --global pull.rebase false
 
 # diff
 git config --global diff.algorithm "histogram"
+git config --global diff.colorMoved "default"
 git config --global diff.tool "vimdiff"
 git config --global diff.guitool "opendiff"
 git config --global difftool.prompt "no"
@@ -58,11 +59,15 @@ git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$
 # git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
 # git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
 git config --global core.pager "delta"
-git config --global interactive.diffFilter "delta"
+git config --global interactive.diffFilter "delta --color-only"
 
 git config --global delta.syntax-theme "Nord"
 git config --global delta.plus-style "syntax #142e26"
 git config --global delta.minus-style "syntax #2b1618"
+git config --global delta.navigate "true"
+git config --global delta.line-numbers "true"
+git config --global delta.side-by-side "true"
+
 
 # colors
 git config --global color.ui "true"
