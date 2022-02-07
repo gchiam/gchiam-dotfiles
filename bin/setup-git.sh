@@ -13,10 +13,10 @@ git config --global alias.dtg "difftool --gui"
 
 git config --global alias.l "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit"
 git config --global alias.lg "log --all --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit"
-git config --global alias.lm "log --color --graph --pretty=format:'%C(magenta)%h%Creset -→ %C(italic)%s %Creset%Cgreen(%cr) C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit main..."
-git config --global alias.lms "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit master..."
+git config --global alias.lm "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit main..."
+git config --global alias.lms "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit master..."
 git config --global alias.lo "log --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit origin/HEAD..."
-git config --global alias.standup "log --color --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cD) C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
+git config --global alias.standup "log --color --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam"
 
 git config --global alias.br "branch"
 git config --global alias.bo 'branch --all --verbose --verbose'
