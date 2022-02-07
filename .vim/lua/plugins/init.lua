@@ -25,7 +25,7 @@ require "plugins.vim-highlightedyank"
 -- IDE
 require "plugins.fzf"
 require "plugins.gitsigns"
-require "plugins.semshi"
+-- require "plugins.semshi"
 require "plugins.vim-commentary"
 require "plugins.vim-sleuth"
 
