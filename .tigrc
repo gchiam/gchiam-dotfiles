@@ -24,6 +24,8 @@ bind main B !git rebase -i %(commit)
 ## Revert
 bind main ! !git revert %(commit)
 
+bind main R refresh
+
 ## Create a new branch
 bind refs n !@git branch "%(prompt Enter branch name: )"
 
