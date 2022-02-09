@@ -24,6 +24,7 @@ require "plugins.vim-highlightedyank"
 --
 -- IDE
 require "plugins.nvim-treesitter"
+require "plugins.telescope"
 require "plugins.gitsigns"
 -- require "plugins.semshi"
 require "plugins.vim-commentary"
