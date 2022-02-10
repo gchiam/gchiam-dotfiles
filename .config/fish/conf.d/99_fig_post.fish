@@ -1,0 +1,1 @@
+/Users/gchiam/.fig/shell/post.fish
