@@ -20,3 +20,9 @@
 . ~/.config/fish/prompt.fish
 . ~/.config/fish/aliases.fish
 . ~/.config/fish/extras.fish
+# BEGIN ZDI
+set -x AWS_ENABLED true
+set -x DOCKER_IMAGES_DEBUG true
+set -x DOCKER_HOST_IP 13.229.138.222
+source /Users/gchiam/Code/zendesk/zdi/dockmaster/zdi.fish
+# END ZDI
