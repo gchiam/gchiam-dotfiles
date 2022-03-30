@@ -1,8 +1,7 @@
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fig init zsh pre)"
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -125,8 +124,6 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(starship init zsh)"
 
-fortune -s | cowsay -y -f "$(ls /usr/local/share/cows | gshuf -n 1)" | lolcat
-
 PATH="/Users/gchiam/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/gchiam/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/Users/gchiam/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
@@ -134,7 +131,18 @@ PERL_MB_OPT="--install_base \"/Users/gchiam/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/gchiam/perl5"; export PERL_MM_OPT;
 
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+
+# BEGIN ZDI
+export AWS_ENABLED=true
+export DOCKER_IMAGES_DEBUG=true
+export DOCKER_HOST_IP=13.229.138.222
+source /Users/gchiam/Code/zendesk/zdi/dockmaster/zdi.sh
+# END ZDI
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init - zsh)"

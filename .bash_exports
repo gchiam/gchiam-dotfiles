@@ -17,11 +17,3 @@ export VIM_COLORSCHEME=${VIM_COLORSCHEME:-nord}
 # virtualenvwrapper
 ###############################################################################
 export WORKON_HOME=~/Envs
-. ~/.bash_virtualenvwrapper
-
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-# eval “$(pyenv virtualenv-init -)”
-
-eval "$(rbenv init -)"
