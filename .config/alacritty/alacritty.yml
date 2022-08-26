@@ -61,8 +61,9 @@ font:
   # The normal (roman) font face to use.
   normal:
     family: VictorMono Nerd Font Mono
-    # Style can be specified to pick a specific face.
-    style: ExtraLight
+    style: Light
+    # family: Recursive Sans Linear Light
+    # style: Mono Linear Light
 
   # The bold font face
   bold:
