@@ -67,9 +67,9 @@ font:
 
   # The bold font face
   bold:
-    family: VictorMono Nerd Font
+    family: Recursive
     # Style can be specified to pick a specific face.
-    style: SemiBold
+    style: Mono Casual Regular
 
   # The italic font face
   italic:
