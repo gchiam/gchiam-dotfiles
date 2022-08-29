@@ -20,7 +20,7 @@ window:
   dimensions:
     columns: 0
     lines: 0
-  opacity: 0.9
+  opacity: 0.95
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -60,10 +60,10 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: VictorMono Nerd Font Mono
-    style: Light
-    # family: Recursive Sans Linear Light
-    # style: Mono Linear Light
+    # family: VictorMono Nerd Font Mono
+    # style: Light
+    family: Recursive
+    style: Mono Casual Light
 
   # The bold font face
   bold:
