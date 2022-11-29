@@ -1,7 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init zsh pre)"
-
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -49,9 +47,8 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 source $HOME/.bash_path
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -132,6 +129,12 @@ PERL_MM_OPT="INSTALL_BASE=/Users/gchiam/perl5"; export PERL_MM_OPT;
 
 
 
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init - zsh)"
+
 # BEGIN ZDI
 export AWS_ENABLED=true
 export DOCKER_IMAGES_DEBUG=true
@@ -139,10 +142,7 @@ export DOCKER_HOST_IP=13.229.138.222
 source /Users/gchiam/Code/zendesk/zdi/dockmaster/zdi.sh
 # END ZDI
 
-# Fig post block. Keep at the bottom of this file.
-eval "$(fig init zsh post)"
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(rbenv init - zsh)"
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
