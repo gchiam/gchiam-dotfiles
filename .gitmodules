@@ -34,3 +34,6 @@
 [submodule "external/pyenv"]
 	path = external/pyenv
 	url = git@github.com:pyenv/pyenv.git
+[submodule "external/catppuccin/alacritty"]
+	path = external/catppuccin/alacritty
+	url = https://github.com/catppuccin/alacritty.git

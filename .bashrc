@@ -1,7 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init bash pre)"
-
+[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
 export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 
 [ -f /etc/bashrc ] && source /etc/bashrc
@@ -13,5 +11,4 @@ export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 eval "$(starship init bash)"
 
 # Fig post block. Keep at the bottom of this file.
-eval "$(fig init bash post)"
-
+[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
