@@ -20,7 +20,7 @@ window:
   dimensions:
     columns: 0
     lines: 0
-  opacity: 0.95
+  opacity: 1
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: none
+  decorations: None
 
   dynamic_title: true
 
@@ -62,24 +62,23 @@ font:
   normal:
     # family: VictorMono Nerd Font Mono
     # style: Light
-    family: Recursive
-    style: Mono Casual Light
+    family: CaskaydiaCove Nerd Font Mono
+    style: ExtraLight
 
   # The bold font face
   bold:
-    family: Recursive
-    # Style can be specified to pick a specific face.
-    style: Mono Casual Regular
+    family: CaskaydiaCove Nerd Font Mono
+    style: Regular
 
   # The italic font face
   italic:
-    family: Victor Mono
-    style:  Italic
+    family: CaskaydiaCove Nerd Font Mono
+    style:  ExtraLight Italic
 
   # Bold italic font face
   bold_italic:
-    family: Victor Mono
-    style:  SemiBold Italic
+    family: CaskaydiaCove Nerd Font Mono
+    style:  Italic
 
   # Point size of the font
   size: 14.0
@@ -100,61 +99,14 @@ font:
   rgba: None
   antialias: true
 
-# Colors (onenord)
-# Copied from https://github.com/rmehri01/onenord.nvim/blob/main/extras/onenord.yaml
-colors:
-  # Default colors
-  primary:
-    background: '0x2E3440'
-    foreground: '0xC8D0E0'
 
-  # Normal colors
-  normal:
-    black:   '0x3B4252'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB988B0'
-    cyan:    '0x88C0D0'
-    white:   '0xE5E9F0'
-
-  # Bright colors
-  bright:
-    black:   '0x4C566A'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB988B0'
-    cyan:    '0x8FBCBB'
-    white:   '0xECEFF4'
-
-  search:
-    matches:
-     foreground: '#81A1C1'
-     background: '#4C566A'
-    focused_match:
-     foreground: '#EBCB8B'
-     background: '#4C566A'
-
-    bar:
-     background: '#434C5E'
-     foreground: '#88C0D0'
-
-  hints:
-    start:
-     foreground: '#B988B0'
-     background: '#4C566A'
-
-    end:
-     foreground: '#81A1C1'
-     background: '#4C566A'
-
-  selection:
-   text: CellForeground
-   background: '#434C5E'
-
+import:
+  # uncomment the flavour you want below:
+  #  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  #  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  #  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+#
 
 # Visual Bell
 #
