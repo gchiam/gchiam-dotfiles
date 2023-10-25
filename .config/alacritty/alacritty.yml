@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: none
+  decorations: transparent
 
   dynamic_title: true
 
@@ -60,29 +60,26 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: VictorMono Nerd Font Mono
-    style: Light
-    # family: Recursive Sans Linear Light
-    # style: Mono Linear Light
+    family: CaskaydiaCove Nerd Font
+    style: ExtraLight
 
   # The bold font face
   bold:
-    family: VictorMono Nerd Font
-    # Style can be specified to pick a specific face.
-    style: SemiBold
+    family: CaskaydiaCove Nerd Font
+    style: Regular
 
   # The italic font face
   italic:
-    family: Victor Mono
-    style:  Italic
+    family: CaskaydiaCove Nerd Font
+    style:  ExtraLight Italic
 
   # Bold italic font face
   bold_italic:
-    family: Victor Mono
-    style:  SemiBold Italic
+    family: CaskaydiaCove Nerd Font
+    style:  Italic
 
   # Point size of the font
-  size: 14.0
+  size: 16.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -100,60 +97,12 @@ font:
   rgba: None
   antialias: true
 
-# Colors (onenord)
-# Copied from https://github.com/rmehri01/onenord.nvim/blob/main/extras/onenord.yaml
-colors:
-  # Default colors
-  primary:
-    background: '0x2E3440'
-    foreground: '0xC8D0E0'
-
-  # Normal colors
-  normal:
-    black:   '0x3B4252'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB988B0'
-    cyan:    '0x88C0D0'
-    white:   '0xE5E9F0'
-
-  # Bright colors
-  bright:
-    black:   '0x4C566A'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB988B0'
-    cyan:    '0x8FBCBB'
-    white:   '0xECEFF4'
-
-  search:
-    matches:
-     foreground: '#81A1C1'
-     background: '#4C566A'
-    focused_match:
-     foreground: '#EBCB8B'
-     background: '#4C566A'
-
-    bar:
-     background: '#434C5E'
-     foreground: '#88C0D0'
-
-  hints:
-    start:
-     foreground: '#B988B0'
-     background: '#4C566A'
-
-    end:
-     foreground: '#81A1C1'
-     background: '#4C566A'
-
-  selection:
-   text: CellForeground
-   background: '#434C5E'
+import:
+  # uncomment the flavour you want below:
+  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 
 
 # Visual Bell
