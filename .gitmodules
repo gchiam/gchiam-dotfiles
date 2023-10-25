@@ -1,6 +1,3 @@
-[submodule "external/tmux-plugins"]
-	path = external/tpm
-	url = git@github.com:tmux-plugins/tpm.git
 [submodule "external/gruvbox-pygments"]
 	path = external/gruvbox-pygments
 	url = https://github.com/daveyarwood/gruvbox-pygments.git
@@ -40,3 +37,6 @@
 [submodule "external/ohmyzsh"]
 	path = external/ohmyzsh
 	url = git@github.com:ohmyzsh/ohmyzsh.git
+[submodule "external/tmux-plugins/tpm"]
+	path = external/tmux-plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
