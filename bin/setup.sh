@@ -19,8 +19,7 @@ ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc-spaceship $HOME/
 ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
-ln -snvf $DOTFILES_DIR/.oh-my-zsh $HOME/
-ln -snvf $DOTFILES_DIR/.django_bash_completion $HOME/
+ln -snvf $DOTFILES_DIR/.ohmyzsh $HOME/
 ln -snvf $DOTFILES_DIR/.tigrc $HOME/
 ln -snvf $DOTFILES_DIR/.tmux $HOME/
 ln -snvf $DOTFILES_DIR/.tmux*.conf $HOME/
