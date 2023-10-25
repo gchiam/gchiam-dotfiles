@@ -18,9 +18,9 @@ window:
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
   dimensions:
-    columns: 0
+    columns: 2
     lines: 0
-  opacity: 0.9
+  opacity: 1
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -60,22 +60,22 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
     style: ExtraLight
 
   # The bold font face
   bold:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
     style: Regular
 
   # The italic font face
   italic:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
     style:  ExtraLight Italic
 
   # Bold italic font face
   bold_italic:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
     style:  Italic
 
   # Point size of the font
@@ -94,16 +94,12 @@ font:
     x: 0
     y: 0
 
-  rgba: None
-  antialias: true
-
 import:
   # uncomment the flavour you want below:
   - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
-
 
 # Visual Bell
 #

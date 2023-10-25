@@ -47,9 +47,8 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 source $HOME/.bash_path
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.ohmyzsh/plugins/*)
 # Custom plugins may be added to ~/.ohmyzsh/custom/plugins/
