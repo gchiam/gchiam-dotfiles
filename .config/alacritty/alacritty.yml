@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: transparent
+  decorations: buttonless
 
   dynamic_title: true
 
