@@ -23,6 +23,6 @@
 # BEGIN ZDI
 set -x AWS_ENABLED true
 set -x DOCKER_IMAGES_DEBUG true
-set -x DOCKER_HOST_IP 13.229.138.222
+set -x DOCKER_HOST_IP 18.142.158.166
 source /Users/gchiam/Code/zendesk/zdi/dockmaster/zdi.fish
 # END ZDI

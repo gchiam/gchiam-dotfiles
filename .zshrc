@@ -48,6 +48,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # User configuration
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
+export PATH="/opt/homebrew/opt/mysql-client@5.7/bin:$PATH"
 source $HOME/.bash_path
 
 # Which plugins would you like to load? (plugins can be found in ~/.ohmyzsh/plugins/*)
@@ -131,3 +132,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(rbenv init - zsh)"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}

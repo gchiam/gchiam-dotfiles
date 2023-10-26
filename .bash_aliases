@@ -103,3 +103,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias run_postgresql="postgres -D /usr/local/var/postgres"
 fi
+
+
+alias jqenv="jq -n -S '\$ENV | map_values(if test(\":\",.) and (test(\"(tcp|http[s]?)://\",.) | not) then split(\":\") else . end)'"
