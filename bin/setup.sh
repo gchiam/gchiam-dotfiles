@@ -16,7 +16,6 @@ ln -snvf $DOTFILES_DIR/.bash_motd $HOME/
 ln -snvf $DOTFILES_DIR/.inputrc $HOME/
 ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
-ln -snvf $DOTFILES_DIR/.zshrc-spaceship $HOME/
 ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
 ln -snvf $DOTFILES_DIR/.ohmyzsh $HOME/
 ln -snvf $DOTFILES_DIR/.tigrc $HOME/
@@ -25,7 +24,6 @@ ln -snvf $DOTFILES_DIR/.tmux*.conf $HOME/
 ln -snvf $DOTFILES_DIR/.ptpython $HOME/
 ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
 ln -snvf $DOTFILES_DIR/.Xresources $HOME/
-ln -snvf $DOTFILES_DIR/external/base16-shell/colortest $HOME/bin/
 
 mkdir -p $HOME/bin
 for f in $(find $DOTFILES_DIR/bin/deploy -mindepth 1 -maxdepth 1); do
@@ -36,9 +34,3 @@ test -d $HOME/.config || mkdir -p $HOME/.config
 for f in $(find $DOTFILES_DIR/.config -mindepth 1 -maxdepth 1); do
 	ln -snvf $f $HOME/.config/
 done
-
-# setup zsh
-$DOTFILES_DIR/bin/setup-zsh.sh
-
-# git bash completion
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash
