@@ -104,7 +104,7 @@ fi
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc' ]; then
     source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
-export CLOUDSDK_PYTHON=python2
+export CLOUDSDK_PYTHON=python3
 
 fpath=($fpath "/home/gordonchiam/.zfunctions")
 
