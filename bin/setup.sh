@@ -18,6 +18,7 @@ ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
 ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
 ln -snvf $DOTFILES_DIR/.ohmyzsh $HOME/
+ln -snvf $DOTFILES_DIR/.starship.toml $HOME/
 ln -snvf $DOTFILES_DIR/.tigrc $HOME/
 ln -snvf $DOTFILES_DIR/.tmux $HOME/
 ln -snvf $DOTFILES_DIR/.tmux*.conf $HOME/
