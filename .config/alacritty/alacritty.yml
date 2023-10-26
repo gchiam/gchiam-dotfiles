@@ -17,9 +17,9 @@ window:
   # Window dimensions in character columns and lines
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
-  dimensions:
-    columns: 2
-    lines: 2
+  # dimensions:
+  #   columns: 0
+  #   lines: 0
   opacity: 1
 
   # Adds this many blank pixels of padding around the window
