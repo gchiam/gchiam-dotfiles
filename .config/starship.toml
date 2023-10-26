@@ -1,6 +1,10 @@
 # Sets user-defined palette
 palette = "catppuccin_frappe"
 
+[kubernetes]
+disabled = false
+format = '[⛵[$user](yellow) on CTX:[$cluster](yellow) in NS:[$namespace](yellow)](text) '
+
 [character]
 # Note the use of Catppuccin color 'maroon'
 success_symbol = "[❯](green)"
