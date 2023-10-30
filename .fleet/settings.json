@@ -1,0 +1,21 @@
+{
+    "editor.fontFamily": "Cascadia Code PL",
+    "editor.guides": [],
+    "editor.pulseEditorCaretWhenBusy": true,
+    "editor.previewTab": true,
+    "editor.selectIdentifierOnWordSelection": true,
+    "editor.showCodeVision": true,
+    "editor.showDeclarationUsages": true,
+    "editor.showTooltipOnHover": true,
+    "syncThemeWithOs": true,
+    "keymap": "macos-ij",
+    "editor.renderWhitespace": "Tabs",
+    "editor.honorCamelHumps": true,
+    "terminal.copyOnSelection": true,
+    "terminal.enableFocusEditorOnEsc": true,
+    "theme": "catppuccin-frappe",
+    "editor.ligatures": true,
+    "showShortcuts": true,
+    "autoEnabledSmartMode": true,
+    "vimEmulationEnabled": true
+}
