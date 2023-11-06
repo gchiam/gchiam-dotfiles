@@ -1,3 +1,5 @@
+continuation_prompt = '[▶](green) '
+
 # Sets user-defined palette
 palette = "catppuccin_frappe"
 
