@@ -17,5 +17,6 @@
     "editor.ligatures": true,
     "showShortcuts": true,
     "autoEnabledSmartMode": true,
-    "vimEmulationEnabled": true
+    "vimEmulationEnabled": true,
+    "editor.showFloatingDebugPanel": true
 }
