@@ -28,9 +28,6 @@
 [submodule "external/pyenv"]
 	path = external/pyenv
 	url = git@github.com:pyenv/pyenv.git
-[submodule "external/catppuccin/alacritty"]
-	path = external/catppuccin/alacritty
-	url = git@github.com:catppuccin/alacritty.git
 [submodule "external/catppuccin/k9s"]
 	path = external/catppuccin/k9s
 	url = git@github.com:catppuccin/k9s.git
@@ -43,3 +40,6 @@
 [submodule "external/catppuccin/fleet"]
 	path = external/catppuccin/fleet
 	url = git@github.com:catppuccin/fleet.git
+[submodule "external/catppuccin/alacritty"]
+	path = external/catppuccin/alacritty
+	url = git@github.com:catppuccin/alacritty.git
