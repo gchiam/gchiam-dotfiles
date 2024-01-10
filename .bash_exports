@@ -12,6 +12,10 @@ export CLOUDSDK_PYTHON=python3
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 export GOPATH=$HOME/go
 
+# Fix gpg: signing failed: Inappropriate ioctl for device
+# https://github.com/keybase/keybase-issues/issues/2798
+export GPG_TTY=$(tty)
+
 ###############################################################################
 # virtualenvwrapper
 ###############################################################################

@@ -95,3 +95,5 @@ git config --global color.status.added "green bold"
 git config --global color.status.changed "red bold"
 git config --global color.status.untracked "yellow"
 git config --global color.status.nobranch "cyan"
+
+git config --global commit.gpgsign true
