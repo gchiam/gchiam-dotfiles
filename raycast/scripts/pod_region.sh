@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Zendesk PoD region
+# @raycast.title Z PoD region
 # @raycast.mode compact
 # @raycast.refreshTime 0s
 
@@ -11,7 +11,7 @@
 # @raycast.argument1 { "type": "text", "placeholder": "pod" }
 
 # Documentation:
-# @raycast.description Lookup Zendesk PoD region
+# @raycast.description Lookup Z PoD region
 # @raycast.author gchiam
 # @raycast.authorURL https://raycast.com/gchiam
 
