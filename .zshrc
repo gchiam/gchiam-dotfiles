@@ -67,6 +67,11 @@ test -e $HOME/.bash_local && source $HOME/.bash_local
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# bind v to edit command line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
