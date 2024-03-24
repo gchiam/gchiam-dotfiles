@@ -16,7 +16,7 @@ git config --global alias.lg "log --all --color --graph --pretty=format:'%C(mage
 git config --global alias.lm "l main..."
 git config --global alias.lms "l master..."
 git config --global alias.lo "l origin/HEAD..."
-git config --global alias.standup "l --since='2 weeks ago' --author gchiam"
+git config --global alias.standup "l --since='2 weeks ago' --author 'Gordon Chiam'"
 
 git config --global alias.br "branch"
 git config --global alias.bo 'branch --all --verbose --verbose'
