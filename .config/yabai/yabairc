@@ -1,0 +1,65 @@
+# Tiling options
+
+## Layout
+
+### bsp or float (default: float)
+yabai -m config layout bsp
+
+### Override default layout for space 2 only
+yabai -m config --space 2 layout float
+
+### New window spawns to the left if vertical split, or top if horizontal split
+# yabai -m config window_placement first_child
+
+### New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+## Padding and gaps
+
+### Set all padding and gaps to 12pt (default: 0)
+yabai -m config top_padding 12
+yabai -m config bottom_padding 12
+yabai -m config left_padding 12
+yabai -m config right_padding 12
+yabai -m config window_gap 12
+
+## Split ratios
+
+### on or off (default: off)
+# yabai -m config auto_balance off
+
+# Mouse support
+
+### set mouse interaction modifier key (default: fn)
+yabai -m config mouse_modifier fn
+
+### set modifier + left-click drag to move window (default: move)
+yabai -m config mouse_action1 move
+
+### set modifier + right-click drag to resize window (default: resize)
+yabai -m config mouse_action2 resize
+
+### set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+yabai -m config focus_follows_mouse autoraise
+
+### set mouse follows focus mode (default: off)
+yabai -m config mouse_follows_focus off
+
+# Window modifications
+
+### modify window shadows (default: on, options: on, off, float)
+### example: show shadows only for floating windows
+yabai -m config window_shadow on
+
+### window opacity (default: off)
+### example: render all unfocused windows with 90% opacity
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.7
+
+
+# Rule
+
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
