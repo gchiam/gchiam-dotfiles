@@ -1,11 +1,11 @@
 # Quickly restart the yabai launch agent
 ctrl + alt + cmd - r : yabai --restart-service
 
-# swap mana windows
-cmd + alt - j : yabai -m window --swap south
-cmd + alt - k : yabai -m window --swap north
-cmd + alt - h : yabai -m window --swap west
-cmd + alt - l : yabai -m window --swap east
+# swap window within space
+fn + cmd + alt - j : yabai -m window --swap south
+fn + cmd + alt - k : yabai -m window --swap north
+fn + cmd + alt - h : yabai -m window --swap west
+fn + cmd + alt - l : yabai -m window --swap east
 
 # change window focus within space
 hyper - j : yabai -m window --focus south
@@ -33,5 +33,5 @@ alt - p : yabai -m window --toggle sticky --toggle pip
 alt - e : yabai -m window --toggle split
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : open /Applications/Alacritty.app
+alt + cmd - t : open /Applications/Alacritty.app
 
