@@ -16,6 +16,10 @@ export GOPATH=$HOME/go
 # https://github.com/keybase/keybase-issues/issues/2798
 export GPG_TTY=$(tty)
 
+# Colima and testcontainers
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
 ###############################################################################
 # virtualenvwrapper
 ###############################################################################
