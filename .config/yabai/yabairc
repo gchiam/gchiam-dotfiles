@@ -43,7 +43,7 @@ yabai -m config mouse_action2 resize
 yabai -m config focus_follows_mouse autofocus
 
 ### set mouse follows focus mode (default: off)
-yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus off
 
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
@@ -62,8 +62,10 @@ yabai -m config window_shadow on
 
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add title="^Plugin Updates$" manage=off
 yabai -m rule --add title="^Settings$" manage=off
 
 # Automatically float non-resizable windows, such as palettes, system settings etc.
