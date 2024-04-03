@@ -1,11 +1,7 @@
 # Quickly restart the yabai launch agent
 ctrl + alt + cmd - r : yabai --restart-service
 
-# swap mana windows
-cmd + alt - j : yabai -m window --swap south
-cmd + alt - k : yabai -m window --swap north
-cmd + alt - h : yabai -m window --swap west
-cmd + alt - l : yabai -m window --swap east
+# swap window within space
 
 # change window focus within space
 hyper - j : yabai -m window --focus south
@@ -33,5 +29,43 @@ alt - p : yabai -m window --toggle sticky --toggle pip
 alt - e : yabai -m window --toggle split
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : open /Applications/Alacritty.app
+alt + cmd - t : open /Applications/Alacritty.app
 
+# defines a new mode 'arrange' with an on_enter command, that captures keypresses
+:: arrange @ :
+
+# from 'default' mode, activate mode 'arrange'
+# (this is the key combination you want to use to enter arrange mode)
+ctrl - escape ; arrange 
+alt + ctrl - 0x32 ; arrange
+
+# from 'arrange' mode, activate mode 'default'
+# (this is the keypress required to leave arrange mode)
+arrange < escape ; default
+arrange < 0x32 ; default
+
+# equalize windows
+arrange < ctrl - 0 : yabai -m space --balance
+
+# increase window size
+arrange < ctrl - left : yabai -m window --resize left:-25:0
+arrange < ctrl - down : yabai -m window --resize bottom:0:25
+arrange < ctrl - up : yabai -m window --resize top:0:-25
+arrange < ctrl - right : yabai -m window --resize right:25:0
+
+# decrease window size
+arrange < alt - right : yabai -m window --resize left:25:0
+arrange < alt - up : yabai -m window --resize bottom:0:-25
+arrange < alt - down : yabai -m window --resize top:0:25
+arrange < alt - left : yabai -m window --resize right:-25:0
+
+# move window
+arrange < left : yabai -m window --move rel:-25:0
+arrange < down : yabai -m window --move rel:0:25
+arrange < up : yabai -m window --move rel:0:-25
+arrange < right : yabai -m window --move rel:25:0
+
+arrange < ctrl - j : yabai -m window --swap south
+arrange < ctrl - k : yabai -m window --swap north
+arrange < ctrl - h : yabai -m window --swap west
+arrange < ctrl - l : yabai -m window --swap east
