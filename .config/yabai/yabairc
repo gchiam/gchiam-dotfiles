@@ -60,13 +60,26 @@ yabai -m config window_shadow on
 
 # Rule
 
-yabai -m rule --add app="^1Password$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add title="^Plugin Updates$" manage=off
-yabai -m rule --add title="^Settings$" manage=off
+ignored_apps=(
+    "1Password"
+    "Calculator"
+    "Finder"
+    "System Settings"
+    "Karabiner-Elements"
+    "Plugin Updates"
+    "Settings"
+)
+for app in "${ignored_apps[@]}"; do
+    yabai -m rule --add app="^$app$" manage=off
+done
+
+ignored_windows=(
+    "Plugin Updates"
+    "Settings"
+)
+for title in "${ignored_windows[@]}"; do
+    yabai -m rule --add title="^$title$" manage=off
+done
 
 # Automatically float non-resizable windows, such as palettes, system settings etc.
 yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
