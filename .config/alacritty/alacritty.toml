@@ -563,8 +563,8 @@ args = ["-l", "-c", "tmux new -As0"]
 [window]
 decorations = "buttonless"
 dynamic_title = true
-opacity = 0.95
+opacity = 0.90
 
 [window.padding]
-x = 0
-y = 0
+x = 5
+y = 5
