@@ -68,6 +68,7 @@ ignored_apps=(
     "Karabiner-Elements"
     "Plugin Updates"
     "Settings"
+    "Zoom"
 )
 for app in "${ignored_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
