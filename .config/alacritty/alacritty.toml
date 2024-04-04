@@ -557,7 +557,7 @@ mouse = "Middle"
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-program = "/opt/homebrew/bin/zsh"
+program = "zsh"
 args = ["-l", "-c", "tmux new -As0"]
 
 [window]
