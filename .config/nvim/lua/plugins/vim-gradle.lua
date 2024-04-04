@@ -1,0 +1,3 @@
+return {
+  "hdiniz/vim-gradle",
+}
