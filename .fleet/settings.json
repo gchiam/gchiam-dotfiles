@@ -18,5 +18,6 @@
     "showShortcuts": true,
     "autoEnabledSmartMode": true,
     "vimEmulationEnabled": true,
-    "editor.showFloatingDebugPanel": true
+    "editor.showFloatingDebugPanel": true,
+    "markdown.splitView": "SplitRight"
 }
