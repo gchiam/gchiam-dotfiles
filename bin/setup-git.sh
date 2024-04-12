@@ -53,6 +53,7 @@ git config --global difftool.prompt "no"
 git config --global difftool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\""
 git config --global difftool.opendiff.cmd "opendiff \"\$LOCAL\" \"\$REMOTE\""
 git config --global merge.tool "vimdiff"
+git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt "true"
 git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$MERGED\" -c '\$wincmd w' -c 'wincmd J'"
 
@@ -66,7 +67,7 @@ git config --global delta.plus-style "syntax #142e26"
 git config --global delta.minus-style "syntax #2b1618"
 git config --global delta.navigate "true"
 git config --global delta.line-numbers "true"
-git config --global delta.side-by-side "true"
+git config --global delta.side-by-side "false"
 
 
 # colors
