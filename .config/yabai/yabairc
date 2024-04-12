@@ -78,6 +78,8 @@ done
 
 ignored_windows=(
     "Plugin Updates"
+    "Manage Backends"
+    "Plugins"
     "Settings"
 )
 for title in "${ignored_windows[@]}"; do
