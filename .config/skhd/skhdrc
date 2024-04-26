@@ -75,3 +75,6 @@ arrange < ctrl - 4 : yabai -m config split_ratio 0.4; yabai -m space --balance
 arrange < ctrl - 5 : yabai -m config split_ratio 0.5; yabai -m space --balance
 arrange < ctrl - 6 : yabai -m config split_ratio 0.6; yabai -m space --balance
 arrange < ctrl - 7 : yabai -m config split_ratio 0.7; yabai -m space --balance
+
+arrange < ctrl - x : yabai -m space --mirror x-axis  # Flip the tree horizontally
+arrange < ctrl - y : yabai -m space --mirror y-axis  # Flip the tree vertically
