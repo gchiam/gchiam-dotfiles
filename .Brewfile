@@ -7,6 +7,4 @@ tap "koekeishiya/formulae"
 tap "kubeshark/kubeshark"
 tap "smudge/smudge"
 tap "vmware-tanzu/carvel"
-tap "zendesk/devops"
-tap "zendesk/zendesk"
 
