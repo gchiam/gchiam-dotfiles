@@ -13,6 +13,7 @@ ln -snvf $DOTFILES_DIR/.bash_completion $HOME/
 ln -snvf $DOTFILES_DIR/.bash_exports $HOME/
 ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.bash_motd $HOME/
+ln -snvf $DOTFILES_DIR/.Brewfile $HOME/
 ln -snvf $DOTFILES_DIR/.fleet $HOME/
 ln -snvf $DOTFILES_DIR/.inputrc $HOME/
 ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
