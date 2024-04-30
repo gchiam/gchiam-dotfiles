@@ -9,6 +9,7 @@ export LESSOPEN="| pygmentize %s"
 export XDG_CONFIG_HOME=$HOME/.config
 export PYTHONDONTWRITEBYTECODE=1
 export CLOUDSDK_PYTHON=python3
+export HOMEBREW_BUNDLE_NO_LOCK=1
 
 export DOTFILES_DIR=$HOME/projects/gchiam-dotfiles
 export GOPATH=$HOME/go
