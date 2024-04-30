@@ -1,4 +1,7 @@
-# 'brew tap'
-tap "zendesk/devops"
-tap "zendesk/zendesk"
+# Taps
+tap 'zendesk/devops'
+tap 'zendesk/zendesk'
 
+# Formulas
+brew 'cicd-cli'
+brew 'scooter'
