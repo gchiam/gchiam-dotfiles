@@ -16,47 +16,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/linuxbrew/go/i
 export PATH="~/.linuxbrew/bin:$PATH"
 brew doctor
 
-brew install perl
-brew install git
-
-# install python2 & python3
-brew install python
-brew install python3
-pushd /tmp
-curl -O https://bootstrap.pypa.io/get-pip.py
-sudo python get-pip.py
-sudo python3 get-pip.py
-sudo pip install --user -U pip
-sudo pip3 install --user -U pip
-popd
-
-sudo apt-get install -y ranger
-
-brew install golang
-brew install tig
-brew install the_silver_searcher
-brew install ripgrep
-brew install tmux --HEAD
-brew install node.js
-brew install docker
-brew install docker-machine
-brew install docker-compose
-
-brew tap neovim/neovim
-brew install --HEAD --with-release neovim
-
-brew install fpp
-brew install fzf
-
-brew tap jhawthorn/fzy
-brew install fzy
-
-brew install diff-so-fancy
-brew install delta
-
-brew install cowsay
-brew install fortune
-
 cd $HOME
 mkdir -p projects
 cd projects
