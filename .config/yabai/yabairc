@@ -82,6 +82,7 @@ ignored_windows=(
     "Plugins"
     "Settings"
     "Sign in - Google Accounts"
+    "Tip of the day"
 )
 for title in "${ignored_windows[@]}"; do
     yabai -m rule --add title="^$title$" manage=off
