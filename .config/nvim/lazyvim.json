@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.coding.copilot",
     "lazyvim.plugins.extras.editor.navic",
     "lazyvim.plugins.extras.formatting.black",
@@ -10,11 +9,11 @@
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.yaml",
-    "lazyvim.plugins.extras.vscode",
-    "lazyvim.plugins.extras.editor.trouble-v3"
+    "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.vscode"
   ],
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "4964"
   },
-  "version": 3
+  "version": 4
 }
