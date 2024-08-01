@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Switch to use HTTPS instead of SSH
+git config --global url."https://github.com/".insteadOf "git@github.com:"
+
 git config --global alias.adddiff "!git st | grep modified | sed 's/modified: //' | xargs git add"
 
 # http://fredkschott.com/post/2014/02/git-log-is-so-2005/
