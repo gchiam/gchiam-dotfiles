@@ -8,7 +8,7 @@
     "editor.showDeclarationUsages": true,
     "editor.showTooltipOnHover": true,
     "syncThemeWithOs": true,
-    "keymap": "macos-ij",
+    "keymap": "intellij",
     "editor.renderWhitespace": "Tabs",
     "editor.honorCamelHumps": true,
     "terminal.copyOnSelection": true,
