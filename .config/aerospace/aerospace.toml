@@ -185,7 +185,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
-ctrl-esc = 'mode resize'
+ctrl-shift-r = 'mode resize'
 
 cmd-h = [] # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
@@ -205,9 +205,14 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [mode.resize.binding]
+enter = 'mode main'
 esc = 'mode main'
 minus = 'resize smart -50'
 equal = 'resize smart +50'
 alt-minus = 'resize smart -200'
 alt-equal = 'resize smart +200'
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
 
