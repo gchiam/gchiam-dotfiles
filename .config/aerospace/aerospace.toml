@@ -185,6 +185,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+ctrl-esc = 'mode resize'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -199,3 +200,11 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+[mode.resize.binding]
+esc = 'mode main'
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+alt-minus = 'resize smart -200'
+alt-equal = 'resize smart +200'
+
