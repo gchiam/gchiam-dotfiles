@@ -1,4 +1,5 @@
 # Taps
+tap 'dimentium/autoraise'
 tap 'FelixKratz/formulae'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
@@ -15,6 +16,7 @@ tap 'vmware-tanzu/carvel'
 # Formulas
 brew 'asdf'
 brew 'awscli'
+brew 'autoraise', restart_service: true
 brew 'axel'
 brew 'borders'
 brew 'curl'
