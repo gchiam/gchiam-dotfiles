@@ -222,8 +222,13 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 1' # mnemonics T - Terminal
 
 [[on-window-detected]]
-# if.app-name-regex-substring = 'Zendesk Mail'
+# Zendesk Mail
 if.app-id = 'com.google.Chrome.app.fmgjjmmmlfnkbppncabfkddbjimcfncm' 
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+# Zendesk Calendar
+if.app-id = 'com.google.Chrome.app.kjbdgfilnfhdoflbpgamdcdgpehopbep'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
