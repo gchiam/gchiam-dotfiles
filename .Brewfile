@@ -1,4 +1,5 @@
 # Taps
+tap 'FelixKratz/formulae'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/services'
@@ -15,6 +16,7 @@ tap 'vmware-tanzu/carvel'
 brew 'asdf'
 brew 'awscli'
 brew 'axel'
+brew 'borders'
 brew 'curl'
 brew 'devspace'
 brew 'docker'
