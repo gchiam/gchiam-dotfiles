@@ -6,7 +6,7 @@ require 'colorscheme'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Regular' })
+config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiLight' })
 config.font_size = 16.0
 config.harfbuzz_features = { 'calt', 'clig', 'liga', 'zero' }
 config.line_height = 1.1
