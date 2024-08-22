@@ -216,3 +216,32 @@ j = 'resize height +50'
 k = 'resize height -50'
 l = 'resize width +50'
 
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 1' # mnemonics T - Terminal
+
+[[on-window-detected]]
+# if.app-name-regex-substring = 'Zendesk Mail'
+if.app-id = 'com.google.Chrome.app.fmgjjmmmlfnkbppncabfkddbjimcfncm' 
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'org.alacritty'
+run = 'move-node-to-workspace T' # mnemonics T - Terminal
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace T' # mnemonics T - Terminal
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = 'move-node-to-workspace I' # mnemonics I - IDE
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.electron.logseq'
+run = 'move-node-to-workspace Q'
