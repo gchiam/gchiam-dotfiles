@@ -16,6 +16,11 @@ config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 config.window_background_opacity = 0.7
 config.macos_window_background_blur = 30
 
+-- Command palette
+config.command_palette_fg_color = "#c6d0f5"
+config.command_palette_bg_color = "#303446"
+config.command_palette_font_size = 16.0
+
 -- and finally, return the configuration to wezterm
 return config
 
