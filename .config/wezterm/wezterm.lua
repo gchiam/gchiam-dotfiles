@@ -21,6 +21,9 @@ config.command_palette_fg_color = "#c6d0f5"
 config.command_palette_bg_color = "#303446"
 config.command_palette_font_size = 16.0
 
+-- Window appearance
+config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
+
 -- and finally, return the configuration to wezterm
 return config
 
