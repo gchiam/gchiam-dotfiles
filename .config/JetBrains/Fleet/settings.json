@@ -19,5 +19,16 @@
     "autoEnabledSmartMode": true,
     "vimEmulationEnabled": true,
     "editor.showFloatingDebugPanel": true,
-    "markdown.splitView": "SplitRight"
+    "markdown.splitView": "SplitRight",
+    "plugins": [
+        {
+            "type": "add",
+            "pluginName": "com.github.catppuccin.fleet"
+        },
+        {
+            "type": "add",
+            "pluginName": "gradle.daemon.services"
+        }
+    ],
+    "editor.fontSize": 14.0
 }

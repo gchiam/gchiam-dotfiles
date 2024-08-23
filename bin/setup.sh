@@ -14,7 +14,6 @@ ln -snvf $DOTFILES_DIR/.bash_exports $HOME/
 ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.bash_motd $HOME/
 ln -snvf $DOTFILES_DIR/.Brewfile $HOME/
-ln -snvf $DOTFILES_DIR/.fleet $HOME/
 ln -snvf $DOTFILES_DIR/.inputrc $HOME/
 ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
@@ -37,3 +36,6 @@ test -d $HOME/.config || mkdir -p $HOME/.config
 for f in $(find $DOTFILES_DIR/.config -mindepth 1 -maxdepth 1); do
 	ln -snvf $f $HOME/.config/
 done
+
+# generate ~/fleet.properties
+echo "fleet.config.path=${HOME}/.config/JetBrains/Fleet/" > ~/fleet.properties
