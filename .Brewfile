@@ -18,7 +18,7 @@ brew 'asdf'
 brew 'awscli'
 brew 'autoraise', restart_service: true
 brew 'axel'
-brew 'borders'
+brew 'borders', restart_service: true
 brew 'curl'
 brew 'devspace'
 brew 'docker'
