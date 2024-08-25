@@ -18,3 +18,6 @@ done
 
 # generate ~/fleet.properties
 echo "fleet.config.path=${HOME}/.config/JetBrains/Fleet/" > ~/fleet.properties
+
+[ -d $HOME/.fzf ] || mkdir $HOME/.fzf
+[ -f $HOME/.fzf.zsh ] && ln -snvf $HOME/.fzf.zsh $HOME/.fzf/fzf.zsh

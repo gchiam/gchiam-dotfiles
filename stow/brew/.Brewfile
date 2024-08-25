@@ -15,6 +15,7 @@ tap 'vmware-tanzu/carvel'
 tap 'jandedobbeleer/oh-my-posh'
 
 # Formulas
+brew 'antidote'
 brew 'asdf'
 brew 'awscli'
 brew 'autoraise', restart_service: true
