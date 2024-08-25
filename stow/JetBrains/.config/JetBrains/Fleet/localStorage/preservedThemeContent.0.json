@@ -1,0 +1,955 @@
+{
+  "meta": {
+    "theme.name": "Catppuccin Frappé",
+    "theme.kind": "Dark",
+    "theme.version": 1
+  },
+  "colors": {
+    "disabled": "Transparent",
+    "focusOutline": "Mauve",
+
+    "shadow.border": "Mantle",
+
+    "background.default": "Base",
+    "background.primary": "Base",
+    "background.secondary": "Mantle",
+    "background.disabled": "Transparent",
+    "background.dimmed": "Transparent",
+    "background.error": "Red",
+    "background.hovered": "Surface1",
+    "background.selected": "Surface2",
+
+    "border": "Base",
+    "border.focused": "Mauve",
+
+    "text.default": "Text",
+    "text.primary": "Text",
+    "text.secondary": "Surface2",
+    "text.dimmed": "Surface2",
+    "text.disabled": "Surface1",
+    "text.success": "Green",
+
+    "button.background.default": "Surface0",
+    "button.background.hovered": "Surface1",
+    "button.text.default": "Text",
+    "button.text.hovered": "Text",
+    "button.border.default": "Surface1",
+    "button.focusBorder": "Transparent",
+    "button.focusOutline": "Transparent",
+
+    "button.primary.focusBorder": "Transparent",
+    "button.primary.focusOutline": "Transparent",
+    "button.primary.background.default": "Mauve",
+    "button.primary.background.disabled": "Overlay1",
+    "button.primary.background.hovered": "#ca9ee6cc",
+    "button.primary.background.pressed": "#ca9ee699",
+    "button.primary.text.default": "Crust",
+    "button.primary.text.disabled": "Subtext0",
+    "button.primary.text.hovered": "Crust",
+    "button.primary.text.pressed": "Crust",
+    "button.primary.border.default": "Transparent",
+    "button.primary.border.disabled": "Transparent",
+    "button.primary.border.hovered": "Transparent",
+    "button.primary.border.pressed": "Transparent",
+
+    "button.secondary.focusBorder": "Transparent",
+    "button.secondary.focusOutline": "Transparent",
+    "button.secondary.background.default": "Surface0",
+    "button.secondary.background.disabled": "Surface0",
+    "button.secondary.background.hovered": "#41455999",
+    "button.secondary.background.pressed": "#41455966",
+    "button.secondary.text.default": "Text",
+    "button.secondary.text.disabled": "Surface2",
+    "button.secondary.text.hovered": "Text",
+    "button.secondary.text.pressed": "Text",
+    "button.secondary.border.default": "Transparent",
+    "button.secondary.border.disabled": "Transparent",
+    "button.secondary.border.hovered": "Transparent",
+    "button.secondary.border.pressed": "Transparent",
+
+    "button.positive.focusBorder": "Transparent",
+    "button.positive.focusOutline": "Transparent",
+    "button.positive.background.default": "Green",
+    "button.positive.background.disabled": "#a6d18966",
+    "button.positive.background.hovered": "#a6d189b3",
+    "button.positive.background.pressed": "#a6d18999",
+    "button.positive.text.default": "Crust",
+    "button.positive.text.disabled": "Subtext0",
+    "button.positive.text.hovered": "Crust",
+    "button.positive.text.pressed": "Crust",
+    "button.positive.border.default": "Transparent",
+    "button.positive.border.disabled": "Transparent",
+    "button.positive.border.hovered": "Transparent",
+    "button.positive.border.pressed": "Transparent",
+
+    "button.dangerous.focusBorder": "Transparent",
+    "button.dangerous.focusOutline": "Transparent",
+    "button.dangerous.background.default": "Red",
+    "button.dangerous.background.disabled": "#e7828466",
+    "button.dangerous.background.hovered": "#e78284b3",
+    "button.dangerous.background.pressed": "#e7828499",
+    "button.dangerous.text.default": "Crust",
+    "button.dangerous.text.disabled": "Subtext0",
+    "button.dangerous.text.hovered": "Crust",
+    "button.dangerous.text.pressed": "Crust",
+    "button.dangerous.border.default": "Transparent",
+    "button.dangerous.border.disabled": "Transparent",
+    "button.dangerous.border.hovered": "Transparent",
+    "button.dangerous.border.pressed": "Transparent",
+
+    "button.tile.focusBorder": "Transparent",
+    "button.tile.focusOutline": "Transparent",
+    "button.tile.background.default": "Mantle",
+    "button.tile.background.disabled": "Mantle",
+    "button.tile.background.hovered": "#41455999",
+    "button.tile.background.pressed": "#41455966",
+    "button.tile.text.default": "Text",
+    "button.tile.text.disabled": "Surface2",
+    "button.tile.text.hovered": "Text",
+    "button.tile.text.pressed": "Text",
+    "button.tile.border.default": "Transparent",
+    "button.tile.border.disabled": "Transparent",
+    "button.tile.border.hovered": "Transparent",
+    "button.tile.border.pressed": "Transparent",
+
+    "checkbox.icon.default": "Mauve",
+    "checkbox.focusBorder": "Transparent",
+    "checkbox.focusOutline": "Transparent",
+    "checkbox.on.background.default": "Transparent",
+    "checkbox.on.background.hovered": "Transparent",
+    "checkbox.on.background.pressed": "Transparent",
+    "checkbox.on.border.default": "Surface2",
+    "checkbox.on.border.hovered": "Mauve",
+    "checkbox.on.border.pressed": "Surface2",
+    "checkbox.off.background.default": "Transparent",
+    "checkbox.off.background.hovered": "Transparent",
+    "checkbox.off.background.pressed": "Transparent",
+    "checkbox.off.border.default": "Surface2",
+    "checkbox.off.border.hovered": "Mauve",
+    "checkbox.off.border.pressed": "Surface2",
+
+    "toggleButton.on.focusBorder": "Transparent",
+    "toggleButton.on.background.default": "Lavender",
+    "toggleButton.on.background.disabled": "Overlay0",
+    "toggleButton.on.background.hovered": "#babbf1b3",
+    "toggleButton.on.background.pressed": "#babbf199",
+    "toggleButton.on.text.default": "Crust",
+    "toggleButton.on.text.hovered": "Crust",
+    "toggleButton.on.text.pressed": "Crust",
+    "toggleButton.on.text.disabled": "Subtext0",
+    "toggleButton.on.border.default": "Transparent",
+    "toggleButton.on.border.disabled": "Transparent",
+    "toggleButton.off.focusBorder": "Transparent",
+    "toggleButton.off.background.default": "Surface0",
+    "toggleButton.off.background.disabled": "Overlay0",
+    "toggleButton.off.background.hovered": "#41455999",
+    "toggleButton.off.background.pressed": "#41455966",
+    "toggleButton.off.text.default": "Text",
+    "toggleButton.off.text.hovered": "Text",
+    "toggleButton.off.text.pressed": "Text",
+    "toggleButton.off.text.disabled": "Subtext0",
+    "toggleButton.off.border.default": "Transparent",
+    "toggleButton.off.border.disabled": "Transparent",
+
+    "iconButton.on.focusBorder": "Transparent",
+    "iconButton.on.background.default": "Surface0",
+    "iconButton.on.background.disabled": "Surface0",
+    "iconButton.on.background.hovered": "Surface1",
+    "iconButton.on.background.pressed": "Surface1",
+    "iconButton.on.text.default": "Text",
+    "iconButton.on.text.hovered": "Text",
+    "iconButton.on.text.pressed": "Text",
+    "iconButton.on.text.disabled": "Overlay0",
+    "iconButton.on.border.default": "Transparent",
+    "iconButton.on.border.disabled": "Transparent",
+    "iconButton.on.border.pressed": "Transparent",
+    "iconButton.off.focusBorder": "Transparent",
+    "iconButton.off.background.default": "Transparent",
+    "iconButton.off.background.disabled": "Transparent",
+    "iconButton.off.background.hovered": "Surface0",
+    "iconButton.off.background.pressed": "Surface0",
+    "iconButton.off.text.default": "Text",
+    "iconButton.off.text.hovered": "Text",
+    "iconButton.off.text.pressed": "Text",
+    "iconButton.off.text.disabled": "Overlay0",
+    "iconButton.off.border.default": "Transparent",
+    "iconButton.off.border.disabled": "Transparent",
+    "iconButton.off.border.pressed": "Transparent",
+
+    "splitButton.focusBorder": "Transparent",
+    "splitButton.focusOutline": "Transparent",
+    "splitButton.background.default": "Surface1",
+    "splitButton.background.disabled": "Surface0",
+    "splitButton.background.hovered": "Surface0",
+    "splitButton.background.pressed": "Surface0",
+    "splitButton.text.default": "Text",
+    "splitButton.text.disabled": "Surface2",
+    "splitButton.text.hovered": "Text",
+    "splitButton.text.pressed": "Text",
+    "splitButton.border.default": "Transparent",
+    "splitButton.border.disabled": "Transparent",
+    "splitButton.border.hovered": "Transparent",
+    "splitButton.border.pressed": "Transparent",
+
+    "pillButton.focusBorder": "Transparent",
+    "pillButton.focusOutline": "Transparent",
+    "pillButton.background.default": "Surface1",
+    "pillButton.background.disabled": "Surface0",
+    "pillButton.background.hovered": "Surface0",
+    "pillButton.background.pressed": "Surface0",
+    "pillButton.text.default": "Text",
+    "pillButton.text.disabled": "Surface2",
+    "pillButton.text.hovered": "Text",
+    "pillButton.text.pressed": "Text",
+    "pillButton.border.default": "Transparent",
+    "pillButton.border.disabled": "Transparent",
+    "pillButton.border.hovered": "Transparent",
+    "pillButton.border.pressed": "Transparent",
+
+    "editor.background": "Base",
+    "editor.text": "Text",
+    "editor.caret.background": "Text",
+    "editor.whitespace.text": "Text",
+    "editor.currentLine.background.default": "#7379941a",
+    "editor.currentLine.background.focused": "#7379941a",
+    "editor.lineNumber.current": "Mauve",
+    "editor.lineNumber.default": "Overlay0",
+    "editor.gitDiff.background.added": "Green",
+    "editor.gitDiff.text.added": "Green",
+    "editor.gitDiff.background.conflict": "Red",
+    "editor.gitDiff.text.conflict": "Red",
+    "editor.gitDiff.background.deleted": "Red",
+    "editor.gitDiff.text.deleted": "Red",
+    "editor.gitDiff.background.modified": "Blue",
+    "editor.gitDiff.text.modified": "Blue",
+    "editor.interline.block.background": "Mantle",
+    "editor.interline.listItem.text.default": "Text",
+    "editor.interline.listItem.text.hovered": "Text",
+    "editor.interline.listItem.text.focused": "Text",
+    "editor.interline.listItem.text.selected": "Text",
+    "editor.interline.listItem.text.secondary": "Surface2",
+    "editor.interline.listItem.border.default": "Transparent",
+    "editor.interline.listItem.border.hovered": "Transparent",
+    "editor.interline.listItem.border.focused": "Transparent",
+    "editor.interline.listItem.border.selected": "Transparent",
+    "editor.interline.listItem.background.default": "Transparent",
+    "editor.interline.listItem.background.hovered": "Base",
+    "editor.interline.listItem.background.focused": "Base",
+    "editor.interline.listItem.background.selected": "Base",
+    "editor.foldedMark.background": "Mantle",
+    "editor.foldedMark.text": "Text",
+    "editor.foldIndicator.icon.default": "Overlay0",
+    "editor.foldIndicator.icon.hovered": "Mauve",
+    "editor.foldIndicator.background.hovered": "Mantle",
+
+    "separator.default": "Surface0",
+    "separator.hovered": "Blue",
+
+    "link.focusOutline": "Blue",
+    "link.text": "Blue",
+
+    "completion.match.background": "Transparent",
+    "completion.match.text": "Flamingo",
+
+    "search.match.background": "#e5c890cc",
+    "search.match.text": "Crust",
+
+    "icon.background.blue": "Blue",
+    "icon.background.green": "Green",
+    "icon.background.orange": "Peach",
+    "icon.background.red": "Red",
+    "icon.background.cyan": "Sapphire",
+
+    "inputField.background.default": "Mantle",
+    "inputField.background.disabled": "Transparent",
+    "inputField.background.error": "Mantle",
+    "inputField.text.disabled": "Mantle",
+    "inputField.border.error": "Red",
+    "inputField.border.disabled": "Mantle",
+    "inputField.selectionBackground.default": "Surface0",
+    "inputField.focusOutline.default": "Transparent",
+    "inputField.focusOutline.error": "Transparent",
+    "inputField.focusBorder.default": "Mauve",
+    "inputField.focusBorder.error": "Red",
+
+    "popup.background": "Mantle",
+    "popup.editor.background": "Base",
+    "popup.tab.background.default": "Transparent",
+    "popup.tab.background.hovered": "Base",
+    "popup.tab.background.selected": "Base",
+    "popup.tab.indicator": "Mauve",
+    "popup.tab.text": "Text",
+    "popup.tabPanel.background": "Mantle",
+    "popup.listItem.text.default": "Text",
+    "popup.listItem.text.hovered": "Text",
+    "popup.listItem.text.focused": "Text",
+    "popup.listItem.text.selected": "Text",
+    "popup.listItem.text.secondary": "Surface2",
+    "popup.listItem.border.default": "Transparent",
+    "popup.listItem.border.hovered": "Transparent",
+    "popup.listItem.border.focused": "Transparent",
+    "popup.listItem.border.selected": "Transparent",
+    "popup.listItem.background.default": "Transparent",
+    "popup.listItem.background.hovered": "Transparent",
+    "popup.listItem.background.focused": "Base",
+    "popup.listItem.background.selected": "Base",
+
+    "notification.background.default": "Base",
+    "notification.background.unread": "Surface0",
+    "notification.separator": "Crust",
+    "notification.text": "Text",
+    "notification.timestamp": "Text",
+
+    "progressBar.determinate.foreground": "Mauve",
+    "progressBar.determinate.background": "Crust",
+    "progressBar.indeterminate.foreground": "Pink",
+    "progressBar.indeterminate.foregroundAccent": "Mauve",
+
+    "scrollbar.thumb.default": "#ffffff33",
+    "scrollbar.thumb.hovered": "#ffffff66",
+    "scrollbar.track.default": "Transparent",
+    "scrollbar.track.hovered": "#ffffff33",
+
+    "tab.background.default": "Mantle",
+    "tab.background.selected": "Surface0",
+    "tab.background.hovered": "Surface0",
+    "tab.text": "Text",
+    "tab.indicator": "Mauve",
+    "tabPanel.background": "Mantle",
+    "terminal.ansiColors.background.ansiBlack": "Text",
+    "terminal.ansiColors.foreground.ansiBlack": "Text",
+    "terminal.ansiColors.background.ansiBlue": "Blue",
+    "terminal.ansiColors.foreground.ansiBlue": "Blue",
+    "terminal.ansiColors.background.ansiBrightBlack": "Base",
+    "terminal.ansiColors.foreground.ansiBrightBlack": "Base",
+    "terminal.ansiColors.background.ansiBrightBlue": "Sapphire",
+    "terminal.ansiColors.foreground.ansiBrightBlue": "Sapphire",
+    "terminal.ansiColors.background.ansiBrightCyan": "Teal",
+    "terminal.ansiColors.foreground.ansiBrightCyan": "Teal",
+    "terminal.ansiColors.background.ansiBrightGreen": "Green",
+    "terminal.ansiColors.foreground.ansiBrightGreen": "Green",
+    "terminal.ansiColors.background.ansiBrightMagenta": "Mauve",
+    "terminal.ansiColors.foreground.ansiBrightMagenta": "Mauve",
+    "terminal.ansiColors.background.ansiBrightRed": "Maroon",
+    "terminal.ansiColors.foreground.ansiBrightRed": "Maroon",
+    "terminal.ansiColors.background.ansiBrightWhite": "Base",
+    "terminal.ansiColors.foreground.ansiBrightWhite": "Base",
+    "terminal.ansiColors.background.ansiBrightYellow": "Yellow",
+    "terminal.ansiColors.foreground.ansiBrightYellow": "Yellow",
+    "terminal.ansiColors.background.ansiCyan": "Sky",
+    "terminal.ansiColors.foreground.ansiCyan": "Sky",
+    "terminal.ansiColors.background.ansiGreen": "Green",
+    "terminal.ansiColors.foreground.ansiGreen": "Green",
+    "terminal.ansiColors.background.ansiMagenta": "Pink",
+    "terminal.ansiColors.foreground.ansiMagenta": "Pink",
+    "terminal.ansiColors.background.ansiRed": "Red",
+    "terminal.ansiColors.foreground.ansiRed": "Red",
+    "terminal.ansiColors.background.ansiWhite": "Base",
+    "terminal.ansiColors.foreground.ansiWhite": "Base",
+    "terminal.ansiColors.background.ansiYellow": "Yellow",
+    "terminal.ansiColors.foreground.ansiYellow": "Yellow",
+
+    "tool.background": "Base",
+    "mainToolbar.background": "Mantle",
+    "statusBar.background": "Mantle",
+
+    "tooltip.background": "Base",
+    "tooltip.border": "Transparent",
+
+    "tree.focusBorder": "Mauve",
+
+    "listItem.text.default": "Text",
+    "listItem.text.hovered": "Text",
+    "listItem.text.focused": "Text",
+    "listItem.text.selected": "Text",
+    "listItem.text.secondary": "Surface2",
+    "listItem.border.default": "Transparent",
+    "listItem.border.hovered": "Transparent",
+    "listItem.border.focused": "Transparent",
+    "listItem.border.selected": "Transparent",
+    "listItem.background.default": "Base",
+    "listItem.background.hovered": "Mantle",
+    "listItem.background.focused": "Mantle",
+    "listItem.background.selected": "Mantle",
+
+    "smartMode.enabled.fill": "Sky",
+    "smartMode.loader.border": "Sky",
+    "smartMode.error.fill": "Red",
+
+    "settings.modified.indicator": "Yellow",
+
+    "dragAndDrop.background": "#ffffff1A",
+
+    "problemsWidget.checkmark.foreground": "Green",
+    "problemsWidget.checkmark.background": "#a6d1894d",
+    "problemsWidget.status.expanded.background.error": "#ab2123",
+    "problemsWidget.status.expanded.background.warning": "#ba8b2c",
+    "problemsWidget.status.expanded.background.weakWarning": "#533e13",
+    
+    "problemsWidget.status.expanded.border.error": "#d62a2d",
+    "problemsWidget.status.expanded.border.warning": "#ba8b2c",
+    "problemsWidget.status.expanded.border.weakWarning": "#cf9a31",
+
+    "gitBranchTag.local.text": "Text",
+    "gitBranchTag.local.background": "#8caaee1a",
+    "gitBranchTag.local.border": "Blue",
+    "gitBranchTag.remote.text": "Text",
+    "gitBranchTag.remote.background": "#ca9ee61a",
+    "gitBranchTag.remote.border": "Mauve",
+
+    "remoteWorkspaceStatusLabel.background.ssh": "Green",
+    "remoteWorkspaceStatusLabel.background.wsl": "Yellow",
+    "remoteWorkspaceStatusLabel.background.docker": "Sky",
+    "remoteWorkspaceStatusLabel.background.space": "Mauve",
+    "remoteWorkspaceStatusLabel.text.ssh": "Crust",
+    "remoteWorkspaceStatusLabel.text.wsl": "Crust",
+    "remoteWorkspaceStatusLabel.text.docker": "Crust",
+    "remoteWorkspaceStatusLabel.text.space": "Crust",
+
+    "remote.userColor.background.one": "#f2d5cfb3",
+    "remote.userColor.background.two": "#f4b8e4b3",
+    "remote.userColor.background.three": "#babbf1b3",
+    "remote.userColor.background.four": "#ca9ee6b3",
+    "remote.userColor.background.five": "#ea999cb3",
+    "remote.userColor.background.six": "#ef9f76b3",
+    "remote.userColor.background.seven": "#e5c890b3",
+    "remote.userColor.background.eight": "#a6d189b3",
+    "remote.userColor.background.nine": "#81c8beb3",
+    "remote.userColor.background.ten": "#8caaeeb3",
+
+    "ai.inputField.background.default": "Mantle",
+    "ai.inputField.border.default": "Transparent",
+    "ai.inputField.focusOutline.default": "Transparent",
+    "ai.inputField.focusBorder.default": "Mauve",
+
+    "ai.snippet.border": "Transparent",
+    "ai.snippet.header.background": "Crust",
+    "ai.snippet.editor.background": "Mantle",
+
+    "ai.button.default.focusBorder": "Transparent",
+    "ai.button.default.focusOutline": "Transparent",
+    "ai.button.default.background.default": "Surface0",
+    "ai.button.default.background.disabled": "Surface0",
+    "ai.button.default.background.hovered": "#41455999",
+    "ai.button.default.background.pressed": "#41455966",
+    "ai.button.default.text.default": "Text",
+    "ai.button.default.text.disabled": "Surface2",
+    "ai.button.default.text.hovered": "Text",
+    "ai.button.default.text.pressed": "Text",
+    "ai.button.default.border.default": "Transparent",
+    "ai.button.default.border.disabled": "Transparent",
+    "ai.button.default.border.hovered": "Transparent",
+    "ai.button.default.border.pressed": "Transparent",
+
+    "ai.button.recipe.focusBorder": "Transparent",
+    "ai.button.recipe.focusOutline": "Transparent",
+    "ai.button.recipe.background.default": "Surface0",
+    "ai.button.recipe.background.disabled": "Surface0",
+    "ai.button.recipe.background.hovered": "#41455999",
+    "ai.button.recipe.background.pressed": "#41455966",
+    "ai.button.recipe.text.default": "Text",
+    "ai.button.recipe.text.disabled": "Surface2",
+    "ai.button.recipe.text.hovered": "Text",
+    "ai.button.recipe.text.pressed": "Text",
+    "ai.button.recipe.border.default": "Transparent",
+    "ai.button.recipe.border.disabled": "Transparent",
+    "ai.button.recipe.border.hovered": "Transparent",
+    "ai.button.recipe.border.pressed": "Transparent",
+
+    "ai.icon.text": "Mauve",
+    "ai.icon.background": "Mauve",
+    "ai.icon.background.secondary": "#ca9ee633",
+
+    "ai.user.icon.text": "Blue",
+    "ai.user.icon.background": "Blue",
+    "ai.user.icon.background.secondary": "#8caaee33",
+
+    "ai.error.border": "Red",
+    "ai.error.fill": "Transparent"
+  },
+  "textAttributes": {
+    "attributeName.html": {
+      "foregroundColor": "Blue"
+    },
+    "attributeValue.html": {
+      "foregroundColor": "Green"
+    },
+    "boolean": {
+      "foregroundColor": "Mauve"
+    },
+    "comment": {
+      "foregroundColor": "Overlay0"
+    },
+    "comment.doc": {
+      "foregroundColor": "Overlay0"
+    },
+    "comment.doc.value": {
+      "foregroundColor": "Overlay1"
+    },
+    "comment.doc.tag": {
+      "foregroundColor": "Maroon"
+    },
+    "comment.todo": {
+      "foregroundColor": "Yellow"
+    },
+    "debug.currentFrame": {
+      "backgroundColor": "Blue"
+    },
+    "diff.added": {
+      "backgroundColor": "#586e5f"
+    },
+    "diff.added.word": {
+      "backgroundColor": "#586e5f"
+    },
+    "diff.added.withBorder": {
+      "backgroundColor": "#586e5f",
+      "border": {
+        "color": "Green"
+      }
+    },
+    "diff.added.resolved": {
+      "backgroundColor": "Transparent",
+      "border": {
+        "color": "Green"
+      }
+    },
+    "diff.added.empty": {
+      "backgroundColor": "#586e5f"
+    },
+    "diff.deleted": {
+      "backgroundColor": "#6c495b"
+    },
+    "diff.deleted.word": {
+      "backgroundColor": "#6c495b"
+    },
+    "diff.deleted.withBorder": {
+      "backgroundColor": "#6c495b",
+      "border": {
+        "color": "Red"
+      }
+    },
+    "diff.deleted.resolved": {
+      "backgroundColor": "Transparent",
+      "border": {
+        "color": "Red"
+      }
+    },
+    "diff.deleted.empty": {
+      "backgroundColor": "#6c495b"
+    },
+    "diff.modified": {
+      "backgroundColor": "#4a587d"
+    },
+    "diff.modified.word": {
+      "backgroundColor": "#5673a7"
+    },
+    "diff.modified.withBorder": {
+      "backgroundColor": "#4a587d",
+      "border": {
+        "color": "Blue"
+      }
+    },
+    "diff.modified.resolved": {
+      "backgroundColor": "Transparent",
+      "border": {
+        "color": "Blue"
+      }
+    },
+    "editor.brace.match": {
+      "backgroundColor": "Surface1"
+    },
+    "editor.rename.current": {
+      "decoration": {
+        "color": "Lavender",
+        "style": "BORDER"
+      },
+      "showEmptyIntervals": true
+    },
+    "editor.rename.entries": {
+      "backgroundColor": "Transparent",
+      "showEmptyIntervals": true,
+      "stripeColor": "Surface0"
+    },
+    "editor.search.results": {
+      "backgroundColor": "#8caaee66",
+      "stripeColor": "Blue"
+    },
+    "editor.selection": {
+      "backgroundColor": "Surface2"
+    },
+    "editor.selection.focused": {
+      "backgroundColor": "Surface1"
+    },
+    "editor.text.composable": {
+      "decoration": {
+        "color": "Overlay2"
+      }
+    },
+    "editor.text.scheme": {
+      "foregroundColor": "Text"
+    },
+    "editor.indentGuide": {
+      "foregroundColor": "Overlay0",
+      "decoration": {
+        "style": "DASHED"
+      }
+    },
+    "editor.indentGuide.current": {
+      "foregroundColor": "Overlay2",
+      "decoration": {
+        "style": "DASHED"
+      }
+    },
+    "editor.indentGuide.declaration": {
+      "foregroundColor": "Surface0"
+    },
+    "editor.indentGuide.declaration.current": {
+      "foregroundColor": "Overlay0"
+    },
+    "entityReference.html": {
+      "foregroundColor": "Red"
+    },
+    "identifier": {
+      "foregroundColor": "Text"
+    },
+    "identifier.alias.yaml": {
+      "foregroundColor": "Peach"
+    },
+    "identifier.anchor.yaml": {
+      "foregroundColor": "Peach"
+    },
+    "identifier.constant": {
+      "foregroundColor": "Peach"
+    },
+    "identifier.constant.predefined": {
+      "foregroundColor": "Red"
+    },
+    "identifier.field": {
+      "foregroundColor": "Text"
+    },
+    "identifier.field.static": {
+      "foregroundColor": "Teal"
+    },
+    "identifier.function.call": {
+      "foregroundColor": "Blue"
+    },
+    "identifier.function.call.package": {
+      "foregroundColor": "Blue"
+    },
+    "identifier.function.call.suspend": {
+      "foregroundColor": "Blue"
+    },
+    "identifier.function.declaration": {
+      "foregroundColor": "Blue"
+    },
+    "identifier.interface": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.method.static": {
+      "foregroundColor": "Blue"
+    },
+    "identifier.methodReceiver.go": {
+      "foregroundColor": "Blue"
+    },
+    "identifier.namedArgument": {
+      "foregroundColor": "Maroon"
+    },
+    "identifier.other": {
+      "foregroundColor": "Text"
+    },
+    "identifier.package.go": {
+      "foregroundColor": "Peach"
+    },
+    "identifier.parameter": {
+      "foregroundColor": "Maroon"
+    },
+    "identifier.this": {
+      "foregroundColor": "Mauve"
+    },
+    "identifier.this.mutable": {
+      "decoration": {
+        "color": "Overlay2"
+      }
+    },
+    "identifier.type": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.type.class": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.type.enum": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.type.struct": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.type.valueType": {
+      "foregroundColor": "Lavender"
+    },
+    "identifier.typeDeclaration.go": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.typeParameter": {
+      "foregroundColor": "Yellow"
+    },
+    "identifier.typeReference.go": {
+      "foregroundColor": "Teal"
+    },
+    "identifier.underCaret": {
+      "backgroundColor": "Transparent",
+      "decoration": {
+        "color": "Surface2",
+        "style": "BORDER"
+      }
+    },
+    "identifier.variable": {
+      "foregroundColor": "Text"
+    },
+    "identifier.variable.mutable": {
+      "decoration": {
+        "color": "Overlay2"
+      }
+    },
+    "key.json": {
+      "foregroundColor": "Blue"
+    },
+    "key.yaml": {
+      "foregroundColor": "Blue"
+    },
+    "keyword": {
+      "foregroundColor": "Mauve"
+    },
+    "keyword.css": {
+      "foregroundColor": "Yellow"
+    },
+    "keyword.extend.css": {
+      "foregroundColor": "Red"
+    },
+    "keyword.global.css": {
+      "foregroundColor": "Teal"
+    },
+    "keyword.important.css": {
+      "foregroundColor": "Lavender",
+      "fontModifier": {
+        "italic": true
+      }
+    },
+    "keyword.typeModifier": {
+      "foregroundColor": "Mauve"
+    },
+    "link": {},
+    "link.always.visible": {
+      "decoration": {}
+    },
+    "link.hovered": {
+      "decoration": {
+        "color": "Blue"
+      },
+      "foregroundColor": "Sapphire"
+    },
+    "markup.bold": {
+      "foregroundColor": "Red",
+      "fontModifier": {
+        "bold": true
+      }
+    },
+    "markup.code.block": {
+      "foregroundColor": "Green"
+    },
+    "markup.heading": {
+      "foregroundColor": "Blue"
+    },
+    "markup.href": {
+      "decoration": {},
+      "foregroundColor": "Rosewater",
+      "fontModifier": {
+        "italic": true
+      }
+    },
+    "markup.italic": {
+      "foregroundColor": "Red",
+      "fontModifier": {
+        "italic": true
+      }
+    },
+    "metadata": {
+      "foregroundColor": "Yellow"
+    },
+    "metadata.structTag.key.go": {
+      "foregroundColor": "Peach"
+    },
+    "metadata.structTag.value.go": {
+      "foregroundColor": "Green"
+    },
+    "number": {
+      "foregroundColor": "Peach"
+    },
+    "number.css": {
+      "foregroundColor": "Peach"
+    },
+    "number.unit.css": {
+      "foregroundColor": "Yellow"
+    },
+    "other.html": {
+      "foregroundColor": "Text"
+    },
+    "problem.deprecated": {
+      "decoration": {
+        "color": "Overlay2",
+        "position": "THROUGH"
+      }
+    },
+    "problem.error": {
+      "decoration": {
+        "color": "Red",
+        "thickness": 2.0
+      },
+      "stripeColor": "Red"
+    },
+    "problem.error.badCharacter": {
+      "decoration": {
+        "color": "Red",
+        "thickness": 2.0
+      },
+      "showEmptyIntervals": true,
+      "stripeColor": "Red"
+    },
+    "problem.info": {
+      "decoration": {
+        "color": "#81c8be66",
+        "style": "BORDER"
+      },
+      "stripeColor": "#81c8be66"
+    },
+    "problem.unknown": {},
+    "problem.unused": {
+      "foregroundColor": "Overlay0"
+    },
+    "problem.warning": {
+      "decoration": {
+        "color": "Yellow",
+        "thickness": 2.0
+      },
+      "stripeColor": "Yellow"
+    },
+    "problem.warning.weak": {
+      "decoration": {
+        "color": "#e5c89066",
+        "thickness": 2.0
+      },
+      "stripeColor": "#e5c89066"
+    },
+    "propertyName.css": {
+      "foregroundColor": "Blue"
+    },
+    "propertyValue.css": {
+      "foregroundColor": "Yellow"
+    },
+    "punctuation": {
+      "foregroundColor": "Sky"
+    },
+    "punctuation.css": {
+      "foregroundColor": "Sky"
+    },
+    "punctuation.operator": {
+      "foregroundColor": "Sky"
+    },
+    "punctuation.operator.merge.yaml": {
+      "foregroundColor": "Yellow"
+    },
+    "selector.class.css": {
+      "foregroundColor": "Teal"
+    },
+    "selector.css": {
+      "foregroundColor": "Red"
+    },
+    "selector.id.css": {
+      "foregroundColor": "Blue"
+    },
+    "selector.pseudo.css": {
+      "foregroundColor": "Teal"
+    },
+    "selector.tag.css": {
+      "foregroundColor": "Mauve"
+    },
+    "snippet": {
+      "border": {
+       "color": "Surface1"
+      }
+    },
+    "snippet.selected": {
+      "border": {
+        "color": "Blue"
+      }
+    },
+    "string": {
+      "foregroundColor": "Green"
+    },
+    "string.binary": {
+      "foregroundColor": "Green"
+    },
+    "string.css": {
+      "foregroundColor": "Green"
+    },
+    "string.escape": {
+      "foregroundColor": "Pink"
+    },
+    "string.escape.alternative": {
+      "foregroundColor": "Pink"
+    },
+    "string.escape.unicode": {
+      "foregroundColor": "Pink"
+    },
+    "string.formatItem": {
+      "foregroundColor": "Peach"
+    },
+    "string.regexp": {
+      "foregroundColor": "Green"
+    },
+    "tag.html": {
+      "foregroundColor": "Text"
+    },
+    "tagName.custom.html": {
+      "foregroundColor": "Mauve"
+    },
+    "tagName.html": {
+      "foregroundColor": "Mauve"
+    },
+    "transparent": {},
+    "url.css": {
+      "foregroundColor": "Green"
+    },
+    "value.yaml": {
+      "foregroundColor": "Text"
+    }
+  },
+  "palette": {
+    "Rosewater": "#f2d5cf",
+    "Flamingo": "#eebebe",
+    "Pink": "#f4b8e4",
+    "Mauve": "#ca9ee6",
+    "Red": "#e78284",
+    "Maroon": "#ea999c",
+    "Peach": "#ef9f76",
+    "Yellow": "#e5c890",
+    "Green": "#a6d189",
+    "Teal": "#81c8be",
+    "Sky": "#99d1db",
+    "Sapphire": "#85c1dc",
+    "Blue": "#8caaee",
+    "Lavender": "#babbf1",
+    "Text": "#c6d0f5",
+    "Subtext1": "#b5bfe2",
+    "Subtext0": "#a5adce",
+    "Overlay2": "#949cbb",
+    "Overlay1": "#838ba7",
+    "Overlay0": "#737994",
+    "Surface2": "#626880",
+    "Surface1": "#51576d",
+    "Surface0": "#414559",
+    "Base": "#303446",
+    "Mantle": "#292c3c",
+    "Crust": "#232634",
+    "Transparent": "#ffffff00"
+  }
+}
