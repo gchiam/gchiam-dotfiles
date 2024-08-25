@@ -1,9 +1,6 @@
 [submodule "external/catppuccin/k9s"]
 	path = external/catppuccin/k9s
 	url = git@github.com:catppuccin/k9s.git
-[submodule "external/ohmyzsh"]
-	path = external/ohmyzsh
-	url = git@github.com:ohmyzsh/ohmyzsh.git
 [submodule "external/tmux-plugins/tpm"]
 	path = external/tmux-plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
