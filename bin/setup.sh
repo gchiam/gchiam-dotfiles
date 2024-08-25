@@ -18,10 +18,5 @@ done
 
 ln -snvf $DOTFILES_DIR/.Xresources $HOME/
 
-mkdir -p $HOME/bin
-for f in $(find $DOTFILES_DIR/bin/deploy -mindepth 1 -maxdepth 1); do
-	ln -snvf $f $HOME/bin/
-done
-
 # generate ~/fleet.properties
 echo "fleet.config.path=${HOME}/.config/JetBrains/Fleet/" > ~/fleet.properties
