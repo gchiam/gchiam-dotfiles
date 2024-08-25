@@ -27,16 +27,12 @@ ln -snvf $DOTFILES_DIR/.bash_extra $HOME/
 ln -snvf $DOTFILES_DIR/.bash_motd $HOME/
 ln -snvf $DOTFILES_DIR/.Brewfile $HOME/
 ln -snvf $DOTFILES_DIR/.inputrc $HOME/
-ln -snvf $DOTFILES_DIR/.grepg.yml $HOME/
 ln -snvf $DOTFILES_DIR/.zshrc $HOME/
-ln -snvf $DOTFILES_DIR/.pylintrc $HOME/
 ln -snvf $DOTFILES_DIR/.ohmyzsh $HOME/
 ln -snvf $DOTFILES_DIR/.starship.toml $HOME/
 ln -snvf $DOTFILES_DIR/.tigrc $HOME/
 ln -snvf $DOTFILES_DIR/.tmux $HOME/
 ln -snvf $DOTFILES_DIR/.tmux*.conf $HOME/
-ln -snvf $DOTFILES_DIR/.ptpython $HOME/
-ln -snvf $DOTFILES_DIR/.fonts.conf $HOME/
 ln -snvf $DOTFILES_DIR/.Xresources $HOME/
 
 mkdir -p $HOME/bin
