@@ -1,3 +1,7 @@
+HISTSIZE=10000
+SAVEHIST=10000
+setopt share_history
+
 export PATH="${PATH}:${HOME}/.local/bin"
 
 # User configuration
