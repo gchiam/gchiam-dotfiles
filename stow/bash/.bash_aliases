@@ -1,6 +1,5 @@
 # vim: set filetype=sh:
 
-
 # ============================================================================
 # Copied from
 # https://github.com/mbrochh/mbrochh-dotfiles/blob/master/.bash_aliases
@@ -71,13 +70,8 @@ alias mkvirtualenv2="mkvirtualenv -p `which python2`"
 alias mkvirtualenv3="mkvirtualenv -p `which python3`"
 alias rmpyc="find . -name \*.pyc -exec rm {} \;"
 
-# Django related shortcuts
-alias mprs="./manage.py runserver"
-alias mpm="./manage.py migrate"
-
 # Misc tools
 alias cdiff="cdiff --side-by-side"
-
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -98,11 +92,5 @@ alias whois="whois -h whois-servers.net"
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-    alias run_postgresql="postgres -D /usr/local/var/postgres"
-fi
-
 
 alias jqenv="jq -n -S '\$ENV | map_values(if test(\":\",.) and (test(\"(tcp|http[s]?)://\",.) | not) then split(\":\") else . end)'"
