@@ -20,6 +20,7 @@ brew 'asdf'
 brew 'awscli'
 brew 'autoraise', restart_service: true
 brew 'axel'
+brew 'bat'
 brew 'borders', restart_service: true
 brew 'curl'
 brew 'devspace'
