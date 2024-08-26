@@ -13,7 +13,7 @@ config.line_height = 1.1
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
 -- Translucent window effect
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 30
 
 -- Command palette
