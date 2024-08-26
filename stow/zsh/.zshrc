@@ -12,14 +12,6 @@ test -e $HOME/.bash_local && source $HOME/.bash_local
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# bind v to edit command line
-autoload edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-
-# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
-export KEYTIMEOUT=1
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/gchiam/.sdkman"
 [[ -s "/Users/gchiam/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gchiam/.sdkman/bin/sdkman-init.sh"
