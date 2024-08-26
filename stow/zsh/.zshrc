@@ -1,5 +1,8 @@
 export PATH="${PATH}:${HOME}/.local/bin"
 
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
 # User configuration
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 source $HOME/.bash_path
