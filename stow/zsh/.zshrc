@@ -50,12 +50,12 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # PERL_MB_OPT="--install_base \"/Users/gchiam/perl5\""; export PERL_MB_OPT;
 # PERL_MM_OPT="INSTALL_BASE=/Users/gchiam/perl5"; export PERL_MM_OPT;
 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(rbenv init - zsh)"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# eval "$(pyenv init - zsh)"
+# eval "$(pyenv virtualenv-init -)"
+# eval "$(rbenv init - zsh)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
 
