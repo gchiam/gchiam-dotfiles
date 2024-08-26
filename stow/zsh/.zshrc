@@ -40,13 +40,9 @@ export CLOUDSDK_PYTHON=python3
 export SDKMAN_DIR="/Users/gchiam/.sdkman"
 [[ -s "/Users/gchiam/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gchiam/.sdkman/bin/sdkman-init.sh"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# eval "$(starship init zsh)"
 
 # PATH="/Users/gchiam/perl5/bin${PATH:+:${PATH}}"; export PATH;
 # PERL5LIB="/Users/gchiam/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
