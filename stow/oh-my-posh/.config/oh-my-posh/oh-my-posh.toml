@@ -107,3 +107,11 @@ trailing_diamond = ""
 template = "{{if .Env.SCOOTER_PROFILE}}SCOOTER_PROFILE=<b>{{.Env.SCOOTER_PROFILE}}</b>{{else}}NO PROFILE{{end}}"
 
 
+[[tooltips]]
+type = "docker"
+tips = [ "docker" ]
+style = "diamond"
+foreground = "black"
+background = "magenta"
+leading_diamond = ""
+trailing_diamond = ""
