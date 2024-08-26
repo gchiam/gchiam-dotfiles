@@ -57,11 +57,19 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
-
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load $HOME/.config/antidote/.zsh_plugins.txt
+zvm_config() {
+  ZVM_INIT_MODE=sourcing
+  ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+  ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+  ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+  ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+}
 
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
+
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load $HOME/.config/antidote/.zsh_plugins.txt
+
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
