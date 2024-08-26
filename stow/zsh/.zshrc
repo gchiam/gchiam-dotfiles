@@ -40,6 +40,7 @@ export SDKMAN_DIR="/Users/gchiam/.sdkman"
 # eval "$(jenv init -)"
 
 zvm_config() {
+  # jeffreytse/zsh-vi-mode
   ZVM_INIT_MODE=sourcing
   ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
   ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
@@ -47,10 +48,23 @@ zvm_config() {
   ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
   # Always starting with insert mode for each command line
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+
+  # zsh-users/zsh-history-substring-search
+  HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=black,bold'
+  HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
 }
 
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  bindkey '^[OA' history-substring-search-up   # Up
+  bindkey '^[[A' history-substring-search-up   # Up
+
+  bindkey '^[OB' history-substring-search-down # Down
+  bindkey '^[[B' history-substring-search-down # Down
+
+  bindkey -M vicmd 'k' history-substring-search-up
+  bindkey -M vicmd 'j' history-substring-search-down
 }
 
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
