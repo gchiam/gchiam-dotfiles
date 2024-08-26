@@ -94,7 +94,7 @@ foreground = "black"
 background = "magenta"
 leading_diamond = ""
 trailing_diamond = ""
-template = "{{.Context}}<b>{{if .Namespace}}</b>::<b>{{.Namespace}}</b>{{end}}"
+template = "{{.Context}}<b>{{if .Namespace}}</b>::<b>{{.Namespace}}</b>{{end}} :: {{.User}}@{{.Cluster}}"
 
 [[tooltips]]
 type = "text"
