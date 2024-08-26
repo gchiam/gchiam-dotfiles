@@ -3,7 +3,6 @@ export PATH="${PATH}:${HOME}/.local/bin"
 # User configuration
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 source $HOME/.bash_path
-
 source $HOME/.bash_exports
 source $HOME/.bash_aliases
 test -e $HOME/.bash_local && source $HOME/.bash_local
