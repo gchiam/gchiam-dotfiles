@@ -13,7 +13,7 @@ config.line_height = 1.1
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
 -- Translucent window effect
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 30
 
 -- Command palette
@@ -23,6 +23,8 @@ config.command_palette_font_size = 16.0
 
 -- Window appearance
 config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
+
+config.use_fancy_tab_bar = false
 
 -- and finally, return the configuration to wezterm
 return config

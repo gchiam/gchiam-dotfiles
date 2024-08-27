@@ -1,8 +1,7 @@
 jeffreytse/zsh-vi-mode
-rupa/z
-olets/zsh-abbr kind:defer
-
 mattmc3/zfunctions
-zsh-users/zsh-autosuggestions
+olets/zsh-abbr kind:defer
+rupa/z
 zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
