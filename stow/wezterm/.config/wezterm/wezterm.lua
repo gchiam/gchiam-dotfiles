@@ -25,6 +25,7 @@ config.command_palette_font_size = 16.0
 config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 
 config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
 -- and finally, return the configuration to wezterm
 return config
