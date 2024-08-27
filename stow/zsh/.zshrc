@@ -4,9 +4,6 @@ setopt share_history
 
 export PATH="${PATH}:${HOME}/.local/bin"
 
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-
 # User configuration
 
 source $HOME/.bash_path
@@ -73,5 +70,7 @@ function zvm_after_init() {
 
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $HOME/.config/antidote/.zsh_plugins.txt
+
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"

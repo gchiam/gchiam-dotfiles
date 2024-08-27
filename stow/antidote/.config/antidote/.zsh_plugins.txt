@@ -1,3 +1,7 @@
+# set up Zsh completions with plugins
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+
 jeffreytse/zsh-vi-mode
 mattmc3/zfunctions
 olets/zsh-abbr kind:defer
@@ -5,3 +9,6 @@ rupa/z
 zdharma-continuum/fast-syntax-highlighting kind:defer
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
+
+# run towards the BOTTOM of your .zsh_plugins.txt after fpath is populated
+belak/zsh-utils path:completion
