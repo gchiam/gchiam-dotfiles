@@ -3,6 +3,7 @@ mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 
 jeffreytse/zsh-vi-mode
+mattberther/zsh-pyenv
 mattmc3/zfunctions
 olets/zsh-abbr kind:defer
 rupa/z
