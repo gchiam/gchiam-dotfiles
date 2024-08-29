@@ -58,6 +58,8 @@ function zvm_after_init() {
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $HOME/.config/antidote/.zsh_plugins.txt
 
+which cicd > /dev/null && source <(cicd completion zsh); compdef _cicd cicd
+
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
