@@ -62,10 +62,10 @@ git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$
 
 # git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
 # git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
-git config --global core.pager "delta"
-git config --global interactive.diffFilter "delta --color-only"
+git config --global core.pager "delta --detect-dark-light=auto --diff-so-fancy"
+git config --global interactive.diffFilter "delta --detect-dark-light=auto --diff-so-fancy --color-only"
 
-git config --global delta.syntax-theme "Nord"
+git config --global delta.true-color "true"
 git config --global delta.plus-style "syntax #142e26"
 git config --global delta.minus-style "syntax #2b1618"
 git config --global delta.navigate "true"
