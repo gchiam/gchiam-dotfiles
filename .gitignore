@@ -12,3 +12,4 @@
 **/.config/antidote/.zsh_plugins.zsh
 **/.tmux/resurrect
 **/.tmux/plugins/*
+stow/nvim/.config/nvim/.luarc.json
