@@ -5,3 +5,4 @@ tap 'zendesk/zendesk'
 # Formulas
 brew 'cicd-cli'
 brew 'scooter'
+brew 'zetup'
