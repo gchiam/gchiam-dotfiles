@@ -1,5 +1,6 @@
 # Taps
 tap 'dimentium/autoraise'
+tap 'domt4/autoupdate'
 tap 'FelixKratz/formulae'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
