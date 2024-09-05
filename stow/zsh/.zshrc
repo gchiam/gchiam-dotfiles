@@ -55,6 +55,11 @@ function zvm_after_init() {
   bindkey -M vicmd 'j' history-substring-search-down
 }
 
+if [ $commands[brew] ]
+then
+  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+fi
+
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load $HOME/.config/antidote/.zsh_plugins.txt
 
@@ -62,6 +67,9 @@ antidote load $HOME/.config/antidote/.zsh_plugins.txt
 [ $commands[scooter] ] > /dev/null && source <(scooter complete 2>/dev/null); compdef _scooter scooter
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
+zstyle ':completion:*' use-cache on
+
+source $(antidote path gradle/gradle-completion)/_gradle 1>&2 2>/dev/null
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/gchiam/.sdkman"

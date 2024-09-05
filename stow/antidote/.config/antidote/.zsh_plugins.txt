@@ -2,6 +2,7 @@
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 
+gradle/gradle-completion kind:fpath path:gradle-completion
 jeffreytse/zsh-vi-mode
 mattberther/zsh-pyenv
 mattmc3/zfunctions
