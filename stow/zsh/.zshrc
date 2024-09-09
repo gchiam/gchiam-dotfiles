@@ -7,10 +7,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 export PATH="${PATH}:${HOME}/.local/bin"
 
-# User configuration
-
 source $HOME/.bash_path
-# User configuration
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 source $HOME/.bash_path
 source $HOME/.bash_exports
@@ -24,8 +21,9 @@ export LANG=en_US.UTF-8
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+
+[ -d $HOME/.jenv ] && export PATH="$HOME/.jenv/bin:$PATH"
+[ $commands[jenv] ] && eval "$(jenv init -)"
 
 zvm_config() {
   # jeffreytse/zsh-vi-mode
