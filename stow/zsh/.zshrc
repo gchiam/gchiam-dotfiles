@@ -63,9 +63,9 @@ fi
 source $(brew --prefix antidote)/share/antidote/antidote.zsh
 antidote load $HOME/.config/antidote/.zsh_plugins.txt
 
-[ $commands[cicd] ] > /dev/null && source <(cicd completion zsh); compdef _cicd cicd
-[ $commands[scooter] ] > /dev/null && source <(scooter complete 2>/dev/null); compdef _scooter scooter
-[ $commands[zetup] ] > /dev/null && source <(zetup completion zsh)
+[ $commands[cicd] ] && source <(cicd completion zsh); compdef _cicd cicd
+[ $commands[scooter] ] && source <(scooter complete 2>/dev/null); compdef _scooter scooter
+[ $commands[zetup] ] && source <(zetup completion zsh)
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 zstyle ':completion:*' use-cache on
