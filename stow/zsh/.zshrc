@@ -60,7 +60,7 @@ then
   fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
 fi
 
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+source $(brew --prefix antidote)/share/antidote/antidote.zsh
 antidote load $HOME/.config/antidote/.zsh_plugins.txt
 
 [ $commands[cicd] ] > /dev/null && source <(cicd completion zsh); compdef _cicd cicd
