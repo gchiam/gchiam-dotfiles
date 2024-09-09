@@ -71,6 +71,7 @@ brew 'vendir'
 brew 'watch'
 brew 'wget'
 # brew 'yabai'
+brew 'uv'
 brew 'zsh'
 
 # Casks
