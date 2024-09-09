@@ -11,10 +11,10 @@ alias ...="cd ../.."
 
 
 # Easier file & directory listing
-if (which exa > /dev/null);  then
-    alias l='exa'  # directories and files in columns
-    alias la='exa -la'  # directories and files incl. hidden in columns
-    alias ll='exa -ahlF --group-directories-first'  # everything with extra info as a list
+if (which eza > /dev/null);  then
+    alias l='eza'  # directories and files in columns
+    alias la='eza -la'  # directories and files incl. hidden in columns
+    alias ll='eza -ahlF --group-directories-first'  # everything with extra info as a list
 else
     alias l='ls -CF'  # directories and files in columns
     alias la='ls -A'  # directories and files incl. hidden in columns
