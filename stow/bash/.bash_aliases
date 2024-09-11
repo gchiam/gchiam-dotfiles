@@ -25,10 +25,6 @@ alias isdark="defaults read -globalDomain AppleInterfaceStyle &> /dev/null"
 alias bat="bat --theme=\"\$(ifdark 'Catppuccin Frappe' 'Catppuccin Latte')\""
 alias cat="bat --style=plain"
 
-# pretty cat
-alias pcat='pygmentize <'
-alias prettycat='pygmentize <'
-
 # Personal shortcuts
 alias e="cd ~/Envs"
 alias d="cd ~/projects/gchiam-dotfiles"
