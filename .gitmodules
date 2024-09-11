@@ -4,9 +4,6 @@
 [submodule "external/tmux-plugins/tpm"]
 	path = external/tmux-plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
-[submodule "external/catppuccin/fleet"]
-	path = external/catppuccin/fleet
-	url = git@github.com:catppuccin/fleet.git
 [submodule "external/catppuccin/alacritty"]
 	path = external/catppuccin/alacritty
 	url = git@github.com:catppuccin/alacritty.git
