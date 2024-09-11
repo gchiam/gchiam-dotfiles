@@ -36,7 +36,7 @@ zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
   # zsh-users/zsh-history-substring-search
-  HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=black,bold'
+  HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black,bold'
   HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
 }
 
