@@ -7,3 +7,6 @@
 [submodule "external/catppuccin/alacritty"]
 	path = external/catppuccin/alacritty
 	url = git@github.com:catppuccin/alacritty.git
+[submodule "external/catppuccin/bat"]
+	path = external/catppuccin/bat
+	url = https://github.com/catppuccin/bat.git
