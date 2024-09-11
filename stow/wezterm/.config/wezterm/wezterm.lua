@@ -28,6 +28,17 @@ config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
+config.visual_bell = {
+  fade_in_function = 'EaseIn',
+  fade_in_duration_ms = 200,
+  fade_out_function = 'EaseOut',
+  fade_out_duration_ms = 200,
+}
+config.colors = {
+  visual_bell = '#414559',
+}
+config.audible_bell = "Disabled"
+
 -- and finally, return the configuration to wezterm
 return config
 
