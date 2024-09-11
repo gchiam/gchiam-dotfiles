@@ -60,14 +60,10 @@ git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt "true"
 git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$MERGED\" -c '\$wincmd w' -c 'wincmd J'"
 
-# git config --global pager.diff "diff-so-fancy | less --tabs=8 -RFX"
-# git config --global pager.show "diff-so-fancy | less --tabs=8 -RFX"
-git config --global core.pager "delta --detect-dark-light=auto --diff-so-fancy"
-git config --global interactive.diffFilter "delta --detect-dark-light=auto --diff-so-fancy --color-only"
+git config --global core.pager "delta --true-color=auto --syntax-theme=\"\$(ifdark 'Catppuccin Frappe' 'Catppuccin Latte')\" --diff-so-fancy"
+git config --global interactive.diffFilter "delta --true-color=auto --syntax-theme=\"\$(ifdark 'Catppuccin Frappe' 'Catppuccin Latte')\" --diff-so-fancy --color-only"
 
 git config --global delta.true-color "true"
-git config --global delta.plus-style "syntax #142e26"
-git config --global delta.minus-style "syntax #2b1618"
 git config --global delta.navigate "true"
 git config --global delta.line-numbers "true"
 git config --global delta.side-by-side "false"
