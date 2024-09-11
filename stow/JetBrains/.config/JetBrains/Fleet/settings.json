@@ -30,5 +30,6 @@
             "pluginName": "gradle.daemon.services"
         }
     ],
-    "editor.fontSize": 14.0
+    "editor.fontSize": 14.0,
+    "terminal.fontFamily": "Departure Mono"
 }
