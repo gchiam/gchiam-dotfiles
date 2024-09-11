@@ -15,6 +15,7 @@ for d in $(ls -1 ${stow_dir}); do
   echo "stowing $d..."
   stow --dir=${stow_dir} --target=$HOME --restow $d
 done
+[ $comamands[bat] ] && bat cache --build
 
 # generate ~/fleet.properties
 echo "fleet.config.path=${HOME}/.config/JetBrains/Fleet/" > ~/fleet.properties
