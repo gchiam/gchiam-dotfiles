@@ -15,7 +15,7 @@ cd "$stow_dir" || exit
 for d in *; do
   [[ -d $d ]] || continue
   echo "stowing $d..."
-  stow --dir="${stow_dir}" --target="$HOME" --restow "$d"
+  command stow -v --dir="${stow_dir}" --target="$HOME" --restow "$d"
 done
 cd - || exit
 [ "${commands[bat]}" ] && command bat cache --build
