@@ -13,3 +13,6 @@
 [submodule "external/catppuccin/zsh-fsh"]
 	path = external/catppuccin/zsh-fsh
 	url = https://github.com/catppuccin/zsh-fsh.git
+[submodule "external/catppuccin/gh-dash"]
+	path = external/catppuccin/gh-dash
+	url = https://github.com/catppuccin/gh-dash.git
