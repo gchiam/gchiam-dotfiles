@@ -2,6 +2,7 @@
 
 extensions=(
   "dvlpr/gh-dash"
+  "HaywardMorihara/gh-tidy"
   "hectcastro/gh-metrics"
 )
 
