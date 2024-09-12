@@ -18,7 +18,12 @@ for d in *; do
   command stow -v --dir="${stow_dir}" --target="$HOME" --restow "$d"
 done
 cd - || exit
+
+# Rebuild bat cache for fetching themes
 [ "${commands[bat]}" ] && command bat cache --build
+
+# Configure theme for ZSH Fast Syntax Highlighting 
+fast-theme XDG:catppuccin-frappe
 
 # generate ~/fleet.properties
 echo "fleet.config.path=${HOME}/.config/JetBrains/Fleet/" > ~/fleet.properties
