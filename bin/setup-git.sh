@@ -18,7 +18,8 @@ git config --global alias.l "log --color --graph --pretty=format:'%C(magenta)%h%
 git config --global alias.lg "log --all --color --graph --pretty=format:'%C(magenta)%h%Creset → %C(italic)%s %Creset%Cgreen(%cr) %C(italic blue)<%an>%Creset %C(bold black yellow)%d%Creset' --abbrev-commit"
 git config --global alias.lm "l main..."
 git config --global alias.lms "l master..."
-git config --global alias.lo "l origin/HEAD..."
+git config --global alias.lom "l origin/main..."
+git config --global alias.loh "l origin/HEAD..."
 git config --global alias.standup "l --since='2 weeks ago' --author 'Gordon Chiam'"
 
 git config --global alias.br "branch"
