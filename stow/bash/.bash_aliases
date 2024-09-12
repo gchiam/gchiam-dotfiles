@@ -76,3 +76,5 @@ fi
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias jqenv="jq -n -S '\$ENV | map_values(if test(\":\",.) and (test(\"(tcp|http[s]?)://\",.) | not) then split(\":\") else . end)'"
+
+alias stow='stow -v --dir="$DOTFILES_DIR/stow" --target=$HOME --restow'
