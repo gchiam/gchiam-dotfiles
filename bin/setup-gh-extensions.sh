@@ -2,6 +2,7 @@
 
 extensions=(
   "dvlpr/gh-dash"
+  "hectcastro/gh-metrics"
 )
 
 for extension in "${extensions[@]}"; do
