@@ -2,6 +2,7 @@
 
 extensions=(
   "dvlpr/gh-dash"
+  "ghcli/gh-commit"
   "github/gh-copilot"
   "HaywardMorihara/gh-tidy"
   "hectcastro/gh-metrics"
