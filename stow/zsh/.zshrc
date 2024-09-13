@@ -17,10 +17,14 @@ test -e $HOME/.bash_local && source $HOME/.bash_local
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+export NVM_DIR="$HOME/.nvm"
+if [ $commands[brew] ]
+then
+  export NVM_DIR="$HOME/.nvm"
+  nvm_dir="$(brew --prefix nvm)"
+  [ -s "$nvm_dir/nvm.sh" ] && \. "$nvm_dir/nvm.sh"
+  [ -s "$nvm_dir/etc/bash_completion.d/nvm" ] && \. "$nvm_dir/etc/bash_completion.d/nvm"
+fi 
 
 [ -d $HOME/.jenv ] && export PATH="$HOME/.jenv/bin:$PATH"
 [ $commands[jenv] ] && eval "$(jenv init -)"
