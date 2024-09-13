@@ -2,6 +2,7 @@
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 
+Aloxaf/fzf-tab # Replace zsh's default completion selection menu with fzf
 gradle/gradle-completion kind:fpath path:gradle-completion
 jeffreytse/zsh-vi-mode
 mattberther/zsh-pyenv
