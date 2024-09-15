@@ -98,3 +98,4 @@ git config --global color.status.untracked "yellow"
 git config --global color.status.nobranch "cyan"
 
 git config --global commit.gpgsign true
+git config --global gpg.format ssh
