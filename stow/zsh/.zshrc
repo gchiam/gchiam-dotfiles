@@ -18,7 +18,7 @@ test -e $HOME/.bash_local && source $HOME/.bash_local
 export LANG=en_US.UTF-8
 
 export NVM_DIR="$HOME/.nvm"
-if [ $commands[brew] ]
+if type brew > /dev/null
 then
   export NVM_DIR="$HOME/.nvm"
   nvm_dir="$(brew --prefix nvm)"
@@ -27,7 +27,7 @@ then
 fi 
 
 [ -d $HOME/.jenv ] && export PATH="$HOME/.jenv/bin:$PATH"
-[ $commands[jenv] ] && eval "$(jenv init -)"
+type jenv > /dev/null && eval "$(jenv init -)"
 
 zvm_config() {
   # jeffreytse/zsh-vi-mode
@@ -65,8 +65,8 @@ fi
 source $(brew --prefix antidote)/share/antidote/antidote.zsh
 antidote load $HOME/.config/antidote/.zsh_plugins.txt
 
-[ $commands[cicd] ] && source <(cicd completion zsh); compdef _cicd cicd
-[ $commands[zetup] ] && source <(zetup completion zsh)
+type cicd > /dev/null && (source <(cicd completion zsh); compdef _cicd cicd) > /dev/null 2>&1
+type zetup > /dev/null && source <(zetup completion zsh)
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 zstyle ':completion:*' use-cache on
