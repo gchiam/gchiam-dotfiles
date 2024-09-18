@@ -6,6 +6,8 @@ require 'colorscheme'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+config.default_prog = { 'zsh', '-l', '-c', 'tmux new -Asdefault' }
+
 config.font = wezterm.font('Departure Mono')
 -- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiLight' })
 config.font_size = 16.0
