@@ -61,8 +61,8 @@ git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt "true"
 git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$MERGED\" -c '\$wincmd w' -c 'wincmd J'"
 
-git config --global core.pager "delta --true-color=auto --syntax-theme=\"\$(ifdark 'Catppuccin Frappe' 'Catppuccin Latte')\" --diff-so-fancy"
-git config --global interactive.diffFilter "delta --true-color=auto --syntax-theme=\"\$(ifdark 'Catppuccin Frappe' 'Catppuccin Latte')\" --diff-so-fancy --color-only"
+git config --global core.pager "delta --true-color=auto --features=\"decorations \$(ifdark 'catppuccin-frappe' 'catppuccin-latte')\" --diff-so-fancy"
+git config --global interactive.diffFilter "delta --true-color=auto --features=\"decorations \$(ifdark 'catppuccin-crappe' 'catppuccin-latte')\" --diff-so-fancy --color-only"
 
 git config --global delta.true-color "true"
 git config --global delta.navigate "true"
@@ -99,3 +99,6 @@ git config --global color.status.nobranch "cyan"
 
 git config --global commit.gpgsign true
 git config --global gpg.format ssh
+
+# Setup catppuccin/delta
+git config --global include.path ~/dotfiles/external/catppuccin/delta/catppuccin.gitconfig
