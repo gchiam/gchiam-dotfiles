@@ -16,3 +16,6 @@
 [submodule "external/catppuccin/gh-dash"]
 	path = external/catppuccin/gh-dash
 	url = https://github.com/catppuccin/gh-dash.git
+[submodule "external/catppuccin/delta"]
+	path = external/catppuccin/delta
+	url = https://github.com/catppuccin/delta.git
