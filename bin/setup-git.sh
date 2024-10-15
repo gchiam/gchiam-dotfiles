@@ -21,6 +21,7 @@ git config --global alias.lms "l master..."
 git config --global alias.lom "l origin/main..."
 git config --global alias.loh "l origin/HEAD..."
 git config --global alias.standup "l --since='2 weeks ago' --author 'Gordon Chiam'"
+git config --global alias.last "log -1 HEAD"
 
 git config --global alias.br "branch"
 git config --global alias.bo 'branch --all --verbose --verbose'
@@ -45,8 +46,12 @@ git config --global alias.sm "submodule"
 git config --global alias.st "status -b"
 git config --global alias.unstage "reset HEAD --"
 
-git config --global alias.last "log -1 HEAD"
-git config --global pull.rebase false
+git config --global pull.rebase true
+git config --global rebase.autoStash true
+
+# push
+git config --global push.autoSetupRemove "true"
+git config --global push.default "simple"
 
 # diff
 git config --global diff.algorithm "histogram"
