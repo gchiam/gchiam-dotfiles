@@ -1,10 +1,16 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-# based on https://github.com/dreamsofautonomy/zen-omp/blob/main/zen.toml
-
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 [[blocks]]
   type = 'prompt'
@@ -12,20 +18,20 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'blue'
+    background = 'transparent'
     type = 'path'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'blue'
-    template = '{{ .Path }}'
 
     [blocks.segments.properties]
       style = 'full'
 
   [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
     foreground = 'yellow'
     background = 'transparent'
+    type = 'git'
+    style = 'plain'
 
     [blocks.segments.properties]
       fetch_status = true
@@ -35,11 +41,11 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   overflow = 'hidden'
 
   [[blocks.segments]]
-    type = 'executiontime'
-    style = 'plain'
+    template = '{{ .FormattedMs }}'
     foreground = 'yellow'
     background = 'transparent'
-    template = '{{ .FormattedMs }}'
+    type = 'executiontime'
+    style = 'plain'
 
     [blocks.segments.properties]
       threshold = 5000
@@ -50,68 +56,51 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    template = '❯'
+    background = 'transparent'
     type = 'text'
     style = 'plain'
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}magenta{{end}}",
-    ]
-    background = 'transparent'
-    template = '❯'
-
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
-  ]
-  background = 'transparent'
-  template = '❯ '
-
-[secondary_prompt]
-  foreground = 'magenta'
-  background = 'transparent'
-  template = '❯❯ '
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 [[tooltips]]
-type = "git"
-tips = [ "git", "g" ]
-style = "diamond"
-foreground = "black"
-background = "magenta"
-leading_diamond = ""
-trailing_diamond = ""
-template = "{{ .HEAD }}{{ if .Staging.Changed }}  <b>{{ .Staging.String }}</b>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = '{{ .HEAD }}{{ if .Staging.Changed }}  <b>{{ .Staging.String }}</b>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}'
+  foreground = 'black'
+  background = 'magenta'
+  type = 'git'
+  style = 'diamond'
+  tips = ['git', 'g']
 
   [tooltips.properties]
-  fetch_status = true
-  fetch_upstream_icon = true
+    fetch_status = true
+    fetch_upstream_icon = true
 
 [[tooltips]]
-type = "kubectl"
-tips = [ "kubectl", "k", "ka", "k9s", "stern" ]
-style = "diamond"
-foreground = "black"
-background = "magenta"
-leading_diamond = ""
-trailing_diamond = ""
-template = "{{.Context}}<b>{{if .Namespace}}</b>::<b>{{.Namespace}}</b>{{end}} :: {{.User}}@{{.Cluster}}"
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = '{{.Context}}<b>{{if .Namespace}}</b>::<b>{{.Namespace}}</b>{{end}} :: {{.User}}@{{.Cluster}}'
+  foreground = 'black'
+  background = 'magenta'
+  type = 'kubectl'
+  style = 'diamond'
+  tips = ['kubectl', 'k', 'ka', 'k9s', 'stern']
 
 [[tooltips]]
-type = "text"
-tips = [ "scooter" ]
-style = "diamond"
-foreground = "black"
-background = "magenta"
-leading_diamond = ""
-trailing_diamond = ""
-template = "{{if .Env.SCOOTER_PROFILE}}SCOOTER_PROFILE=<b>{{.Env.SCOOTER_PROFILE}}</b>{{else}}NO PROFILE{{end}}"
-
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = '{{if .Env.SCOOTER_PROFILE}}SCOOTER_PROFILE=<b>{{.Env.SCOOTER_PROFILE}}</b>{{else}}NO PROFILE{{end}}'
+  foreground = 'black'
+  background = 'magenta'
+  type = 'text'
+  style = 'diamond'
+  tips = ['scooter']
 
 [[tooltips]]
-type = "docker"
-tips = [ "docker" ]
-style = "diamond"
-foreground = "black"
-background = "magenta"
-leading_diamond = ""
-trailing_diamond = ""
+  leading_diamond = ''
+  trailing_diamond = ''
+  foreground = 'black'
+  background = 'magenta'
+  type = 'docker'
+  style = 'diamond'
+  tips = ['docker']
