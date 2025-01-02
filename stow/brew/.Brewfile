@@ -74,6 +74,7 @@ brew 'watch'
 brew 'wget'
 # brew 'yabai'
 brew 'uv'
+brew 'yq'
 brew 'zsh'
 
 # Casks
