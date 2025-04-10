@@ -28,6 +28,10 @@
         {
             "type": "add",
             "pluginName": "gradle.daemon.services"
+        },
+        {
+            "type": "add",
+            "pluginName": "izhangzhihao.fleet.rainbow.brackets"
         }
     ],
     "editor.fontSize": 14.0,
