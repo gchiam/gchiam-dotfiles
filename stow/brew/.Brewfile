@@ -2,16 +2,11 @@
 tap 'dimentium/autoraise'
 tap 'domt4/autoupdate'
 tap 'FelixKratz/formulae'
-tap 'homebrew/services'
-tap 'homeport/tap'
-tap 'humanlogio/tap'
 tap 'koekeishiya/formulae'
 tap 'nikitabobko/tap'
 tap 'robinovitch61/tap'
 tap 'sdkman/tap'
-tap 'smudge/smudge'
 tap 'vmware-tanzu/carvel'
-tap 'jandedobbeleer/oh-my-posh'
 
 # Formulas
 brew 'antidote'
