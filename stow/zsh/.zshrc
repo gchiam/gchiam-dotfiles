@@ -67,6 +67,8 @@ antidote load $HOME/.config/antidote/.zsh_plugins.txt
 
 type cicd > /dev/null && (source <(cicd completion zsh); compdef _cicd cicd) > /dev/null 2>&1
 type zetup > /dev/null && source <(zetup completion zsh)
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 zstyle ':completion:*' use-cache on
