@@ -76,7 +76,7 @@ brew 'zsh'
 # Casks
 cask '1password'
 cask '1password-cli'
-cask 'aerospace'
+cask 'nikitabobko/tap/aerospace'
 # cask 'adobe-creative-cloud'
 # cask 'adobe-creative-cloud-cleaner-tool'
 cask 'alacritty'
