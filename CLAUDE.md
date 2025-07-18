@@ -114,3 +114,55 @@ their own package.json files.
 - Legacy configs: `~/.*` (traditional dotfiles)
 - Scripts: `~/bin/` (personal utilities)
 - Package definitions: `~/.Brewfile*` (Homebrew packages)
+
+## Git Commit Guidelines
+
+This repository follows the [Conventional Emoji Commits](https://conventional-emoji-commits.site/) convention for commit messages.
+
+### Commit Format
+```
+<emoji> <type>(<scope>): <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Common Types and Emojis
+- `✨ feat(<scope>):` - New features
+- `🐛 fix(<scope>):` - Bug fixes
+- `📝 docs(<scope>):` - Documentation changes
+- `💄 style(<scope>):` - Code style changes (formatting, etc.)
+- `♻️ refactor(<scope>):` - Code refactoring
+- `⚡ perf(<scope>):` - Performance improvements
+- `✅ test(<scope>):` - Adding or updating tests
+- `🔧 chore(<scope>):` - Maintenance tasks
+- `🚀 ci(<scope>):` - CI/CD changes
+- `🔥 remove(<scope>):` - Removing code or files
+- `🎨 improve(<scope>):` - General improvements
+- `🔒 security(<scope>):` - Security fixes
+
+### Common Scopes
+- `zsh` - Zsh shell configuration
+- `nvim` - Neovim editor configuration
+- `tmux` - Tmux terminal multiplexer
+- `git` - Git configuration
+- `brew` - Homebrew package management
+- `aerospace` - AeroSpace window manager
+- `karabiner` - Karabiner keyboard customization
+- `raycast` - Raycast launcher and extensions
+- `alacritty` - Alacritty terminal
+- `bin` - Utility scripts
+- `docs` - Documentation files
+
+### Examples
+```bash
+✨ feat(zsh): add modular configuration system with custom functions
+🐛 fix(ssh): resolve SSH config overwrite vulnerability
+📝 docs(readme): update README with comprehensive setup guide  
+♻️ refactor(nvim): reorganize plugin configuration structure
+🔧 chore(brew): update package dependencies to latest versions
+🔒 security(ssh): fix SSH agent management to prevent multiple agents
+⚡ perf(zsh): implement lazy loading for NVM and development tools
+🎨 improve(bin): enhance scripts with better error handling
+```
