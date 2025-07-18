@@ -1,3 +1,64 @@
 #!/bin/bash
+# Check if macOS dark mode is enabled (exit code based)
 
-defaults read -globalDomain AppleInterfaceStyle &> /dev/null
+# Display usage information
+usage() {
+    echo "Usage: $0 [OPTIONS]"
+    echo "Check if macOS dark mode is enabled"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help     Show this help message"
+    echo "  -v, --verbose  Show verbose output"
+    echo ""
+    echo "Exit codes:"
+    echo "  0              Dark mode is enabled"
+    echo "  1              Dark mode is disabled (light mode)"
+    echo "  2              Error (not macOS or other error)"
+    echo ""
+    echo "Examples:"
+    echo "  $0 && echo \"Dark mode enabled\""
+    echo "  $0 -v"
+}
+
+# Parse command line arguments
+VERBOSE=false
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -v|--verbose)
+            VERBOSE=true
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            usage >&2
+            exit 2
+            ;;
+    esac
+done
+
+# Check if we're on macOS
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    if [[ "$VERBOSE" == true ]]; then
+        echo "Error: This script only works on macOS" >&2
+    fi
+    exit 2
+fi
+
+# Check dark mode status
+if defaults read -globalDomain AppleInterfaceStyle &> /dev/null; then
+    # Dark mode is enabled
+    if [[ "$VERBOSE" == true ]]; then
+        echo "Dark mode is enabled"
+    fi
+    exit 0
+else
+    # Dark mode is disabled (light mode)
+    if [[ "$VERBOSE" == true ]]; then
+        echo "Dark mode is disabled (light mode)"
+    fi
+    exit 1
+fi

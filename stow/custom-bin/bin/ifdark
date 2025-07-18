@@ -1,3 +1,60 @@
 #!/bin/bash
+# Conditional output based on macOS dark mode status
 
-defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo "$1" || echo "$2"
+# Display usage information
+usage() {
+    echo "Usage: $0 <dark_output> [light_output]"
+    echo "Output different text based on macOS dark mode status"
+    echo ""
+    echo "Arguments:"
+    echo "  dark_output    Text to output when dark mode is enabled"
+    echo "  light_output   Text to output when dark mode is disabled (optional)"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help     Show this help message"
+    echo ""
+    echo "Examples:"
+    echo "  $0 \"Dark Mode\" \"Light Mode\""
+    echo "  $0 \"#ffffff\" \"#000000\"    # Colors for dark/light themes"
+    echo "  $0 \"dark-theme\"            # Only output when dark mode"
+}
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -*)
+            echo "Unknown option: $1" >&2
+            usage >&2
+            exit 1
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+# Check for required argument
+if [[ $# -eq 0 ]]; then
+    echo "Error: Missing required argument" >&2
+    usage >&2
+    exit 1
+fi
+
+# Check if we're on macOS
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    echo "Error: This script only works on macOS" >&2
+    exit 1
+fi
+
+# Check dark mode status and output accordingly
+if defaults read -globalDomain AppleInterfaceStyle &> /dev/null; then
+    # Dark mode is enabled
+    echo "$1"
+else
+    # Dark mode is disabled (light mode)
+    echo "${2:-}"
+fi
