@@ -26,7 +26,6 @@ add_ssh_key() {
 
 # Add common SSH keys
 add_ssh_key "$HOME/.ssh/gchiam@zendesk.com"
-add_ssh_key "$HOME/.ssh/id_rsa"
 
 # Clean up function
 unset -f add_ssh_key
