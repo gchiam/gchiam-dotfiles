@@ -71,7 +71,7 @@ git config --global mergetool.prompt "true"
 git config --global mergetool.vimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\" \"\$MERGED\" -c '\$wincmd w' -c 'wincmd J'"
 
 git config --global core.pager "delta --true-color=auto --features=\"decorations \$(ifdark 'catppuccin-frappe' 'catppuccin-latte')\" --diff-so-fancy"
-git config --global interactive.diffFilter "delta --true-color=auto --features=\"decorations \$(ifdark 'catppuccin-crappe' 'catppuccin-latte')\" --diff-so-fancy --color-only"
+git config --global interactive.diffFilter "delta --true-color=auto --features=\"decorations \$(ifdark 'catppuccin-frappe' 'catppuccin-latte')\" --diff-so-fancy --color-only"
 
 git config --global delta.true-color "true"
 git config --global delta.navigate "true"
