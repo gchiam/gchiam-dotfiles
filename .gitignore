@@ -12,4 +12,5 @@
 **/.config/antidote/.zsh_plugins.zsh
 **/.tmux/resurrect
 **/.tmux/plugins/*
+stow/JetBrains/.config/JetBrains/Fleet/backend/*
 stow/nvim/.config/nvim/.luarc.json
