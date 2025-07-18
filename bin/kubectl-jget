@@ -1,15 +1,138 @@
 #!/usr/bin/env ruby
-#
-# Fast kubectl json get by using raw and resourceVersion=0
-# Usage: kubectl jget <resource>
-
 # frozen_string_literal: true
 
-found = false
-command = ARGV.each_slice(2).flat_map do |pair|
-  next pair if pair[0].start_with?('-') || found
+# Fast kubectl JSON get using raw API and resourceVersion=0
+# Supports multiple API versions and resource types
+#
+# Usage: kubectl jget <resource> [name] [options]
+# Examples:
+#   kubectl jget pods
+#   kubectl jget deployments
+#   kubectl jget pods my-pod
+#   kubectl jget --help
 
-  found = true
-  ['get', '--raw', "/api/v1/#{pair[0]}?resourceVersion=0", *pair[1]]
+def show_help
+  puts <<~HELP
+    kubectl-jget - Fast kubectl JSON get using raw API
+
+    Usage: kubectl jget <resource> [name] [options]
+
+    Examples:
+      kubectl jget pods                    # List all pods
+      kubectl jget deployments           # List all deployments
+      kubectl jget pods my-pod           # Get specific pod
+      kubectl jget services -n kube-system  # List services in namespace
+
+    Supported resource types:
+      - Core API (v1): pods, services, nodes, namespaces, configmaps, secrets
+      - Apps API (apps/v1): deployments, replicasets, daemonsets, statefulsets
+      - Extensions: ingresses, networkpolicies
+
+    This tool bypasses kubectl's caching by using resourceVersion=0 for faster results.
+  HELP
 end
-exec 'kubectl', *command
+
+# Show help if requested
+if ARGV.empty? || ARGV.include?('--help') || ARGV.include?('-h')
+  show_help
+  exit 0
+end
+
+# Resource type to API version mapping
+API_MAPPINGS = {
+  # Core API v1
+  'pods' => '/api/v1',
+  'services' => '/api/v1',
+  'nodes' => '/api/v1',
+  'namespaces' => '/api/v1',
+  'configmaps' => '/api/v1',
+  'secrets' => '/api/v1',
+  'persistentvolumes' => '/api/v1',
+  'persistentvolumeclaims' => '/api/v1',
+  'serviceaccounts' => '/api/v1',
+  'endpoints' => '/api/v1',
+  
+  # Apps API v1
+  'deployments' => '/apis/apps/v1',
+  'replicasets' => '/apis/apps/v1',
+  'daemonsets' => '/apis/apps/v1',
+  'statefulsets' => '/apis/apps/v1',
+  
+  # Networking API
+  'ingresses' => '/apis/networking.k8s.io/v1',
+  'networkpolicies' => '/apis/networking.k8s.io/v1',
+  
+  # RBAC API
+  'roles' => '/apis/rbac.authorization.k8s.io/v1',
+  'rolebindings' => '/apis/rbac.authorization.k8s.io/v1',
+  'clusterroles' => '/apis/rbac.authorization.k8s.io/v1',
+  'clusterrolebindings' => '/apis/rbac.authorization.k8s.io/v1'
+}.freeze
+
+def build_api_path(resource, name = nil, namespace = nil)
+  api_base = API_MAPPINGS[resource]
+  
+  unless api_base
+    warn "Error: Unsupported resource type '#{resource}'"
+    warn "Supported types: #{API_MAPPINGS.keys.sort.join(', ')}"
+    exit 1
+  end
+  
+  # Build path
+  path = api_base
+  path += "/namespaces/#{namespace}" if namespace
+  path += "/#{resource}"
+  path += "/#{name}" if name
+  path += "?resourceVersion=0"
+  
+  path
+end
+
+# Parse arguments
+resource = nil
+name = nil
+namespace = nil
+other_args = []
+found_resource = false
+
+i = 0
+while i < ARGV.length
+  arg = ARGV[i]
+  
+  case arg
+  when '-n', '--namespace'
+    i += 1
+    namespace = ARGV[i] if i < ARGV.length
+  when /^-/
+    # Pass through other kubectl options
+    other_args << arg
+    # Check if this option takes a value
+    if %w[-n --namespace -o --output --kubeconfig --context].include?(arg)
+      i += 1
+      other_args << ARGV[i] if i < ARGV.length
+    end
+  else
+    unless found_resource
+      resource = arg
+      found_resource = true
+    else
+      name = arg
+    end
+  end
+  
+  i += 1
+end
+
+# Validate required arguments
+unless resource
+  warn "Error: Resource type is required"
+  show_help
+  exit 1
+end
+
+# Build the kubectl command
+api_path = build_api_path(resource, name, namespace)
+command = ['kubectl', 'get', '--raw', api_path, *other_args]
+
+# Execute the command
+exec(*command)
