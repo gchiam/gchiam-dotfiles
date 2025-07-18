@@ -324,13 +324,15 @@ bindkey -M vicmd 'j' history-substring-search-down
 bindkey '^I' complete-word           # Tab
 bindkey '^[[Z' reverse-menu-complete # Shift+Tab
 
-# Menu selection bindings
-bindkey -M menuselect '^M' accept-line
-bindkey -M menuselect '^[[Z' reverse-menu-complete
-bindkey -M menuselect '^[[D' backward-char
-bindkey -M menuselect '^[[C' forward-char
-bindkey -M menuselect '^[[A' up-line-or-history
-bindkey -M menuselect '^[[B' down-line-or-history
+# Menu selection bindings (only if menuselect is available)
+if zle -l menu-select; then
+    bindkey -M menuselect '^M' accept-line
+    bindkey -M menuselect '^[[Z' reverse-menu-complete
+    bindkey -M menuselect '^[[D' backward-char
+    bindkey -M menuselect '^[[C' forward-char
+    bindkey -M menuselect '^[[A' up-line-or-history
+    bindkey -M menuselect '^[[B' down-line-or-history
+fi
 
 # Help system
 bindkey '^[h' run-help               # Alt+H for help on current command

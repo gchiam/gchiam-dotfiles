@@ -6,6 +6,20 @@ safe_source() {
     [[ -r "$1" ]] && source "$1"
 }
 
+# Initialize completion system early to prevent compdef errors
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
+
+# Load menu selection widget
+zmodload zsh/complist
+
+# Enable bash completion compatibility
+autoload -U +X bashcompinit && bashcompinit
+
 # History configuration handled by environment.zsh
 
 # Directory navigation improvements

@@ -2,16 +2,7 @@
 # Zsh Completion Configuration
 # Enhanced completion settings and custom completions
 
-# Load modern completion system
-autoload -Uz compinit
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-else
-    compinit -C
-fi
-
-# Enable bash completion compatibility
-autoload -U +X bashcompinit && bashcompinit
+# Completion system is initialized in .zshrc before any sourcing
 
 # Completion caching
 zstyle ':completion:*' use-cache yes
