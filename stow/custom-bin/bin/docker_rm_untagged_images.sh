@@ -72,6 +72,7 @@ fi
 
 # Remove images
 echo "Removing dangling images..."
+# shellcheck disable=SC2086 # We want word splitting for image IDs
 if docker rmi $DANGLING_IMAGES; then
     echo "Successfully removed $IMAGE_COUNT dangling image(s)."
 else

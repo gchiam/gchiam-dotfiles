@@ -53,6 +53,7 @@ tmux
 
 - **`stow/`** - Main configuration directory with 29+ tool configurations
 - **`bin/`** - Setup scripts and utilities
+- **`docs/`** - Comprehensive documentation and reference guides
 - **`external/`** - External dependencies (Catppuccin themes, tmux plugins)
 - **`raycast/`** - Custom Raycast extensions
 - **`terminfo/`** - Terminal compatibility files
@@ -69,6 +70,16 @@ location in `$HOME` during setup.
 - **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`, `starship/`
 - **macOS Tools**: `aerospace/`, `karabiner/`, `raycast/`
 - **Package Management**: `brew/` with main and work-specific Brewfiles
+- **Scripts**: `custom-bin/` with enhanced utilities for Docker, colors, macOS
+
+### Enhanced Script Management
+
+The `stow/custom-bin/bin/` directory contains improved utilities:
+
+- **Docker cleanup scripts** with error handling and confirmation prompts
+- **Color palette display** with customizable columns
+- **macOS dark mode detection** with cross-platform checks
+- All scripts include `--help` flags and robust error handling
 
 ### Theme System
 
@@ -89,6 +100,16 @@ Consistent Catppuccin theming across all applications via
 
 ## Development Notes
 
+### Zsh Configuration Architecture
+
+The zsh configuration has been completely modernized with a modular system:
+
+- **Main config**: `.zshrc` loads all modules with safe sourcing
+- **Environment detection**: Work/personal/remote/container environments
+- **Performance optimization**: Lazy loading for NVM, SDKMAN, and heavy tools
+- **Modular files**: `aliases.zsh`, `functions.zsh`, `completion.zsh`, etc.
+- **XDG compliance**: All configs moved to `~/.config/zsh/`
+
 ### File Modifications
 
 When modifying configurations:
@@ -96,6 +117,7 @@ When modifying configurations:
 1. Edit files in their respective `stow/` directories
 2. Changes are immediately reflected via symlinks
 3. For new configurations, add a new directory under `stow/`
+4. Run linting tools before committing (see Quality Assurance section)
 
 ### Package Dependencies
 
@@ -114,13 +136,58 @@ their own package.json files.
 - Legacy configs: `~/.*` (traditional dotfiles)
 - Scripts: `~/bin/` (personal utilities)
 - Package definitions: `~/.Brewfile*` (Homebrew packages)
+- Documentation: `docs/` (reference guides and keybindings)
+
+## Quality Assurance
+
+### Linting and Code Quality
+
+Before committing changes, run appropriate linting tools:
+
+#### Markdown Files
+
+```bash
+markdownlint-cli2 docs/*.md README.md CLAUDE.md
+```
+
+#### Shell Scripts
+
+```bash
+shellcheck bin/*.sh stow/custom-bin/bin/*
+```
+
+#### TOML Configuration
+
+```bash
+# For aerospace.toml and other TOML files
+taplo fmt --check stow/aerospace/.config/aerospace/aerospace.toml
+```
+
+#### General File Checks
+
+```bash
+# Check for common issues
+find . -name "*.sh" -exec shellcheck {} \;
+find . -name "*.md" -exec markdownlint-cli2 {} \;
+```
+
+### Documentation Standards
+
+- All documentation follows markdownlint rules (80 char line length,
+  proper formatting)
+- Scripts include `--help` flags with usage information
+- Complex configurations have accompanying reference documents in `docs/`
+- Use clear, descriptive commit messages following Conventional Emoji Commits
 
 ## Git Commit Guidelines
 
-This repository follows the [Conventional Emoji Commits](https://conventional-emoji-commits.site/) convention for commit messages.
+This repository follows the
+[Conventional Emoji Commits](https://conventional-emoji-commits.site/)
+convention for commit messages.
 
 ### Commit Format
-```
+
+```text
 <emoji> <type>(<scope>): <description>
 
 [optional body]
@@ -129,6 +196,7 @@ This repository follows the [Conventional Emoji Commits](https://conventional-em
 ```
 
 ### Common Types and Emojis
+
 - `✨ feat(<scope>):` - New features
 - `🐛 fix(<scope>):` - Bug fixes
 - `📝 docs(<scope>):` - Documentation changes
@@ -143,6 +211,7 @@ This repository follows the [Conventional Emoji Commits](https://conventional-em
 - `🔒 security(<scope>):` - Security fixes
 
 ### Common Scopes
+
 - `zsh` - Zsh shell configuration
 - `nvim` - Neovim editor configuration
 - `tmux` - Tmux terminal multiplexer
@@ -156,6 +225,7 @@ This repository follows the [Conventional Emoji Commits](https://conventional-em
 - `docs` - Documentation files
 
 ### Examples
+
 ```bash
 ✨ feat(zsh): add modular configuration system with custom functions
 🐛 fix(ssh): resolve SSH config overwrite vulnerability

@@ -72,6 +72,7 @@ fi
 
 # Remove containers
 echo "Removing stopped containers..."
+# shellcheck disable=SC2086 # We want word splitting for container IDs
 if docker rm $STOPPED_CONTAINERS; then
     echo "Successfully removed $CONTAINER_COUNT stopped container(s)."
 else

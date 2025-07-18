@@ -58,7 +58,7 @@ echo "Terminal 256-color palette (${BREAK} columns):"
 echo ""
 
 for i in {0..255}; do
-    printf "\x1b[38;5;${i}mcolour${i}\x1b[0m"
+    printf "\x1b[38;5;%smcolour%s\x1b[0m" "$i" "$i"
     
     # Add padding for alignment
     if [[ $i -lt 10 ]]; then
