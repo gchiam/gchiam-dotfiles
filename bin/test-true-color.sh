@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Terminal True Color Support Test
+#
+# Tests if the terminal supports 24-bit true color (16 million colors)
+# Displays a color gradient to verify proper true color rendering
+#
+# Usage: ./test-true-color.sh
+# Expected output: Should show smooth color gradients if true color is supported
+
 printf "\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n"
 
 awk 'BEGIN{

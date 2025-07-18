@@ -1,5 +1,11 @@
 #!/usr/bin/perl
-# Author: Todd Larason <jtl@molehill.org>
+
+# Terminal Color Space Test
+# 
+# Tests terminal's 256-color support by displaying color palettes
+# Useful for debugging terminal color capabilities and themes
+#
+# Original Author: Todd Larason <jtl@molehill.org>
 # $XFree86: xc/programs/xterm/vttests/256colors2.pl,v 1.1 1999/07/11 08:49:54 dawes Exp $
 
 print "256 color mode\n\n";
