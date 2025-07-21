@@ -8,6 +8,7 @@ safe_source() {
 
 # Initialize completion system early to prevent compdef errors
 autoload -Uz compinit
+# shellcheck disable=SC1072,SC1073,SC1036 # Zsh-specific glob patterns
 if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
     compinit
 else
@@ -54,6 +55,9 @@ safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindings.zsh"
+
+# FZF integration (also loaded in keybindings.zsh for vi-mode compatibility)
+safe_source "$HOME/.fzf.zsh"
 
 # Language environment
 export LANG=en_US.UTF-8
