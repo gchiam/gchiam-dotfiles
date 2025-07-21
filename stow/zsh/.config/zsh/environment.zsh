@@ -149,14 +149,11 @@ load_env_plugins() {
             plugins_file="${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins_work.txt"
         fi
         
-        # Load plugins with antidote
-        if command -v antidote >/dev/null && [[ -f "$plugins_file" ]]; then
-            local antidote_plugins="${ZDOTDIR:-$HOME}/.zsh_plugins.zsh"
-            if [[ ! -f "$antidote_plugins" ]] || [[ "$plugins_file" -nt "$antidote_plugins" ]]; then
-                source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/antidote/antidote.zsh"
-                antidote bundle < "$plugins_file" > "$antidote_plugins"
-            fi
-            source "$antidote_plugins"
+        # Load plugins with antidote (simplified approach like original)
+        local antidote_path="${HOMEBREW_PREFIX:-/opt/homebrew}/share/antidote/antidote.zsh"
+        if [[ -f "$antidote_path" ]] && [[ -f "$plugins_file" ]]; then
+            source "$antidote_path"
+            antidote load "$plugins_file"
         fi
     fi
 }

@@ -33,6 +33,7 @@ function zvm_after_init() {
 }
 
 # Use emacs-style key bindings by default (works well with zsh-vi-mode plugin)
+# The zsh-vi-mode plugin will override this when it loads
 bindkey -e
 
 # History search
