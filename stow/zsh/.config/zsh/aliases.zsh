@@ -75,22 +75,6 @@ alias drm='docker rm'
 alias dex='docker exec -it'
 alias dlogs='docker logs -f'
 
-# Kubernetes aliases
-alias k='kubectl'
-alias kaf='kubectl apply -f'
-alias kdf='kubectl delete -f'
-alias kg='kubectl get'
-alias kgp='kubectl get pods'
-alias kgs='kubectl get services'
-alias kgd='kubectl get deployments'
-alias kd='kubectl describe'
-alias kdp='kubectl describe pod'
-alias kl='kubectl logs'
-alias klf='kubectl logs -f'
-alias ke='kubectl exec -it'
-alias ctx='kubectl config current-context'
-alias ns='kubectl config view --minify --output "jsonpath={..namespace}"'
-
 # Network and system
 alias ping='ping -c 5'
 alias ports='netstat -tulanp'
