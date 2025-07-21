@@ -5,7 +5,6 @@ zsh-users/zsh-completions kind:fpath path:src
 Aloxaf/fzf-tab # Replace zsh's default completion selection menu with fzf
 gradle/gradle-completion kind:fpath path:gradle-completion
 jeffreytse/zsh-vi-mode
-mattberther/zsh-pyenv
 mattmc3/zfunctions
 olets/zsh-abbr kind:defer
 rupa/z
