@@ -1,0 +1,55 @@
+#!/bin/bash
+# Setup script for tmux theme watcher
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
+
+echo "Setting up tmux theme watcher..."
+
+# Create log directory
+mkdir -p "$HOME/.local/log"
+
+# Check if fswatch is available (preferred method)
+if command -v fswatch >/dev/null; then
+    echo "✓ fswatch found, using efficient file monitoring approach"
+    PLIST_SOURCE="$DOTFILES_DIR/config/launchagents/com.gchiam.tmux-theme-fswatch.plist"
+    PLIST_NAME="com.gchiam.tmux-theme-fswatch"
+else
+    echo "⚠ fswatch not found, using polling approach"
+    echo "  For better performance, install fswatch: brew install fswatch"
+    PLIST_SOURCE="$DOTFILES_DIR/config/launchagents/com.gchiam.tmux-theme-watcher.plist"
+    PLIST_NAME="com.gchiam.tmux-theme-watcher"
+fi
+
+PLIST_DEST="$HOME/Library/LaunchAgents/$PLIST_NAME.plist"
+
+# Copy the appropriate plist file
+cp "$PLIST_SOURCE" "$PLIST_DEST"
+echo "✓ Copied launch agent configuration"
+
+# Load the launch agent
+if launchctl list | grep -q "$PLIST_NAME"; then
+    echo "Unloading existing launch agent..."
+    launchctl unload "$PLIST_DEST" 2>/dev/null || true
+fi
+
+echo "Loading launch agent..."
+launchctl load "$PLIST_DEST"
+
+# Verify it's running
+if launchctl list | grep -q "$PLIST_NAME"; then
+    echo "✅ Tmux theme watcher is now running"
+    echo "   Logs: $HOME/.local/log/"
+    echo ""
+    echo "To stop:"
+    echo "  launchctl unload $PLIST_DEST"
+    echo ""
+    echo "To restart:"
+    echo "  launchctl unload $PLIST_DEST && launchctl load $PLIST_DEST"
+else
+    echo "❌ Failed to start tmux theme watcher"
+    echo "Check the logs in $HOME/.local/log/"
+    exit 1
+fi

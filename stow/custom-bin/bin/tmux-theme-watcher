@@ -1,0 +1,42 @@
+#!/bin/bash
+# Tmux Theme Watcher
+# Monitors system appearance changes and reloads tmux config
+
+CURRENT_THEME=""
+
+get_system_theme() {
+    if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q "Dark"; then
+        echo "Dark"
+    else
+        echo "Light"
+    fi
+}
+
+reload_tmux_config() {
+    echo "$(date): System theme changed to $1, reloading tmux config..."
+    
+    # Reload tmux config for all running sessions
+    if command -v tmux >/dev/null && tmux list-sessions >/dev/null 2>&1; then
+        tmux source-file ~/.tmux.conf
+        echo "$(date): Tmux config reloaded successfully"
+    else
+        echo "$(date): No tmux sessions running"
+    fi
+}
+
+# Initial theme detection
+CURRENT_THEME=$(get_system_theme)
+echo "$(date): Starting tmux theme watcher. Current theme: $CURRENT_THEME"
+
+# Monitor for changes
+while true; do
+    NEW_THEME=$(get_system_theme)
+    
+    if [[ "$NEW_THEME" != "$CURRENT_THEME" ]]; then
+        reload_tmux_config "$NEW_THEME"
+        CURRENT_THEME="$NEW_THEME"
+    fi
+    
+    # Check every 2 seconds
+    sleep 2
+done

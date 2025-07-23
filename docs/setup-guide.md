@@ -39,6 +39,23 @@ tmux
 # Version managers: asdf, nvm, jenv are configured
 ```
 
+## Additional Setup
+
+### Tmux Theme Auto-Switching
+
+Enable automatic tmux theme switching based on system appearance:
+
+```bash
+# Install fswatch for efficient monitoring (recommended)
+brew install fswatch
+
+# Setup the theme watcher service
+./bin/setup-tmux-theme-watcher
+```
+
+This will automatically switch between Catppuccin Latte (light) and Frappe
+(dark) themes when you change your system appearance.
+
 ## Important Paths
 
 - Configurations: `~/.config/` (most modern tools)
@@ -46,3 +63,4 @@ tmux
 - Scripts: `~/bin/` (personal utilities)
 - Package definitions: `~/.Brewfile*` (Homebrew packages)
 - Documentation: `docs/` (reference guides and keybindings)
+- Logs: `~/.local/log/` (service logs and debugging)

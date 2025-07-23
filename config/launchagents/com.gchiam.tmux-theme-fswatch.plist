@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.gchiam.tmux-theme-fswatch</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/gchiam/bin/tmux-theme-fswatch</string>
+    </array>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/gchiam/.local/log/tmux-theme-fswatch.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/gchiam/.local/log/tmux-theme-fswatch.error.log</string>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/gchiam</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>HOME</key>
+        <string>/Users/gchiam</string>
+    </dict>
+</dict>
+</plist>

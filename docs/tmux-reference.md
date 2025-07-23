@@ -6,6 +6,36 @@ A comprehensive guide to all tmux keybindings configured in this dotfiles setup.
 
 **Prefix**: `Ctrl + Space` (changed from default `Ctrl + b`)
 
+## Theming
+
+Tmux uses **Catppuccin** theme with automatic switching based on system
+appearance:
+
+- **Light mode**: Catppuccin Latte theme
+- **Dark mode**: Catppuccin Frappe theme
+
+### Automatic Theme Switching
+
+The configuration includes an automated service that monitors macOS system theme
+changes and automatically reloads tmux configuration to switch themes:
+
+**Setup the auto-switcher:**
+```bash
+./bin/setup-tmux-theme-watcher
+```
+
+This creates a launch agent that:
+- Monitors system appearance changes
+- Automatically runs `tmux source-file ~/.tmux.conf` when theme changes
+- Uses `fswatch` for efficient monitoring (install with `brew install fswatch`)
+- Falls back to polling method if `fswatch` is not available
+- Logs activity to `~/.local/log/`
+
+**Manual theme reload:**
+```bash
+tmux source-file ~/.tmux.conf
+```
+
 ## Core Commands
 
 | Keybinding | Action | Description |
