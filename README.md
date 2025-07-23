@@ -51,4 +51,22 @@ brew bundle --file=~/.Brewfile
 ./bin/update-brew.sh
 ```
 
-For detailed guidance, see [CLAUDE.md](./CLAUDE.md).
+## Documentation
+
+For detailed guidance and references:
+
+- **[Setup Guide](docs/setup-guide.md)** - Installation procedures and
+  initial configuration
+- **[Architecture](docs/architecture.md)** - Repository structure and
+  component overview
+- **[Development Notes](docs/development-notes.md)** - Development practices
+  and workflow
+- **[Quality Assurance](docs/quality-assurance.md)** - Linting standards
+  and code quality
+- **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions
+  and best practices
+- **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
+  and configuration guide
+- **[AeroSpace Reference](docs/aerospace-reference.md)** - Window manager
+  keybindings and workspace setup
+- **[CLAUDE.md](./CLAUDE.md)** - Main guidance document for Claude Code
