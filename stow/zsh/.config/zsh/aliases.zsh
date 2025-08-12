@@ -3,6 +3,7 @@
 # Modern aliases for improved productivity and safety
 
 # Core command improvements
+unalias ls 2>/dev/null || true  # Remove any existing ls alias
 ls() { command ls --color=auto "$@" 2>/dev/null || command ls -G "$@"; }
 alias ll='ls -alF'
 alias la='ls -A'

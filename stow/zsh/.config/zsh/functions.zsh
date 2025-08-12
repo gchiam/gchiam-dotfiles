@@ -105,7 +105,7 @@ myip() {
     ifconfig | grep -E "inet [0-9]" | grep -v 127.0.0.1 | awk '{print $2}'
     echo
     echo "Public IP address:"
-    curl -s https://ipinfo.io/ip 2>/dev/null || curl -s https://api.ipify.org 2>/dev/null || echo "Unable to fetch public IP"
+    command curl -s https://ipinfo.io/ip 2>/dev/null || command curl -s https://api.ipify.org 2>/dev/null || echo "Unable to fetch public IP"
 }
 
 # Port checking
@@ -123,11 +123,6 @@ dush() {
     du -sh "${@:-.}" | sort -hr
 }
 
-# Weather function
-weather() {
-    local location="${1:-}"
-    curl -s "wttr.in/${location}?format=3"
-}
 
 # JSON pretty print
 json() {
@@ -205,12 +200,6 @@ fd() {
     find . -type d -name "*$1*" 2>/dev/null
 }
 
-# Quick HTTP server
-serve() {
-    local port=${1:-8000}
-    echo "Starting HTTP server on port $port..."
-    python3 -m http.server "$port"
-}
 
 # System information
 sysinfo() {
@@ -263,11 +252,12 @@ note() {
     fi
 }
 
+
 # Clean up function definitions on shell exit
 cleanup_functions() {
-    unset -f mkcd extract killp backup git-branch-clean git-last git-size myip port dush weather json
+    unset -f mkcd extract killp backup git-branch-clean git-last git-size myip port dush json
     unset -f urlencode urldecode b64encode b64decode docker-clean docker-stop-all k8s-ctx k8s-ns
-    unset -f ff fd serve sysinfo topcpu topmem upper lower genpass note cleanup_functions
+    unset -f ff fd sysinfo topcpu topmem upper lower genpass note cleanup_functions
 }
 
 # Register cleanup function to run on shell exit

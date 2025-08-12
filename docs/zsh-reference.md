@@ -52,8 +52,6 @@ ga .                               # git add .
 gcm "message"                      # git commit -m
 
 # Quick utilities
-weather                            # Current weather
-serve                              # Start HTTP server
 backup <file>                      # Create timestamped backup
 show_env_info                      # Show environment details
 ```
@@ -153,6 +151,24 @@ belak/zsh-utils path:completion
 - Deferred loading (`kind:defer`) for performance
 - Conditional loading based on `ZSH_MINIMAL_MODE`
 
+### Plugin-provided Aliases
+
+Some plugins (particularly `mattmc3/zfunctions`) provide useful aliases:
+
+```bash
+# Web utilities
+curl='curl -L'                     # Always follow redirects
+weather='curl wttr.in'             # Quick weather check
+serve='python3 -m http.server'    # HTTP server
+cheat='curl cht.sh'                # Quick cheat sheets
+qr='curl qrenco.de'                # QR code generator
+pubip='curl -s https://ipinfo.io/ip'  # Public IP address
+news='curl getnews.tech'           # Tech news
+moon='curl wttr.in/moon'           # Moon phase
+```
+
+**Note:** These plugin aliases take precedence over custom functions with the same names. Custom functions `weather()` and `serve()` were removed to avoid conflicts.
+
 ## Aliases Reference
 
 ### Core Commands
@@ -247,7 +263,6 @@ yt='yarn test'                     # Test script
 
 # Python
 py='python3'                       # Python 3
-serve='python3 -m http.server'    # Quick HTTP server
 jsonpp='python3 -m json.tool'     # JSON pretty print
 ```
 
@@ -365,8 +380,6 @@ lower <text>                       # Convert to lowercase
 ### Utilities
 
 ```bash
-weather [location]                 # Get weather forecast
-serve [port]                       # Start HTTP server (default: 8000)
 genpass [length]                   # Generate random password
 note [text]                        # Quick note-taking system
 ```
@@ -643,6 +656,34 @@ The configuration sources these files if they exist:
 - `~/.work_proxy` - Work proxy settings
 
 ## Troubleshooting
+
+### Alias/Function Conflicts
+
+When plugins provide aliases that conflict with custom functions, you may see errors like:
+
+```
+defining function based on alias 'curl'
+parse error near '()'
+```
+
+**Solutions:**
+
+1. **Use command builtin** in functions:
+   ```bash
+   # Instead of: curl -s "..."
+   # Use:
+   command curl -s "..."
+   ```
+
+2. **Unalias before function definition**:
+   ```bash
+   unalias curl 2>/dev/null || true
+   my_function() {
+       curl -s "..."
+   }
+   ```
+
+3. **Remove conflicting functions** and use plugin aliases instead
 
 ### Common Issues
 
