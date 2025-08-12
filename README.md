@@ -65,6 +65,8 @@ For detailed guidance and references:
   and code quality
 - **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions
   and best practices
+- **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive
+  guide to all git aliases and commands
 - **[AeroSpace Reference](docs/aerospace-reference.md)** - Window manager
   keybindings and workspace setup
 - **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration
