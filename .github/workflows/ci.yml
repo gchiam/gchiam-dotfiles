@@ -53,7 +53,7 @@ jobs:
           if [ -f "$ext_dir/package.json" ]; then
             echo "Validating $ext_dir"
             cd "$ext_dir"
-            npm ci
+            npm install
             npm run build || npm run typecheck || echo "No build/typecheck script found"
             cd - > /dev/null
           fi
