@@ -14,3 +14,13 @@
 **/.tmux/plugins/*
 stow/JetBrains/.config/JetBrains/Fleet/backend/*
 stow/nvim/.config/nvim/.luarc.json
+
+# Repository optimization
+external-backup-*/
+bin/migrate-to-submodules.sh
+*.orig
+*.rej
+.DS_Store
+*~
+.*.swp
+.*.swo

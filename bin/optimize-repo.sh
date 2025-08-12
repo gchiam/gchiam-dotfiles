@@ -5,13 +5,22 @@ set -e
 # Optimizes repository structure with Git LFS for binary assets
 # and prepares for submodule migration
 
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-CYAN='\033[0;36m'
-NC='\033[0m'
+# Colors (only if terminal supports them)
+if [[ -t 1 ]] && command -v tput &> /dev/null && [[ $(tput colors 2>/dev/null || echo 0) -ge 8 ]]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    CYAN='\033[0;36m'
+    NC='\033[0m'
+else
+    RED=''
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    CYAN=''
+    NC=''
+fi
 
 print_header() {
     echo -e "\n${BLUE}=== $1 ===${NC}"
@@ -145,18 +154,26 @@ create_submodule_script() {
     print_header "Creating Submodule Migration Script"
     
     cat > bin/migrate-to-submodules.sh << 'EOF'
-#!/bin/bash
-set -euo pipefail
+#!/opt/homebrew/bin/bash
+set -e
 
 # Submodule Migration Script
 # Converts external dependencies to Git submodules
 
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+# Colors (only if terminal supports them)
+if [[ -t 1 ]] && command -v tput &> /dev/null && [[ $(tput colors 2>/dev/null || echo 0) -ge 8 ]]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    NC='\033[0m'
+else
+    RED=''
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    NC=''
+fi
 
 print_header() {
     echo -e "\n${BLUE}=== $1 ===${NC}"
