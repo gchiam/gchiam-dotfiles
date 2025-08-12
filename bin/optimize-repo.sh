@@ -62,8 +62,13 @@ check_git_lfs() {
 setup_git_lfs() {
     print_header "Setting up Git LFS"
     
-    # Install Git LFS hooks
-    git lfs install --local
+    # Only install Git LFS hooks if not already installed
+    if [[ ! -f .git/hooks/pre-push ]] || ! grep -q "git-lfs" .git/hooks/pre-push 2>/dev/null; then
+        git lfs install --local
+        print_success "Installed Git LFS hooks"
+    else
+        print_info "Git LFS hooks already installed"
+    fi
     
     # Create .gitattributes for binary files
     cat > .gitattributes << 'EOF'
@@ -300,7 +305,15 @@ analyze_repository() {
     echo "├── Stow configurations: $(du -sh stow | cut -f1)"
     echo "├── Documentation: $(du -sh docs | cut -f1)"
     echo "├── Scripts: $(du -sh bin | cut -f1)"
-    echo "└── Other: $(du -sh --exclude=external --exclude=stow --exclude=docs --exclude=bin . | cut -f1)"
+    # Calculate other size by subtracting known directories (BSD du compatible)
+    local total_kb=$(du -sk . | cut -f1)
+    local external_kb=$(du -sk external 2>/dev/null | cut -f1 || echo 0)
+    local stow_kb=$(du -sk stow 2>/dev/null | cut -f1 || echo 0)
+    local docs_kb=$(du -sk docs 2>/dev/null | cut -f1 || echo 0)
+    local bin_kb=$(du -sk bin 2>/dev/null | cut -f1 || echo 0)
+    local other_kb=$((total_kb - external_kb - stow_kb - docs_kb - bin_kb))
+    local other_mb=$((other_kb / 1024))
+    echo "└── Other: ${other_mb}MB"
     
     echo
     echo "Binary assets:"
