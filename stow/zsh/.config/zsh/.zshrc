@@ -121,6 +121,15 @@ if [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]]; then
     }
 fi
 
+# Load profile-specific configuration
+safe_source "$HOME/.zshrc.local"
+safe_source "$HOME/.zshrc.profile"
+
+# Load git profile configuration
+if [[ -f "$HOME/.gitconfig.profile" ]]; then
+    export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.profile"
+fi
+
 # Prompt initialization (keep at end)
 if command -v oh-my-posh >/dev/null && [[ -f "$HOME/.config/oh-my-posh/oh-my-posh.toml" ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
