@@ -1,0 +1,21 @@
+[submodule "external/catppuccin/bat"]
+	path = external/catppuccin/bat
+	url = https://github.com/catppuccin/bat.git
+[submodule "external/catppuccin/gh-dash"]
+	path = external/catppuccin/gh-dash
+	url = https://github.com/catppuccin/gh-dash.git
+[submodule "external/catppuccin/zsh-fsh"]
+	path = external/catppuccin/zsh-fsh
+	url = https://github.com/catppuccin/zsh-fast-syntax-highlighting.git
+[submodule "external/tmux-plugins/tpm"]
+	path = external/tmux-plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
+[submodule "external/catppuccin/delta"]
+	path = external/catppuccin/delta
+	url = https://github.com/catppuccin/delta.git
+[submodule "external/catppuccin/k9s"]
+	path = external/catppuccin/k9s
+	url = https://github.com/catppuccin/k9s.git
+[submodule "external/catppuccin/alacritty"]
+	path = external/catppuccin/alacritty
+	url = https://github.com/catppuccin/alacritty.git
