@@ -236,12 +236,20 @@ migrate_to_submodules() {
         if [[ -d "$path" ]]; then
             print_info "Migrating $path to submodule..."
             
-            # Remove existing directory from git
+            # Remove existing directory from git and clean up git cache
             git rm -r "$path" 2>/dev/null || true
             rm -rf "$path"
             
-            # Add as submodule
-            if git submodule add "$url" "$path"; then
+            # Clean up any cached git directory references
+            git rm --cached "$path" 2>/dev/null || true
+            
+            # Remove any git modules references
+            if [[ -f .git/modules/"$(basename "$path")"/config ]]; then
+                rm -rf ".git/modules/$(basename "$path")"
+            fi
+            
+            # Add as submodule with force flag to handle any remaining conflicts
+            if git submodule add --force "$url" "$path"; then
                 print_success "Added $path as submodule"
             else
                 print_warning "Failed to add $path as submodule"
