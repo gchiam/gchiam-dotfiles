@@ -19,7 +19,8 @@ Complete reference for the zsh configuration in this dotfiles repository.
 
 ## Overview
 
-This zsh configuration provides a modern, efficient, and highly customizable shell environment optimized for development workflows. Key features include:
+This zsh configuration provides a modern, efficient, and highly customizable
+shell environment optimized for development workflows. Key features include:
 
 - **Modular architecture** - Configuration split into logical files
 - **Environment-aware** - Different settings for work/personal/remote contexts
@@ -61,7 +62,7 @@ show_env_info                      # Show environment details
 
 ### File Organization
 
-```
+```text
 ~/.zshenv                           # Environment variables (loaded first)
 ~/.config/zsh/
 ├── .zshrc                         # Main configuration file
@@ -211,9 +212,12 @@ gst='git stash'                    # Stash changes
 gstp='git stash pop'               # Pop stash
 ```
 
-> **Note:** Many git shortcuts reference sophisticated git aliases configured via `bin/setup-git.sh`. See [Git Aliases Reference](git-aliases-reference.md) for detailed documentation of all available git aliases and their functionality.
+> **Note:** Many git shortcuts reference sophisticated git aliases configured via
+> `bin/setup-git.sh`. See [Git Aliases Reference](git-aliases-reference.md)
+> for detailed documentation of all available git aliases and their
+> functionality.
 
-### Development Tools
+### Development Tools Aliases
 
 ```bash
 # Docker
@@ -317,7 +321,7 @@ ff <pattern>                       # Find files by name pattern
 fd <pattern>                       # Find directories by name pattern
 ```
 
-### System Utilities
+### System Utilities Functions
 
 ```bash
 killp <process>                    # Find and kill process by name
@@ -329,7 +333,7 @@ topcpu [n]                         # Top processes by CPU usage (default: 10)
 topmem [n]                         # Top processes by memory usage (default: 10)
 ```
 
-### Development Tools
+### Development Tools Functions
 
 ```bash
 # Git helpers
@@ -495,6 +499,7 @@ genpass                            # Length completion
 ### SSH/SCP Completion
 
 Automatically completes hosts from:
+
 - `~/.ssh/config`
 - `~/.ssh/known_hosts`
 - Custom host groups
@@ -522,18 +527,21 @@ ZSH_TERM_TMUX                      # tmux session
 ### Environment-specific Features
 
 **Work Environment:**
+
 - Work-specific aliases and functions
 - Corporate proxy settings
 - Work git configuration
 - Different plugin set
 
 **Remote Environment:**
+
 - Minimal configuration for performance
 - Reduced history size
 - Simplified prompt
 - Disabled resource-intensive features
 
 **Container Environment:**
+
 - Minimal plugin set
 - Performance optimizations
 - Container-aware settings
@@ -569,6 +577,7 @@ sdk() {
 ### Minimal Mode
 
 When `ZSH_MINIMAL_MODE=true`:
+
 - Disables resource-intensive plugins
 - Uses simple prompt
 - Reduces completion features
@@ -612,11 +621,13 @@ bindkey '^[x' my-widget  # Alt+X
 ### Environment-specific Configuration
 
 Create files for specific environments:
+
 - `~/.config/zsh/work-aliases.zsh` - Work-specific aliases
 - `~/.config/zsh/work-functions.zsh` - Work-specific functions  
 - `~/.config/antidote/.zsh_plugins_work.txt` - Work-specific plugins
 
 Work environment is automatically detected by:
+
 - `$ZENDESK_ENV` environment variable
 - Username containing "zendesk"
 - Presence of `~/.work_env` file
@@ -624,6 +635,7 @@ Work environment is automatically detected by:
 ### Local Overrides
 
 The configuration sources these files if they exist:
+
 - `~/.bash_path` - Additional PATH entries
 - `~/.bash_exports` - Environment variables
 - `~/.bash_local` - Local configuration
@@ -635,6 +647,7 @@ The configuration sources these files if they exist:
 ### Common Issues
 
 **Slow startup:**
+
 ```bash
 # Check what's taking time
 time zsh -i -c exit
@@ -644,6 +657,7 @@ export ZSH_MINIMAL_MODE=true
 ```
 
 **Plugin issues:**
+
 ```bash
 # Reload plugins
 antidote bundle < ~/.config/antidote/.zsh_plugins.txt
@@ -653,6 +667,7 @@ antidote list
 ```
 
 **Completion problems:**
+
 ```bash
 # Rebuild completion cache
 rm -rf ~/.cache/zsh/zcompcache
@@ -660,6 +675,7 @@ compinit
 ```
 
 **Key binding conflicts:**
+
 ```bash
 # Show current bindings
 bindkey | less
@@ -671,6 +687,7 @@ bindkey "^R"
 ### Debug Mode
 
 Enable debugging:
+
 ```bash
 # Enable zsh debugging
 set -x
@@ -682,12 +699,14 @@ export ANTIDOTE_DEBUG=1
 ### Environment Information
 
 Use the built-in function to check environment:
+
 ```bash
 show_env_info
 ```
 
 Example output:
-```
+
+```text
 === Zsh Environment Information ===
 Work Environment: false
 Personal Environment: true
@@ -702,6 +721,7 @@ OS Type: darwin22.0
 ### Reset Configuration
 
 To reset to defaults:
+
 ```bash
 # Remove cache
 rm -rf ~/.cache/zsh
@@ -724,6 +744,7 @@ source ~/.config/zsh/.zshrc
 ---
 
 For more information about specific components, see:
+
 - [Setup Guide](setup-guide.md) - Installation and setup
 - [Architecture](architecture.md) - Repository structure
 - [Development Notes](development-notes.md) - Development practices

@@ -20,11 +20,13 @@ The configuration includes an automated service that monitors macOS system theme
 changes and automatically reloads tmux configuration to switch themes:
 
 **Setup the auto-switcher:**
+
 ```bash
 ./bin/setup-tmux-theme-watcher
 ```
 
 This creates a launch agent that:
+
 - Monitors system appearance changes
 - Automatically runs `tmux source-file ~/.tmux.conf` when theme changes
 - Uses `fswatch` for efficient monitoring (install with `brew install fswatch`)
@@ -32,6 +34,7 @@ This creates a launch agent that:
 - Logs activity to `~/.local/log/`
 
 **Manual theme reload:**
+
 ```bash
 tmux source-file ~/.tmux.conf
 ```

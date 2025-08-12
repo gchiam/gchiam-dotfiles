@@ -56,12 +56,14 @@ brew bundle --file=~/.Brewfile
 For detailed guidance and references:
 
 ### Getting Started
+
 - **[Setup Guide](docs/setup-guide.md)** - Installation procedures and
   initial configuration
 - **[Architecture](docs/architecture.md)** - Repository structure and
   component overview
 
 ### Development Workflow
+
 - **[Development Notes](docs/development-notes.md)** - Development practices
   and workflow
 - **[Quality Assurance](docs/quality-assurance.md)** - Linting standards
@@ -70,6 +72,7 @@ For detailed guidance and references:
   and best practices
 
 ### Tool References
+
 - **[Zsh Reference](docs/zsh-reference.md)** - Comprehensive zsh configuration,
   aliases, functions, and keybindings guide
 - **[WezTerm Reference](docs/wezterm-reference.md)** - Complete WezTerm terminal
@@ -84,4 +87,5 @@ For detailed guidance and references:
   guide to all git aliases and commands
 
 ### Meta
+
 - **[CLAUDE.md](./CLAUDE.md)** - Main guidance document for Claude Code

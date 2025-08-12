@@ -1,10 +1,15 @@
 # Neovim (LazyVim) Reference Guide
 
-A comprehensive guide to the Neovim configuration using LazyVim framework with custom plugins and theming.
+A comprehensive guide to the Neovim configuration using LazyVim framework with
+custom plugins and theming.
 
 ## Overview
 
-This Neovim setup is built on [LazyVim](https://lazyvim.github.io/), a modern Neovim configuration framework that provides sensible defaults, lazy loading, and extensive plugin management. The configuration emphasizes productivity, consistency with the dotfiles theme (Catppuccin), and seamless integration with development workflows.
+This Neovim setup is built on [LazyVim](https://lazyvim.github.io/), a modern
+Neovim configuration framework that provides sensible defaults, lazy loading,
+and extensive plugin management. The configuration emphasizes productivity,
+consistency with the dotfiles theme (Catppuccin), and seamless integration
+with development workflows.
 
 ## Core Features
 
@@ -30,9 +35,11 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 ### Essential Default Keybindings
 
 #### Leader Key
+
 - **Leader**: `<Space>` (spacebar)
 
 #### File Operations
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<leader>ff` | Find files | Telescope file finder |
@@ -43,6 +50,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `<C-s>` | Save file | Save current file |
 
 #### Buffer Management
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<S-h>` | Previous buffer | Navigate to previous buffer |
@@ -52,6 +60,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `<leader>bb` | Switch buffer | Switch to other buffer |
 
 #### Window Management
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<C-h>` | Move left | Focus window to the left |
@@ -66,6 +75,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `<leader>\|` | Split vertical | Create vertical split |
 
 #### Code Navigation
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `gd` | Go to definition | Jump to symbol definition |
@@ -76,6 +86,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `gK` | Signature help | Show function signature |
 
 #### LSP Operations
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<leader>ca` | Code actions | Show available code actions |
@@ -88,6 +99,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `[e` | Previous error | Jump to previous error |
 
 #### Search and Replace
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<leader>sr` | Search and replace | Find and replace in files |
@@ -95,6 +107,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `<leader>sw` | Search word | Search word under cursor |
 
 #### Git Integration
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<leader>gg` | Lazygit | Open Lazygit interface |
@@ -104,6 +117,7 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 | `[h` | Previous hunk | Previous git change |
 
 #### Terminal
+
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `<leader>tt` | Terminal | Open terminal |
@@ -115,15 +129,18 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 The configuration includes these LazyVim extras (from `lazyvim.json`):
 
 ### AI Integration
+
 - **`lazyvim.plugins.extras.ai.copilot`** - GitHub Copilot integration
 - **`lazyvim.plugins.extras.ai.copilot-chat`** - Copilot chat interface
 
 ### Code Enhancement
+
 - **`lazyvim.plugins.extras.coding.mini-surround`** - Surround text objects
 - **`lazyvim.plugins.extras.editor.leap`** - Quick navigation with leap.nvim
 - **`lazyvim.plugins.extras.editor.navic`** - Breadcrumb navigation
 
 ### Language Support
+
 - **`lazyvim.plugins.extras.lang.docker`** - Docker file support
 - **`lazyvim.plugins.extras.lang.java`** - Java development
 - **`lazyvim.plugins.extras.lang.json`** - JSON support
@@ -134,10 +151,12 @@ The configuration includes these LazyVim extras (from `lazyvim.json`):
 - **`lazyvim.plugins.extras.lang.yaml`** - YAML support
 
 ### Formatting and Testing
+
 - **`lazyvim.plugins.extras.formatting.black`** - Python Black formatter
 - **`lazyvim.plugins.extras.test.core`** - Testing framework integration
 
 ### UI Enhancements
+
 - **`lazyvim.plugins.extras.ui.mini-indentscope`** - Indent scope visualization
 - **`lazyvim.plugins.extras.vscode`** - VS Code integration
 
@@ -160,6 +179,7 @@ The configuration includes minimal custom options:
 ### Theme and Appearance
 
 #### Catppuccin Theme (`catppuccin.lua`)
+
 ```lua
 -- Automatic theme switching based on system appearance
 flavour = "auto"
@@ -170,20 +190,24 @@ background = {
 ```
 
 **Key Features**:
+
 - Automatic light/dark mode switching
 - Extensive plugin integrations (LSP, Telescope, Git, etc.)
 - Consistent with dotfiles theme across all applications
 
 #### Auto Dark Mode (`auto-dark-mode.lua`)
+
 - Monitors system appearance changes
 - Automatically switches Neovim theme
 - Seamless integration with macOS dark mode
 
 #### Custom Colorscheme (`colorscheme.lua`)
+
 - Sets Catppuccin as default colorscheme
 - Ensures theme persistence across sessions
 
 #### Lualine Statusline (`lualine.lua`)
+
 - Themed statusline with Catppuccin colors
 - Shows current mode, file info, git status, diagnostics
 - Consistent with overall aesthetic
@@ -191,15 +215,18 @@ background = {
 ### Development Tools
 
 #### Flash Navigation (`flash-nvim.lua`)
+
 - Enhanced search and navigation
 - Quick jump to any location in visible text
 - Integrates with LazyVim's leap functionality
 
 #### Dressing (`dressing.lua`)
+
 - Enhanced UI for vim.ui.select and vim.ui.input
 - Better-looking input dialogs and selection menus
 
 #### Testing (`neotest.lua`)
+
 - Test runner integration
 - Supports multiple testing frameworks
 - Visual test results and debugging
@@ -207,16 +234,18 @@ background = {
 ### Language-Specific
 
 #### Gradle Support (`vim-gradle.lua`)
+
 - Gradle build file syntax highlighting
 - Integration with Java development workflow
 
 #### Jsonnet Support (`vim-jsonnet.lua`)
+
 - Jsonnet templating language support
 - Syntax highlighting and basic tooling
 
 ## File Structure
 
-```
+```text
 ~/.config/nvim/
 ├── .gitignore                 # Git ignore patterns
 ├── .neoconf.json             # Neoconf configuration
@@ -247,16 +276,19 @@ background = {
 ## Configuration Management
 
 ### Plugin Management
+
 - **Lazy.nvim**: Fast and modern plugin manager
 - **Automatic Updates**: Plugins managed through lazy-lock.json
 - **Lazy Loading**: Plugins load only when needed
 
 ### Theme Management
+
 - **Automatic Switching**: Follows system appearance
 - **Consistent Theming**: Matches tmux, terminal, and other tools
 - **Customizable**: Easy to override theme settings
 
 ### Language Server Protocol (LSP)
+
 - **Multiple Languages**: Java, Python, Docker, JSON, YAML, SQL, etc.
 - **Auto-completion**: Intelligent code completion
 - **Diagnostics**: Real-time error and warning detection
@@ -265,16 +297,19 @@ background = {
 ## Integration with Dotfiles Ecosystem
 
 ### Terminal Integration
+
 - **Seamless Navigation**: Works with tmux pane navigation (`Ctrl+h/j/k/l`)
 - **Terminal Multiplexing**: Complements tmux workflow
 - **Theme Consistency**: Matches terminal and tmux themes
 
 ### Development Workflow
+
 - **AeroSpace Integration**: Assigned to workspace V or I
 - **Git Integration**: Works with dotfiles git workflow
 - **Project Management**: Supports project-specific configurations
 
 ### Shell Integration
+
 - **Zsh Compatibility**: Works with zsh environment
 - **Path Management**: Respects dotfiles PATH configuration
 - **Environment Variables**: Uses dotfiles environment setup
@@ -361,6 +396,7 @@ background = {
 ## Integration Commands
 
 ### LazyVim Commands
+
 | Command | Description |
 |---------|-------------|
 | `:Lazy` | Open Lazy.nvim plugin manager |
@@ -369,10 +405,13 @@ background = {
 | `:LazyLog` | View plugin update logs |
 
 ### Custom Commands
+
 | Command | Description |
 |---------|-------------|
 | `:Mason` | Manage LSP servers and tools |
 | `:Telescope` | Access all Telescope functions |
 | `:Copilot` | GitHub Copilot commands |
 
-This configuration provides a powerful, modern Neovim setup that integrates seamlessly with the broader dotfiles ecosystem while maintaining consistency in theming and workflow patterns.
+This configuration provides a powerful, modern Neovim setup that integrates
+seamlessly with the broader dotfiles ecosystem while maintaining consistency in
+theming and workflow patterns.

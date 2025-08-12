@@ -60,7 +60,8 @@ For immediate development needs, refer to the appropriate documentation:
 
 ### Important Reminders
 
-- **Always run linting tools** before committing changes (including markdownlint-cli2 for all markdown files)
+- **Always run linting tools** before committing changes (including
+  markdownlint-cli2 for all markdown files)
 - **Test configurations** in appropriate environments
 - **Update documentation** when adding new features or changing workflows
 - **Follow established patterns** when adding new configurations

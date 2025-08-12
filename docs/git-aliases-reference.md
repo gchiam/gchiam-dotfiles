@@ -1,6 +1,8 @@
 # Git Aliases Reference
 
-This document provides a comprehensive reference for all git aliases configured in this dotfiles repository. Git aliases are configured in two places:
+This document provides a comprehensive reference for all git aliases
+configured in this dotfiles repository. Git aliases are configured in two
+places:
 
 1. **Shell aliases** (`stow/zsh/.config/zsh/aliases.zsh:33-72`) - Quick shell shortcuts
 2. **Git native aliases** (`bin/setup-git.sh`) - Feature-rich git commands
@@ -186,6 +188,7 @@ These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 ## Usage Examples
 
 ### Daily Workflow
+
 ```bash
 # Check status and recent changes
 gs                  # Short status
@@ -203,6 +206,7 @@ gcleanup           # Clean up merged branches
 ```
 
 ### Advanced Operations
+
 ```bash
 # Detailed diff analysis
 gd                 # Working directory changes
@@ -216,6 +220,7 @@ git lm             # Changes since main branch
 ```
 
 ### Stash Workflow
+
 ```bash
 gst                # Stash current changes
 gmain              # Switch to main
