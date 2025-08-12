@@ -89,6 +89,38 @@ brew bundle --file=~/.Brewfile
 
 # Health check after installation
 ./bin/health-check.sh
+
+# Performance monitoring and optimization
+./bin/performance-monitor.sh startup
+./bin/performance-monitor.sh optimize
+```
+
+## Advanced Tools
+
+### System Optimization
+
+```bash
+# Check macOS compatibility  
+./bin/check-compatibility.sh
+
+# Optimize repository structure
+./bin/optimize-repo.sh --all
+
+# Monitor and optimize performance
+./bin/performance-monitor.sh all
+```
+
+### Maintenance
+
+```bash
+# Check for migration requirements
+./bin/check-compatibility.sh --report
+
+# View performance history
+./bin/performance-monitor.sh history
+
+# Repository optimization
+./bin/optimize-repo.sh --analyze
 ```
 
 ## Documentation
@@ -115,6 +147,8 @@ For detailed guidance and references:
 
 - **[Troubleshooting Guide](docs/troubleshooting.md)** - Common issues and solutions
   for setup and configuration problems
+- **[Migration Guide](docs/migration-guide.md)** - Step-by-step instructions
+  for upgrading between major changes
 - **[Zsh Reference](docs/zsh-reference.md)** - Comprehensive zsh configuration,
   aliases, functions, and keybindings guide
 - **[WezTerm Reference](docs/wezterm-reference.md)** - Complete WezTerm terminal
