@@ -106,9 +106,8 @@ command -v uvx >/dev/null && eval "$(uvx --generate-shell-completion zsh)" 2>/de
 
 # Gradle completion (with error handling)
 if command -v antidote >/dev/null; then
-    local gradle_completion
-    gradle_completion="$(antidote path gradle/gradle-completion 2>/dev/null)/_gradle"
-    [[ -f "$gradle_completion" ]] && source "$gradle_completion" 1>&2 2>/dev/null
+    local gradle_completion="$(antidote path gradle/gradle-completion 2>/dev/null)/_gradle"
+    [[ -f "$gradle_completion" ]] && source "$gradle_completion" 2>/dev/null
 fi
 
 # SDKMAN initialization (lazy load could be added here too)
