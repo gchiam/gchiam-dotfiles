@@ -115,7 +115,7 @@ migrate_to_lfs() {
     local binary_files=()
     while IFS= read -r -d '' file; do
         binary_files+=("$file")
-    done < <(find external -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" \) -print0 2>/dev/null || true)
+    done < <(find external -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" \) ! -path "*/tmux-plugins/tpm/*" -print0 2>/dev/null || true)
     
     if [[ ${#binary_files[@]} -eq 0 ]]; then
         print_info "No binary files found to migrate"
@@ -326,7 +326,7 @@ analyze_repository() {
             local size_kb=$(echo "$line" | awk '{print $1}' | sed 's/K//')
             binary_size=$((binary_size + size_kb))
         fi
-    done < <(find external -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) -exec du -k {} \; 2>/dev/null || true)
+    done < <(find external -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) ! -path "*/tmux-plugins/tpm/*" -exec du -k {} \; 2>/dev/null || true)
     
     echo "  - Count: $binary_count files"
     echo "  - Total size: $((binary_size / 1024))MB"
@@ -344,8 +344,8 @@ cleanup_repository() {
     find . -name ".DS_Store" -type f -delete 2>/dev/null || true
     print_success "Removed .DS_Store files"
     
-    # Clean up empty directories
-    find . -type d -empty -delete 2>/dev/null || true
+    # Clean up empty directories (excluding submodules)
+    find . -type d -empty ! -path "./.git/*" ! -path "./external/tmux-plugins/tpm/*" -delete 2>/dev/null || true
     print_success "Removed empty directories"
     
     # Update .gitignore with additional patterns
