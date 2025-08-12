@@ -31,6 +31,8 @@ alias t='tree -L 2'
 alias tt='tree -L 3'
 
 # Git aliases (modern and efficient)
+# Note: More sophisticated git aliases are configured via git config in bin/setup-git.sh
+# These provide quick shell shortcuts, while git aliases provide feature-rich commands
 alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
@@ -48,18 +50,25 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias gdt='git difftool'
 alias gf='git fetch'
-alias gl='git log --oneline -10'
-alias gll='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias gfp='git fp'  # Use git alias for fetch-prune (from setup-git.sh)
+alias gl='git l'    # Use git alias for formatted log (from setup-git.sh)
+alias gll='git lg'  # Use git alias for graph log (from setup-git.sh)
 alias gp='git push'
 alias gpl='git pull'
 alias gr='git remote'
 alias grv='git remote -v'
-alias gs='git status'
-alias gss='git status --short'
+alias gs='git s'    # Use git alias for short status (from setup-git.sh)
+alias gss='git st'  # Use git alias for branch status (from setup-git.sh)
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gstl='git stash list'
 alias gw='git worktree'
+
+# Additional git shortcuts leveraging git aliases from setup-git.sh
+alias gmain='git main'      # Quick switch to main branch
+alias gmaster='git master'  # Quick switch to master branch
+alias gcleanup='git cleanup' # Clean merged branches
+alias grecent='git recent'   # Show recent branches
 
 # Docker aliases
 alias d='docker'
