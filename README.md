@@ -30,7 +30,21 @@ cd ~/.dotfiles
 - **macOS Optimized**: Tailored for Apple Silicon Macs
 - **Work Integration**: Separate configurations for professional tools
 
-## Manual Installation
+## Installation Options
+
+### Interactive Setup (Recommended)
+
+```bash
+# Interactive setup with backup and selective installation
+./bin/setup-interactive.sh
+
+# Quick installation profiles
+./bin/setup-interactive.sh --minimal     # Essential tools only
+./bin/setup-interactive.sh --developer   # Development-focused setup
+./bin/setup-interactive.sh --full        # Complete installation
+```
+
+### Manual Installation
 
 For selective installation of specific configurations:
 
@@ -44,6 +58,26 @@ stow -d stow -t ~ zsh     # Zsh config
 stow -d stow -t ~ git     # Git config
 ```
 
+## Environment Profiles
+
+Manage different configurations for work, personal, or minimal setups:
+
+```bash  
+# List available profiles
+./bin/setup-profile.sh list
+
+# Apply a profile interactively
+./bin/setup-profile.sh interactive
+
+# Apply specific profile
+./bin/setup-profile.sh apply work      # Work environment
+./bin/setup-profile.sh apply personal  # Personal setup
+./bin/setup-profile.sh apply minimal   # Minimal configuration
+
+# Check current profile status
+./bin/setup-profile.sh status
+```
+
 ## Package Management
 
 ```bash
@@ -52,6 +86,9 @@ brew bundle --file=~/.Brewfile
 
 # Update packages
 ./bin/update-brew.sh
+
+# Health check after installation
+./bin/health-check.sh
 ```
 
 ## Documentation
@@ -76,6 +113,8 @@ For detailed guidance and references:
 
 ### Tool References
 
+- **[Troubleshooting Guide](docs/troubleshooting.md)** - Common issues and solutions
+  for setup and configuration problems
 - **[Zsh Reference](docs/zsh-reference.md)** - Comprehensive zsh configuration,
   aliases, functions, and keybindings guide
 - **[WezTerm Reference](docs/wezterm-reference.md)** - Complete WezTerm terminal
