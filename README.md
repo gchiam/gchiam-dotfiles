@@ -15,18 +15,18 @@ cd ~/.dotfiles
 
 ## What's Included
 
-- **Shell**: Zsh with antidote plugin manager
-- **Editor**: Neovim (LazyVim distribution)
-- **Terminal**: Alacritty, Kitty, WezTerm configurations
-- **Window Management**: AeroSpace tiling window manager
-- **Package Management**: Homebrew with curated package lists
-- **Git**: Enhanced with delta for better diffs
-- **Theming**: Consistent Catppuccin color scheme across all tools
+- **Shell**: [Zsh](https://github.com/zsh-users/zsh) with [antidote](https://github.com/mattmc3/antidote) plugin manager
+- **Editor**: [Neovim](https://github.com/neovim/neovim) ([LazyVim](https://github.com/LazyVim/LazyVim) distribution)
+- **Terminal**: [Alacritty](https://github.com/alacritty/alacritty), [Kitty](https://github.com/kovidgoyal/kitty), [WezTerm](https://github.com/wez/wezterm) configurations
+- **Window Management**: [AeroSpace](https://github.com/nikitabobko/AeroSpace) tiling window manager
+- **Package Management**: [Homebrew](https://github.com/Homebrew/brew) with curated package lists
+- **Git**: Enhanced with [delta](https://github.com/dandavison/delta) for better diffs
+- **Theming**: Consistent [Catppuccin](https://github.com/catppuccin/catppuccin) color scheme across all tools
 
 ## Key Features
 
 - **Modular Architecture**: Each tool has its own configuration directory
-- **Stow-based Management**: Clean symlink organization
+- **Stow-based Management**: Clean symlink organization with [GNU Stow](https://github.com/aspiers/stow)
 - **macOS Optimized**: Tailored for Apple Silicon Macs
 - **Work Integration**: Separate configurations for professional tools
 
