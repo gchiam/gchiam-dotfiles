@@ -68,8 +68,10 @@ needs_sync() {
         return 0
     fi
     
-    local last_sync=$(cat "$LAST_SYNC_FILE")
-    local now=$(date +%s)
+    local last_sync
+    last_sync=$(cat "$LAST_SYNC_FILE")
+    local now
+    now=$(date +%s)
     local days_since=$(( (now - last_sync) / 86400 ))
     
     [[ $days_since -ge $CHECK_INTERVAL ]]
@@ -96,7 +98,10 @@ update_submodules() {
     fi
     
     # Check for changes
-    if git diff --quiet HEAD -- $(git submodule status | awk '{print $2}'); then
+    # Use array to properly handle multiple submodule paths
+    local submodule_paths
+    mapfile -t submodule_paths < <(git submodule status | awk '{print $2}')
+    if git diff --quiet HEAD -- "${submodule_paths[@]}" 2>/dev/null; then
         print_info "No submodule updates available"
         return 1
     else
@@ -112,12 +117,15 @@ show_updates() {
     local updated_modules=()
     while IFS= read -r line; do
         if [[ $line == +* ]]; then
-            local module_path=$(echo "$line" | awk '{print $2}')
-            local new_commit=$(echo "$line" | awk '{print $1}' | sed 's/^+//')
+            local module_path
+            module_path=$(echo "$line" | awk '{print $2}')
+            local new_commit
+            new_commit=$(echo "$line" | awk '{print $1}' | sed 's/^+//')
             updated_modules+=("$module_path")
             
             # Get old commit from git
-            local old_commit=$(git ls-tree HEAD "$module_path" | awk '{print $3}')
+            local old_commit
+            old_commit=$(git ls-tree HEAD "$module_path" | awk '{print $3}')
             
             echo "  $module_path:"
             echo "    Old: $old_commit"
@@ -125,10 +133,11 @@ show_updates() {
             
             # Show commit messages between versions
             if [[ -d "$module_path" ]]; then
-                local commits=$(cd "$module_path" && git log --oneline "$old_commit..$new_commit" 2>/dev/null | head -5)
+                local commits
+                commits=$(cd "$module_path" && git log --oneline "$old_commit..$new_commit" 2>/dev/null | head -5)
                 if [[ -n "$commits" ]]; then
                     echo "    Changes:"
-                    echo "$commits" | sed 's/^/      /'
+                    while IFS= read -r line; do echo "      $line"; done <<< "$commits"
                 fi
             fi
         fi
@@ -157,8 +166,10 @@ commit_updates() {
     
     while IFS= read -r line; do
         if [[ $line == +* ]]; then
-            local module_path=$(echo "$line" | awk '{print $2}')
-            local module_name=$(basename "$module_path")
+            local module_path
+            module_path=$(echo "$line" | awk '{print $2}')
+            local module_name
+            module_name=$(basename "$module_path")
             updated_modules+=("$module_name")
         fi
     done < <(git submodule status)
@@ -272,7 +283,8 @@ check_repo_health() {
 generate_report() {
     print_header "Sync Report"
     
-    local report_file="sync-report-$(date +%Y%m%d-%H%M%S).txt"
+    local report_file
+    report_file="sync-report-$(date +%Y%m%d-%H%M%S).txt"
     
     {
         echo "Auto-Sync Report"
@@ -299,7 +311,8 @@ generate_report() {
 setup_automation() {
     print_header "Setting Up Automated Sync"
     
-    local script_path="$(realpath "$0")"
+    local script_path
+    script_path="$(realpath "$0")"
     
     # macOS launchd configuration
     local plist_file="$HOME/Library/LaunchAgents/com.gchiam.dotfiles-sync.plist"
@@ -376,8 +389,10 @@ show_status() {
     print_header "Auto-Sync Status"
     
     if [[ -f "$LAST_SYNC_FILE" ]]; then
-        local last_sync=$(cat "$LAST_SYNC_FILE")
-        local last_sync_date=$(date -r "$last_sync" 2>/dev/null || echo "Unknown")
+        local last_sync
+        last_sync=$(cat "$LAST_SYNC_FILE")
+        local last_sync_date
+        last_sync_date=$(date -r "$last_sync" 2>/dev/null || echo "Unknown")
         local days_since=$(( ($(date +%s) - last_sync) / 86400 ))
         
         echo "Last sync: $last_sync_date ($days_since days ago)"

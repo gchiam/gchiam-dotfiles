@@ -29,7 +29,7 @@ if [[ "$CHARGE_STATUS" == "charging;" ]]; then
     #Charging
     if [[ "$TIME_REMAINING" == "(no" ]]; then
         TO_SHOW="⚡${BATT}% - No Estimate Yet (Charging at ${CHARGE_WATT}) - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     else
         if [[ "$TIME_REMAINING" != "(no" ]]; then
             RE_MIN=${TIME_REMAINING##*:}
@@ -41,7 +41,7 @@ if [[ "$CHARGE_STATUS" == "charging;" ]]; then
             fi
         fi
         TO_SHOW="⚡${BATT}% - ${TIME_REMAINING_FORMATTED} to Full (Charging at ${CHARGE_WATT}) - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     fi
 elif [[ "$CHARGE_STATUS" == "finishing" ]]; then
     #Finishing Charning, xx:xx time remaining
@@ -59,24 +59,24 @@ elif [[ "$CHARGE_STATUS" == "finishing" ]]; then
 
     if [[ "$TIME_REMAINING" == "(no" ]]; then
         TO_SHOW="⚡${BATT}% - No Estimate Yet (Charging at ${CHARGE_WATT}) - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     elif [[ "$FULLY_CHARGED_FLAG" = "TRUE" ]]; then
         TO_SHOW="⚡${BATT}% - Fully Charged (Power Connected at ${CHARGE_WATT}) - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     else
         TO_SHOW="⚡${BATT}% - ${TIME_REMAINING_FORMATTED} to Full (Charging at ${CHARGE_WATT}) - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     fi
 
 elif [[ "$CHARGE_STATUS" == "charged;" ]]; then
     TO_SHOW="⚡${BATT}% - Fully Charged (Power Connected at ${CHARGE_WATT}) - ${CYCLE_COUNT} Cycles"
-   echo $TO_SHOW
+   echo "$TO_SHOW"
 
 elif [[ "$CHARGE_STATUS" == "discharging;" ]]; then
     #Discharging
     if [[ "$TIME_REMAINING" == "(no" ]]; then
         TO_SHOW="${BATT}% - No Estimate Yet - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     else
         if [[ "$TIME_REMAINING" != "(no" ]]; then
             RE_MIN=${TIME_REMAINING##*:}
@@ -88,6 +88,6 @@ elif [[ "$CHARGE_STATUS" == "discharging;" ]]; then
             fi
         fi
         TO_SHOW="${BATT}% - ${TIME_REMAINING_FORMATTED} Remaining - ${CYCLE_COUNT} Cycles"
-        echo $TO_SHOW
+        echo "$TO_SHOW"
     fi
 fi

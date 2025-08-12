@@ -131,6 +131,7 @@ get_system_info() {
     
     # System details (with timeout to avoid hanging)
     local hardware_info
+    # shellcheck disable=SC2034  # Variable assigned but not used
     local memory_info
     
     if hardware_info=$(timeout 5s system_profiler SPHardwareDataType 2>/dev/null); then
@@ -146,8 +147,10 @@ get_system_info() {
 check_macos_compatibility() {
     print_header "macOS Compatibility"
     
-    local min_major="$(get_min_version "macos_major")"
-    local rec_major="$(get_recommended_version "macos_major")"
+    local min_major
+    min_major="$(get_min_version "macos_major")"
+    local rec_major
+    rec_major="$(get_recommended_version "macos_major")"
     
     if [[ "$MACOS_MAJOR" -lt "$min_major" ]]; then
         print_error "macOS $MACOS_VERSION is not supported"
@@ -182,8 +185,10 @@ check_shell_compatibility() {
     
     # Check if zsh is available and version
     if command -v zsh &> /dev/null; then
-        local zsh_version=$(zsh --version | grep -oE '[0-9]+\.[0-9]+(\.[0-9]+)?' | head -n1)
-        local min_zsh="$(get_min_version "zsh")"
+        local zsh_version
+        zsh_version=$(zsh --version | grep -oE '[0-9]+\.[0-9]+(\.[0-9]+)?' | head -n1)
+        local min_zsh
+        min_zsh="$(get_min_version "zsh")"
         
         if version_compare "$zsh_version" "$min_zsh"; then
             print_success "Zsh $zsh_version is compatible"
@@ -209,7 +214,8 @@ check_homebrew_compatibility() {
     print_header "Homebrew Compatibility"
     
     if command -v brew &> /dev/null; then
-        local min_brew="$(get_min_version "homebrew")"
+        local min_brew
+        min_brew="$(get_min_version "homebrew")"
         
         if version_compare "$HOMEBREW_VERSION" "$min_brew"; then
             print_success "Homebrew $HOMEBREW_VERSION is compatible"
@@ -219,7 +225,8 @@ check_homebrew_compatibility() {
         fi
         
         # Check Homebrew installation location
-        local brew_prefix=$(brew --prefix)
+        local brew_prefix
+        brew_prefix=$(brew --prefix)
         case "$ARCHITECTURE" in
             "arm64")
                 if [[ "$brew_prefix" == "/opt/homebrew" ]]; then
@@ -252,7 +259,8 @@ check_tool_compatibility() {
         local min_macos_key="${tool}:min_macos"
         local arch_key="${tool}:arch"
         
-        local min_macos="$(get_tool_compatibility "$min_macos_key")"
+        local min_macos
+        min_macos="$(get_tool_compatibility "$min_macos_key")"
         if [[ -n "$min_macos" ]]; then
             
             if version_compare "$MACOS_VERSION" "$min_macos"; then
@@ -262,7 +270,8 @@ check_tool_compatibility() {
             fi
         fi
         
-        local supported_archs="$(get_tool_compatibility "$arch_key")"
+        local supported_archs
+        supported_archs="$(get_tool_compatibility "$arch_key")"
         if [[ -n "$supported_archs" ]]; then
             if [[ "$supported_archs" == *"$ARCHITECTURE"* ]]; then
                 print_success "$tool: Compatible with $ARCHITECTURE architecture"
@@ -287,7 +296,8 @@ check_development_environment() {
     
     # Check Git
     if command -v git &> /dev/null; then
-        local git_version=$(git --version | grep -oE '[0-9]+\.[0-9]+(\.[0-9]+)?')
+        local git_version
+        git_version=$(git --version | grep -oE '[0-9]+\.[0-9]+(\.[0-9]+)?')
         print_success "Git $git_version is available"
     else
         print_error "Git is not installed"
@@ -317,7 +327,8 @@ check_known_issues() {
         print_info "  - Window management permissions may need explicit granting"
         
         # Check System Integrity Protection
-        local sip_status=$(csrutil status 2>/dev/null | grep -o "enabled\|disabled" || echo "unknown")
+        local sip_status
+        sip_status=$(csrutil status 2>/dev/null | grep -o "enabled\|disabled" || echo "unknown")
         if [[ "$sip_status" == "enabled" ]]; then
             print_info "  - SIP is enabled (recommended, but may limit some tools)"
         fi
@@ -359,8 +370,10 @@ version_compare() {
     [[ -z "$version2" ]] && version2="0.0.0"
     
     # Convert versions to comparable numbers, handling missing parts
-    local v1_num=$(echo "$version1" | awk -F. '{printf "%d%03d%03d", ($1?$1:0), ($2?$2:0), ($3?$3:0)}')
-    local v2_num=$(echo "$version2" | awk -F. '{printf "%d%03d%03d", ($1?$1:0), ($2?$2:0), ($3?$3:0)}')
+    local v1_num
+    v1_num=$(echo "$version1" | awk -F. '{printf "%d%03d%03d", ($1?$1:0), ($2?$2:0), ($3?$3:0)}')
+    local v2_num
+    v2_num=$(echo "$version2" | awk -F. '{printf "%d%03d%03d", ($1?$1:0), ($2?$2:0), ($3?$3:0)}')
     
     [[ "$v1_num" -ge "$v2_num" ]]
 }
@@ -369,7 +382,8 @@ version_compare() {
 generate_report() {
     print_header "Compatibility Report"
     
-    local report_file="compatibility-report-$(date +%Y%m%d-%H%M%S).txt"
+    local report_file
+    report_file="compatibility-report-$(date +%Y%m%d-%H%M%S).txt"
     
     {
         echo "macOS Dotfiles Compatibility Report"
@@ -513,6 +527,7 @@ main() {
             # Gather system info silently (without header)
             MACOS_VERSION=$(sw_vers -productVersion)
             MACOS_MAJOR=$(echo "$MACOS_VERSION" | cut -d. -f1)
+            # shellcheck disable=SC2034  # Variable assigned but potentially used elsewhere
             MACOS_MINOR=$(echo "$MACOS_VERSION" | cut -d. -f2)
             ARCHITECTURE=$(uname -m)
             

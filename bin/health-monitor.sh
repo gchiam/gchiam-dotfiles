@@ -61,6 +61,7 @@ SHELL_STARTUP_THRESHOLD=2.0     # seconds
 MEMORY_USAGE_THRESHOLD=80       # percentage
 DISK_USAGE_THRESHOLD=90         # percentage
 CPU_USAGE_THRESHOLD=80          # percentage
+# shellcheck disable=SC2034  # Variable reserved for future use
 FAILED_COMMANDS_THRESHOLD=5     # count
 
 # Create config directory
@@ -93,19 +94,23 @@ show_alert() {
 
 # Health check functions
 check_shell_performance() {
-    local start_time=$(date +%s.%N)
+    local start_time
+    start_time=$(date +%s.%N)
     
     # Test shell startup time
     if command -v zsh &> /dev/null; then
-        local shell_time=$(time (zsh -i -c 'exit' 2>/dev/null) 2>&1 | grep real | awk '{print $2}' | sed 's/[ms]//g' || echo "0")
+        local shell_time
+        shell_time=$(time (zsh -i -c 'exit' 2>/dev/null) 2>&1 | grep real | awk '{print $2}' | sed 's/[ms]//g' || echo "0")
         
         # Convert to seconds if needed
         if [[ "$shell_time" == *"m"* ]]; then
-            local minutes=$(echo "$shell_time" | cut -d'm' -f1)
-            local seconds=$(echo "$shell_time" | cut -d'm' -f2 | sed 's/s//')
+            local minutes
+            minutes=$(echo "$shell_time" | cut -d'm' -f1)
+            local seconds
+            seconds=$(echo "$shell_time" | cut -d'm' -f2 | sed 's/s//')
             shell_time=$(echo "$minutes * 60 + $seconds" | bc -l)
         elif [[ "$shell_time" == *"s"* ]]; then
-            shell_time=$(echo "$shell_time" | sed 's/s//')
+            shell_time=${shell_time%s}
         fi
         
         # Alert if too slow
@@ -122,16 +127,24 @@ check_shell_performance() {
 
 check_system_resources() {
     # Memory usage
-    local memory_info=$(vm_stat)
-    local pages_free=$(echo "$memory_info" | grep "Pages free" | awk '{print $3}' | sed 's/\.//')
-    local pages_active=$(echo "$memory_info" | grep "Pages active" | awk '{print $3}' | sed 's/\.//')
-    local pages_inactive=$(echo "$memory_info" | grep "Pages inactive" | awk '{print $3}' | sed 's/\.//')
-    local pages_wired=$(echo "$memory_info" | grep "Pages wired down" | awk '{print $4}' | sed 's/\.//')
+    local memory_info
+    memory_info=$(vm_stat)
+    local pages_free
+    pages_free=$(echo "$memory_info" | grep "Pages free" | awk '{print $3}' | sed 's/\.//')
+    local pages_active
+    pages_active=$(echo "$memory_info" | grep "Pages active" | awk '{print $3}' | sed 's/\.//')
+    local pages_inactive
+    pages_inactive=$(echo "$memory_info" | grep "Pages inactive" | awk '{print $3}' | sed 's/\.//')
+    local pages_wired
+    pages_wired=$(echo "$memory_info" | grep "Pages wired down" | awk '{print $4}' | sed 's/\.//')
     
     local page_size=4096
-    local total_memory=$(echo "($pages_free + $pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
-    local used_memory=$(echo "($pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
-    local memory_percent=$(echo "scale=1; $used_memory * 100 / $total_memory" | bc)
+    local total_memory
+    total_memory=$(echo "($pages_free + $pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
+    local used_memory
+    used_memory=$(echo "($pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
+    local memory_percent
+    memory_percent=$(echo "scale=1; $used_memory * 100 / $total_memory" | bc)
     
     if (( $(echo "$memory_percent > $MEMORY_USAGE_THRESHOLD" | bc -l) )); then
         log_alert "High memory usage: ${memory_percent}% (threshold: ${MEMORY_USAGE_THRESHOLD}%)"
@@ -140,7 +153,8 @@ check_system_resources() {
     echo "memory_usage_percent:$memory_percent"
     
     # Disk usage
-    local disk_usage=$(df -h "$HOME" | tail -1 | awk '{print $5}' | sed 's/%//')
+    local disk_usage
+    disk_usage=$(df -h "$HOME" | tail -1 | awk '{print $5}' | sed 's/%//')
     
     if [[ $disk_usage -gt $DISK_USAGE_THRESHOLD ]]; then
         log_alert "High disk usage: ${disk_usage}% (threshold: ${DISK_USAGE_THRESHOLD}%)"
@@ -149,9 +163,10 @@ check_system_resources() {
     echo "disk_usage_percent:$disk_usage"
     
     # CPU usage (last 1 minute)
-    local cpu_usage=$(top -l 2 -s 1 | grep "CPU usage" | tail -1 | awk '{print $3}' | sed 's/%//' || echo "0")
+    local cpu_usage
+    cpu_usage=$(top -l 2 -s 1 | grep "CPU usage" | tail -1 | awk '{print $3}' | sed 's/%//' || echo "0")
     
-    if (( $(echo "$cpu_usage > $CPU_USAGE_THRESHOLD" | bc -l) 2>/dev/null )); then
+    if (( $(echo "$cpu_usage > $CPU_USAGE_THRESHOLD" | bc -l 2>/dev/null || echo 0) )); then
         log_alert "High CPU usage: ${cpu_usage}% (threshold: ${CPU_USAGE_THRESHOLD}%)"
     fi
     
@@ -175,7 +190,8 @@ check_development_tools() {
     
     # Check Homebrew
     if command -v brew &> /dev/null; then
-        local outdated_count=$(brew outdated | wc -l | xargs)
+        local outdated_count
+        outdated_count=$(brew outdated | wc -l | xargs)
         if [[ $outdated_count -gt 10 ]]; then
             log_alert "Many outdated Homebrew packages: $outdated_count"
         fi
@@ -184,7 +200,8 @@ check_development_tools() {
     
     # Check git repository status
     if git rev-parse --git-dir &> /dev/null; then
-        local uncommitted=$(git status --porcelain | wc -l | xargs)
+        local uncommitted
+        uncommitted=$(git status --porcelain | wc -l | xargs)
         if [[ $uncommitted -gt 0 ]]; then
             echo "git_uncommitted_changes:$uncommitted"
         fi
@@ -192,7 +209,10 @@ check_development_tools() {
         # Check if we're behind remote
         if git remote | grep -q origin; then
             git fetch origin 2>/dev/null || true
-            local behind=$(git rev-list HEAD..origin/$(git branch --show-current) --count 2>/dev/null || echo "0")
+            local current_branch
+            current_branch=$(git branch --show-current)
+            local behind
+            behind=$(git rev-list "HEAD..origin/$current_branch" --count 2>/dev/null || echo "0")
             if [[ $behind -gt 0 ]]; then
                 echo "git_commits_behind:$behind"
             fi
@@ -243,7 +263,8 @@ check_configuration_integrity() {
     
     # Check submodules if they exist
     if [[ -f "$REPO_ROOT/.gitmodules" ]]; then
-        local submodule_issues=$(git submodule status | grep -c "^-" || echo "0")
+        local submodule_issues
+        submodule_issues=$(git submodule status | grep -c "^-" || echo "0")
         if [[ $submodule_issues -gt 0 ]]; then
             log_alert "Uninitialized submodules: $submodule_issues"
             ((config_issues++))
@@ -268,14 +289,16 @@ check_security_status() {
     )
     
     for pattern in "${suspicious_patterns[@]}"; do
-        local matches=$(find "$REPO_ROOT" -name "$pattern" -not -path "*/.git/*" 2>/dev/null | wc -l | xargs)
+        local matches
+        matches=$(find "$REPO_ROOT" -name "$pattern" -not -path "*/.git/*" 2>/dev/null | wc -l | xargs)
         if [[ $matches -gt 0 ]] && [[ "$pattern" != "*.log" || $matches -gt 5 ]]; then
             echo "suspicious_files_${pattern//[^a-zA-Z0-9]/_}:$matches"
         fi
     done
     
     # Check file permissions
-    local world_writable=$(find "$HOME" -maxdepth 3 -perm -002 -type f 2>/dev/null | wc -l | xargs)
+    local world_writable
+    world_writable=$(find "$HOME" -maxdepth 3 -perm -002 -type f 2>/dev/null | wc -l | xargs)
     if [[ $world_writable -gt 0 ]]; then
         log_alert "World-writable files found: $world_writable"
         ((security_issues++))
@@ -287,7 +310,8 @@ check_security_status() {
 
 # Generate health report
 generate_health_report() {
-    local timestamp=$(date)
+    local timestamp
+    timestamp=$(date)
     local metrics=()
     
     print_header "Health Monitoring Report"
@@ -296,23 +320,28 @@ generate_health_report() {
     print_info "Collecting metrics..."
     
     # Shell performance
-    local shell_metrics=$(check_shell_performance 2>/dev/null || echo "shell_startup_time:error")
+    local shell_metrics
+    shell_metrics=$(check_shell_performance 2>/dev/null || echo "shell_startup_time:error")
     metrics+=("$shell_metrics")
     
     # System resources
-    local system_metrics=$(check_system_resources 2>/dev/null || echo "system_check:error")
+    local system_metrics
+    system_metrics=$(check_system_resources 2>/dev/null || echo "system_check:error")
     metrics+=("$system_metrics")
     
     # Development tools
-    local dev_metrics=$(check_development_tools 2>/dev/null || echo "dev_tools:error")
+    local dev_metrics
+    dev_metrics=$(check_development_tools 2>/dev/null || echo "dev_tools:error")
     metrics+=("$dev_metrics")
     
     # Configuration integrity
-    local config_metrics=$(check_configuration_integrity 2>/dev/null || echo "config_check:error")
+    local config_metrics
+    config_metrics=$(check_configuration_integrity 2>/dev/null || echo "config_check:error")
     metrics+=("$config_metrics")
     
     # Security status
-    local security_metrics=$(check_security_status 2>/dev/null || echo "security_check:error")
+    local security_metrics
+    security_metrics=$(check_security_status 2>/dev/null || echo "security_check:error")
     metrics+=("$security_metrics")
     
     # Create JSON status file
@@ -327,8 +356,10 @@ generate_health_report() {
             IFS=$'\n' read -d '' -r -a metric_items <<< "$metric_line" || true
             for item in "${metric_items[@]}"; do
                 if [[ "$item" == *":"* ]]; then
-                    local key=$(echo "$item" | cut -d: -f1)
-                    local value=$(echo "$item" | cut -d: -f2-)
+                    local key
+                    key=$(echo "$item" | cut -d: -f1)
+                    local value
+                    value=$(echo "$item" | cut -d: -f2-)
                     
                     if [[ "$first" == true ]]; then
                         first=false
@@ -357,9 +388,12 @@ generate_health_report() {
     
     # Show key metrics
     if [[ -f "$STATUS_FILE" ]]; then
-        local shell_time=$(jq -r '.metrics.shell_startup_time // "unknown"' "$STATUS_FILE" 2>/dev/null)
-        local memory_usage=$(jq -r '.metrics.memory_usage_percent // "unknown"' "$STATUS_FILE" 2>/dev/null)
-        local disk_usage=$(jq -r '.metrics.disk_usage_percent // "unknown"' "$STATUS_FILE" 2>/dev/null)
+        local shell_time
+        shell_time=$(jq -r '.metrics.shell_startup_time // "unknown"' "$STATUS_FILE" 2>/dev/null)
+        local memory_usage
+        memory_usage=$(jq -r '.metrics.memory_usage_percent // "unknown"' "$STATUS_FILE" 2>/dev/null)
+        local disk_usage
+        disk_usage=$(jq -r '.metrics.disk_usage_percent // "unknown"' "$STATUS_FILE" 2>/dev/null)
         
         echo
         print_metric "Shell startup: ${shell_time}s"
@@ -408,7 +442,8 @@ stop_monitoring() {
     local pid_file="$CONFIG_DIR/monitor.pid"
     
     if [[ -f "$pid_file" ]]; then
-        local pid=$(cat "$pid_file")
+        local pid
+        pid=$(cat "$pid_file")
         if kill "$pid" 2>/dev/null; then
             print_success "Monitoring stopped (PID: $pid)"
         else
@@ -427,11 +462,13 @@ show_status() {
     local pid_file="$CONFIG_DIR/monitor.pid"
     
     if [[ -f "$pid_file" ]] && kill -0 "$(cat "$pid_file")" 2>/dev/null; then
-        local pid=$(cat "$pid_file")
+        local pid
+        pid=$(cat "$pid_file")
         print_success "Monitoring is running (PID: $pid)"
         
         # Show uptime
-        local start_time=$(ps -o lstart= -p "$pid" 2>/dev/null | xargs || echo "Unknown")
+        local start_time
+        start_time=$(ps -o lstart= -p "$pid" 2>/dev/null | xargs || echo "Unknown")
         print_info "Started: $start_time"
     else
         print_warning "Monitoring is not running"
@@ -451,11 +488,14 @@ show_status() {
     if [[ -f "$STATUS_FILE" ]]; then
         echo
         print_info "Last health check:"
-        local timestamp=$(jq -r '.timestamp // "unknown"' "$STATUS_FILE" 2>/dev/null)
+        local timestamp
+        timestamp=$(jq -r '.timestamp // "unknown"' "$STATUS_FILE" 2>/dev/null)
         echo "  Time: $timestamp"
         
-        local shell_time=$(jq -r '.metrics.shell_startup_time // "unknown"' "$STATUS_FILE" 2>/dev/null)
-        local memory_usage=$(jq -r '.metrics.memory_usage_percent // "unknown"' "$STATUS_FILE" 2>/dev/null)
+        local shell_time
+        shell_time=$(jq -r '.metrics.shell_startup_time // "unknown"' "$STATUS_FILE" 2>/dev/null)
+        local memory_usage
+        memory_usage=$(jq -r '.metrics.memory_usage_percent // "unknown"' "$STATUS_FILE" 2>/dev/null)
         
         echo "  Shell startup: ${shell_time}s"
         echo "  Memory usage: ${memory_usage}%"
@@ -475,7 +515,8 @@ setup_automation() {
     
     # Create launchd plist for macOS
     local plist_file="$HOME/Library/LaunchAgents/com.gchiam.dotfiles-health-monitor.plist"
-    local script_path=$(realpath "$0")
+    local script_path
+    script_path=$(realpath "$0")
     
     cat > "$plist_file" << EOF
 <?xml version="1.0" encoding="UTF-8"?>

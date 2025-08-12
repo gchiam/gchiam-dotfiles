@@ -82,9 +82,12 @@ check_requirements() {
     progress_step "Checking System Requirements"
     
     # Check macOS version
-    local macos_version=$(sw_vers -productVersion)
-    local macos_major=$(echo "$macos_version" | cut -d. -f1)
-    local min_major=$(echo "$MIN_MACOS_VERSION" | cut -d. -f1)
+    local macos_version
+    macos_version=$(sw_vers -productVersion)
+    local macos_major
+    macos_major=$(echo "$macos_version" | cut -d. -f1)
+    local min_major
+    min_major=$(echo "$MIN_MACOS_VERSION" | cut -d. -f1)
     
     if [[ "$macos_major" -lt "$min_major" ]]; then
         print_error "macOS $macos_version is not supported"
@@ -96,7 +99,8 @@ check_requirements() {
     log "System check: macOS $macos_version OK"
     
     # Check architecture
-    local arch=$(uname -m)
+    local arch
+    arch=$(uname -m)
     print_info "Architecture: $arch"
     log "Architecture: $arch"
     
@@ -145,7 +149,8 @@ install_homebrew() {
     fi
     
     # Add Homebrew to PATH
-    local arch=$(uname -m)
+    local arch
+    arch=$(uname -m)
     local brew_path=""
     
     if [[ "$arch" == "arm64" ]]; then
@@ -279,7 +284,8 @@ setup_shell() {
         print_step "Setting zsh as default shell..."
         
         # Add zsh to allowed shells if not present
-        local zsh_path=$(which zsh)
+        local zsh_path
+        zsh_path=$(which zsh)
         if ! grep -q "$zsh_path" /etc/shells; then
             echo "$zsh_path" | sudo tee -a /etc/shells > /dev/null
         fi
@@ -353,7 +359,7 @@ run_installation() {
     
     if [[ "$SKIP_CONFIRMATION" == true ]]; then
         # Run non-interactively if possible
-        if $install_script $install_args --yes >> "$LOG_FILE" 2>&1; then
+        if $install_script "$install_args" --yes >> "$LOG_FILE" 2>&1; then
             print_success "Installation completed"
             log "Installation: Completed successfully"
         else
@@ -362,7 +368,7 @@ run_installation() {
         fi
     else
         # Run interactively
-        if $install_script $install_args; then
+        if $install_script "$install_args"; then
             print_success "Installation completed"
             log "Installation: Completed successfully"
         else

@@ -46,6 +46,7 @@ declare -A PROFILES=(
 )
 
 # Profile-specific configurations
+# shellcheck disable=SC2034  # Variable reserved for future use
 declare -A PROFILE_CONFIGS=(
     # Personal profile
     ["personal:gitconfig"]=".gitconfig.personal"
@@ -78,6 +79,7 @@ declare -A PROFILE_STOW_INCLUDE=(
     ["experimental"]="zsh tmux nvim alacritty kitty wezterm aerospace yabai skhd gh-dash starship oh-my-posh bat borders zsh-fsh custom-bin antidote brew fish"
 )
 
+# shellcheck disable=SC2034  # Variable reserved for future use
 declare -A PROFILE_STOW_EXCLUDE=(
     ["personal"]="JetBrains"
     ["work"]="kitty wezterm yabai skhd oh-my-posh zsh-fsh fish"
@@ -395,7 +397,8 @@ show_status() {
 interactive_select() {
     print_header "Select Profile"
     
-    local profiles=($(printf '%s\n' "${!PROFILES[@]}" | sort))
+    local profiles
+    mapfile -t profiles < <(printf '%s\n' "${!PROFILES[@]}" | sort)
     
     echo "Available profiles:"
     for i in "${!profiles[@]}"; do

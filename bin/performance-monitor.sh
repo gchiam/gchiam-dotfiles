@@ -62,19 +62,23 @@ measure_shell_startup() {
     
     print_info "Running $BENCHMARK_RUNS startup measurements..."
     
-    for i in $(seq 1 $BENCHMARK_RUNS); do
-        local start_time=$(date +%s.%N)
+    for i in $(seq 1 "$BENCHMARK_RUNS"); do
+        local start_time
+        start_time=$(date +%s.%N)
         zsh -i -c 'exit' 2>/dev/null
-        local end_time=$(date +%s.%N)
+        local end_time
+        end_time=$(date +%s.%N)
         
-        local duration=$(echo "$end_time - $start_time" | bc -l)
+        local duration
+        duration=$(echo "$end_time - $start_time" | bc -l)
         times+=("$duration")
         total=$(echo "$total + $duration" | bc -l)
         
         printf "  Run %d: %.3fs\n" "$i" "$duration"
     done
     
-    local average=$(echo "scale=3; $total / $BENCHMARK_RUNS" | bc -l)
+    local average
+    average=$(echo "scale=3; $total / $BENCHMARK_RUNS" | bc -l)
     
     print_metric "Average startup time: ${average}s"
     
@@ -102,8 +106,9 @@ profile_shell_startup() {
     print_info "Generating detailed startup profile..."
     
     # Create temporary profile script
-    local profile_script=$(mktemp)
-    trap "rm -f $profile_script" EXIT
+    local profile_script
+    profile_script=$(mktemp)
+    trap 'rm -f "$profile_script"' EXIT
     
     cat > "$profile_script" << 'EOF'
 # Enable profiling
@@ -118,13 +123,15 @@ zprof
 EOF
     
     # Run profiling
-    local profile_output=$(zsh -c "source $profile_script" 2>&1)
+    local profile_output
+    profile_output=$(zsh -c "source $profile_script" 2>&1)
     
     # Parse and display results
     echo "$profile_output" | tail -20
     
     # Extract top slow functions
-    local slow_functions=$(echo "$profile_output" | grep -E "^[[:space:]]*[0-9]" | head -5)
+    local slow_functions
+    slow_functions=$(echo "$profile_output" | grep -E "^[[:space:]]*[0-9]" | head -5)
     
     if [[ -n "$slow_functions" ]]; then
         print_warning "Slowest functions:"
@@ -139,29 +146,40 @@ monitor_system_resources() {
     print_header "System Resource Monitoring"
     
     # CPU usage
-    local cpu_usage=$(top -l 1 -s 0 | grep "CPU usage" | awk '{print $3}' | sed 's/%//')
+    local cpu_usage
+    cpu_usage=$(top -l 1 -s 0 | grep "CPU usage" | awk '{print $3}' | sed 's/%//')
     print_metric "CPU Usage: ${cpu_usage}%"
     
     # Memory usage
-    local memory_info=$(vm_stat)
-    local pages_free=$(echo "$memory_info" | grep "Pages free" | awk '{print $3}' | sed 's/\.//')
-    local pages_active=$(echo "$memory_info" | grep "Pages active" | awk '{print $3}' | sed 's/\.//')
-    local pages_inactive=$(echo "$memory_info" | grep "Pages inactive" | awk '{print $3}' | sed 's/\.//')
-    local pages_wired=$(echo "$memory_info" | grep "Pages wired down" | awk '{print $4}' | sed 's/\.//')
+    local memory_info
+    memory_info=$(vm_stat)
+    local pages_free
+    pages_free=$(echo "$memory_info" | grep "Pages free" | awk '{print $3}' | sed 's/\.//')
+    local pages_active
+    pages_active=$(echo "$memory_info" | grep "Pages active" | awk '{print $3}' | sed 's/\.//')
+    local pages_inactive
+    pages_inactive=$(echo "$memory_info" | grep "Pages inactive" | awk '{print $3}' | sed 's/\.//')
+    local pages_wired
+    pages_wired=$(echo "$memory_info" | grep "Pages wired down" | awk '{print $4}' | sed 's/\.//')
     
     local page_size=4096
-    local total_memory=$(echo "($pages_free + $pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
-    local used_memory=$(echo "($pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
-    local memory_percent=$(echo "scale=1; $used_memory * 100 / $total_memory" | bc)
+    local total_memory
+    total_memory=$(echo "($pages_free + $pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
+    local used_memory
+    used_memory=$(echo "($pages_active + $pages_inactive + $pages_wired) * $page_size / 1024 / 1024" | bc)
+    local memory_percent
+    memory_percent=$(echo "scale=1; $used_memory * 100 / $total_memory" | bc)
     
     print_metric "Memory Usage: ${used_memory}MB / ${total_memory}MB (${memory_percent}%)"
     
     # Disk usage for home directory
-    local disk_usage=$(df -h "$HOME" | tail -1 | awk '{print $5}' | sed 's/%//')
+    local disk_usage
+    disk_usage=$(df -h "$HOME" | tail -1 | awk '{print $5}' | sed 's/%//')
     print_metric "Home Directory Usage: ${disk_usage}%"
     
     # Load average
-    local load_avg=$(uptime | awk -F'load averages:' '{print $2}' | xargs)
+    local load_avg
+    load_avg=$(uptime | awk -F'load averages:' '{print $2}' | xargs)
     print_metric "Load Average: $load_avg"
     
     # Log system metrics
@@ -184,7 +202,8 @@ analyze_shell_config() {
             print_info "Analyzing $config_file..."
             
             # Check file size
-            local file_size=$(wc -c < "$config_file")
+            local file_size
+            file_size=$(wc -c < "$config_file")
             if [[ $file_size -gt 10000 ]]; then
                 print_warning "Large configuration file (${file_size} bytes)"
                 print_info "Consider splitting into modules"
@@ -221,7 +240,8 @@ analyze_plugin_performance() {
     # Check for antidote plugins
     local plugin_file="$HOME/.config/antidote/.zsh_plugins.txt"
     if [[ -f "$plugin_file" ]]; then
-        local plugin_count=$(wc -l < "$plugin_file")
+        local plugin_count
+        plugin_count=$(wc -l < "$plugin_file")
         print_metric "Plugin count: $plugin_count"
         
         if [[ $plugin_count -gt 20 ]]; then
@@ -249,7 +269,8 @@ analyze_plugin_performance() {
     # Check tmux plugin count
     local tmux_plugins_dir="$HOME/.tmux/plugins"
     if [[ -d "$tmux_plugins_dir" ]]; then
-        local tmux_plugin_count=$(find "$tmux_plugins_dir" -maxdepth 1 -type d | wc -l)
+        local tmux_plugin_count
+        tmux_plugin_count=$(find "$tmux_plugins_dir" -maxdepth 1 -type d | wc -l)
         print_metric "Tmux plugin count: $tmux_plugin_count"
         
         if [[ $tmux_plugin_count -gt 10 ]]; then
@@ -351,7 +372,8 @@ if command -v nvm >/dev/null 2>&1; then
         if [[ -n "${NVM_DIR:-}" ]]; then
             [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
         else
-            local nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
+            local nvm_dir
+            nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
             [[ -s "$nvm_dir/nvm.sh" ]] && source "$nvm_dir/nvm.sh"
         fi
         nvm "$@"
@@ -381,7 +403,8 @@ fi
 # Clean up shell history if too large
 local history_file="${HISTFILE:-$HOME/.zsh_history}"
 if [[ -f "$history_file" ]]; then
-    local history_size=$(wc -l < "$history_file")
+    local history_size
+    history_size=$(wc -l < "$history_file")
     if [[ $history_size -gt 50000 ]]; then
         print_warning "Large history file ($history_size lines)"
         print_info "Consider truncating: tail -10000 $history_file > ${history_file}.tmp && mv ${history_file}.tmp $history_file"
@@ -418,17 +441,21 @@ benchmark_comparison() {
     # Shell startup benchmark
     local shell_times=()
     for i in {1..3}; do
-        local time=$(time (zsh -i -c 'exit') 2>&1 | grep real | awk '{print $2}' | sed 's/[ms]//g')
+        local time
+        time=$(time (zsh -i -c 'exit') 2>&1 | grep real | awk '{print $2}' | sed 's/[ms]//g')
         shell_times+=("$time")
     done
     
     # File operations benchmark
-    local temp_dir=$(mktemp -d)
-    local file_time=$(time (for i in {1..100}; do touch "$temp_dir/file$i"; done) 2>&1 | grep real | awk '{print $2}')
+    local temp_dir
+    temp_dir=$(mktemp -d)
+    local file_time
+    file_time=$(time (for i in {1..100}; do touch "$temp_dir/file$i"; done) 2>&1 | grep real | awk '{print $2}')
     rm -rf "$temp_dir"
     
     # Command execution benchmark
-    local cmd_time=$(time (for i in {1..10}; do ls >/dev/null; done) 2>&1 | grep real | awk '{print $2}')
+    local cmd_time
+    cmd_time=$(time (for i in {1..10}; do ls >/dev/null; done) 2>&1 | grep real | awk '{print $2}')
     
     print_metric "Shell startup: ${shell_times[*]}"
     print_metric "File operations: $file_time"

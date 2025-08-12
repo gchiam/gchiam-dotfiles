@@ -126,7 +126,8 @@ migrate_to_lfs() {
     
     # Show files that will be migrated
     for file in "${binary_files[@]}"; do
-        local size=$(du -h "$file" | cut -f1)
+        local size
+        size=$(du -h "$file" | cut -f1)
         echo "  - $file ($size)"
     done
     
@@ -225,7 +226,8 @@ migrate_to_submodules() {
     fi
     
     # Create backup of current external directory
-    local backup_dir="external-backup-$(date +%Y%m%d-%H%M%S)"
+    local backup_dir
+    backup_dir="external-backup-$(date +%Y%m%d-%H%M%S)"
     cp -r external "$backup_dir"
     print_success "Created backup: $backup_dir"
     
@@ -274,7 +276,8 @@ show_dependencies() {
     echo "Directories that could become submodules:"
     for path in "${!SUBMODULES[@]}"; do
         if [[ -d "$path" ]]; then
-            local size=$(du -sh "$path" | cut -f1)
+            local size
+            size=$(du -sh "$path" | cut -f1)
             echo "  - $path ($size) -> ${SUBMODULES[$path]}"
         else
             echo "  - $path (missing) -> ${SUBMODULES[$path]}"
@@ -314,11 +317,16 @@ analyze_repository() {
     echo "├── Documentation: $(du -sh docs | cut -f1)"
     echo "├── Scripts: $(du -sh bin | cut -f1)"
     # Calculate other size by subtracting known directories (BSD du compatible)
-    local total_kb=$(du -sk . | cut -f1)
-    local external_kb=$(du -sk external 2>/dev/null | cut -f1 || echo 0)
-    local stow_kb=$(du -sk stow 2>/dev/null | cut -f1 || echo 0)
-    local docs_kb=$(du -sk docs 2>/dev/null | cut -f1 || echo 0)
-    local bin_kb=$(du -sk bin 2>/dev/null | cut -f1 || echo 0)
+    local total_kb
+    total_kb=$(du -sk . | cut -f1)
+    local external_kb
+    external_kb=$(du -sk external 2>/dev/null | cut -f1 || echo 0)
+    local stow_kb
+    stow_kb=$(du -sk stow 2>/dev/null | cut -f1 || echo 0)
+    local docs_kb
+    docs_kb=$(du -sk docs 2>/dev/null | cut -f1 || echo 0)
+    local bin_kb
+    bin_kb=$(du -sk bin 2>/dev/null | cut -f1 || echo 0)
     local other_kb=$((total_kb - external_kb - stow_kb - docs_kb - bin_kb))
     local other_mb=$((other_kb / 1024))
     echo "└── Other: ${other_mb}MB"
@@ -331,7 +339,8 @@ analyze_repository() {
     while IFS= read -r line; do
         if [[ -n "$line" ]]; then
             binary_count=$((binary_count + 1))
-            local size_kb=$(echo "$line" | awk '{print $1}' | sed 's/K//')
+            local size_kb
+            size_kb=$(echo "$line" | awk '{print $1}' | sed 's/K//')
             binary_size=$((binary_size + size_kb))
         fi
     done < <(find external -type f \( -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) ! -path "*/tmux-plugins/tpm/*" -exec du -k {} \; 2>/dev/null || true)

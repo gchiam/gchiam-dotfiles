@@ -439,7 +439,8 @@ show_status() {
     # Check zsh completions
     print_info "Zsh completions:"
     if [[ -d "$COMPLETIONS_DIR" ]]; then
-        local comp_count=$(ls -1 "$COMPLETIONS_DIR"/_* 2>/dev/null | wc -l | xargs)
+        local comp_count
+        comp_count=$(find "$COMPLETIONS_DIR" -name '_*' -type f 2>/dev/null | wc -l | xargs)
         print_success "Local completions directory exists ($comp_count files)"
         
         for comp_file in "$COMPLETIONS_DIR"/_*; do

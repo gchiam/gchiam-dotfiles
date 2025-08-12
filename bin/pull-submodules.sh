@@ -29,6 +29,7 @@ fi
 
 # Update submodules
 echo "Updating submodules..."
+# shellcheck disable=SC2034  # Variable reserved for future use
 failed_submodules=()
 
 # Use --recursive flag and capture failures

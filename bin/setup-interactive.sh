@@ -158,7 +158,8 @@ create_backup() {
     mkdir -p "$BACKUP_DIR"
     
     for config in "${configs_to_backup[@]}"; do
-        local backup_path="$BACKUP_DIR$(dirname "$config")"
+        local backup_path
+        backup_path="$BACKUP_DIR$(dirname "$config")"
         mkdir -p "$backup_path"
         
         if cp -r "$config" "$backup_path/" 2>/dev/null; then
