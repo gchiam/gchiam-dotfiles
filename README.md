@@ -73,4 +73,6 @@ For detailed guidance and references:
   and keybindings guide
 - **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
   and configuration guide
+- **[Zsh Reference](docs/zsh-reference.md)** - Comprehensive zsh configuration,
+  aliases, functions, and keybindings guide
 - **[CLAUDE.md](./CLAUDE.md)** - Main guidance document for Claude Code
