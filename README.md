@@ -147,45 +147,67 @@ curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fre
 
 ## Documentation
 
-For detailed guidance and references:
+Comprehensive documentation organized by workflow and expertise level:
 
-### Getting Started
+### 🚀 Quick Start
 
-- **[Setup Guide](docs/setup-guide.md)** - Installation procedures and
-  initial configuration
-- **[Architecture](docs/architecture.md)** - Repository structure and
-  component overview
+- **[Setup Guide](docs/setup-guide.md)** - Complete installation procedures, from one-command setup to manual configuration
+- **[Architecture](docs/architecture.md)** - Repository structure, component overview, and design principles
 
-### Development Workflow
+### 📋 Daily Workflows  
 
-- **[Development Notes](docs/development-notes.md)** - Development practices
-  and workflow
-- **[Quality Assurance](docs/quality-assurance.md)** - Linting standards
-  and code quality
-- **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions
-  and best practices
+- **[Workflow Guide](docs/workflow-guide.md)** - Daily development workflows, terminal usage, and optimization strategies
+- **[Automation Guide](docs/automation-guide.md)** - Health monitoring, auto-sync, performance optimization, and maintenance scheduling
 
-### Tool References
+### ⚙️ Development and Customization
 
-- **[Troubleshooting Guide](docs/troubleshooting.md)** - Common issues and solutions
-  for setup and configuration problems
-- **[Migration Guide](docs/migration-guide.md)** - Step-by-step instructions
-  for upgrading between major changes
-- **[Zsh Reference](docs/zsh-reference.md)** - Comprehensive zsh configuration,
-  aliases, functions, and keybindings guide
-- **[WezTerm Reference](docs/wezterm-reference.md)** - Complete WezTerm terminal
-  emulator configuration and usage guide
-- **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
-  and configuration guide
-- **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration
-  and keybindings guide
-- **[AeroSpace Reference](docs/aerospace-reference.md)** - Window manager
-  keybindings and workspace setup
-- **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive
-  guide to all git aliases and commands
-- **[Shell Completions](docs/shell-completions.md)** - Tab completion system
-  for all custom dotfiles scripts
+- **[Development Notes](docs/development-notes.md)** - Development practices, testing patterns, and advanced customization
+- **[Quality Assurance](docs/quality-assurance.md)** - Linting standards, code quality, and validation processes
+- **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions and best practices
 
-### Meta
+### 🔧 Tool References and Keybindings
 
-- **[CLAUDE.md](./CLAUDE.md)** - Main guidance document for Claude Code
+#### Core Development Tools
+- **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration, keybindings, and development workflows
+- **[Tmux Reference](docs/tmux-reference.md)** - Terminal multiplexer keybindings, session management, and automation
+- **[Zsh Reference](docs/zsh-reference.md)** - Shell configuration, aliases, functions, and environment detection
+
+#### Terminal and Interface
+- **[WezTerm Reference](docs/wezterm-reference.md)** - Modern terminal emulator configuration and advanced features
+- **[AeroSpace Reference](docs/aerospace-reference.md)** - Tiling window manager keybindings and workspace organization
+
+#### Version Control and Automation
+- **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive guide to enhanced git workflows
+- **[Shell Completions](docs/shell-completions.md)** - Tab completion system for all custom scripts
+
+### 🆘 Support and Maintenance
+
+- **[Troubleshooting Guide](docs/troubleshooting.md)** - Common issues, debugging steps, and recovery procedures
+- **[Migration Guide](docs/migration-guide.md)** - Version upgrades, breaking changes, and compatibility updates
+
+### 📖 Documentation Guide
+
+| Document | Purpose | Target Audience |
+|----------|---------|-----------------|
+| [Setup Guide](docs/setup-guide.md) | Initial installation and configuration | New users, fresh installations |
+| [Workflow Guide](docs/workflow-guide.md) | Daily usage patterns and optimization | Daily users, productivity seekers |
+| [Automation Guide](docs/automation-guide.md) | Advanced automation and monitoring | Power users, system administrators |
+| [Development Notes](docs/development-notes.md) | Customization and development patterns | Developers, contributors |
+| Tool References | Specific application usage and shortcuts | All users (reference material) |
+| [Troubleshooting Guide](docs/troubleshooting.md) | Issue resolution and recovery | Users experiencing problems |
+
+### 🔗 Cross-References
+
+**New to dotfiles?** Start with [Setup Guide](docs/setup-guide.md) → [Architecture](docs/architecture.md) → [Workflow Guide](docs/workflow-guide.md)
+
+**Daily user?** Check [Workflow Guide](docs/workflow-guide.md) and relevant tool references
+
+**Need automation?** See [Automation Guide](docs/automation-guide.md) for comprehensive monitoring and optimization
+
+**Customizing configs?** Read [Development Notes](docs/development-notes.md) and [Quality Assurance](docs/quality-assurance.md)
+
+**Having issues?** Start with [Troubleshooting Guide](docs/troubleshooting.md) or run `./bin/health-check.sh all`
+
+### Meta Documentation
+
+- **[CLAUDE.md](./CLAUDE.md)** - AI assistant guidance for repository development

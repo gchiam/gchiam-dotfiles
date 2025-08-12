@@ -1,16 +1,68 @@
 # Architecture Overview
 
-This document describes the overall architecture and structure of the dotfiles
-repository.
+This document describes the overall architecture and structure of the dotfiles repository.
 
-## Core Structure
+## Navigation
 
-- **`stow/`** - Main configuration directory with 29+ tool configurations
-- **`bin/`** - Setup scripts and utilities
-- **`docs/`** - Comprehensive documentation and reference guides
-- **`external/`** - External dependencies (Catppuccin themes, tmux plugins)
-- **`raycast/`** - Custom Raycast extensions
-- **`terminfo/`** - Terminal compatibility files
+**📖 Documentation:** [← Back to Main README](../README.md) | **🚀 Setup:** [Installation Guide →](setup-guide.md)
+
+**📋 Next Steps:** See [Workflow Guide](workflow-guide.md) for daily usage patterns
+
+---
+
+## Repository Structure Diagram
+
+```
+~/.dotfiles/                          # Main dotfiles repository
+├── 📁 bin/                          # 🔧 Setup and utility scripts
+│   ├── setup*.sh                    #    Installation scripts
+│   ├── health*.sh                   #    Health monitoring
+│   ├── performance*.sh              #    Performance tools
+│   └── auto*.sh                     #    Automation scripts
+├── 📁 docs/                         # 📚 Comprehensive documentation
+│   ├── setup-guide.md              #    Installation procedures
+│   ├── workflow-guide.md            #    Daily usage patterns
+│   ├── automation-guide.md          #    Advanced automation
+│   └── *-reference.md               #    Tool-specific guides
+├── 📁 stow/                         # 🏠 Configuration packages (29+ tools)
+│   ├── nvim/                        #    Neovim (LazyVim)
+│   ├── zsh/                         #    Zsh shell environment
+│   ├── tmux/                        #    Terminal multiplexer
+│   ├── git/                         #    Git configuration
+│   ├── alacritty/, kitty/, wezterm/ #    Terminal emulators
+│   ├── aerospace/                   #    Window manager
+│   └── ...                          #    Other tool configs
+├── 📁 external/                     # 🎨 External dependencies
+│   ├── catppuccin/                  #    Theme configurations
+│   └── tmux-plugins/                #    tmux plugin sources
+├── 📁 raycast/                      # 🚀 Custom Raycast extensions
+└── 📁 terminfo/                     # 🖥️  Terminal compatibility files
+```
+
+## Core Structure Components
+
+### Configuration Management (`stow/`)
+The heart of the dotfiles system - 29+ tool configurations organized as Stow packages:
+
+**🔧 Development Tools**
+- `nvim/` - Neovim with LazyVim distribution
+- `tmux/` - Terminal multiplexer with plugins
+- `git/` - Enhanced git configuration with delta
+- `gh-dash/` - GitHub CLI dashboard
+
+**🐚 Shell & Terminal**
+- `zsh/` - Modular zsh configuration with antidote
+- `alacritty/`, `kitty/`, `wezterm/` - Terminal emulators
+- `starship/` - Cross-shell prompt
+
+**🖥️ macOS Integration**
+- `aerospace/` - Tiling window manager
+- `karabiner/` - Keyboard customization
+- `raycast/` - Application launcher extensions
+
+**📦 Package Management**
+- `brew/` - Homebrew package definitions
+- Custom Brewfiles for work and personal environments
 
 ## Configuration Management
 
