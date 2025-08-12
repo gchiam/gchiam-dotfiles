@@ -65,6 +65,7 @@ For immediate development needs, refer to the appropriate documentation:
 - **Update documentation** when adding new features or changing workflows
 - **Follow established patterns** when adding new configurations
 - **Keep commits atomic** and focused on single logical changes
+- **Reference new documentation** in README.md when creating new documentation files
 
 ### File Locations
 
