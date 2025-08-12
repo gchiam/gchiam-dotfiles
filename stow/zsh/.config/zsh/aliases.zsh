@@ -3,7 +3,7 @@
 # Modern aliases for improved productivity and safety
 
 # Core command improvements
-alias ls='ls --color=auto 2>/dev/null || ls -G'
+ls() { command ls --color=auto "$@" 2>/dev/null || command ls -G "$@"; }
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -185,9 +185,6 @@ fi
 
 # Linux specific aliases
 if [[ "$OSTYPE" == linux* ]]; then
-    alias ll='ls -alF --color=auto'
-    alias la='ls -A --color=auto'
-    alias l='ls -CF --color=auto'
     alias open='xdg-open'
     
     # Package management (detect system)
@@ -280,12 +277,14 @@ alias vimrc='${EDITOR:-vim} ~/.vimrc'
 alias tmuxconf='${EDITOR:-vim} ~/.tmux.conf'
 
 # Modern alternatives (install with package manager)
-command -v exa >/dev/null && {
-    alias ls='exa'
-    alias ll='exa -l --git'
-    alias la='exa -la --git'
-    alias lt='exa -la --sort=modified --git'
-    alias tree='exa --tree'
+command -v eza >/dev/null && {
+    alias ls='eza --color=auto'
+    alias ll='eza -l --git'
+    alias la='eza -la --git'
+    alias l='eza --color=auto'
+    alias lh='eza -lah --git'
+    alias lt='eza -la --sort=modified --git'
+    alias tree='eza --tree'
 }
 
 command -v bat >/dev/null && alias cat='bat --paging=never'
