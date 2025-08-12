@@ -35,6 +35,9 @@ cd ~/.dotfiles
 For selective installation of specific configurations:
 
 ```bash
+# Install all configurations with stow
+./bin/setup-stow.sh
+
 # Install specific tool configurations
 stow -d stow -t ~ nvim    # Neovim config
 stow -d stow -t ~ zsh     # Zsh config
