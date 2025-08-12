@@ -97,6 +97,24 @@ brew bundle --file=~/.Brewfile
 
 ## Advanced Tools
 
+### Automation
+
+```bash
+# Fresh macOS setup (one command installer)
+curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fresh-install.sh | bash
+
+# Auto-sync submodules and commit updates
+./bin/auto-sync.sh sync
+./bin/auto-sync.sh setup-automation  # Enable daily auto-sync
+
+# Configuration validation hooks
+./bin/setup-git-hooks.sh install     # Install pre-commit validation
+
+# Continuous health monitoring
+./bin/health-monitor.sh start        # Start monitoring daemon
+./bin/health-monitor.sh setup-automation  # Auto-start on boot
+```
+
 ### System Optimization
 
 ```bash
@@ -121,6 +139,10 @@ brew bundle --file=~/.Brewfile
 
 # Repository optimization
 ./bin/optimize-repo.sh --analyze
+
+# Health monitoring reports
+./bin/health-monitor.sh report
+./bin/health-monitor.sh logs alerts
 ```
 
 ## Documentation
