@@ -65,8 +65,10 @@ For detailed guidance and references:
   and code quality
 - **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions
   and best practices
-- **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
-  and configuration guide
 - **[AeroSpace Reference](docs/aerospace-reference.md)** - Window manager
   keybindings and workspace setup
+- **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration
+  and keybindings guide
+- **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
+  and configuration guide
 - **[CLAUDE.md](./CLAUDE.md)** - Main guidance document for Claude Code
