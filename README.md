@@ -55,24 +55,33 @@ brew bundle --file=~/.Brewfile
 
 For detailed guidance and references:
 
+### Getting Started
 - **[Setup Guide](docs/setup-guide.md)** - Installation procedures and
   initial configuration
 - **[Architecture](docs/architecture.md)** - Repository structure and
   component overview
+
+### Development Workflow
 - **[Development Notes](docs/development-notes.md)** - Development practices
   and workflow
 - **[Quality Assurance](docs/quality-assurance.md)** - Linting standards
   and code quality
 - **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions
   and best practices
-- **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive
-  guide to all git aliases and commands
-- **[AeroSpace Reference](docs/aerospace-reference.md)** - Window manager
-  keybindings and workspace setup
-- **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration
-  and keybindings guide
-- **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
-  and configuration guide
+
+### Tool References
 - **[Zsh Reference](docs/zsh-reference.md)** - Comprehensive zsh configuration,
   aliases, functions, and keybindings guide
+- **[WezTerm Reference](docs/wezterm-reference.md)** - Complete WezTerm terminal
+  emulator configuration and usage guide
+- **[Tmux Reference](docs/tmux-reference.md)** - Complete tmux keybindings
+  and configuration guide
+- **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration
+  and keybindings guide
+- **[AeroSpace Reference](docs/aerospace-reference.md)** - Window manager
+  keybindings and workspace setup
+- **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive
+  guide to all git aliases and commands
+
+### Meta
 - **[CLAUDE.md](./CLAUDE.md)** - Main guidance document for Claude Code
