@@ -134,3 +134,27 @@ fi
 if command -v oh-my-posh >/dev/null && [[ -f "$HOME/.config/oh-my-posh/oh-my-posh.toml" ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
 fi
+
+# Custom completions setup
+if [[ -d "$HOME/.config/zsh/completions" ]]; then
+    fpath=("$HOME/.config/zsh/completions" $fpath)
+fi
+
+# Load custom dotfiles completions
+if [[ -f "$HOME/.config/zsh/completions/_dotfiles" ]]; then
+    autoload -U _dotfiles
+fi
+
+# Enable completion system
+autoload -U compinit && compinit -d "$HOME/.zcompdump"
+
+# Completion style configuration
+zstyle ':completion:*' menu select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format '%F{purple}-- %d --%f'
+zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'

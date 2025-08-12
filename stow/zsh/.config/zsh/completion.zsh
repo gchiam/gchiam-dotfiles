@@ -257,6 +257,25 @@ if [[ -d "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions" ]]; then
     fpath=("${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions" $fpath)
 fi
 
+# Custom dotfiles script completions
+if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions/_dotfiles" ]]; then
+    autoload -U _dotfiles
+    
+    # Create completion aliases for scripts without .sh extension
+    compdef _dotfiles auto-sync
+    compdef _dotfiles check-compatibility
+    compdef _dotfiles fresh-install
+    compdef _dotfiles health-check
+    compdef _dotfiles health-monitor
+    compdef _dotfiles optimize-repo
+    compdef _dotfiles performance-monitor
+    compdef _dotfiles setup-git-hooks
+    compdef _dotfiles setup-interactive
+    compdef _dotfiles setup-profile
+    compdef _dotfiles setup-stow
+    compdef _dotfiles setup
+fi
+
 # Rebuild completion cache if needed
 if [[ ! -f "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache/.zcompdump" ]]; then
     mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"

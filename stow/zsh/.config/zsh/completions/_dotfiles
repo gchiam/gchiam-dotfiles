@@ -1,0 +1,397 @@
+#compdef auto-sync.sh check-compatibility.sh fresh-install.sh health-check.sh health-monitor.sh optimize-repo.sh performance-monitor.sh setup-git-hooks.sh setup-interactive.sh setup-profile.sh setup-stow.sh setup.sh
+
+# Zsh completion functions for dotfiles scripts
+# This file provides tab completion for all custom dotfiles management scripts
+
+# Common option completions
+_dotfiles_common_options() {
+    local -a options
+    options=(
+        '--help[Show help message]'
+        '-h[Show help message]'
+        '--verbose[Enable verbose output]'
+        '--dry-run[Show what would be done without executing]'
+    )
+    _describe 'common options' options
+}
+
+# Profile completions
+_dotfiles_profiles() {
+    local -a profiles
+    profiles=(
+        'full[Complete installation with all tools]'
+        'minimal[Essential tools only]'
+        'developer[Development-focused setup]'
+        'personal[Personal environment setup]'
+        'work[Work environment setup]'
+        'experimental[Experimental features]'
+        'interactive[Interactive selection]'
+    )
+    _describe 'installation profiles' profiles
+}
+
+# Log type completions
+_dotfiles_log_types() {
+    local -a log_types
+    log_types=(
+        'monitor[Health monitor log]'
+        'alerts[Alert log]'
+        'all[All log types]'
+        'health[Health check log]'
+        'sync[Sync operation log]'
+    )
+    _describe 'log types' log_types
+}
+
+# auto-sync.sh completion
+_auto_sync_sh() {
+    local -a commands
+    commands=(
+        'sync[Run sync process]'
+        'status[Show current sync status]'
+        'setup-automation[Setup automated sync]'
+        'remove-automation[Remove automated sync]'
+        'report[Generate detailed sync report]'
+        'health[Check repository health]'
+    )
+    
+    local -a options
+    options=(
+        '--dry-run[Show what would be done]'
+        '--force[Force sync even if not due]'
+        '--no-commit[Don'\''t auto-commit changes]'
+        '--auto-push[Automatically push changes to remote]'
+        '--interval[Set check interval in days]:days:(1 3 7 14 30)'
+        '--auto[Run in automated mode]'
+    )
+    
+    if (( CURRENT == 2 )); then
+        _alternative \
+            'commands:commands:_describe "commands" commands' \
+            'options:options:_describe "options" options'
+    else
+        case $words[2] in
+            --interval)
+                _message 'days'
+                ;;
+            *)
+                _describe 'options' options
+                ;;
+        esac
+    fi
+}
+
+# check-compatibility.sh completion
+_check_compatibility_sh() {
+    local -a options
+    options=(
+        '--system[Check system information only]'
+        '--macos[Check macOS compatibility only]'
+        '--tools[Check tool compatibility only]'
+        '--report[Generate compatibility report]'
+        '--recommendations[Show installation recommendations]'
+    )
+    
+    _describe 'options' options
+}
+
+# fresh-install.sh completion
+_fresh_install_sh() {
+    local -a options
+    options=(
+        '--profile[Installation profile]:profile:_dotfiles_profiles'
+        '--repo[Custom repository URL]:url:'
+        '--dir[Installation directory]:directory:_directories'
+        '--skip-confirm[Skip confirmation prompts]'
+        '--verbose[Verbose logging output]'
+    )
+    
+    _describe 'options' options
+}
+
+# health-check.sh completion
+_health_check_sh() {
+    local -a commands
+    commands=(
+        'basic[Basic tools check]'
+        'shell[Shell setup check]'
+        'editor[Editor configuration check]'
+        'terminal[Terminal setup check]'
+        'window-manager[Window manager check]'
+        'development[Development tools check]'
+        'all[Complete health check]'
+    )
+    
+    local -a options
+    options=(
+        '--fix[Attempt to fix issues automatically]'
+        '--report[Generate detailed report]'
+        '--quiet[Minimal output]'
+    )
+    
+    if (( CURRENT == 2 )); then
+        _alternative \
+            'commands:commands:_describe "commands" commands' \
+            'options:options:_describe "options" options'
+    else
+        _describe 'options' options
+    fi
+}
+
+# health-monitor.sh completion
+_health_monitor_sh() {
+    local -a commands
+    commands=(
+        'report[Generate one-time health report]'
+        'start[Start continuous monitoring daemon]'
+        'stop[Stop monitoring daemon]'
+        'status[Show monitoring status]'
+        'restart[Restart monitoring daemon]'
+        'setup-automation[Setup automatic monitoring]'
+        'logs[View logs]:log_type:_dotfiles_log_types'
+    )
+    
+    local -a options
+    options=(
+        '--interval[Set monitoring interval]:seconds:(60 300 600 1800 3600)'
+        '--no-alerts[Disable alert notifications]'
+    )
+    
+    if (( CURRENT == 2 )); then
+        _alternative \
+            'commands:commands:_describe "commands" commands' \
+            'options:options:_describe "options" options'
+    else
+        case $words[2] in
+            logs)
+                _dotfiles_log_types
+                ;;
+            --interval)
+                _message 'seconds'
+                ;;
+            *)
+                _describe 'options' options
+                ;;
+        esac
+    fi
+}
+
+# optimize-repo.sh completion
+_optimize_repo_sh() {
+    local -a options
+    options=(
+        '--analyze[Analyze repository size and structure]'
+        '--lfs[Set up Git LFS for binary files]'
+        '--migrate-lfs[Migrate existing binary files to LFS]'
+        '--submodules[Create submodule migration script]'
+        '--cleanup[Clean up repository]'
+        '--all[Run all optimizations]'
+    )
+    
+    _describe 'options' options
+}
+
+# performance-monitor.sh completion
+_performance_monitor_sh() {
+    local -a commands
+    commands=(
+        'startup[Measure shell startup performance]'
+        'profile[Profile shell startup with breakdown]'
+        'system[Monitor system resource usage]'
+        'config[Analyze shell configuration performance]'
+        'plugins[Analyze plugin performance]'
+        'recommendations[Generate optimization recommendations]'
+        'optimize[Create and run optimization script]'
+        'history[View performance measurement history]'
+        'benchmark[Run comprehensive performance benchmark]'
+        'all[Run all monitoring and analysis]'
+    )
+    
+    local -a options
+    options=(
+        '--runs[Number of benchmark runs]:runs:(3 5 10 20)'
+        '--threshold[Startup time warning threshold]:seconds:(1.0 2.0 3.0 5.0)'
+    )
+    
+    if (( CURRENT == 2 )); then
+        _alternative \
+            'commands:commands:_describe "commands" commands' \
+            'options:options:_describe "options" options'
+    else
+        case $words[2] in
+            --runs)
+                _message 'number of runs'
+                ;;
+            --threshold)
+                _message 'seconds'
+                ;;
+            *)
+                _describe 'options' options
+                ;;
+        esac
+    fi
+}
+
+# setup-git-hooks.sh completion
+_setup_git_hooks_sh() {
+    local -a commands
+    commands=(
+        'install[Install all git hooks]'
+        'test[Test installed hooks]'
+        'status[Show hook installation status]'
+        'remove[Remove all installed hooks]'
+        'help[Show help message]'
+    )
+    
+    _describe 'commands' commands
+}
+
+# setup-interactive.sh completion
+_setup_interactive_sh() {
+    local -a options
+    options=(
+        '--profile[Installation profile]:profile:_dotfiles_profiles'
+        '--backup[Create backup before installation]'
+        '--yes[Answer yes to all prompts]'
+        '--categories[Specify categories]:categories:'
+    )
+    
+    _describe 'options' options
+}
+
+# setup-profile.sh completion
+_setup_profile_sh() {
+    local -a commands
+    commands=(
+        'list[List available profiles]'
+        'show[Show profile details]:profile:_dotfiles_profiles'
+        'apply[Apply a profile]:profile:_dotfiles_profiles' 
+        'create[Create new profile]:name:'
+        'delete[Delete a profile]:profile:_dotfiles_profiles'
+        'interactive[Interactive profile selection]'
+        'status[Show current profile status]'
+        'backup[Backup current configuration]'
+        'restore[Restore from backup]:backup:'
+    )
+    
+    local -a options
+    options=(
+        '--force[Force profile application]'
+        '--backup[Create backup before applying]'
+    )
+    
+    if (( CURRENT == 2 )); then
+        _alternative \
+            'commands:commands:_describe "commands" commands' \
+            'options:options:_describe "options" options'
+    else
+        case $words[2] in
+            show|apply|delete)
+                if (( CURRENT == 3 )); then
+                    _dotfiles_profiles
+                fi
+                ;;
+            create)
+                if (( CURRENT == 3 )); then
+                    _message 'profile name'
+                fi
+                ;;
+            restore)
+                if (( CURRENT == 3 )); then
+                    local -a backups
+                    backups=($(ls ~/.dotfiles-backup-* 2>/dev/null | xargs -n 1 basename 2>/dev/null || true))
+                    _describe 'backups' backups
+                fi
+                ;;
+            *)
+                _describe 'options' options
+                ;;
+        esac
+    fi
+}
+
+# setup-stow.sh completion
+_setup_stow_sh() {
+    local -a stow_packages
+    # Get available stow packages dynamically
+    if [[ -d "$HOME/.dotfiles/stow" ]]; then
+        stow_packages=($(ls -1 ~/.dotfiles/stow/ 2>/dev/null))
+    fi
+    
+    local -a options
+    options=(
+        '--target[Target directory]:directory:_directories'
+        '--simulate[Simulate stow operations]'
+        '--verbose[Verbose output]'
+        '--restow[Restow existing packages]'
+        '--delete[Delete stowed packages]'
+    )
+    
+    if (( CURRENT >= 2 )); then
+        _alternative \
+            'packages:stow packages:_describe "stow packages" stow_packages' \
+            'options:options:_describe "options" options'
+    fi
+}
+
+# setup.sh completion
+_setup_sh() {
+    local -a options
+    options=(
+        '--force[Force installation even if already configured]'
+        '--skip-brew[Skip Homebrew installation]'
+        '--skip-stow[Skip stow configuration]'
+        '--profile[Installation profile]:profile:_dotfiles_profiles'
+    )
+    
+    _describe 'options' options
+}
+
+# Main completion dispatcher
+_dotfiles() {
+    local script_name="${words[1]:t}"
+    
+    case "$script_name" in
+        auto-sync.sh|auto-sync)
+            _auto_sync_sh
+            ;;
+        check-compatibility.sh|check-compatibility)
+            _check_compatibility_sh
+            ;;
+        fresh-install.sh|fresh-install)
+            _fresh_install_sh
+            ;;
+        health-check.sh|health-check)
+            _health_check_sh
+            ;;
+        health-monitor.sh|health-monitor)
+            _health_monitor_sh
+            ;;
+        optimize-repo.sh|optimize-repo)
+            _optimize_repo_sh
+            ;;
+        performance-monitor.sh|performance-monitor)
+            _performance_monitor_sh
+            ;;
+        setup-git-hooks.sh|setup-git-hooks)
+            _setup_git_hooks_sh
+            ;;
+        setup-interactive.sh|setup-interactive)
+            _setup_interactive_sh
+            ;;
+        setup-profile.sh|setup-profile)
+            _setup_profile_sh
+            ;;
+        setup-stow.sh|setup-stow)
+            _setup_stow_sh
+            ;;
+        setup.sh|setup)
+            _setup_sh
+            ;;
+        *)
+            _dotfiles_common_options
+            ;;
+    esac
+}
+
+# The completion function is registered via compdef in completion.zsh

@@ -183,6 +183,8 @@ For detailed guidance and references:
   keybindings and workspace setup
 - **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive
   guide to all git aliases and commands
+- **[Shell Completions](docs/shell-completions.md)** - Tab completion system
+  for all custom dotfiles scripts
 
 ### Meta
 
