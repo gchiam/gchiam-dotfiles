@@ -15,13 +15,21 @@ cd ~/.dotfiles
 
 ## What's Included
 
-- **Shell**: [Zsh](https://github.com/zsh-users/zsh) with [antidote](https://github.com/mattmc3/antidote) plugin manager
-- **Editor**: [Neovim](https://github.com/neovim/neovim) ([LazyVim](https://github.com/LazyVim/LazyVim) distribution)
-- **Terminal**: [Alacritty](https://github.com/alacritty/alacritty), [Kitty](https://github.com/kovidgoyal/kitty), [WezTerm](https://github.com/wez/wezterm) configurations
-- **Window Management**: [AeroSpace](https://github.com/nikitabobko/AeroSpace) tiling window manager
-- **Package Management**: [Homebrew](https://github.com/Homebrew/brew) with curated package lists
-- **Git**: Enhanced with [delta](https://github.com/dandavison/delta) for better diffs
-- **Theming**: Consistent [Catppuccin](https://github.com/catppuccin/catppuccin) color scheme across all tools
+- **Shell**: [Zsh](https://github.com/zsh-users/zsh) with
+  [antidote](https://github.com/mattmc3/antidote) plugin manager
+- **Editor**: [Neovim](https://github.com/neovim/neovim)
+  ([LazyVim](https://github.com/LazyVim/LazyVim) distribution)
+- **Terminal**: [Alacritty](https://github.com/alacritty/alacritty),
+  [Kitty](https://github.com/kovidgoyal/kitty),
+  [WezTerm](https://github.com/wez/wezterm) configurations
+- **Window Management**: [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+  tiling window manager
+- **Package Management**: [Homebrew](https://github.com/Homebrew/brew) with
+  curated package lists
+- **Git**: Enhanced with [delta](https://github.com/dandavison/delta) for
+  better diffs
+- **Theming**: Consistent [Catppuccin](https://github.com/catppuccin/catppuccin)
+  color scheme across all tools
 
 ## Key Features
 
