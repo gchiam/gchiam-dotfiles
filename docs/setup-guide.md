@@ -1,14 +1,18 @@
 # Setup Guide
 
-This comprehensive guide covers installation and setup procedures for the dotfiles repository, from initial setup to advanced configuration.
+This comprehensive guide covers installation and setup procedures for the
+dotfiles repository, from initial setup to advanced configuration.
 
 ## Navigation
 
-**📖 Documentation:** [← Back to Main README](../README.md) | **🏗️ Architecture:** [Repository Structure →](architecture.md)
+**📖 Documentation:** [← Back to Main README](../README.md) |
+**🏗️ Architecture:** [Repository Structure →](architecture.md)
 
-**🔄 Next Steps:** After setup, see [Workflow Guide](workflow-guide.md) for daily usage patterns
+**🔄 Next Steps:** After setup, see [Workflow Guide](workflow-guide.md) for
+daily usage patterns
 
-**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md) for common problems
+**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md)
+for common problems
 
 ---
 
@@ -117,7 +121,7 @@ git config --global user.email "your.email@example.com"
 
 ### Configuration Locations
 
-```
+```text
 ~/.config/                    # Modern XDG-compliant configurations
 ├── zsh/                     # Zsh shell configuration
 ├── nvim/                    # Neovim editor configuration
@@ -141,7 +145,7 @@ git config --global user.email "your.email@example.com"
 
 ### Repository Structure
 
-```
+```text
 ~/.dotfiles/
 ├── bin/                     # Setup and utility scripts
 ├── docs/                    # Comprehensive documentation
@@ -157,7 +161,7 @@ git config --global user.email "your.email@example.com"
 
 ### Log and Cache Locations
 
-```
+```text
 ~/.local/log/               # Service logs and debugging
 ~/.cache/                   # Application caches
 ~/.local/share/             # Application data
@@ -168,11 +172,13 @@ git config --global user.email "your.email@example.com"
 
 If you encounter issues during setup:
 
-1. **Check the [Troubleshooting Guide](troubleshooting.md)** for common issues and solutions
+1. **Check the [Troubleshooting Guide](troubleshooting.md)** for common issues
+   and solutions
 2. **Run health check**: `./bin/health-check.sh all`
 3. **Check compatibility**: `./bin/check-compatibility.sh --report`
 4. **View logs**: Check `~/.local/log/` for detailed error information
-5. **Reset if needed**: Use `./bin/setup-interactive.sh --backup` to create backups before trying fixes
+5. **Reset if needed**: Use `./bin/setup-interactive.sh --backup` to create
+   backups before trying fixes
 
 ## Next Steps
 

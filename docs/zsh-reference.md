@@ -167,7 +167,9 @@ news='curl getnews.tech'           # Tech news
 moon='curl wttr.in/moon'           # Moon phase
 ```
 
-**Note:** These plugin aliases take precedence over custom functions with the same names. Custom functions `weather()` and `serve()` were removed to avoid conflicts.
+**Note:** These plugin aliases take precedence over custom functions with
+the same names. Custom functions `weather()` and `serve()` were removed to
+avoid conflicts.
 
 ## Aliases Reference
 
@@ -659,9 +661,10 @@ The configuration sources these files if they exist:
 
 ### Alias/Function Conflicts
 
-When plugins provide aliases that conflict with custom functions, you may see errors like:
+When plugins provide aliases that conflict with custom functions, you may
+see errors like:
 
-```
+```text
 defining function based on alias 'curl'
 parse error near '()'
 ```
@@ -669,6 +672,7 @@ parse error near '()'
 **Solutions:**
 
 1. **Use command builtin** in functions:
+
    ```bash
    # Instead of: curl -s "..."
    # Use:
@@ -676,6 +680,7 @@ parse error near '()'
    ```
 
 2. **Unalias before function definition**:
+
    ```bash
    unalias curl 2>/dev/null || true
    my_function() {

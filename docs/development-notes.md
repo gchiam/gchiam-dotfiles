@@ -52,6 +52,7 @@ The zsh system supports different environments:
 Before committing changes:
 
 1. **Test configurations in a clean environment**
+
    ```bash
    # Create a test environment
    docker run -it --rm -v ~/.dotfiles:/dotfiles ubuntu:latest bash
@@ -59,6 +60,7 @@ Before committing changes:
    ```
 
 2. **Run appropriate linting tools**
+
    ```bash
    # Shell scripts
    shellcheck bin/*.sh
@@ -74,6 +76,7 @@ Before committing changes:
    ```
 
 3. **Verify symlinks are created correctly**
+
    ```bash
    # Check stow operations
    stow -n -d stow -t ~ <directory>  # Dry run first
@@ -81,6 +84,7 @@ Before committing changes:
    ```
 
 4. **Test application configurations**
+
    ```bash
    # Test zsh configuration
    zsh -n ~/.zshrc                   # Syntax check
@@ -96,6 +100,7 @@ Before committing changes:
    ```
 
 5. **Check for breaking changes**
+
    ```bash
    # Run health check after changes
    ./bin/health-check.sh all
@@ -218,6 +223,7 @@ done
 For new tool configurations in `stow/`:
 
 1. **Create directory structure**:
+
    ```bash
    mkdir -p stow/new-tool/.config/new-tool
    ```
@@ -229,11 +235,13 @@ For new tool configurations in `stow/`:
    - State: `~/.local/state/tool/`
 
 3. **Include tool in package management**:
+
    ```bash
    echo 'brew "new-tool"' >> ~/.Brewfile
    ```
 
 4. **Add to setup scripts if needed**:
+
    ```bash
    # In setup-stow.sh or similar
    stow -d stow -t ~ new-tool
@@ -262,7 +270,7 @@ raycast build --validate
 
 ## Integration Patterns
 
-### Environment-Specific Configurations
+### Runtime Environment Configurations
 
 ```bash
 # In zsh configuration

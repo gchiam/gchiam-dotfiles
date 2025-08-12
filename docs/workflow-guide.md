@@ -1,20 +1,27 @@
 # Workflow Guide
 
-This guide covers common workflows and daily usage patterns for the dotfiles environment, including development workflows, maintenance routines, and optimization strategies.
+This guide covers common workflows and daily usage patterns for the
+dotfiles environment, including development workflows, maintenance routines,
+and optimization strategies.
 
 ## Navigation
 
-**📖 Documentation:** [← Back to Main README](../README.md) | **🚀 Setup:** [← Installation Guide](setup-guide.md) | **🤖 Automation:** [Advanced Automation →](automation-guide.md)
+**📖 Documentation:** [← Back to Main README](../README.md) |
+**🚀 Setup:** [← Installation Guide](setup-guide.md) |
+**🤖 Automation:** [Advanced Automation →](automation-guide.md)
 
-**🔧 Tool References:** [Neovim](neovim-reference.md) | [tmux](tmux-reference.md) | [Zsh](zsh-reference.md) | [AeroSpace](aerospace-reference.md)
+**🔧 Tool References:** [Neovim](neovim-reference.md) |
+[tmux](tmux-reference.md) | [Zsh](zsh-reference.md) |
+[AeroSpace](aerospace-reference.md)
 
-**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md) for problem resolution
+**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md)
+for problem resolution
 
 ---
 
 ## Daily Development Workflow Overview
 
-```
+```text
 🌅 Morning Routine          📊 Development Session       🌙 Evening Wrap-up
 ├── Health Check            ├── Project Setup            ├── Performance Review
 ├── Repository Sync         ├── tmux Session             ├── Automation Status  
@@ -427,23 +434,27 @@ git submodule update --remote --merge
 ### Standard Troubleshooting Process
 
 1. **Identify the Issue**
+
    ```bash
    ./bin/health-check.sh all --verbose
    ```
 
 2. **Check Recent Changes**
+
    ```bash
    git log --oneline -10                 # Recent commits
    ./bin/auto-sync.sh report             # Recent sync operations
    ```
 
 3. **Review Logs**
+
    ```bash
    tail -f ~/.local/log/dotfiles/*.log   # Monitor live logs
    grep -i error ~/.local/log/dotfiles/* # Find error messages
    ```
 
 4. **Test Components Individually**
+
    ```bash
    zsh -n ~/.zshrc                       # Test zsh config
    tmux -f ~/.tmux.conf new-session -d -s test # Test tmux config
@@ -451,12 +462,14 @@ git submodule update --remote --merge
    ```
 
 5. **Apply Fixes**
+
    ```bash
    ./bin/health-check.sh component --fix # Automated fixes
    # Or manual fixes based on error messages
    ```
 
 6. **Verify Resolution**
+
    ```bash
    ./bin/health-check.sh all             # Confirm fix
    ```
@@ -540,4 +553,6 @@ if [[ -n "$SSH_CONNECTION" ]]; then
 fi
 ```
 
-This workflow guide provides comprehensive coverage of daily usage patterns and optimization strategies for the dotfiles environment, enabling users to work efficiently and maintain their development environment effectively.
+This workflow guide provides comprehensive coverage of daily usage patterns
+and optimization strategies for the dotfiles environment, enabling users to
+work efficiently and maintain their development environment effectively.

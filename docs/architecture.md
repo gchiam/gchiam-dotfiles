@@ -1,18 +1,21 @@
 # Architecture Overview
 
-This document describes the overall architecture and structure of the dotfiles repository.
+This document describes the overall architecture and structure of the
+dotfiles repository.
 
 ## Navigation
 
-**📖 Documentation:** [← Back to Main README](../README.md) | **🚀 Setup:** [Installation Guide →](setup-guide.md)
+**📖 Documentation:** [← Back to Main README](../README.md) |
+**🚀 Setup:** [Installation Guide →](setup-guide.md)
 
-**📋 Next Steps:** See [Workflow Guide](workflow-guide.md) for daily usage patterns
+**📋 Next Steps:** See [Workflow Guide](workflow-guide.md) for daily
+usage patterns
 
 ---
 
 ## Repository Structure Diagram
 
-```
+```text
 ~/.dotfiles/                          # Main dotfiles repository
 ├── 📁 bin/                          # 🔧 Setup and utility scripts
 │   ├── setup*.sh                    #    Installation scripts
@@ -42,25 +45,31 @@ This document describes the overall architecture and structure of the dotfiles r
 ## Core Structure Components
 
 ### Configuration Management (`stow/`)
-The heart of the dotfiles system - 29+ tool configurations organized as Stow packages:
 
-**🔧 Development Tools**
+The heart of the dotfiles system - 29+ tool configurations organized as
+Stow packages:
+
+#### 🔧 Development Tools
+
 - `nvim/` - Neovim with LazyVim distribution
 - `tmux/` - Terminal multiplexer with plugins
 - `git/` - Enhanced git configuration with delta
 - `gh-dash/` - GitHub CLI dashboard
 
-**🐚 Shell & Terminal**
+#### 🐚 Shell & Terminal
+
 - `zsh/` - Modular zsh configuration with antidote
 - `alacritty/`, `kitty/`, `wezterm/` - Terminal emulators
 - `starship/` - Cross-shell prompt
 
-**🖥️ macOS Integration**
+#### 🖥️ macOS Integration
+
 - `aerospace/` - Tiling window manager
 - `karabiner/` - Keyboard customization
 - `raycast/` - Application launcher extensions
 
-**📦 Package Management**
+#### 📦 Package Management
+
 - `brew/` - Homebrew package definitions
 - Custom Brewfiles for work and personal environments
 
@@ -73,10 +82,12 @@ location in `$HOME` during setup.
 ## Key Configuration Categories
 
 - **Development**: `nvim/`, `tmux/`, `git/`, `gh-dash/`
-- **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`, `starship/`
+- **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`,
+  `starship/`
 - **macOS Tools**: `aerospace/`, `karabiner/`, `raycast/`
 - **Package Management**: `brew/` with main and work-specific Brewfiles
-- **Scripts**: `custom-bin/` with enhanced utilities for Docker, colors, macOS
+- **Scripts**: `custom-bin/` with enhanced utilities for Docker, colors,
+  macOS
 
 ## Enhanced Script Management
 

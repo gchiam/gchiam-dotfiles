@@ -9,6 +9,7 @@ This guide covers common issues and solutions when setting up and using the dotf
 **Problem**: `stow: command not found` when running setup scripts.
 
 **Solution**:
+
 ```bash
 # Install via Homebrew
 brew install stow
@@ -23,6 +24,7 @@ sudo yum install stow      # CentOS/RHEL
 **Problem**: Permission denied when creating symlinks or running scripts.
 
 **Solutions**:
+
 ```bash
 # Make scripts executable
 chmod +x bin/*.sh
@@ -38,6 +40,7 @@ sudo chown -R $USER:$USER ~/.dotfiles
 **Problem**: `stow: WARNING! stowing ... would cause conflicts`
 
 **Solutions**:
+
 ```bash
 # Remove conflicting files/directories first
 rm ~/.zshrc  # or move to backup
@@ -54,6 +57,7 @@ stow -R -d stow -t ~ zsh
 **Problem**: Brew bundle fails or packages can't be installed.
 
 **Solutions**:
+
 ```bash
 # Update Homebrew first
 brew update && brew upgrade
@@ -72,6 +76,7 @@ brew bundle --file=~/.Brewfile --no-upgrade
 **Problem**: Zsh starts but custom configurations don't load.
 
 **Diagnostic**:
+
 ```bash
 # Check if .zshrc exists and is linked correctly
 ls -la ~/.zshrc
@@ -82,6 +87,7 @@ zsh -x ~/.zshrc  # Debug loading (verbose)
 ```
 
 **Solutions**:
+
 - Ensure antidote is installed: `brew install antidote`
 - Reload shell: `exec zsh` or restart terminal
 - Check for syntax errors in configuration files
@@ -91,6 +97,7 @@ zsh -x ~/.zshrc  # Debug loading (verbose)
 **Problem**: Zsh takes a long time to start.
 
 **Diagnostic**:
+
 ```bash
 # Profile startup time
 time zsh -i -c exit
@@ -101,6 +108,7 @@ echo 'zmodload zsh/zprof' >> ~/.zshrc.local
 ```
 
 **Solutions**:
+
 - Disable unused plugins in antidote configuration
 - Use lazy loading for heavy plugins
 - Move expensive operations to background jobs
@@ -110,6 +118,7 @@ echo 'zmodload zsh/zprof' >> ~/.zshrc.local
 **Problem**: Antidote plugins fail to install or load.
 
 **Solutions**:
+
 ```bash
 # Update antidote
 brew upgrade antidote
@@ -128,6 +137,7 @@ antidote bundle < ~/.config/antidote/.zsh_plugins.txt > ~/.config/antidote/.zsh_
 **Problem**: Colors don't display correctly in terminal.
 
 **Solutions**:
+
 ```bash
 # Test true color support
 curl -s https://raw.githubusercontent.com/JohnMorales/dotfiles/master/colors/24-bit-color.sh | bash
@@ -144,6 +154,7 @@ tic ~/.dotfiles/terminfo/tmux-256color.terminfo
 **Problem**: Powerline symbols or icons don't display correctly.
 
 **Solutions**:
+
 - Install a Nerd Font: `brew install --cask font-fira-code-nerd-font`
 - Configure terminal to use the Nerd Font
 - For Alacritty: Check `font.normal.family` in config
@@ -154,6 +165,7 @@ tic ~/.dotfiles/terminfo/tmux-256color.terminfo
 **Problem**: Alacritty, Kitty, or WezTerm fails to launch.
 
 **Solutions**:
+
 ```bash
 # Check configuration syntax
 alacritty --print-events  # Test Alacritty config
@@ -175,6 +187,7 @@ alacritty  # Should work with defaults
 **Problem**: Neovim fails to start or shows errors.
 
 **Solutions**:
+
 ```bash
 # Check for Lua syntax errors
 nvim --headless -c 'lua print("Config OK")' -c 'qa'
@@ -193,6 +206,7 @@ nvim --clean
 **Problem**: Git aliases or delta integration not working.
 
 **Solutions**:
+
 ```bash
 # Verify git config
 git config --list | grep -E "(alias|delta)"
@@ -209,6 +223,7 @@ brew reinstall git-delta
 **Problem**: tmux plugins don't load or TPM fails.
 
 **Solutions**:
+
 ```bash
 # Ensure TPM is installed
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -227,6 +242,7 @@ tmux source-file ~/.tmux.conf
 **Problem**: AeroSpace window manager not working.
 
 **Solutions**:
+
 ```bash
 # Check if AeroSpace is running
 ps aux | grep -i aerospace
@@ -243,7 +259,9 @@ aerospace --restart-config
 **Problem**: Keyboard modifications not working.
 
 **Solutions**:
-- Ensure Karabiner-Elements has necessary permissions in System Preferences
+
+- Ensure Karabiner-Elements has necessary permissions in
+  System Preferences
 - Check configuration: `~/.config/karabiner/karabiner.json`
 - Restart Karabiner-Elements from menu bar
 
@@ -252,6 +270,7 @@ aerospace --restart-config
 **Problem**: "App can't be opened because it is from an unidentified developer"
 
 **Solutions**:
+
 ```bash
 # Remove quarantine attribute
 xattr -r -d com.apple.quarantine /path/to/app
@@ -267,6 +286,7 @@ sudo spctl --master-disable
 **Problem**: Terminal or shell using excessive CPU.
 
 **Diagnostic**:
+
 ```bash
 # Check running processes
 top -o cpu
@@ -279,6 +299,7 @@ fs_usage -w -f filesystem | grep -E "(zsh|tmux|nvim)"
 ```
 
 **Solutions**:
+
 - Disable resource-intensive plugins
 - Reduce prompt complexity
 - Use `lazy` loading for plugins
@@ -288,6 +309,7 @@ fs_usage -w -f filesystem | grep -E "(zsh|tmux|nvim)"
 **Problem**: Applications using too much memory.
 
 **Solutions**:
+
 - Restart terminal sessions periodically
 - Reduce tmux scrollback buffer size
 - Close unused Neovim buffers
@@ -330,6 +352,7 @@ fi
 ### Health Check
 
 Always start troubleshooting with the health check:
+
 ```bash
 ~/.dotfiles/bin/health-check.sh
 ```
@@ -337,6 +360,7 @@ Always start troubleshooting with the health check:
 ### Debug Mode
 
 Run setup scripts with debug output:
+
 ```bash
 bash -x ~/.dotfiles/bin/setup.sh
 ```
@@ -344,6 +368,7 @@ bash -x ~/.dotfiles/bin/setup.sh
 ### Log Files
 
 Check these locations for error logs:
+
 - Shell: `~/.zsh_history`, `~/.bash_history`
 - tmux: `~/.tmux.log` (if logging enabled)
 - Neovim: `:messages` command, `~/.cache/nvim/`

@@ -4,7 +4,9 @@ This guide helps you upgrade between major changes in the dotfiles repository.
 
 ## Overview
 
-The dotfiles repository evolves over time with new features, tool updates, and structural changes. This guide provides step-by-step instructions for migrating between major versions safely.
+The dotfiles repository evolves over time with new features, tool updates,
+and structural changes. This guide provides step-by-step instructions for
+migrating between major versions safely.
 
 ## Before You Start
 
@@ -117,6 +119,7 @@ cd ~/.dotfiles
 ### Migration to Interactive Setup (v2.0+)
 
 **What Changed:**
+
 - New interactive setup system
 - Profile-based configurations
 - Enhanced backup functionality
@@ -124,6 +127,7 @@ cd ~/.dotfiles
 **Migration Steps:**
 
 1. **Update to new setup system:**
+
    ```bash
    # Old way (deprecated)
    ./bin/setup.sh
@@ -133,6 +137,7 @@ cd ~/.dotfiles
    ```
 
 2. **Configure profiles:**
+
    ```bash
    # Set up environment profile
    ./bin/setup-profile.sh list
@@ -146,6 +151,7 @@ cd ~/.dotfiles
 ### Migration to Git LFS (v3.0+)
 
 **What Changed:**
+
 - Binary assets moved to Git LFS
 - External dependencies prepared for submodules
 - Repository size optimization
@@ -153,16 +159,19 @@ cd ~/.dotfiles
 **Migration Steps:**
 
 1. **Install Git LFS:**
+
    ```bash
    brew install git-lfs
    ```
 
 2. **Run repository optimization:**
+
    ```bash
    ./bin/optimize-repo.sh --all
    ```
 
 3. **Update working copy:**
+
    ```bash
    git pull origin main
    git lfs pull  # Download LFS assets
@@ -171,6 +180,7 @@ cd ~/.dotfiles
 ### Migration to Enhanced Documentation (v4.0+)
 
 **What Changed:**
+
 - Comprehensive troubleshooting guide
 - Version compatibility checks
 - Migration guides (this document)
@@ -182,6 +192,7 @@ cd ~/.dotfiles
    - New troubleshooting: `docs/troubleshooting.md`
 
 2. **Use new diagnostic tools:**
+
    ```bash
    # New compatibility checker
    ./bin/check-compatibility.sh
@@ -195,31 +206,37 @@ cd ~/.dotfiles
 ### Configuration File Locations
 
 **Old Structure:**
-```
+
+```text
 ~/.zshrc (single file)
 ~/.tmux.conf (single file)
 ~/.gitconfig (single file)
 ```
 
 **New Structure:**
-```
+
+```text
 ~/.config/zsh/.zshrc (modular)
 ~/.config/tmux/tmux.conf (modular)
 ~/.gitconfig + ~/.gitconfig.profile (profile support)
 ```
 
 **Migration:**
+
 Most changes are handled automatically by stow, but check for:
+
 - Custom additions to old config files
 - Profile-specific settings that need migration
 
 ### Environment Variables
 
 **Changed Variables:**
+
 - `ZDOTDIR` now points to `~/.config/zsh`
 - Profile-specific variables in `~/.zshrc.local`
 
 **Migration:**
+
 ```bash
 # Check for conflicting environment variables
 env | grep -E "(ZDOTDIR|ZSH)"
@@ -235,6 +252,7 @@ env | grep -E "(ZDOTDIR|ZSH)"
 **New:** Modular configuration in `~/.config/zsh/`
 
 **Migration:**
+
 ```bash
 # If you have custom ~/.zshrc additions
 cp ~/.zshrc ~/.zshrc.custom.backup
@@ -250,6 +268,7 @@ cp ~/.zshrc ~/.zshrc.custom.backup
 **New:** `~/.config/tmux/tmux.conf`
 
 **Migration:**
+
 ```bash
 # Backup custom tmux settings
 if [[ -f ~/.tmux.conf.local ]]; then
@@ -265,6 +284,7 @@ fi
 **New:** Main config + profile-specific configs
 
 **Migration:**
+
 ```bash
 # Your existing ~/.gitconfig will be preserved
 # New profile system adds ~/.gitconfig.profile
@@ -312,6 +332,7 @@ find ~ -name "*.backup.*" -mtime +30 -ls
 ### Common Issues
 
 #### Stow Conflicts
+
 ```bash
 # Error: "WARNING! stowing would cause conflicts"
 # Solution: Remove conflicting files first
@@ -320,6 +341,7 @@ rm ~/.zshrc  # or move to backup
 ```
 
 #### Profile Not Loading
+
 ```bash
 # Check profile status
 ./bin/setup-profile.sh status
@@ -332,6 +354,7 @@ zsh -n ~/.zshrc.local
 ```
 
 #### Missing Tools
+
 ```bash
 # Check what's missing
 ./bin/health-check.sh
@@ -341,6 +364,7 @@ brew bundle install --file=~/.Brewfile
 ```
 
 #### Permission Issues
+
 ```bash
 # Fix ownership
 sudo chown -R $USER:$USER ~/.dotfiles ~/.config
@@ -492,4 +516,5 @@ git reset --hard [previous-commit-hash]
 ./bin/setup-interactive.sh
 ```
 
-This migration guide will be updated with each major version to include specific instructions for new changes and features.
+This migration guide will be updated with each major version to include
+specific instructions for new changes and features.

@@ -1,20 +1,26 @@
 # Automation Guide
 
-This guide covers the comprehensive automation features available in the dotfiles repository, including health monitoring, auto-sync, performance optimization, and maintenance scheduling.
+This guide covers the comprehensive automation features available in the
+dotfiles repository, including health monitoring, auto-sync, performance
+optimization, and maintenance scheduling.
 
 ## Navigation
 
-**📖 Documentation:** [← Back to Main README](../README.md) | **📋 Workflows:** [← Daily Workflows](workflow-guide.md) | **⚙️ Development:** [Development Notes →](development-notes.md)
+**📖 Documentation:** [← Back to Main README](../README.md) |
+**📋 Workflows:** [← Daily Workflows](workflow-guide.md) |
+**⚙️ Development:** [Development Notes →](development-notes.md)
 
-**🔧 References:** [Shell Completions](shell-completions.md) | [Git Aliases](git-aliases-reference.md)
+**🔧 References:** [Shell Completions](shell-completions.md) |
+[Git Aliases](git-aliases-reference.md)
 
-**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md) for automation problems
+**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md)
+for automation problems
 
 ---
 
 ## Automation System Architecture
 
-```
+```text
 🔄 Automation Layer                     📊 Monitoring & Feedback
 ├── 🏥 Health Monitoring               ├── 📈 Performance Metrics
 │   ├── health-check.sh               │   ├── Shell startup times
@@ -45,6 +51,7 @@ This guide covers the comprehensive automation features available in the dotfile
 ## System Overview
 
 The dotfiles repository includes several automation systems designed to:
+
 - **🏥 Maintain system health and performance** through continuous monitoring
 - **🔄 Keep configurations and dependencies up to date** with auto-sync
 - **📊 Monitor and optimize resource usage** with performance analysis
@@ -55,7 +62,8 @@ The dotfiles repository includes several automation systems designed to:
 
 ### Overview
 
-The health monitoring system continuously checks the status of your development environment and provides automated fixes for common issues.
+The health monitoring system continuously checks the status of your
+development environment and provides automated fixes for common issues.
 
 ### Components
 
@@ -119,9 +127,10 @@ export HEALTH_ALERT_LEVEL="warning"  # info, warning, error, critical
 
 ## Auto-Sync System
 
-### Overview
+### Auto-Sync Overview
 
-The auto-sync system automatically maintains git submodules, updates external dependencies, and commits configuration changes.
+The auto-sync system automatically maintains git submodules, updates
+external dependencies, and commits configuration changes.
 
 ### Features
 
@@ -131,7 +140,7 @@ The auto-sync system automatically maintains git submodules, updates external de
 - Remote repository synchronization
 - Conflict resolution and backup creation
 
-### Setup
+### Auto-Sync Setup
 
 #### Basic Auto-Sync
 
@@ -180,11 +189,13 @@ export AUTO_SYNC_CREATE_BACKUP=1   # Create backups before changes
 
 ## Performance Monitoring
 
-### Overview
+### Performance Overview
 
-The performance monitoring system tracks system resource usage, shell startup times, and application performance to identify optimization opportunities.
+The performance monitoring system tracks system resource usage, shell
+startup times, and application performance to identify optimization
+opportunities.
 
-### Features
+### Performance Features
 
 - Shell startup time analysis
 - System resource monitoring
@@ -193,7 +204,7 @@ The performance monitoring system tracks system resource usage, shell startup ti
 - Automated optimization recommendations
 - Performance history tracking
 
-### Usage
+### Performance Usage
 
 #### Performance Analysis
 
@@ -246,11 +257,12 @@ export PERF_OPTIMIZE_PATH=1          # Optimize PATH variable
 
 ## Repository Optimization
 
-### Overview
+### Repository Overview
 
-The repository optimization system maintains the git repository structure, manages large files, and optimizes storage usage.
+The repository optimization system maintains the git repository structure,
+manages large files, and optimizes storage usage.
 
-### Features
+### Repository Features
 
 - Repository size and structure analysis
 - Git LFS setup and migration
@@ -258,7 +270,7 @@ The repository optimization system maintains the git repository structure, manag
 - Submodule optimization
 - Repository cleanup and maintenance
 
-### Usage
+### Repository Usage
 
 #### Analysis and Reporting
 
@@ -291,11 +303,12 @@ The repository optimization system maintains the git repository structure, manag
 
 ## Git Hooks Automation
 
-### Overview
+### Git Hooks Overview
 
-Automated git hooks provide continuous validation of configurations, code quality checks, and automated maintenance tasks.
+Automated git hooks provide continuous validation of configurations, code
+quality checks, and automated maintenance tasks.
 
-### Features
+### Git Hooks Features
 
 - Pre-commit configuration validation
 - Automatic linting and formatting
@@ -303,7 +316,7 @@ Automated git hooks provide continuous validation of configurations, code qualit
 - Performance regression detection
 - Documentation generation
 
-### Setup
+### Git Hooks Setup
 
 ```bash
 # Install all git hooks
@@ -437,6 +450,7 @@ export ALERT_MIN_LEVEL="warning"  # info, warning, error, critical
 ### Common Issues
 
 1. **Permission denied errors**
+
    ```bash
    # Fix script permissions
    chmod +x bin/*.sh
@@ -446,6 +460,7 @@ export ALERT_MIN_LEVEL="warning"  # info, warning, error, critical
    ```
 
 2. **Automation not running**
+
    ```bash
    # Check LaunchAgent status
    launchctl list | grep com.user
@@ -456,6 +471,7 @@ export ALERT_MIN_LEVEL="warning"  # info, warning, error, critical
    ```
 
 3. **High resource usage**
+
    ```bash
    # Enable minimal mode
    export AUTOMATION_MINIMAL_MODE=1
@@ -560,4 +576,6 @@ send_email() {
 }
 ```
 
-This automation guide provides comprehensive coverage of all automation features available in the dotfiles repository, enabling users to set up and customize automation according to their specific needs and environment.
+This automation guide provides comprehensive coverage of all automation features
+available in the dotfiles repository, enabling users to set up and customize
+automation according to their specific needs and environment.
