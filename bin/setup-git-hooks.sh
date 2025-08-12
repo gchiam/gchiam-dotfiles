@@ -338,13 +338,15 @@ if [[ "$commit_msg" =~ ^Revert ]]; then
 fi
 
 # Check for conventional commit format (with emoji)
-if [[ "$commit_msg" =~ ^(🎉|✨|🐛|📚|🔧|⚡|🎨|♻️|🔥|💚|👷|📝|⬆️|🔖|🚨|🌐|💄|🍱|♿|💬|🗃️|🔊|🔇|📱|🏗️|⚙️|🔩|💫|🗑️|🚑️|💥|🔒️|🔐|📦️|🏷️|🔀|📄|⚗️|🏁|🩹|🧐|⚰️|🧪|👔|💡|🍻|💬|🔍️|⚡️|🚚|🔧|🔨)[[:space:]]*(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .+ ]]; then
+emoji_pattern="^[🎉✨🐛📚🔧⚡🎨♻️🔥💚👷📝⬆️🔖🚨🌐💄🍱♿💬🗃️🔊🔇📱🏗️⚙️🔩💫🗑️🚑️💥🔒️🔐📦️🏷️🔀📄⚗️🏁🩹🧐⚰️🧪👔💡🍻💬🔍️⚡️🚚🔧🔨][[:space:]]*(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .+"
+if [[ "$commit_msg" =~ $emoji_pattern ]]; then
     print_success "Commit message follows conventional emoji format"
     exit 0
 fi
 
 # Check for conventional commit format (without emoji)
-if [[ "$commit_msg" =~ ^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .+ ]]; then
+conventional_pattern="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .+"
+if [[ "$commit_msg" =~ $conventional_pattern ]]; then
     print_success "Commit message follows conventional format"
     exit 0
 fi
