@@ -241,9 +241,6 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-# Confirmation aliases for destructive operations
-alias rm='rm -I --preserve-root'
-
 # Time and date
 alias now='date +"%T"'
 alias nowtime='date'
