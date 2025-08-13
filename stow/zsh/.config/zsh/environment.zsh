@@ -158,23 +158,61 @@ load_env_plugins() {
     fi
 }
 
+# Lazy-loading functions for performance optimization
+_lazy_load_tool() {
+    local tool="$1"
+    local setup_func="$2"
+    
+    # Create a wrapper function that loads the tool on first use
+    eval "${tool}() {
+        unfunction ${tool}
+        ${setup_func}
+        ${tool} \"\$@\"
+    }"
+}
+
+# Development tools lazy loading setup functions
+_setup_docker_completion() {
+    if command -v docker >/dev/null && [[ -f /usr/local/etc/bash_completion.d/docker ]]; then
+        source /usr/local/etc/bash_completion.d/docker
+    fi
+}
+
+_setup_terraform_completion() {
+    if command -v terraform >/dev/null; then
+        autoload -U +X bashcompinit && bashcompinit
+        complete -o nospace -C terraform terraform
+    fi
+}
+
+_setup_kubectl_completion() {
+    if command -v kubectl >/dev/null; then
+        source <(kubectl completion zsh 2>/dev/null)
+        compdef __start_kubectl k
+    fi
+}
+
+_setup_gh_completion() {
+    if command -v gh >/dev/null; then
+        eval "$(gh completion -s zsh)"
+    fi
+}
+
+_setup_npm_completion() {
+    if command -v npm >/dev/null; then
+        eval "$(npm completion 2>/dev/null)"
+    fi
+}
+
 # Conditional loading functions
 load_development_tools() {
     if [[ "$ZSH_ENV_CONTAINER" == false ]] && [[ "$ZSH_MINIMAL_MODE" == false ]]; then
-        # Load development tools only in non-container environments
-        
-        # Docker completion (if Docker is available)
-        if command -v docker >/dev/null && [[ -f /usr/local/etc/bash_completion.d/docker ]]; then
-            source /usr/local/etc/bash_completion.d/docker
-        fi
-        
-        # Kubernetes tools (completion handled by completion.zsh)
-        
-        # Terraform completion
-        if command -v terraform >/dev/null; then
-            autoload -U +X bashcompinit && bashcompinit
-            complete -o nospace -C terraform terraform
-        fi
+        # Setup lazy loading for development tools
+        _lazy_load_tool "docker-completion" "_setup_docker_completion"
+        _lazy_load_tool "terraform-completion" "_setup_terraform_completion"
+        _lazy_load_tool "kubectl-completion" "_setup_kubectl_completion"
+        _lazy_load_tool "gh-completion" "_setup_gh_completion"
+        _lazy_load_tool "npm-completion" "_setup_npm_completion"
     fi
 }
 

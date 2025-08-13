@@ -65,11 +65,8 @@ if command -v docker >/dev/null; then
     zstyle ':completion:*:docker-*:*' option-stacking yes
 fi
 
-# Kubernetes completion
-if command -v kubectl >/dev/null; then
-    source <(kubectl completion zsh 2>/dev/null)
-    compdef __start_kubectl k
-fi
+# Kubernetes completion (lazy-loaded in environment.zsh)
+# This section is handled by lazy loading to improve startup performance
 
 # Custom completion for common commands
 _mkcd() {
@@ -214,15 +211,10 @@ _lower() {
 }
 compdef _lower lower
 
-# Enhanced completion for common tools
-if command -v gh >/dev/null; then
-    eval "$(gh completion -s zsh)"
-fi
+# Enhanced completion for common tools (lazy-loaded for performance)
+# Heavy completions are lazy-loaded in environment.zsh to improve startup time
 
-if command -v terraform >/dev/null; then
-    complete -o nospace -C terraform terraform
-fi
-
+# Lightweight completions that can be loaded immediately
 if command -v vault >/dev/null; then
     complete -o nospace -C vault vault
 fi
@@ -231,11 +223,7 @@ if command -v consul >/dev/null; then
     complete -o nospace -C consul consul
 fi
 
-# Completion for package managers
-if command -v npm >/dev/null; then
-    eval "$(npm completion 2>/dev/null)"
-fi
-
+# Yarn completion (lightweight)
 if command -v yarn >/dev/null; then
     eval "$(yarn completions 2>/dev/null)"
 fi
