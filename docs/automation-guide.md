@@ -8,6 +8,7 @@ optimization, and maintenance scheduling.
 
 **📖 Documentation:** [← Back to Main README](../README.md) |
 **📋 Workflows:** [← Daily Workflows](workflow-guide.md) |
+**⚡ Performance:** [Performance Tuning →](performance-tuning.md) |
 **⚙️ Development:** [Development Notes →](development-notes.md)
 
 **🔧 References:** [Shell Completions](shell-completions.md) |
@@ -32,8 +33,9 @@ for automation problems
 │   └── Configuration commits         │   └── Automated fixes
 ├── ⚡ Performance Optimization       └── 🚨 Alert System
 │   ├── performance-monitor.sh        │   ├── System notifications
-│   ├── Resource analysis             │   ├── Email/Slack alerts
-│   └── Automated tuning              │   └── Log aggregation
+│   ├── measure-shell-performance.sh  │   ├── Email/Slack alerts
+│   ├── Resource analysis             │   └── Log aggregation
+│   └── Automated tuning              
 └── 🔧 Repository Optimization
     ├── optimize-repo.sh
     ├── Git LFS management
@@ -46,6 +48,162 @@ for automation problems
 ├── 🐚 Shell environment hooks         ├── 📅 Daily/Weekly/Monthly
 ├── 🔗 Git hooks automation            ├── 🔄 Event-driven triggers
 └── 🚀 Application lifecycle           └── 🎯 Conditional execution
+```
+
+## 🎯 Real-World Automation Examples
+
+### 📅 **Example 1: Daily Development Setup Automation**
+
+Automatically prepare your development environment every morning:
+
+```bash
+#!/bin/bash
+# ~/.local/bin/morning-setup.sh
+
+echo "🌅 Starting daily development setup..."
+
+# 1. Health check and system validation
+./bin/health-check.sh basic
+if [[ $? -ne 0 ]]; then
+    echo "❌ Health check failed - manual intervention required"
+    exit 1
+fi
+
+# 2. Sync dotfiles and external dependencies  
+./bin/auto-sync.sh sync --quiet
+
+# 3. Update Homebrew packages (weekly)
+if [[ $(date +%u) -eq 1 ]]; then  # Monday
+    echo "📦 Weekly Homebrew update..."
+    brew update && brew upgrade
+fi
+
+# 4. Start tmux session with predefined layout
+tmux new-session -d -s work
+tmux send-keys -t work:0 'cd ~/projects' Enter
+tmux new-window -t work -n 'dotfiles' 'cd ~/.dotfiles'
+tmux new-window -t work -n 'logs' 'tail -f ~/.local/share/zsh/history'
+
+# 5. Measure shell performance (track improvements)
+./bin/measure-shell-performance.sh 5 > ~/.cache/shell-performance-$(date +%Y%m%d).log
+
+echo "✅ Development environment ready!"
+```
+
+### 🔄 **Example 2: Automated Configuration Sync Workflow**
+
+Keep configurations in sync across multiple machines:
+
+```bash
+#!/bin/bash
+# ~/.local/bin/sync-configs.sh
+
+# Work laptop -> Personal laptop sync example
+WORK_REPO="git@github.com:company/work-dotfiles.git" 
+PERSONAL_REPO="git@github.com:gchiam/gchiam-dotfiles.git"
+
+sync_work_configs() {
+    echo "🏢 Syncing work-specific configurations..."
+    
+    # Pull work-specific configs
+    if [[ -d ~/.dotfiles-work ]]; then
+        cd ~/.dotfiles-work
+        git pull origin main
+        
+        # Sync specific work tools
+        rsync -av ~/.dotfiles-work/stow/kubectl/ ~/.dotfiles/stow/kubectl/
+        rsync -av ~/.dotfiles-work/stow/terraform/ ~/.dotfiles/stow/terraform/
+        
+        # Update work aliases
+        cp ~/.dotfiles-work/work-aliases.zsh ~/.config/zsh/work-aliases.zsh
+    fi
+}
+
+sync_personal_configs() {
+    echo "🏠 Syncing personal configurations..."
+    
+    cd ~/.dotfiles
+    
+    # Auto-commit changes with timestamp
+    if [[ -n "$(git status --porcelain)" ]]; then
+        git add .
+        git commit -m "🔄 auto-sync: $(date +'%Y-%m-%d %H:%M:%S')"
+        git push origin main
+    fi
+}
+
+# Run based on environment detection
+if [[ "$ZSH_ENV_WORK" == "true" ]]; then
+    sync_work_configs
+else
+    sync_personal_configs
+fi
+```
+
+### 🚨 **Example 3: Proactive System Monitoring**
+
+Monitor system health and automatically fix common issues:
+
+```bash
+#!/bin/bash
+# ~/.local/bin/system-guardian.sh
+
+monitor_disk_space() {
+    local usage=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+    
+    if [[ $usage -gt 85 ]]; then
+        echo "⚠️ Disk usage high: ${usage}%"
+        
+        # Auto-cleanup
+        brew cleanup
+        docker system prune -f
+        ~/.dotfiles/bin/optimize-repo.sh --cleanup
+        
+        # Send notification
+        osascript -e 'display notification "Disk cleanup completed" with title "System Guardian"'
+    fi
+}
+
+monitor_shell_performance() {
+    local perf_log=$(~/.dotfiles/bin/measure-shell-performance.sh 3 | grep "Average:")
+    local avg_time=$(echo "$perf_log" | awk '{print $2}' | sed 's/s//')
+    
+    if (( $(echo "$avg_time > 0.5" | bc -l) )); then
+        echo "🐌 Shell startup slow: ${avg_time}s"
+        
+        # Enable minimal mode temporarily
+        echo "export ZSH_MINIMAL_MODE=true" > ~/.zsh_performance_override
+        
+        # Schedule performance analysis
+        echo "Performance analysis needed" >> ~/.system_alerts
+    fi
+}
+
+check_configurations() {
+    # Verify critical symlinks
+    local critical_configs=(
+        ~/.zshrc
+        ~/.config/nvim/init.lua
+        ~/.tmux.conf
+        ~/.gitconfig
+    )
+    
+    for config in "${critical_configs[@]}"; do
+        if [[ ! -L "$config" ]]; then
+            echo "❌ Missing symlink: $config"
+            # Auto-repair with stow
+            cd ~/.dotfiles && ./bin/setup-stow.sh
+            break
+        fi
+    done
+}
+
+# Run all monitors
+monitor_disk_space
+monitor_shell_performance  
+check_configurations
+
+echo "🛡️ System guardian check completed"
 ```
 
 ## 📖 System Overview
