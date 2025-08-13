@@ -10,6 +10,7 @@ tap 'vmware-tanzu/carvel'
 
 # Formulas
 brew 'antidote'
+brew 'bash'
 brew 'asdf'
 brew 'ast-grep'
 brew 'awscli'
