@@ -1,8 +1,13 @@
-# My dotfiles
+# 🔧 My dotfiles
 
-Personal macOS development environment configuration files managed with GNU Stow.
+Personal macOS development environment configuration files managed with GNU
+Stow.
 
-## Quick Setup
+[![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-blue?logo=apple)](https://github.com/gchiam/gchiam-dotfiles)
+[![GNU Stow](https://img.shields.io/badge/GNU%20Stow-symlink%20management-green)](https://www.gnu.org/software/stow/)
+[![Shell](https://img.shields.io/badge/Shell-Zsh-brightgreen?logo=gnu-bash)](https://github.com/zsh-users/zsh)
+
+## ⚡ Quick Setup
 
 ```bash
 # Clone the repository
@@ -13,34 +18,45 @@ cd ~/.dotfiles
 ./bin/setup.sh
 ```
 
-## What's Included
+## 📦 What's Included
 
-- **Shell**: [Zsh](https://github.com/zsh-users/zsh) with
-  [antidote](https://github.com/mattmc3/antidote) plugin manager
-- **Editor**: [Neovim](https://github.com/neovim/neovim)
-  ([LazyVim](https://github.com/LazyVim/LazyVim) distribution)
-- **Terminal**: [Alacritty](https://github.com/alacritty/alacritty),
-  [Kitty](https://github.com/kovidgoyal/kitty),
-  [WezTerm](https://github.com/wez/wezterm) configurations
-- **Window Management**: [AeroSpace](https://github.com/nikitabobko/AeroSpace)
-  tiling window manager
-- **Package Management**: [Homebrew](https://github.com/Homebrew/brew) with
-  curated package lists
-- **Git**: Enhanced with [delta](https://github.com/dandavison/delta) for
-  better diffs
-- **Theming**: Consistent [Catppuccin](https://github.com/catppuccin/catppuccin)
-  color scheme across all tools
+🐚 **Shell**: [Zsh](https://github.com/zsh-users/zsh) with
+[antidote](https://github.com/mattmc3/antidote) plugin manager
 
-## Key Features
+📝 **Editor**: [Neovim](https://github.com/neovim/neovim)
+([LazyVim](https://github.com/LazyVim/LazyVim) distribution)
 
-- **Modular Architecture**: Each tool has its own configuration directory
-- **Stow-based Management**: Clean symlink organization with [GNU Stow](https://github.com/aspiers/stow)
-- **macOS Optimized**: Tailored for Apple Silicon Macs
-- **Work Integration**: Separate configurations for professional tools
+💻 **Terminals**: [Alacritty](https://github.com/alacritty/alacritty),
+[Kitty](https://github.com/kovidgoyal/kitty),
+[WezTerm](https://github.com/wez/wezterm)
 
-## Installation Options
+🪟 **Window Management**: [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+tiling window manager
 
-### Interactive Setup (Recommended)
+📦 **Package Management**: [Homebrew](https://github.com/Homebrew/brew) with
+curated package lists
+
+🌳 **Git**: Enhanced with [delta](https://github.com/dandavison/delta) for
+better diffs
+
+🎨 **Theming**: Consistent
+[Catppuccin](https://github.com/catppuccin/catppuccin) across all tools
+
+## ✨ Key Features
+
+🏗️ **Modular Architecture** - Each tool has its own configuration
+directory
+
+🔗 **Stow-based Management** - Clean symlink organization with
+[GNU Stow](https://github.com/aspiers/stow)
+
+🍎 **macOS Optimized** - Tailored for Apple Silicon Macs
+
+💼 **Work Integration** - Separate configurations for professional tools
+
+## 🛠️ Installation Options
+
+### 🎯 Interactive Setup (Recommended)
 
 ```bash
 # Interactive setup with backup and selective installation
@@ -52,7 +68,7 @@ cd ~/.dotfiles
 ./bin/setup-interactive.sh --full        # Complete installation
 ```
 
-### Manual Installation
+### ⚙️ Manual Installation
 
 For selective installation of specific configurations:
 
@@ -66,7 +82,7 @@ stow -d stow -t ~ zsh     # Zsh config
 stow -d stow -t ~ git     # Git config
 ```
 
-## Environment Profiles
+## 🎭 Environment Profiles
 
 Manage different configurations for work, personal, or minimal setups:
 
@@ -86,7 +102,7 @@ Manage different configurations for work, personal, or minimal setups:
 ./bin/setup-profile.sh status
 ```
 
-## Package Management
+## 📦 Package Management
 
 ```bash
 # Install all packages
@@ -103,9 +119,9 @@ brew bundle --file=~/.Brewfile
 ./bin/performance-monitor.sh optimize
 ```
 
-## Advanced Tools
+## 🚀 Advanced Tools
 
-### Automation
+### 🤖 Automation
 
 ```bash
 # Fresh macOS setup (one command installer)
@@ -123,7 +139,7 @@ curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fre
 ./bin/health-monitor.sh setup-automation  # Auto-start on boot
 ```
 
-### System Optimization
+### ⚡ System Optimization
 
 ```bash
 # Check macOS compatibility  
@@ -136,7 +152,7 @@ curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fre
 ./bin/performance-monitor.sh all
 ```
 
-### Maintenance
+### 🧹 Maintenance
 
 ```bash
 # Check for migration requirements
@@ -153,64 +169,62 @@ curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fre
 ./bin/health-monitor.sh logs alerts
 ```
 
-## Documentation
+## 📚 Documentation
 
-Comprehensive documentation organized by workflow and expertise level:
+Comprehensive documentation organized by workflow and expertise level.
 
 ### 🚀 Quick Start
 
-- **[Setup Guide](docs/setup-guide.md)** - Complete installation procedures,
-  from one-command setup to manual configuration
-- **[Architecture](docs/architecture.md)** - Repository structure, component
-  overview, and design principles
+| Guide | Description |
+|-------|-------------|
+| **[Setup Guide](docs/setup-guide.md)** | Complete installation procedures, from one-command setup to manual configuration |
+| **[Architecture](docs/architecture.md)** | Repository structure, component overview, and design principles |
 
-### 📋 Daily Workflows  
+### 📋 Daily Workflows
 
-- **[Workflow Guide](docs/workflow-guide.md)** - Daily development workflows,
-  terminal usage, and optimization strategies
-- **[Automation Guide](docs/automation-guide.md)** - Health monitoring,
-  auto-sync, performance optimization, and maintenance scheduling
+| Guide | Description |
+|-------|-------------|
+| **[Workflow Guide](docs/workflow-guide.md)** | Daily development workflows, terminal usage, and optimization strategies |
+| **[Automation Guide](docs/automation-guide.md)** | Health monitoring, auto-sync, performance optimization, and maintenance scheduling |
 
 ### ⚙️ Development and Customization
 
-- **[Development Notes](docs/development-notes.md)** - Development practices,
-  testing patterns, and advanced customization
-- **[Quality Assurance](docs/quality-assurance.md)** - Linting standards,
-  code quality, and validation processes
-- **[Commit Guidelines](docs/commit-guidelines.md)** - Git commit conventions
-  and best practices
+| Guide | Description |
+|-------|-------------|
+| **[Development Notes](docs/development-notes.md)** | Development practices, testing patterns, and advanced customization |
+| **[Quality Assurance](docs/quality-assurance.md)** | Linting standards, code quality, and validation processes |
+| **[Commit Guidelines](docs/commit-guidelines.md)** | Git commit conventions and best practices |
 
 ### 🔧 Tool References and Keybindings
 
-#### Core Development Tools
+#### 💻 Core Development Tools
 
-- **[Neovim Reference](docs/neovim-reference.md)** - LazyVim configuration,
-  keybindings, and development workflows
-- **[Tmux Reference](docs/tmux-reference.md)** - Terminal multiplexer
-  keybindings, session management, and automation
-- **[Zsh Reference](docs/zsh-reference.md)** - Shell configuration, aliases,
-  functions, and environment detection
+| Tool | Description |
+|------|-------------|
+| **[Neovim Reference](docs/neovim-reference.md)** | LazyVim configuration, keybindings, and development workflows |
+| **[Tmux Reference](docs/tmux-reference.md)** | Terminal multiplexer keybindings, session management, and automation |
+| **[Zsh Reference](docs/zsh-reference.md)** | Shell configuration, aliases, functions, and environment detection |
 
-#### Terminal and Interface
+#### 🖥️ Terminal and Interface
 
-- **[WezTerm Reference](docs/wezterm-reference.md)** - Modern terminal emulator
-  configuration and advanced features
-- **[AeroSpace Reference](docs/aerospace-reference.md)** - Tiling window manager
-  keybindings and workspace organization
+| Tool | Description |
+|------|-------------|
+| **[WezTerm Reference](docs/wezterm-reference.md)** | Modern terminal emulator configuration and advanced features |
+| **[AeroSpace Reference](docs/aerospace-reference.md)** | Tiling window manager keybindings and workspace organization |
 
-#### Version Control and Automation
+#### 🌳 Version Control and Automation
 
-- **[Git Aliases Reference](docs/git-aliases-reference.md)** - Comprehensive
-  guide to enhanced git workflows
-- **[Shell Completions](docs/shell-completions.md)** - Tab completion system
-  for all custom scripts
+| Tool | Description |
+|------|-------------|
+| **[Git Aliases Reference](docs/git-aliases-reference.md)** | Comprehensive guide to enhanced git workflows |
+| **[Shell Completions](docs/shell-completions.md)** | Tab completion system for all custom scripts |
 
 ### 🆘 Support and Maintenance
 
-- **[Troubleshooting Guide](docs/troubleshooting.md)** - Common issues,
-  debugging steps, and recovery procedures
-- **[Migration Guide](docs/migration-guide.md)** - Version upgrades, breaking
-  changes, and compatibility updates
+| Guide | Description |
+|-------|-------------|
+| **[Troubleshooting Guide](docs/troubleshooting.md)** | Common issues, debugging steps, and recovery procedures |
+| **[Migration Guide](docs/migration-guide.md)** | Version upgrades, breaking changes, and compatibility updates |
 
 ### 📖 Documentation Guide
 
@@ -223,23 +237,38 @@ Comprehensive documentation organized by workflow and expertise level:
 | Tool References | Specific application usage and shortcuts | All users (reference material) |
 | [Troubleshooting Guide](docs/troubleshooting.md) | Issue resolution and recovery | Users experiencing problems |
 
-### 🔗 Cross-References
+### 🔗 Quick Navigation
 
-**New to dotfiles?** Start with [Setup Guide](docs/setup-guide.md) →
-[Architecture](docs/architecture.md) → [Workflow Guide](docs/workflow-guide.md)
+#### 🆕 New to dotfiles?
 
-**Daily user?** Check [Workflow Guide](docs/workflow-guide.md) and relevant
-tool references
+[Setup Guide](docs/setup-guide.md) →
+[Architecture](docs/architecture.md) →
+[Workflow Guide](docs/workflow-guide.md)
 
-**Need automation?** See [Automation Guide](docs/automation-guide.md) for
-comprehensive monitoring and optimization
+#### 📅 Daily user?
 
-**Customizing configs?** Read [Development Notes](docs/development-notes.md)
-and [Quality Assurance](docs/quality-assurance.md)
+[Workflow Guide](docs/workflow-guide.md) + Tool References
 
-**Having issues?** Start with [Troubleshooting Guide](docs/troubleshooting.md)
-or run `./bin/health-check.sh all`
+#### 🤖 Need automation?
 
-### Meta Documentation
+[Automation Guide](docs/automation-guide.md)
 
-- **[CLAUDE.md](./CLAUDE.md)** - AI assistant guidance for repository development
+#### ⚙️ Customizing configs?
+
+[Development Notes](docs/development-notes.md) +
+[Quality Assurance](docs/quality-assurance.md)
+
+#### 🆘 Having issues?
+
+[Troubleshooting Guide](docs/troubleshooting.md) or run
+`./bin/health-check.sh all`
+
+---
+
+### 🤖 Meta Documentation
+
+[CLAUDE.md](./CLAUDE.md) - AI assistant guidance for repository development
+
+---
+
+Made with ❤️ for macOS development workflows
