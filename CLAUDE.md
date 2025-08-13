@@ -54,19 +54,48 @@ For immediate development needs, refer to the appropriate documentation:
 
 1. **Before making changes**: Read relevant documentation in `docs/`
 2. **During development**: Follow patterns established in existing configurations
-3. **Before committing**: Run linting tools as specified in Quality Assurance
+3. **Before committing**: Automatic linting validation via pre-commit hooks
 4. **When committing**: Use Conventional Emoji Commits format
 5. **After changes**: Update relevant documentation if functionality changes
 
+### Linting and Quality Assurance
+
+#### Automatic Linting (No Action Required)
+
+- **Pre-commit hooks**: Validate shell scripts, markdown, JSON, and configs
+- **GitHub Actions**: Run comprehensive checks on push/PR
+- **Post-commit hooks**: Run health checks and provide guidance
+
+#### Manual Linting (For Immediate Feedback)
+
+When you need immediate feedback while editing files:
+
+```bash
+# Markdown files
+markdownlint-cli2 README.md docs/*.md
+
+# Shell scripts
+shellcheck bin/*.sh stow/*/bin/*
+
+# All files (comprehensive check)
+./bin/setup-git-hooks.sh test
+```
+
+The linting system is designed to be **commit-based** rather than
+**file-change-based** for optimal performance and developer workflow.
+
 ### Important Reminders
 
-- **Always run linting tools** before committing changes (including
-  markdownlint-cli2 for all markdown files)
+- **Linting runs automatically** on commit via pre-commit hooks and on push
+  via GitHub Actions - no manual intervention needed for standard workflow
+- **For immediate feedback**, run linting tools manually as documented in
+  Quality Assurance guide
 - **Test configurations** in appropriate environments
 - **Update documentation** when adding new features or changing workflows
 - **Follow established patterns** when adding new configurations
 - **Keep commits atomic** and focused on single logical changes
-- **Reference new documentation** in README.md when creating new documentation files
+- **Reference new documentation** in README.md when creating new
+  documentation files
 
 ### File Locations
 
