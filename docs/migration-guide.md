@@ -1,16 +1,16 @@
-# Migration Guide
+# 📦 Migration Guide
 
 This guide helps you upgrade between major changes in the dotfiles repository.
 
-## Overview
+## 📖 Overview
 
 The dotfiles repository evolves over time with new features, tool updates,
 and structural changes. This guide provides step-by-step instructions for
 migrating between major versions safely.
 
-## Before You Start
+## 🔍 Before You Start
 
-### Backup Your Current Setup
+### 🛡️ Backup Your Current Setup
 
 ```bash
 # Create a full backup
@@ -22,7 +22,7 @@ cp -r ~/.tmux.conf ~/.tmux.conf.backup.$(date +%Y%m%d) 2>/dev/null || true
 cp -r ~/.dotfiles ~/.dotfiles.backup.$(date +%Y%m%d) 2>/dev/null || true
 ```
 
-### Check Compatibility
+### ✅ Check Compatibility
 
 ```bash
 # Run compatibility check
@@ -32,16 +32,16 @@ cp -r ~/.dotfiles ~/.dotfiles.backup.$(date +%Y%m%d) 2>/dev/null || true
 ./bin/check-compatibility.sh --report
 ```
 
-### Health Check
+### 🎥 Health Check
 
 ```bash
 # Check current setup health
 ./bin/health-check.sh > health-before-migration.txt
 ```
 
-## Migration Scenarios
+## 🎯 Migration Scenarios
 
-### Scenario 1: Fresh Installation on New Machine
+### 🎆 Scenario 1: Fresh Installation on New Machine
 
 If you're setting up dotfiles on a completely new machine:
 
@@ -63,7 +63,7 @@ cd ~/.dotfiles
 ./bin/health-check.sh
 ```
 
-### Scenario 2: Updating Existing Installation
+### 🔄 Scenario 2: Updating Existing Installation
 
 If you have an existing dotfiles installation:
 
@@ -87,7 +87,7 @@ git pull origin main
 ./bin/health-check.sh
 ```
 
-### Scenario 3: Major Version Upgrade
+### 🚀 Scenario 3: Major Version Upgrade
 
 For major version upgrades with breaking changes:
 
@@ -114,9 +114,9 @@ cd ~/.dotfiles
 # Remove old configurations if everything works
 ```
 
-## Version-Specific Migrations
+## 📅 Version-Specific Migrations
 
-### Migration to Interactive Setup (v2.0+)
+### 🗺️ Migration to Interactive Setup (v2.0+)
 
 **What Changed:**
 
@@ -148,7 +148,7 @@ cd ~/.dotfiles
    - Profile-specific settings now load from `~/.zshrc.local`
    - Check if you have custom settings to migrate
 
-### Migration to Git LFS (v3.0+)
+### 📦 Migration to Git LFS (v3.0+)
 
 **What Changed:**
 
@@ -177,7 +177,7 @@ cd ~/.dotfiles
    git lfs pull  # Download LFS assets
    ```
 
-### Migration to Enhanced Documentation (v4.0+)
+### 📚 Migration to Enhanced Documentation (v4.0+)
 
 **What Changed:**
 
@@ -201,9 +201,9 @@ cd ~/.dotfiles
    ./bin/health-check.sh
    ```
 
-## Breaking Changes
+## ⚠️ Breaking Changes
 
-### Configuration File Locations
+### 📂 Configuration File Locations
 
 **Old Structure:**
 
@@ -228,7 +228,7 @@ Most changes are handled automatically by stow, but check for:
 - Custom additions to old config files
 - Profile-specific settings that need migration
 
-### Environment Variables
+### 🌍 Environment Variables
 
 **Changed Variables:**
 
@@ -244,9 +244,9 @@ env | grep -E "(ZDOTDIR|ZSH)"
 # Remove old variables from ~/.zshenv if present
 ```
 
-### Tool-Specific Changes
+### 🔧 Tool-Specific Changes
 
-#### Zsh Configuration
+#### 🐚 Zsh Configuration
 
 **Old:** Single `.zshrc` file
 **New:** Modular configuration in `~/.config/zsh/`
@@ -262,7 +262,7 @@ cp ~/.zshrc ~/.zshrc.custom.backup
 # ~/.config/zsh/local.zsh (general additions)
 ```
 
-#### Tmux Configuration
+#### 🖥️ Tmux Configuration
 
 **Old:** `~/.tmux.conf`
 **New:** `~/.config/tmux/tmux.conf`
@@ -278,7 +278,7 @@ fi
 # Custom settings go in ~/.config/tmux/local.conf after migration
 ```
 
-#### Git Configuration
+### 🌳 Git Configuration
 
 **Old:** Single `~/.gitconfig`
 **New:** Main config + profile-specific configs
@@ -293,9 +293,9 @@ fi
 ./bin/setup-profile.sh apply work  # or personal
 ```
 
-## Post-Migration Tasks
+## ✅ Post-Migration Tasks
 
-### Verify Installation
+### ✓ Verify Installation
 
 ```bash
 # Run comprehensive health check
@@ -307,14 +307,14 @@ tmux new-session -d -s test
 nvim --version
 ```
 
-### Update Documentation
+### 📚 Update Documentation
 
 ```bash
 # Update README references if you've customized them
 # Check for any personal documentation that needs updating
 ```
 
-### Clean Up Old Files
+### 🧹 Clean Up Old Files
 
 ⚠️ **Only after verifying everything works correctly:**
 
@@ -327,11 +327,11 @@ find ~ -name "*.backup.*" -mtime +30 -ls
 # Only remove if you're certain they're not needed
 ```
 
-## Troubleshooting Migration Issues
+## 🐛 Troubleshooting Migration Issues
 
-### Common Issues
+### ⚠️ Common Issues
 
-#### Stow Conflicts
+#### 🔄 Stow Conflicts
 
 ```bash
 # Error: "WARNING! stowing would cause conflicts"
@@ -340,7 +340,7 @@ rm ~/.zshrc  # or move to backup
 ./bin/setup-interactive.sh
 ```
 
-#### Profile Not Loading
+#### 🗺️ Profile Not Loading
 
 ```bash
 # Check profile status
@@ -353,7 +353,7 @@ rm ~/.zshrc  # or move to backup
 zsh -n ~/.zshrc.local
 ```
 
-#### Missing Tools
+#### 🔍 Missing Tools
 
 ```bash
 # Check what's missing
@@ -363,7 +363,7 @@ zsh -n ~/.zshrc.local
 brew bundle install --file=~/.Brewfile
 ```
 
-#### Permission Issues
+#### 🔒 Permission Issues
 
 ```bash
 # Fix ownership
@@ -373,9 +373,9 @@ sudo chown -R $USER:$USER ~/.dotfiles ~/.config
 chmod +x ~/.dotfiles/bin/*.sh
 ```
 
-### Recovery Procedures
+### 🔄 Recovery Procedures
 
-#### Partial Migration Failure
+#### ⚠️ Partial Migration Failure
 
 ```bash
 # Restore from backup
@@ -386,7 +386,7 @@ cd ~/.dotfiles
 ./bin/setup-interactive.sh --full --no-backup
 ```
 
-#### Complete Recovery
+#### 🛡️ Complete Recovery
 
 ```bash
 # Nuclear option: start fresh
@@ -396,9 +396,9 @@ cd ~/.dotfiles
 ./bin/setup-interactive.sh
 ```
 
-## Testing Your Migration
+## 🧪 Testing Your Migration
 
-### Functionality Checklist
+### ✅ Functionality Checklist
 
 - [ ] Shell loads without errors
 - [ ] Aliases and functions work
@@ -410,7 +410,7 @@ cd ~/.dotfiles
 - [ ] Profile-specific settings load
 - [ ] Development tools function correctly
 
-### Performance Check
+### 🚀 Performance Check
 
 ```bash
 # Test shell startup time
@@ -419,7 +419,7 @@ time zsh -i -c exit
 # Should be under 1 second for good performance
 ```
 
-### Integration Test
+### 🔗 Integration Test
 
 ```bash
 # Full workflow test
@@ -430,9 +430,9 @@ tmux new-session -d
 # Test your typical workflow
 ```
 
-## Getting Help
+## 🆘 Getting Help
 
-### Self-Diagnosis
+### 🔍 Self-Diagnosis
 
 ```bash
 # Run all diagnostic tools
@@ -441,14 +441,14 @@ tmux new-session -d
 ./bin/optimize-repo.sh --analyze
 ```
 
-### Support Resources
+### 📚 Support Resources
 
 1. **Troubleshooting Guide:** `docs/troubleshooting.md`
 2. **Health Check:** `./bin/health-check.sh`
 3. **Compatibility Check:** `./bin/check-compatibility.sh`
 4. **Repository Issues:** GitHub issues for bug reports
 
-### Reporting Migration Issues
+### 📨 Reporting Migration Issues
 
 When reporting migration problems, include:
 
@@ -468,9 +468,9 @@ echo "Migrating to: $(git rev-parse HEAD)" >> migration-context.txt
 echo "Migration method: [interactive/manual/etc]" >> migration-context.txt
 ```
 
-## Future Migrations
+## 🔮 Future Migrations
 
-### Staying Updated
+### 🔄 Staying Updated
 
 ```bash
 # Set up update notifications (optional)
@@ -482,7 +482,7 @@ git fetch origin
 git log HEAD..origin/main --oneline
 ```
 
-### Migration Best Practices
+### 🏆 Migration Best Practices
 
 1. **Always backup before migrating**
 2. **Test compatibility first**
@@ -491,9 +491,9 @@ git log HEAD..origin/main --oneline
 5. **Verify functionality after migration**
 6. **Keep backups until certain migration succeeded**
 
-## Rollback Procedures
+## ⏪ Rollback Procedures
 
-### Quick Rollback
+### ⚡ Quick Rollback
 
 ```bash
 # Restore from recent backup
@@ -504,7 +504,7 @@ cp ~/.zshrc.backup.YYYYMMDD ~/.zshrc 2>/dev/null || true
 exec zsh
 ```
 
-### Complete Rollback
+### 🛡️ Complete Rollback
 
 ```bash
 # Restore dotfiles to previous version

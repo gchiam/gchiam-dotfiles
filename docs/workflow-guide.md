@@ -1,10 +1,10 @@
-# Workflow Guide
+# 💼 Workflow Guide
 
 This guide covers common workflows and daily usage patterns for the
 dotfiles environment, including development workflows, maintenance routines,
 and optimization strategies.
 
-## Navigation
+## 🧭 Navigation
 
 **📖 Documentation:** [← Back to Main README](../README.md) |
 **🚀 Setup:** [← Installation Guide](setup-guide.md) |
@@ -19,7 +19,7 @@ for problem resolution
 
 ---
 
-## Daily Development Workflow Overview
+## 📅 Daily Development Workflow Overview
 
 ```text
 🌅 Morning Routine          📊 Development Session       🌙 Evening Wrap-up
@@ -36,7 +36,7 @@ for problem resolution
 └── Completion System      └── Real-time Feedback       └── System Updates
 ```
 
-### Morning Routine
+### 🌅 Morning Routine
 
 ```bash
 # 1. Start terminal and verify environment health
@@ -54,9 +54,9 @@ tmux attach -t work
 nvim +Dashboard
 ```
 
-### Development Session Setup
+### 🚀 Development Session Setup
 
-#### Project Initialization
+#### 🎩 Project Initialization
 
 ```bash
 # Navigate to project directory
@@ -81,7 +81,7 @@ tmux send-keys -t project-name:server 'npm run dev' Enter
 tmux send-keys -t project-name:logs 'tail -f logs/development.log' Enter
 ```
 
-#### Git Workflow Integration
+#### 🔀 Git Workflow Integration
 
 ```bash
 # Enhanced git workflow with configured aliases
@@ -101,9 +101,9 @@ git push -u origin feature-branch
 gh pr create --title "Feature: New functionality" --body "Description"
 ```
 
-### Code Review and Collaboration
+### 🔍 Code Review and Collaboration
 
-#### Using gh-dash for PR Management
+#### 📋 Using gh-dash for PR Management
 
 ```bash
 # Launch gh-dash for PR overview
@@ -116,7 +116,7 @@ gh dash
 # - Merge PRs when ready
 ```
 
-#### Delta Integration for Better Diffs
+#### 🔥 Delta Integration for Better Diffs
 
 ```bash
 # Git is configured to use delta for enhanced diffs
@@ -131,11 +131,11 @@ git log -p               # Patch view with better formatting
 # - Navigate mode for large diffs
 ```
 
-## Window Management Workflow
+## 🪟 Window Management Workflow
 
-### AeroSpace Tiling Manager
+### 🟩 AeroSpace Tiling Manager
 
-#### Workspace Organization
+#### 📊 Workspace Organization
 
 ```bash
 # Workspace layout (configured in AeroSpace):
@@ -149,7 +149,7 @@ git log -p               # Patch view with better formatting
 # 0: Monitoring (Activity Monitor, Logs)
 ```
 
-#### Key Workflow Shortcuts
+#### ⌨️ Key Workflow Shortcuts
 
 ```bash
 # Navigate between workspaces
@@ -168,7 +168,7 @@ Alt + T                  # Tabs layout
 Alt + S                  # Tiles layout
 ```
 
-#### Application Placement Strategy
+#### 🎨 Application Placement Strategy
 
 ```bash
 # Automatic application workspace assignment
@@ -179,11 +179,11 @@ Alt + S                  # Tiles layout
 # Monitoring tools → Workspace 0
 ```
 
-## Terminal and Shell Workflow
+## 💻 Terminal and Shell Workflow
 
-### Zsh Environment Features
+### 🐚 Zsh Environment Features
 
-#### Intelligent Environment Detection
+#### 🤖 Intelligent Environment Detection
 
 ```bash
 # The shell automatically detects and adapts to:
@@ -193,7 +193,7 @@ Alt + S                  # Tiles layout
 # - Personal vs. development contexts
 ```
 
-#### Enhanced Navigation and Search
+#### 🧭 Enhanced Navigation and Search
 
 ```bash
 # Directory navigation
@@ -213,7 +213,7 @@ fd pattern               # Fast file finding
 rg pattern               # Fast text search across files
 ```
 
-#### Alias and Function Workflow
+#### ⚡ Alias and Function Workflow
 
 ```bash
 # Development shortcuts
@@ -238,11 +238,11 @@ dex                      # docker exec -it
 dlogs                    # docker logs -f
 ```
 
-## Editor Workflow (Neovim + LazyVim)
+## 📝 Editor Workflow (Neovim + LazyVim)
 
-### Daily Editor Usage
+### 📆 Daily Editor Usage
 
-#### Session Management
+#### 💾 Session Management
 
 ```bash
 # Start Neovim with session support
@@ -256,7 +256,7 @@ nvim filename            # Open specific file
 :SessionDelete project   # Delete saved session
 ```
 
-#### File Navigation and Management
+#### 📁 File Navigation and Management
 
 ```bash
 # Key bindings for file operations
@@ -276,7 +276,7 @@ nvim filename            # Open specific file
 <leader>bD               # Delete buffer (force)
 ```
 
-#### Development Features
+#### 🚀 Development Features
 
 ```bash
 # LSP features (Language Server Protocol)
@@ -299,9 +299,9 @@ K                        # Hover documentation
 <F12>                    # Step out
 ```
 
-### Advanced Editor Workflows
+### 🎨 Advanced Editor Workflows
 
-#### Multi-file Editing
+#### 📝 Multi-file Editing
 
 ```bash
 # Search and replace across files
@@ -314,11 +314,11 @@ Ctrl+p                   # Select previous occurrence
 Ctrl+x                   # Skip current occurrence
 ```
 
-## Performance Optimization Workflow
+## ⚡ Performance Optimization Workflow
 
-### Regular Performance Monitoring
+### 📈 Regular Performance Monitoring
 
-#### Weekly Performance Review
+#### 📅 Weekly Performance Review
 
 ```bash
 # Sunday evening routine
@@ -330,7 +330,7 @@ Ctrl+x                   # Skip current occurrence
 ./bin/performance-monitor.sh plugins    # Plugin performance analysis
 ```
 
-#### Monthly Deep Analysis
+#### 📆 Monthly Deep Analysis
 
 ```bash
 # First Sunday of each month
@@ -339,9 +339,9 @@ Ctrl+x                   # Skip current occurrence
 ./bin/performance-monitor.sh optimize            # Apply optimizations
 ```
 
-### Optimization Strategies
+### 🎨 Optimization Strategies
 
-#### Shell Performance
+#### 🐚 Shell Performance
 
 ```bash
 # Lazy loading configuration (already implemented)
@@ -356,7 +356,7 @@ time zsh -i -c exit      # Quick startup time check
 zsh -i -c 'zprof'       # Detailed startup profiling
 ```
 
-#### Application Performance
+#### 📱 Application Performance
 
 ```bash
 # Neovim startup optimization
@@ -368,9 +368,9 @@ tmux display-message -p '#{session_name}: #{window_name}' # Check session state
 # Restart tmux server if sessions become sluggish: tmux kill-server
 ```
 
-## Maintenance Workflow
+## 🔧 Maintenance Workflow
 
-### Daily Maintenance (Automated)
+### 🤖 Daily Maintenance (Automated)
 
 ```bash
 # These run automatically if automation is enabled:
@@ -380,7 +380,7 @@ tmux display-message -p '#{session_name}: #{window_name}' # Check session state
 # - Repository cleanup weekly
 ```
 
-### Weekly Manual Review
+### 📅 Weekly Manual Review
 
 ```bash
 # Every Sunday morning routine
@@ -394,7 +394,7 @@ brew bundle dump --describe --force      # Update Brewfile
 ./bin/optimize-repo.sh --analyze         # Check repository health
 ```
 
-### Monthly Deep Maintenance
+### 📆 Monthly Deep Maintenance
 
 ```bash
 # First Sunday of each month
@@ -408,7 +408,7 @@ tmux kill-server                         # Restart tmux (clears old sessions)
 rm -rf ~/.cache/nvim                     # Clear Neovim cache
 ```
 
-### Quarterly System Review
+### 📊 Quarterly System Review
 
 ```bash
 # Every three months - comprehensive review
@@ -429,9 +429,9 @@ git submodule update --remote --merge
 ./bin/performance-monitor.sh benchmark --runs 50
 ```
 
-## Troubleshooting Workflow
+## 🔧 Troubleshooting Workflow
 
-### Standard Troubleshooting Process
+### 🔍 Standard Troubleshooting Process
 
 1. **Identify the Issue**
 
@@ -474,9 +474,9 @@ git submodule update --remote --merge
    ./bin/health-check.sh all             # Confirm fix
    ```
 
-### Emergency Recovery Workflow
+### 🆘 Emergency Recovery Workflow
 
-#### Quick Recovery
+#### ⚡ Quick Recovery
 
 ```bash
 # If shell becomes unusable
@@ -488,7 +488,7 @@ tmux kill-server                         # Nuclear option - kills all sessions
 tmux new-session -s emergency            # Start fresh session
 ```
 
-#### Full Reset (Last Resort)
+#### 🆘 Full Reset (Last Resort)
 
 ```bash
 # Create backup first
@@ -500,9 +500,9 @@ git reset --hard HEAD                    # Reset repository
 ./bin/setup-interactive.sh --backup     # Reinstall with backup
 ```
 
-## Advanced Workflows
+## 🎨 Advanced Workflows
 
-### Custom Automation Development
+### 🤖 Custom Automation Development
 
 ```bash
 # Create custom automation script
@@ -521,9 +521,9 @@ chmod +x ~/.dotfiles/bin/custom/my-automation.sh
 # Add to health-monitor.sh or create LaunchAgent
 ```
 
-### Environment-Specific Workflows
+### 🌍 Environment-Specific Workflows
 
-#### Work Environment
+#### 🏢 Work Environment
 
 ```bash
 # Work-specific setup (detected automatically)
@@ -539,7 +539,7 @@ if [[ -n "$ZENDESK_ENV" ]]; then
 fi
 ```
 
-#### Remote Development
+#### 🌐 Remote Development
 
 ```bash
 # Remote development workflow

@@ -1,4 +1,4 @@
-# Git Aliases Reference
+# 🌳 Git Aliases Reference
 
 This document provides a comprehensive reference for all git aliases
 configured in this dotfiles repository. Git aliases are configured in two
@@ -7,9 +7,9 @@ places:
 1. **Shell aliases** (`stow/zsh/.config/zsh/aliases.zsh:33-72`) - Quick shell shortcuts
 2. **Git native aliases** (`bin/setup-git.sh`) - Feature-rich git commands
 
-## Quick Reference
+## ⚡ Quick Reference
 
-### Shell Git Aliases
+### 🐚 Shell Git Aliases
 
 Basic git operations with short, memorable aliases:
 
@@ -31,7 +31,7 @@ Basic git operations with short, memorable aliases:
 | `gp` | `git push` | Push to remote |
 | `gpl` | `git pull` | Pull from remote |
 
-### Branch Management
+### 🌳 Branch Management
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -40,7 +40,7 @@ Basic git operations with short, memorable aliases:
 | `gbd` | `git branch -d` | Delete branch (safe) |
 | `gbD` | `git branch -D` | Force delete branch |
 
-### Git Aliases that Reference Native Aliases
+### 🔗 Git Aliases that Reference Native Aliases
 
 These shell aliases call git native aliases defined in `setup-git.sh`:
 
@@ -56,7 +56,7 @@ These shell aliases call git native aliases defined in `setup-git.sh`:
 | `gcleanup` | `git cleanup` | Clean merged branches (setup-git.sh:33) |
 | `grecent` | `git recent` | Show recent branches (setup-git.sh:46) |
 
-### Stash Operations
+### 📦 Stash Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -64,24 +64,24 @@ These shell aliases call git native aliases defined in `setup-git.sh`:
 | `gstp` | `git stash pop` | Apply and remove latest stash |
 | `gstl` | `git stash list` | List all stashes |
 
-### Remote Operations
+### 🌐 Remote Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
 | `gr` | `git remote` | Manage remotes |
 | `grv` | `git remote -v` | Show remote URLs |
 
-### Worktree
+### 🌳 Worktree
 
 | Alias | Command | Description |
 |-------|---------|-------------|
 | `gw` | `git worktree` | Manage worktrees |
 
-## Native Git Aliases
+## 🔧 Native Git Aliases
 
 These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 
-### Diff Operations
+### 🔄 Diff Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -93,7 +93,7 @@ These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 | `dt` | `difftool` | Launch diff tool |
 | `dtg` | `difftool --gui` | Launch GUI diff tool |
 
-### Log Operations
+### 📄 Log Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -109,7 +109,7 @@ These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 | `last` | `log -1 HEAD` | Show last commit |
 | `search` | Custom search log | Search commits by message |
 
-### Branch Operations
+### 🌳 Branch Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -127,14 +127,14 @@ These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 | `ms` | `checkout master` | Short for master |
 | `recent` | Custom recent branches | Show 10 most recent branches |
 
-### Commit Operations
+### 📝 Commit Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
 | `ci` | `commit` | Create commit |
 | `cp` | `cherry-pick` | Cherry-pick commits |
 
-### Fetch/Pull Operations
+### 📥 Fetch/Pull Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -143,14 +143,14 @@ These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 | `pl` | `pull` | Pull from remote |
 | `plp` | `pull --prune` | Pull with prune |
 
-### Status Operations
+### 📊 Status Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
 | `s` | `status -sb` | Short status with branch |
 | `st` | `status -b` | Status with branch info |
 
-### Utility Operations
+### 🛠️ Utility Operations
 
 | Alias | Command | Description |
 |-------|---------|-------------|
@@ -158,36 +158,36 @@ These are configured via `git config --global alias.*` in `bin/setup-git.sh`:
 | `sm` | `submodule` | Submodule operations |
 | `unstage` | `reset HEAD --` | Unstage files |
 
-## Configuration Features
+## ⚙️ Configuration Features
 
-### Visual Enhancements
+### 🎨 Visual Enhancements
 
 - **Delta Pager**: Uses delta with Catppuccin theme for enhanced diffs
 - **Color Configuration**: Comprehensive color scheme for all git operations  
 - **Line Numbers**: Enabled in delta for better code review
 - **Side-by-side Diff**: Available via delta configuration
 
-### Security
+### 🔒 Security
 
 - **GPG Signing**: Commits are signed using SSH keys (`commit.gpgsign true`)
 - **SSH Format**: Uses SSH format for GPG signing
 
-### Workflow Optimizations
+### 🚀 Workflow Optimizations
 
 - **Rebase on Pull**: `pull.rebase true` for cleaner history
 - **Auto Stash**: `rebase.autoStash true` for seamless rebases
 - **Histogram Diff**: Better diff algorithm
 - **Color-moved Detection**: Highlights moved code blocks
 
-### Tools Integration
+### 🔌 Tools Integration
 
 - **Diff Tool**: Configured to use `vimdiff` (Neovim)
 - **Merge Tool**: Uses `vimdiff` with three-way merge layout
 - **GUI Tools**: `opendiff` for macOS GUI operations
 
-## Usage Examples
+## 📚 Usage Examples
 
-### Daily Workflow
+### 🌅 Daily Workflow
 
 ```bash
 # Check status and recent changes
@@ -205,7 +205,7 @@ gmain              # Switch back to main
 gcleanup           # Clean up merged branches
 ```
 
-### Advanced Operations
+### 🎆 Advanced Operations
 
 ```bash
 # Detailed diff analysis
@@ -219,7 +219,7 @@ git standup        # Personal commit history
 git lm             # Changes since main branch
 ```
 
-### Stash Workflow
+### 📦 Stash Workflow
 
 ```bash
 gst                # Stash current changes
@@ -229,13 +229,13 @@ gcb hotfix/urgent  # Create hotfix branch
 gstp               # Pop stashed changes
 ```
 
-## File Locations
+### 📂 File Locations
 
 - **Shell Aliases**: `stow/zsh/.config/zsh/aliases.zsh:33-72`
 - **Git Configuration**: `bin/setup-git.sh`
 - **Theme Configuration**: `~/dotfiles/external/catppuccin/delta/catppuccin.gitconfig`
 
-## Setup
+## ⚙️ Setup
 
 Run the git setup script to configure all native git aliases:
 

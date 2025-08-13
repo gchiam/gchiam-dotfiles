@@ -1,24 +1,22 @@
-# Setup Guide
+# 🚀 Setup Guide
 
 This comprehensive guide covers installation and setup procedures for the
 dotfiles repository, from initial setup to advanced configuration.
 
-## Navigation
+## 🧭 Navigation
 
-**📖 Documentation:** [← Back to Main README](../README.md) |
-**🏗️ Architecture:** [Repository Structure →](architecture.md)
-
-**🔄 Next Steps:** After setup, see [Workflow Guide](workflow-guide.md) for
-daily usage patterns
-
-**🆘 Having Issues?** Check the [Troubleshooting Guide](troubleshooting.md)
-for common problems
+| Direction | Link | Description |
+|-----------|------|-------------|
+| ⬅️ **Back** | [Main README](../README.md) | Return to repository overview |
+| ➡️ **Next** | [Architecture](architecture.md) | Understand repository structure |
+| 🔄 **After Setup** | [Workflow Guide](workflow-guide.md) | Daily usage patterns |
+| 🆘 **Help** | [Troubleshooting](troubleshooting.md) | Common issues and solutions |
 
 ---
 
-## Common Commands
+## ⚡ Quick Start Commands
 
-### Setup and Installation
+### 🛠️ Setup and Installation
 
 ```bash
 ./bin/setup.sh                      # Main installation script using Stow
@@ -26,7 +24,7 @@ for common problems
 ./bin/add-github-to-ssh-config.sh   # Setup SSH for GitHub
 ```
 
-### Package Management
+### 📦 Package Management
 
 ```bash
 # Install all packages from main Brewfile
@@ -40,7 +38,7 @@ stow -d stow -t ~ <directory>       # Link specific config
 stow -d stow -t ~ -D <directory>    # Unlink specific config
 ```
 
-### Development Environment
+### 💻 Development Environment
 
 ```bash
 # Neovim (LazyVim) - primary editor
@@ -53,9 +51,9 @@ tmux
 # Version managers: asdf, nvm, jenv are configured
 ```
 
-## Additional Setup
+## 🎨 Additional Setup
 
-### Tmux Theme Auto-Switching
+### 🌗 Tmux Theme Auto-Switching
 
 Enable automatic tmux theme switching based on system appearance:
 
@@ -70,9 +68,9 @@ brew install fswatch
 This will automatically switch between Catppuccin Latte (light) and Frappe
 (dark) themes when you change your system appearance.
 
-## Post-Installation
+## ✅ Post-Installation
 
-### Verification Steps
+### 🔍 Verification Steps
 
 After installation, verify everything is working:
 
@@ -92,7 +90,7 @@ tmux info                      # tmux configuration
 git --version                  # Git with delta integration
 ```
 
-### Shell Completion Setup
+### 🔧 Shell Completion Setup
 
 ```bash
 # Install tab completion for all dotfiles scripts
@@ -103,7 +101,7 @@ exec zsh
 ./bin/auto-sync.sh <TAB>       # Should show available commands
 ```
 
-### First-Time Configuration
+### ⚙️ First-Time Configuration
 
 ```bash
 # Configure Git (if not already done)
@@ -117,9 +115,9 @@ git config --global user.email "your.email@example.com"
 ./bin/setup-git-hooks.sh install
 ```
 
-## Directory Structure and Important Paths
+## 📁 Directory Structure and Important Paths
 
-### Configuration Locations
+### 🏠 Configuration Locations
 
 ```text
 ~/.config/                    # Modern XDG-compliant configurations
@@ -143,7 +141,7 @@ git config --global user.email "your.email@example.com"
 └── auto*.sh                 # Automation scripts
 ```
 
-### Repository Structure
+### 🗂️ Repository Structure
 
 ```text
 ~/.dotfiles/
@@ -159,7 +157,7 @@ git config --global user.email "your.email@example.com"
 └── terminfo/               # Terminal compatibility files
 ```
 
-### Log and Cache Locations
+### 📋 Log and Cache Locations
 
 ```text
 ~/.local/log/               # Service logs and debugging
@@ -168,7 +166,7 @@ git config --global user.email "your.email@example.com"
 ~/.local/state/             # Application state files
 ```
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 If you encounter issues during setup:
 
@@ -180,7 +178,7 @@ If you encounter issues during setup:
 5. **Reset if needed**: Use `./bin/setup-interactive.sh --backup` to create
    backups before trying fixes
 
-## Next Steps
+## 🎯 Next Steps
 
 After successful installation:
 

@@ -1,9 +1,9 @@
-# Development Notes
+# 🚀 Development Notes
 
 This document covers development practices, configuration management, and
 architectural details for working with the dotfiles repository.
 
-## Zsh Configuration Architecture
+## 🔧 Zsh Configuration Architecture
 
 The zsh configuration has been completely modernized with a modular system:
 
@@ -13,7 +13,7 @@ The zsh configuration has been completely modernized with a modular system:
 - **Modular files**: `aliases.zsh`, `functions.zsh`, `completion.zsh`, etc.
 - **XDG compliance**: All configs moved to `~/.config/zsh/`
 
-## File Modifications
+## 📝 File Modifications
 
 When modifying configurations:
 
@@ -22,23 +22,23 @@ When modifying configurations:
 3. For new configurations, add a new directory under `stow/`
 4. Run linting tools before committing (see Quality Assurance section)
 
-## Configuration Guidelines
+## 📜 Configuration Guidelines
 
-### Adding New Tools
+### ➕ Adding New Tools
 
 1. Create a new directory under `stow/` for the tool
 2. Place configuration files in their expected relative paths
 3. Update the main Brewfile if the tool needs to be installed
 4. Document any special setup requirements
 
-### Modifying Existing Configurations
+### ✏️ Modifying Existing Configurations
 
 1. Always test changes in a safe environment first
 2. Use the appropriate linting tools for the file type
 3. Update documentation if the changes affect user workflows
 4. Follow the established commit message conventions
 
-### Environment-Specific Configurations
+### 🌍 Environment-Specific Configurations
 
 The zsh system supports different environments:
 
@@ -47,7 +47,7 @@ The zsh system supports different environments:
 - **Container environment**: Detected via Docker/Kubernetes indicators
 - **Minimal mode**: Automatically enabled for remote/container environments
 
-## Testing and Validation
+## ✅ Testing and Validation
 
 Before committing changes:
 
@@ -112,9 +112,9 @@ Before committing changes:
    brew bundle check --file=~/.Brewfile
    ```
 
-## Debugging and Troubleshooting
+## 🔍 Debugging and Troubleshooting
 
-### Performance Profiling
+### 📈 Performance Profiling
 
 ```bash
 # Profile zsh startup time
@@ -128,7 +128,7 @@ echo 'zmodload zsh/zprof' >> ~/.zshrc.local
 sudo fs_usage -w -f filesystem | grep -E "(zsh|tmux|nvim)"
 ```
 
-### Configuration Validation
+### ✔️ Configuration Validation
 
 ```bash
 # Validate JSON configurations
@@ -141,7 +141,7 @@ find stow -name "*.yml" -o -name "*.yaml" | xargs yamllint
 ./bin/health-check.sh --verbose
 ```
 
-### Environment Debugging
+### 🌎 Environment Debugging
 
 ```bash
 # Debug environment detection
@@ -155,9 +155,9 @@ echo $FPATH | tr ':' '\n'
 which -a <command>
 ```
 
-## Advanced Development Patterns
+## 🎨 Advanced Development Patterns
 
-### Custom Script Development
+### 📄 Custom Script Development
 
 When creating new scripts in `bin/`:
 
@@ -218,7 +218,7 @@ while [[ $# -gt 0 ]]; do
 done
 ```
 
-### Configuration Templates
+### 📊 Configuration Templates
 
 For new tool configurations in `stow/`:
 
@@ -247,7 +247,7 @@ For new tool configurations in `stow/`:
    stow -d stow -t ~ new-tool
    ```
 
-### Plugin and Extension Development
+### 🔌 Plugin and Extension Development
 
 For Raycast extensions or similar:
 
@@ -268,9 +268,9 @@ npm run build
 raycast build --validate
 ```
 
-## Integration Patterns
+## 🔗 Integration Patterns
 
-### Runtime Environment Configurations
+### ⚙️ Runtime Environment Configurations
 
 ```bash
 # In zsh configuration
@@ -287,7 +287,7 @@ if [[ -n "$SSH_CONNECTION" || -n "$container" ]]; then
 fi
 ```
 
-### Conditional Loading
+### 🔄 Conditional Loading
 
 ```bash
 # Load tools only if available

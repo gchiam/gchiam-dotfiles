@@ -1,23 +1,8 @@
-# Zsh Reference
+# 🐚 Zsh Reference
 
 Complete reference for the zsh configuration in this dotfiles repository.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Configuration Structure](#configuration-structure)
-- [Environment Variables](#environment-variables)
-- [Plugin Management](#plugin-management)
-- [Aliases Reference](#aliases-reference)
-- [Functions Reference](#functions-reference)
-- [Keybindings Reference](#keybindings-reference)
-- [Completion System](#completion-system)
-- [Environment Detection](#environment-detection)
-- [Performance Features](#performance-features)
-- [Customization](#customization)
-- [Troubleshooting](#troubleshooting)
-
-## Overview
+## 📖 Overview
 
 This zsh configuration provides a modern, efficient, and highly customizable
 shell environment optimized for development workflows. Key features include:
@@ -30,7 +15,7 @@ shell environment optimized for development workflows. Key features include:
 - **Vi-mode support** - Enhanced vi-mode with modern features
 - **Rich completions** - Intelligent completion for development tools
 
-## Quick Start
+## ⚡ Quick Start
 
 Most commonly used shortcuts and commands:
 
@@ -56,9 +41,9 @@ backup <file>                      # Create timestamped backup
 show_env_info                      # Show environment details
 ```
 
-## Configuration Structure
+## 🏠 Configuration Structure
 
-### File Organization
+### 📂 File Organization
 
 ```text
 ~/.zshenv                           # Environment variables (loaded first)
@@ -75,7 +60,7 @@ show_env_info                      # Show environment details
 └── .zsh_plugins.txt              # Plugin management
 ```
 
-### Loading Order
+### 🔄 Loading Order
 
 1. `~/.zshenv` - Environment variables (all shells)
 2. `~/.config/zsh/.zprofile` - Login shell setup (SSH agent, brew env)
@@ -87,9 +72,9 @@ show_env_info                      # Show environment details
    - `aliases.zsh`
    - `keybindings.zsh`
 
-## Environment Variables
+## 🌍 Environment Variables
 
-### XDG Base Directory Specification
+### 📂 XDG Base Directory Specification
 
 ```bash
 XDG_CONFIG_HOME="$HOME/.config"     # Configuration files
@@ -99,7 +84,7 @@ XDG_STATE_HOME="$HOME/.local/state" # State files
 ZDOTDIR="$HOME/.config/zsh"         # Zsh configuration directory
 ```
 
-### Development Tools
+### 🛠️ Development Tools
 
 ```bash
 EDITOR="nvim"                       # Default editor
@@ -110,7 +95,7 @@ DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"  # Docker config
 KUBECONFIG="$XDG_CONFIG_HOME/kube/config"  # Kubernetes config
 ```
 
-### Performance Variables
+### 🚀 Performance Variables
 
 ```bash
 HISTSIZE=10000                      # In-memory history size
@@ -118,9 +103,9 @@ SAVEHIST=10000                     # Saved history size
 ZSH_MINIMAL_MODE=false             # Performance mode flag
 ```
 
-## Plugin Management
+## 🔌 Plugin Management
 
-### Antidote Plugin Manager
+### 🧪 Antidote Plugin Manager
 
 Plugins are managed via antidote and defined in `~/.config/antidote/.zsh_plugins.txt`:
 
@@ -144,14 +129,14 @@ zsh-users/zsh-history-substring-search
 belak/zsh-utils path:completion
 ```
 
-### Loading Strategy
+### 🚀 Loading Strategy
 
 - Plugins load via `environment.zsh` > `load_env_plugins()`
 - Different plugin sets for work vs personal environments
 - Deferred loading (`kind:defer`) for performance
 - Conditional loading based on `ZSH_MINIMAL_MODE`
 
-### Plugin-provided Aliases
+### 🔗 Plugin-provided Aliases
 
 Some plugins (particularly `mattmc3/zfunctions`) provide useful aliases:
 
@@ -171,9 +156,9 @@ moon='curl wttr.in/moon'           # Moon phase
 the same names. Custom functions `weather()` and `serve()` were removed to
 avoid conflicts.
 
-## Aliases Reference
+## 🔗 Aliases Reference
 
-### Core Commands
+### ⚙️ Core Commands
 
 ```bash
 # Enhanced ls (with modern alternatives)
@@ -195,7 +180,7 @@ mv='mv -i'                         # Interactive move
 ln='ln -i'                         # Interactive link
 ```
 
-### Directory Navigation
+### 🧭 Directory Navigation
 
 ```bash
 ..='cd ..'                         # Go up one level
@@ -206,7 +191,7 @@ ln='ln -i'                         # Interactive link
 md='mkdir -p'                      # Create directory and parents
 ```
 
-### Git Shortcuts
+### 🌳 Git Shortcuts
 
 ```bash
 g='git'                            # Git shortcut
@@ -235,7 +220,7 @@ gstp='git stash pop'               # Pop stash
 > for detailed documentation of all available git aliases and their
 > functionality.
 
-### Development Tools Aliases
+### 🛠️ Development Tools Aliases
 
 ```bash
 # Docker
@@ -268,7 +253,7 @@ py='python3'                       # Python 3
 jsonpp='python3 -m json.tool'     # JSON pretty print
 ```
 
-### System Utilities
+### 🔧 System Utilities
 
 ```bash
 # Process management
@@ -282,7 +267,7 @@ pubip='curl -s https://ipinfo.io/ip'  # Public IP
 localip="ifconfig | grep -E 'inet [0-9]' | grep -v 127.0.0.1 | awk '{print \$2}'"
 ```
 
-### macOS Specific
+### 🍎 macOS Specific
 
 ```bash
 finder='open -R'                   # Reveal in Finder
@@ -305,7 +290,7 @@ bcl='brew list --cask'             # List casks
 bcs='brew search --cask'           # Search casks
 ```
 
-### Global Aliases (Zsh-specific)
+### 🌍 Global Aliases (Zsh-specific)
 
 ```bash
 # Output redirection
@@ -326,9 +311,9 @@ alias -g DN=/dev/null              # Direct to null
 alias -g Sk="*~(*.bz2|*.gz|*.tgz|*.zip|*.z)"  # Skip archives
 ```
 
-## Functions Reference
+## 🛠️ Functions Reference
 
-### File Operations
+### 📁 File Operations
 
 ```bash
 mkcd <dir>                         # Create directory and cd into it
@@ -338,7 +323,7 @@ ff <pattern>                       # Find files by name pattern
 fd <pattern>                       # Find directories by name pattern
 ```
 
-### System Utilities Functions
+### 🔧 System Utilities Functions
 
 ```bash
 killp <process>                    # Find and kill process by name
@@ -350,7 +335,7 @@ topcpu [n]                         # Top processes by CPU usage (default: 10)
 topmem [n]                         # Top processes by memory usage (default: 10)
 ```
 
-### Development Tools Functions
+### 🛠️ Development Tools Functions
 
 ```bash
 # Git helpers
@@ -367,7 +352,7 @@ k8s-ctx [context]                  # Get/set kubectl context
 k8s-ns [namespace]                 # Get/set kubectl namespace
 ```
 
-### Text Processing
+### 📝 Text Processing
 
 ```bash
 json [file]                        # Pretty print JSON (stdin if no file)
@@ -379,16 +364,16 @@ upper <text>                       # Convert to uppercase
 lower <text>                       # Convert to lowercase
 ```
 
-### Utilities
+### 🛠️ Utilities
 
 ```bash
 genpass [length]                   # Generate random password
 note [text]                        # Quick note-taking system
 ```
 
-## Keybindings Reference
+## ⌨️ Keybindings Reference
 
-### Navigation
+### 🧭 Navigation
 
 ```bash
 Ctrl+A                             # Beginning of line
@@ -401,7 +386,7 @@ Ctrl+Left                          # Backward word (terminal)
 Ctrl+Right                         # Forward word (terminal)
 ```
 
-### Editing
+### ✏️ Editing
 
 ```bash
 Ctrl+D                             # Delete character
@@ -413,7 +398,7 @@ Ctrl+Y                             # Yank (paste)
 Alt+Backspace                      # Backward kill word
 ```
 
-### History
+### 📅 History
 
 ```bash
 Ctrl+R                             # History search backward
@@ -423,14 +408,14 @@ Ctrl+N                             # Next command
 Up/Down                            # History substring search
 ```
 
-### Vi-mode (when enabled)
+### 🕰️ Vi-mode (when enabled)
 
 ```bash
 jj or jk                           # Escape to normal mode (from insert)
 k/j                                # Navigate history (normal mode)
 ```
 
-### Custom Shortcuts
+### ✨ Custom Shortcuts
 
 ```bash
 # Command shortcuts
@@ -460,14 +445,14 @@ Alt+%                              # Search and replace in command
 Alt+=                              # Quick calculator (if bc available)
 ```
 
-### macOS Clipboard
+### 🍎 macOS Clipboard
 
 ```bash
 Alt+C                              # Copy command to clipboard
 Alt+V                              # Paste from clipboard
 ```
 
-### FZF Integration
+### 🔍 FZF Integration
 
 ```bash
 Ctrl+T                             # FZF directory navigation
@@ -475,9 +460,9 @@ Alt+T                              # FZF file selection
 Ctrl+R                             # FZF history search (if available)
 ```
 
-## Completion System
+## 🕰️ Completion System
 
-### Configuration
+### ⚙️ Configuration
 
 - **Case-insensitive** matching with smart patterns
 - **Menu selection** with arrow key navigation
@@ -485,7 +470,7 @@ Ctrl+R                             # FZF history search (if available)
 - **Grouping** by category with descriptions
 - **Fuzzy matching** with error tolerance
 
-### Enhanced Completions
+### ✨ Enhanced Completions
 
 ```bash
 # Development tools
@@ -511,7 +496,7 @@ serve                              # Port number completion
 genpass                            # Length completion
 ```
 
-### SSH/SCP Completion
+### 🔒 SSH/SCP Completion
 
 Automatically completes hosts from:
 
@@ -519,9 +504,9 @@ Automatically completes hosts from:
 - `~/.ssh/known_hosts`
 - Custom host groups
 
-## Environment Detection
+## 🌍 Environment Detection
 
-### Automatic Detection
+### 🤖 Automatic Detection
 
 The configuration automatically detects and adapts to different environments:
 
@@ -539,7 +524,7 @@ ZSH_TERM_TERMINAL                  # macOS Terminal.app
 ZSH_TERM_TMUX                      # tmux session
 ```
 
-### Environment-specific Features
+### ✨ Environment-specific Features
 
 **Work Environment:**
 
@@ -561,16 +546,16 @@ ZSH_TERM_TMUX                      # tmux session
 - Performance optimizations
 - Container-aware settings
 
-## Performance Features
+## 🚀 Performance Features
 
-### Startup Optimization
+### ⚡ Startup Optimization
 
 - **Lazy loading** of NVM, SDKMAN, and other tools
 - **Conditional plugin loading** based on environment
 - **Completion caching** for faster subsequent loads
 - **Deferred loading** of syntax highlighting and other plugins
 
-### Lazy Loading Examples
+### 😴 Lazy Loading Examples
 
 ```bash
 # NVM lazy loading
@@ -589,7 +574,7 @@ sdk() {
 }
 ```
 
-### Minimal Mode
+### 🎨 Minimal Mode
 
 When `ZSH_MINIMAL_MODE=true`:
 
@@ -598,9 +583,9 @@ When `ZSH_MINIMAL_MODE=true`:
 - Reduces completion features
 - Automatically enabled in remote/container environments
 
-## Customization
+## ⚙️ Customization
 
-### Adding Custom Aliases
+### 🔗 Adding Custom Aliases
 
 Edit `~/.config/zsh/aliases.zsh`:
 
@@ -609,7 +594,7 @@ Edit `~/.config/zsh/aliases.zsh`:
 alias myalias='my command'
 ```
 
-### Adding Custom Functions
+### 🛠️ Adding Custom Functions
 
 Edit `~/.config/zsh/functions.zsh`:
 
@@ -620,7 +605,7 @@ my_function() {
 }
 ```
 
-### Adding Custom Keybindings
+### ⌨️ Adding Custom Keybindings
 
 Edit `~/.config/zsh/keybindings.zsh`:
 
@@ -633,7 +618,7 @@ zle -N my-widget
 bindkey '^[x' my-widget  # Alt+X
 ```
 
-### Environment-specific Configuration
+### 🌍 Environment-specific Configuration
 
 Create files for specific environments:
 
@@ -647,7 +632,7 @@ Work environment is automatically detected by:
 - Username containing "zendesk"
 - Presence of `~/.work_env` file
 
-### Local Overrides
+### 🏠 Local Overrides
 
 The configuration sources these files if they exist:
 
@@ -657,9 +642,9 @@ The configuration sources these files if they exist:
 - `~/.work_env` - Work environment marker
 - `~/.work_proxy` - Work proxy settings
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
-### Alias/Function Conflicts
+### ⚠️ Alias/Function Conflicts
 
 When plugins provide aliases that conflict with custom functions, you may
 see errors like:
@@ -690,7 +675,7 @@ parse error near '()'
 
 3. **Remove conflicting functions** and use plugin aliases instead
 
-### Common Issues
+### ⚠️ Common Issues
 
 **Slow startup:**
 
@@ -730,7 +715,7 @@ bindkey | less
 bindkey "^R"
 ```
 
-### Debug Mode
+### 🔍 Debug Mode
 
 Enable debugging:
 
@@ -742,7 +727,7 @@ set -x
 export ANTIDOTE_DEBUG=1
 ```
 
-### Environment Information
+### 🌍 Environment Information
 
 Use the built-in function to check environment:
 
@@ -764,7 +749,7 @@ OS Type: darwin22.0
 ====================================
 ```
 
-### Reset Configuration
+### 🔄 Reset Configuration
 
 To reset to defaults:
 
@@ -780,7 +765,7 @@ source ~/.zshenv
 source ~/.config/zsh/.zshrc
 ```
 
-### Getting Help
+### 🆘 Getting Help
 
 - Use `Alt+?` to show all key bindings
 - Use `Alt+H` to get help on current command

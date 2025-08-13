@@ -1,10 +1,10 @@
-# Troubleshooting Guide
+# ⚙️ Troubleshooting Guide
 
 This guide covers common issues and solutions when setting up and using the dotfiles.
 
-## Setup Issues
+## 🚀 Setup Issues
 
-### Stow Command Not Found
+### ❌ Stow Command Not Found
 
 **Problem**: `stow: command not found` when running setup scripts.
 
@@ -19,7 +19,7 @@ sudo apt-get install stow  # Ubuntu/Debian
 sudo yum install stow      # CentOS/RHEL
 ```
 
-### Permission Denied Errors
+### 🚫 Permission Denied Errors
 
 **Problem**: Permission denied when creating symlinks or running scripts.
 
@@ -35,7 +35,7 @@ sudo chown -R $USER:$USER ~/.dotfiles
 # For macOS, grant Terminal full disk access in System Preferences
 ```
 
-### Stow Conflicts
+### ⚠️ Stow Conflicts
 
 **Problem**: `stow: WARNING! stowing ... would cause conflicts`
 
@@ -52,7 +52,7 @@ stow --adopt -d stow -t ~ zsh
 stow -R -d stow -t ~ zsh
 ```
 
-### Homebrew Installation Fails
+### 🍺 Homebrew Installation Fails
 
 **Problem**: Brew bundle fails or packages can't be installed.
 
@@ -69,9 +69,9 @@ brew install $(grep "^brew" ~/.Brewfile | cut -d"'" -f2)
 brew bundle --file=~/.Brewfile --no-upgrade
 ```
 
-## Shell Issues
+## 🐚 Shell Issues
 
-### Zsh Not Loading Configurations
+### ❌ Zsh Not Loading Configurations
 
 **Problem**: Zsh starts but custom configurations don't load.
 
@@ -92,7 +92,7 @@ zsh -x ~/.zshrc  # Debug loading (verbose)
 - Reload shell: `exec zsh` or restart terminal
 - Check for syntax errors in configuration files
 
-### Slow Shell Startup
+### 🐌 Slow Shell Startup
 
 **Problem**: Zsh takes a long time to start.
 
@@ -113,7 +113,7 @@ echo 'zmodload zsh/zprof' >> ~/.zshrc.local
 - Use lazy loading for heavy plugins
 - Move expensive operations to background jobs
 
-### Plugin Installation Fails
+### 🔌 Plugin Installation Fails
 
 **Problem**: Antidote plugins fail to install or load.
 
@@ -130,9 +130,9 @@ rm -rf ~/.cache/antidote
 antidote bundle < ~/.config/antidote/.zsh_plugins.txt > ~/.config/antidote/.zsh_plugins.zsh
 ```
 
-## Terminal Issues
+## 💻 Terminal Issues
 
-### Colors Not Working
+### 🎨 Colors Not Working
 
 **Problem**: Colors don't display correctly in terminal.
 
@@ -149,7 +149,7 @@ echo $TERM  # Should be tmux-256color or similar
 tic ~/.dotfiles/terminfo/tmux-256color.terminfo
 ```
 
-### Font Issues
+### 📝 Font Issues
 
 **Problem**: Powerline symbols or icons don't display correctly.
 
@@ -160,7 +160,7 @@ tic ~/.dotfiles/terminfo/tmux-256color.terminfo
 - For Alacritty: Check `font.normal.family` in config
 - For Kitty: Check `font_family` setting
 
-### Terminal Emulator Won't Start
+### ❌ Terminal Emulator Won't Start
 
 **Problem**: Alacritty, Kitty, or WezTerm fails to launch.
 
@@ -180,9 +180,9 @@ alacritty  # Should work with defaults
 # Kitty: Run with `kitty --debug-keyboard`
 ```
 
-## Development Tool Issues
+## 🛠️ Development Tool Issues
 
-### Neovim Configuration Errors
+### 📝 Neovim Configuration Errors
 
 **Problem**: Neovim fails to start or shows errors.
 
@@ -201,7 +201,7 @@ rm -rf ~/.cache/nvim
 nvim --clean
 ```
 
-### Git Configuration Issues
+### 😄 Git Configuration Issues
 
 **Problem**: Git aliases or delta integration not working.
 
@@ -218,7 +218,7 @@ echo "test" | git diff --no-index /dev/null - | delta
 brew reinstall git-delta
 ```
 
-### tmux Plugin Issues
+### 📋 tmux Plugin Issues
 
 **Problem**: tmux plugins don't load or TPM fails.
 
@@ -235,9 +235,9 @@ tmux new-session -d 'tmux run-shell ~/.tmux/plugins/tpm/scripts/install_plugins.
 tmux source-file ~/.tmux.conf
 ```
 
-## macOS Specific Issues
+## 🍎 macOS Specific Issues
 
-### AeroSpace Configuration
+### 🚀 AeroSpace Configuration
 
 **Problem**: AeroSpace window manager not working.
 
@@ -254,7 +254,7 @@ aerospace --check-config
 aerospace --restart-config
 ```
 
-### Karabiner-Elements Issues
+### ⌨️ Karabiner-Elements Issues
 
 **Problem**: Keyboard modifications not working.
 
@@ -265,7 +265,7 @@ aerospace --restart-config
 - Check configuration: `~/.config/karabiner/karabiner.json`
 - Restart Karabiner-Elements from menu bar
 
-### macOS Gatekeeper Issues
+### 🚫 macOS Gatekeeper Issues
 
 **Problem**: "App can't be opened because it is from an unidentified developer"
 
@@ -279,9 +279,9 @@ xattr -r -d com.apple.quarantine /path/to/app
 sudo spctl --master-disable
 ```
 
-## Performance Issues
+## ⚡ Performance Issues
 
-### High CPU Usage
+### 🔥 High CPU Usage
 
 **Problem**: Terminal or shell using excessive CPU.
 
@@ -304,7 +304,7 @@ fs_usage -w -f filesystem | grep -E "(zsh|tmux|nvim)"
 - Reduce prompt complexity
 - Use `lazy` loading for plugins
 
-### High Memory Usage
+### 💾 High Memory Usage
 
 **Problem**: Applications using too much memory.
 
@@ -315,9 +315,9 @@ fs_usage -w -f filesystem | grep -E "(zsh|tmux|nvim)"
 - Close unused Neovim buffers
 - Clear shell history if extremely large
 
-## Recovery Options
+## 🆘 Recovery Options
 
-### Reset Individual Tools
+### 🔄 Reset Individual Tools
 
 ```bash
 # Reset Zsh
@@ -332,7 +332,7 @@ mv ~/.tmux.conf ~/.tmux.conf.backup
 mv ~/.tmux ~/.tmux.backup
 ```
 
-### Complete Reset
+### 🆘 Complete Reset
 
 ```bash
 # Remove all dotfiles (CAUTION: This removes all configurations)
@@ -347,9 +347,9 @@ if [[ -d ~/.dotfiles-backup-* ]]; then
 fi
 ```
 
-## Getting Help
+## 🆘 Getting Help
 
-### Health Check
+### ✅ Health Check
 
 Always start troubleshooting with the health check:
 
@@ -357,7 +357,7 @@ Always start troubleshooting with the health check:
 ~/.dotfiles/bin/health-check.sh
 ```
 
-### Debug Mode
+### 🔍 Debug Mode
 
 Run setup scripts with debug output:
 
@@ -365,7 +365,7 @@ Run setup scripts with debug output:
 bash -x ~/.dotfiles/bin/setup.sh
 ```
 
-### Log Files
+### 📁 Log Files
 
 Check these locations for error logs:
 
@@ -374,7 +374,7 @@ Check these locations for error logs:
 - Neovim: `:messages` command, `~/.cache/nvim/`
 - Terminal emulators: Usually in `~/Library/Logs/` (macOS)
 
-### Community Support
+### 🤝 Community Support
 
 1. Check existing issues in the repository
 2. Search for similar problems in dotfiles communities
@@ -384,9 +384,9 @@ Check these locations for error logs:
    - System information (`uname -a`, macOS version)
    - Steps to reproduce
 
-## Prevention
+## 🛡️ Prevention
 
-### Regular Maintenance
+### 🔧 Regular Maintenance
 
 ```bash
 # Update packages regularly
@@ -401,7 +401,7 @@ tmux kill-server  # Restart tmux occasionally
 ~/.dotfiles/bin/health-check.sh
 ```
 
-### Backup Strategy
+### 💾 Backup Strategy
 
 ```bash
 # Create regular backups before updates

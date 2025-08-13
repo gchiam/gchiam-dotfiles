@@ -1,17 +1,17 @@
-# AeroSpace Reference Guide
+# 🚁 AeroSpace Reference Guide
 
 A comprehensive guide to AeroSpace tiling window manager configuration and
 keybindings for macOS.
 
-## Overview
+## 📖 Overview
 
 AeroSpace is a i3-like tiling window manager for macOS that provides automatic
 window arrangement, workspace management, and keyboard-driven navigation. This
 configuration provides a productivity-focused setup with vim-style navigation.
 
-## Core Concepts
+## 🧠 Core Concepts
 
-### Workspaces
+### 🏢 Workspaces
 
 AeroSpace uses both numbered (1-9) and lettered (A-Z) workspaces:
 
@@ -19,21 +19,21 @@ AeroSpace uses both numbered (1-9) and lettered (A-Z) workspaces:
 - **Letters (A-Z)**: Specialized workspaces for specific applications
 - Applications can be automatically assigned to specific workspaces
 
-### Layouts
+### 📐 Layouts
 
 - **Tiles**: Default layout with automatic window arrangement
 - **Accordion**: Stacked layout with tab-like window management
 - **Floating**: Traditional overlapping windows (for specific apps)
 
-### Binding Modes
+### 🎮 Binding Modes
 
 - **Main**: Default mode for regular operations
 - **Service**: Administrative operations (reload, reset, etc.)
 - **Resize**: Dedicated mode for window resizing
 
-## Keybindings
+## ⌨️ Keybindings
 
-### Focus Navigation
+### 🧭 Focus Navigation
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
@@ -42,7 +42,7 @@ AeroSpace uses both numbered (1-9) and lettered (A-Z) workspaces:
 | `Alt + k` | Focus up | Move focus to window above |
 | `Alt + l` | Focus right | Move focus to window on the right |
 
-### Window Movement
+### 🚚 Window Movement
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
@@ -51,29 +51,29 @@ AeroSpace uses both numbered (1-9) and lettered (A-Z) workspaces:
 | `Alt + Shift + k` | Move up | Move window up |
 | `Alt + Shift + l` | Move right | Move window to the right |
 
-### Window Resizing
+### 📏 Window Resizing
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `Alt + Shift + -` | Resize smaller | Decrease window size by 50px |
 | `Alt + Shift + =` | Resize larger | Increase window size by 50px |
 
-### Layout Management
+### 🗂️ Layout Management
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `Alt + /` | Toggle tiles | Cycle through horizontal/vertical tiles |
 | `Alt + ,` | Toggle accordion | Cycle through accordion layouts |
 
-### Workspace Navigation
+### 🗺️ Workspace Navigation
 
-#### Numbered Workspaces (1-9)
+#### 🔢 Numbered Workspaces (1-9)
 
 | Keybinding | Action |
 |------------|--------|
 | `Alt + 1` to `Alt + 9` | Switch to workspace 1-9 |
 
-#### Lettered Workspaces (A-Z)
+#### 🔤 Lettered Workspaces (A-Z)
 
 | Keybinding | Action | Typical Use |
 |------------|--------|-------------|
@@ -100,65 +100,65 @@ AeroSpace uses both numbered (1-9) and lettered (A-Z) workspaces:
 | `Alt + y` | Workspace Y | Miscellaneous |
 | `Alt + z` | Workspace Z | Archive |
 
-### Move Window to Workspace
+### 📦 Move Window to Workspace
 
-#### To Numbered Workspaces
+#### 🔢 To Numbered Workspaces
 
 | Keybinding | Action |
 |------------|--------|
 | `Alt + Shift + 1` to `Alt + Shift + 9` | Move window to workspace 1-9 |
 
-#### To Lettered Workspaces
+#### 🔤 To Lettered Workspaces
 
 | Keybinding | Action |
 |------------|--------|
 | `Alt + Shift + a` to `Alt + Shift + z` | Move window to workspace A-Z |
 
-### Move Window and Follow
+### 🎯 Move Window and Follow
 
 These keybindings move the window and immediately switch to that workspace:
 
-#### Numbered Workspaces
+#### 🔢 Numbered Workspaces
 
 | Keybinding | Action |
 |------------|--------|
 | `Cmd + Alt + 1` to `Cmd + Alt + 9` | Move window to workspace 1-9 and follow |
 
-#### Lettered Workspaces
+#### 🔤 Lettered Workspaces
 
 | Keybinding | Action |
 |------------|--------|
 | `Cmd + Alt + a` to `Cmd + Alt + z` | Move window to workspace A-Z and follow |
 
-### Workspace Management
+### 🔄 Workspace Management
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `Alt + Tab` | Last workspace | Switch to previously active workspace |
 | `Alt + Shift + Tab` | Move workspace | Move workspace to next monitor |
 
-### Fullscreen
+### 🖥️ Fullscreen
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `Ctrl + Shift + f` | Fullscreen on | Enable fullscreen mode |
 | `Ctrl + Shift + g` | Fullscreen off | Disable fullscreen mode |
 
-### Mode Switching
+### 🔧 Mode Switching
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
 | `Alt + Shift + ;` | Service mode | Enter service/admin mode |
 | `Ctrl + Shift + r` | Resize mode | Enter resize mode |
 
-### Disabled macOS Shortcuts
+### 🚫 Disabled macOS Shortcuts
 
 | Keybinding | Original Action | Status |
 |------------|------------------|--------|
 | `Cmd + h` | Hide application | Disabled |
 | `Cmd + Alt + h` | Hide others | Disabled |
 
-## Service Mode
+## 🛠️ Service Mode
 
 Enter service mode with `Alt + Shift + ;`:
 
@@ -169,7 +169,7 @@ Enter service mode with `Alt + Shift + ;`:
 | `f` | Toggle floating | Switch between floating and tiling layout |
 | `Backspace` | Close others | Close all windows except current |
 
-### Join Windows (Service Mode)
+### 🔗 Join Windows (Service Mode)
 
 | Keybinding | Action | Description |
 |------------|--------|-------------|
@@ -178,7 +178,7 @@ Enter service mode with `Alt + Shift + ;`:
 | `Alt + Shift + k` | Join up | Join with window above |
 | `Alt + Shift + l` | Join right | Join with window on the right |
 
-## Resize Mode
+## 📐 Resize Mode
 
 Enter resize mode with `Ctrl + Shift + r`:
 
@@ -194,59 +194,59 @@ Enter resize mode with `Ctrl + Shift + r`:
 | `k` | Resize height smaller | Decrease height by 50px |
 | `l` | Resize width larger | Increase width by 50px |
 
-## Automatic Application Assignment
+## 🎯 Automatic Application Assignment
 
-### Work Applications (Workspace 1)
+### 💼 Work Applications (Workspace 1)
 
 - **Slack** - Team communication
 - **Zendesk Mail** - Email management
 - **Zendesk Calendar** - Calendar application
 
-### Development (Workspace T - Terminal)
+### 💻 Development (Workspace T - Terminal)
 
 - **Alacritty** - Primary terminal
 - **WezTerm** - Alternative terminal
 
-### IDE/Development (Workspace I/V)
+### 🛠️ IDE/Development (Workspace I/V)
 
 - **IntelliJ IDEA** - Java/Kotlin development (Workspace I)
 - **VS Code** - General code editing (Workspace V)
 
-### Knowledge Management (Workspace Q)
+### 🧠 Knowledge Management (Workspace Q)
 
 - **Logseq** - Note-taking and knowledge base
 
-### Floating Applications
+### 🎈 Floating Applications
 
 These applications automatically use floating layout:
 
 - **1Password** - Password manager
 - **Finder** - File manager
 
-## Configuration Settings
+## ⚙️ Configuration Settings
 
-### Visual Settings
+### 👁️ Visual Settings
 
 - **Gaps**: 4px inner and outer gaps between windows
 - **Mouse follows focus**: Cursor moves when focus changes monitors
 - **Status position**: Top of screen
 
-### Behavior Settings
+### 🎯 Behavior Settings
 
 - **Auto-start**: Launches at login
 - **Normalization**: Automatic container flattening and orientation
 - **Default layout**: Tiles with auto orientation
 - **Key mapping**: QWERTY layout
 
-### Monitor Behavior
+### 🖥️ Monitor Behavior
 
 - **Auto orientation**: Wide monitors get horizontal layout, tall monitors
   get vertical
 - **Workspace assignment**: Can force workspaces to specific monitors
 
-## Tips and Workflows
+## 💡 Tips and Workflows
 
-### Productivity Workflows
+### 🚀 Productivity Workflows
 
 1. **Development Setup**:
    - Terminal on workspace T
@@ -262,7 +262,7 @@ These applications automatically use floating layout:
    - Use `Alt + Shift + Tab` to move workspaces between monitors
    - Mouse automatically follows focus changes
 
-### Common Operations
+### 🔄 Common Operations
 
 1. **Quick App Switching**:
    - Use workspace letters for app-specific spaces
@@ -276,7 +276,7 @@ These applications automatically use floating layout:
    - Use join commands in service mode for complex layouts
    - Resize mode for precise window sizing
 
-### Troubleshooting
+### 🐛 Troubleshooting
 
 1. **Layout Issues**:
    - Enter service mode (`Alt + Shift + ;`) and press `r` to reset
@@ -288,19 +288,19 @@ These applications automatically use floating layout:
    - Use `Alt + Shift + Tab` to move workspace to different monitor
    - Try floating mode toggle in service mode
 
-## Integration with Other Tools
+## 🔌 Integration with Other Tools
 
-### Terminal Integration
+### 💻 Terminal Integration
 
 - Terminals automatically assigned to workspace T
 - Works seamlessly with tmux for terminal multiplexing
 
-### IDE Integration
+### 🛠️ IDE Integration
 
 - IntelliJ and VS Code have dedicated workspaces
 - Floating apps (1Password, Finder) don't interfere with tiling
 
-### macOS Integration
+### 🍎 macOS Integration
 
 - Respects macOS spaces but provides superior tiling within each space
 - Integrates with Mission Control and other macOS features

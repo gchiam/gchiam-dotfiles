@@ -1,10 +1,10 @@
-# WezTerm Reference
+# 🖥️ WezTerm Reference
 
 WezTerm is a GPU-accelerated cross-platform terminal emulator written in
 Rust. This reference covers the configuration and usage within this dotfiles
 setup.
 
-## Configuration Overview
+## ⚙️ Configuration Overview
 
 **Location**: `stow/wezterm/.config/wezterm/`
 **Main Config**: `wezterm.lua`
@@ -18,9 +18,9 @@ macOS with:
 - High DPI display optimization
 - Translucent window effects
 
-## Core Configuration
+## 🔧 Core Configuration
 
-### Default Program and Session Management
+### 💻 Default Program and Session Management
 
 ```lua
 local default_session = os.getenv("TMUX_DEFAULT_SESSION") or "default"
@@ -34,7 +34,7 @@ config.default_prog = { 'zsh', '-l', '-c', 'tmux new-session -A -s ' .. default_
 - **Session persistence**: `tmux new-session -A -s` creates new session or
   attaches to existing one
 
-### Font Configuration
+### 🔤 Font Configuration
 
 ```lua
 config.font = wezterm.font('Departure Mono')
@@ -48,9 +48,9 @@ config.line_height = 1.1
 - **Font Features**: Contextual alternates, ligatures, stylistic zero
 - **Optimized spacing**: 1.1 line height for readability
 
-### Visual Appearance
+### 🎨 Visual Appearance
 
-#### Window Effects
+#### 🌆 Window Effects
 
 ```lua
 config.window_background_opacity = 0.9
@@ -62,7 +62,7 @@ config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 - **Native macOS integration**: Proper shadows and window controls
 - **Resizable**: Standard window resize functionality
 
-#### Tab Bar Configuration
+#### 📋 Tab Bar Configuration
 
 ```lua
 config.use_fancy_tab_bar = false
@@ -73,7 +73,7 @@ config.hide_tab_bar_if_only_one_tab = true
 - **Auto-hide**: Tab bar hidden when only one tab is open
 - **Reduces visual clutter**: Focus on terminal content
 
-### Color Scheme Management
+### 🎨 Color Scheme Management
 
 **File**: `colorscheme.lua`
 
@@ -92,7 +92,7 @@ end
 - **Light mode**: Catppuccin Latte (warm light theme)
 - **System integration**: Follows macOS Dark/Light mode settings
 
-### Text Selection and Interaction
+### 🖐️ Text Selection and Interaction
 
 ```lua
 config.selection_word_boundary = ' \t\n{}[]()"\'|│'
@@ -102,7 +102,7 @@ config.selection_word_boundary = ' \t\n{}[]()"\'|│'
 - **Includes common delimiters**: Brackets, quotes, pipes, box drawing characters
 - **Optimized for code**: Works well with various programming languages
 
-### Command Palette
+### 🎨 Command Palette
 
 ```lua
 config.command_palette_fg_color = "#c6d0f5"
@@ -114,7 +114,7 @@ config.command_palette_font_size = 16.0
 - **Accessible contrast**: Light text on dark background
 - **Consistent sizing**: Matches main font size
 
-### Visual Bell Configuration
+### 🔔 Visual Bell Configuration
 
 ```lua
 config.visual_bell = {
@@ -134,13 +134,13 @@ config.audible_bell = "Disabled"
 - **Subtle color**: Dark gray that doesn't jar the eyes
 - **Silent operation**: Audio bell completely disabled
 
-## Default Keybindings
+## ⌨️ Default Keybindings
 
 WezTerm uses both standard macOS keybindings (⌘/Cmd) and its own
 terminal-specific shortcuts (Ctrl+Shift). Note that when running tmux, some
 keybindings may be handled by tmux instead.
 
-### Basic Navigation
+### 🧭 Basic Navigation
 
 - **⌘ + T**: New tab
 - **⌘ + W**: Close tab (with confirmation)
@@ -151,7 +151,7 @@ keybindings may be handled by tmux instead.
 - **Ctrl + ⇧ + ↑/↓/←/→**: Navigate between panes
 - **Ctrl + ⇧ + Alt + ↑/↓/←/→**: Resize panes
 
-### Text Operations
+### 📝 Text Operations
 
 - **⌘ + C/V**: Copy/paste
 - **⌘ + F**: Find/search
@@ -162,7 +162,7 @@ keybindings may be handled by tmux instead.
 - **Ctrl + ⇧ + Space**: Quick select mode
 - **Ctrl + ⇧ + U**: Character select (emoji picker)
 
-### Window Management
+### 🎦 Window Management
 
 - **⌘ + N**: New window
 - **⌘ + M**: Minimize window
@@ -172,9 +172,9 @@ keybindings may be handled by tmux instead.
 - **Ctrl + ⇧ + L**: Debug overlay
 - **Ctrl + ⇧ + Z**: Toggle pane zoom
 
-## Integration with Dotfiles Setup
+## 🔗 Integration with Dotfiles Setup
 
-### Installation
+### 💾 Installation
 
 WezTerm is installed via Homebrew as defined in `.Brewfile`:
 
@@ -182,7 +182,7 @@ WezTerm is installed via Homebrew as defined in `.Brewfile`:
 cask 'wezterm'
 ```
 
-### Stow Management
+### 📦 Stow Management
 
 Configuration is deployed using GNU Stow from the dotfiles directory:
 
@@ -195,7 +195,7 @@ stow -d stow -t ~ wezterm
 stow -d stow -t ~ -D wezterm
 ```
 
-### Directory Structure
+### 📂 Directory Structure
 
 ```text
 stow/wezterm/
@@ -205,34 +205,34 @@ stow/wezterm/
         └── colorscheme.lua   # Theme management
 ```
 
-## Tmux Integration
+## 🖥️ Tmux Integration
 
 The configuration is designed to work seamlessly with tmux:
 
-### Automatic Session Management
+### 🤖 Automatic Session Management
 
 - **New WezTerm window**: Automatically creates or joins tmux session
 - **Session naming**: Controlled via `TMUX_DEFAULT_SESSION` environment variable
 - **Persistent sessions**: Sessions survive WezTerm restarts
 
-### Key Coordination
+### ⌨️ Key Coordination
 
 - **WezTerm**: Handles window-level operations (new windows, font sizing)
 - **Tmux**: Handles session/pane management within terminal
 - **Clear separation**: Minimal overlap in functionality
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
-### Common Issues
+### ⚠️ Common Issues
 
-#### Font Not Found
+#### 🔤 Font Not Found
 
 If Departure Mono is not installed:
 
 1. Install the font system-wide
 2. Or uncomment the CaskaydiaCove alternative in `wezterm.lua:15`
 
-#### Tmux Not Starting
+#### 🖥️ Tmux Not Starting
 
 If tmux fails to launch:
 
@@ -241,7 +241,7 @@ If tmux fails to launch:
 3. Test tmux separately: `tmux new-session -A -s test`
 4. Temporarily comment out `default_prog` line in wezterm.lua for debugging
 
-#### Color Scheme Issues
+#### 🎨 Color Scheme Issues
 
 If colors appear incorrect:
 
@@ -249,7 +249,7 @@ If colors appear incorrect:
 2. Check system appearance settings (Dark/Light mode)
 3. Test with fixed color scheme instead of automatic switching
 
-#### Performance Issues
+#### 🚀 Performance Issues
 
 If experiencing lag or high CPU usage:
 
@@ -257,7 +257,7 @@ If experiencing lag or high CPU usage:
 2. Reduce blur: Set `macos_window_background_blur = 0`
 3. Check for background processes consuming GPU
 
-### Configuration Validation
+### ✅ Configuration Validation
 
 Test configuration changes:
 
@@ -272,7 +272,7 @@ wezterm start --config-file /path/to/test/config.lua
 wezterm show-keys --lua
 ```
 
-### Debugging
+### 🔍 Debugging
 
 Enable debug logging:
 
@@ -281,9 +281,9 @@ Enable debug logging:
 config.debug_key_events = true
 ```
 
-## Advanced Customization
+## 🎆 Advanced Customization
 
-### Custom Key Bindings
+### ⌨️ Custom Key Bindings
 
 To add custom keybindings, extend the configuration:
 
@@ -304,7 +304,7 @@ config.keys = {
 }
 ```
 
-### Alternative Fonts
+### 🔤 Alternative Fonts
 
 Popular programming fonts that work well:
 
@@ -313,7 +313,7 @@ Popular programming fonts that work well:
 - **Source Code Pro**: `wezterm.font('Source Code Pro')`
 - **SF Mono**: `wezterm.font('SF Mono')` (system font)
 
-### Performance Tuning
+### 🚀 Performance Tuning
 
 For high-refresh displays or performance optimization:
 
@@ -328,7 +328,7 @@ config.scrollback_lines = 10000
 config.alternate_buffer_wheel_scroll_speed = 3
 ```
 
-## References
+## 📚 References
 
 - **Official Documentation**: <https://wezfurlong.org/wezterm/>
 - **Configuration Reference**: <https://wezfurlong.org/wezterm/config/files.html>
@@ -336,7 +336,7 @@ config.alternate_buffer_wheel_scroll_speed = 3
 - **Color Schemes**: <https://wezfurlong.org/wezterm/colorschemes/index.html>
 - **Catppuccin Theme**: <https://github.com/catppuccin/wezterm>
 
-## Related Documentation
+## 🔗 Related Documentation
 
 - **[Tmux Reference](tmux-reference.md)** - Terminal multiplexer configuration
 - **[Architecture](architecture.md)** - Overall dotfiles structure

@@ -1,18 +1,18 @@
-# Shell Completions
+# 🖊️ Shell Completions
 
 This document describes the shell completion system for dotfiles scripts.
 
-## Overview
+## 📖 Overview
 
 Shell completions provide tab-completion support for all custom dotfiles scripts,
 making them easier to use and discover available options and commands.
 
-## Supported Shells
+## 🐚 Supported Shells
 
 - **Zsh**: Full completion support with descriptions and context-sensitive suggestions
 - **Bash**: Basic completion support for commands and common options
 
-## Installation
+## 💾 Installation
 
 Completions are automatically installed when you run:
 
@@ -20,9 +20,9 @@ Completions are automatically installed when you run:
 ./bin/setup-completions.sh install
 ```
 
-## Manual Installation
+## 🔧 Manual Installation
 
-### Zsh
+### 🐚 Zsh
 
 1. Copy completion files to your completions directory:
 
@@ -37,7 +37,7 @@ Completions are automatically installed when you run:
    autoload -U compinit && compinit
    ```
 
-### Bash
+### 📜 Bash
 
 1. Source the completion file in your `.bashrc`:
 
@@ -45,74 +45,74 @@ Completions are automatically installed when you run:
    source ~/.config/bash/completions/dotfiles
    ```
 
-## Available Completions
+## ✨ Available Completions
 
-### auto-sync.sh
+### 🔄 auto-sync.sh
 
 - Commands: `sync`, `status`, `setup-automation`, `remove-automation`,
   `report`, `health`
 - Options: `--dry-run`, `--force`, `--no-commit`, `--auto-push`,
   `--interval`, `--auto`
 
-### check-compatibility.sh
+### ✅ check-compatibility.sh
 
 - Options: `--system`, `--macos`, `--tools`, `--report`,
   `--recommendations`
 
-### fresh-install.sh
+### 🎆 fresh-install.sh
 
 - Options: `--profile`, `--repo`, `--dir`, `--skip-confirm`, `--verbose`
 - Profiles: `full`, `minimal`, `developer`, `personal`, `work`,
   `experimental`, `interactive`
 
-### health-check.sh
+### 🎥 health-check.sh
 
 - Commands: `basic`, `shell`, `editor`, `terminal`, `window-manager`,
   `development`, `all`
 - Options: `--fix`, `--report`, `--quiet`
 
-### health-monitor.sh
+### 🔄 health-monitor.sh
 
 - Commands: `report`, `start`, `stop`, `status`, `restart`,
   `setup-automation`, `logs`
 - Options: `--interval`, `--no-alerts`
 - Log types: `monitor`, `alerts`, `all`, `health`, `sync`
 
-### optimize-repo.sh
+### 🚀 optimize-repo.sh
 
 - Options: `--analyze`, `--lfs`, `--migrate-lfs`, `--submodules`,
   `--cleanup`, `--all`
 
-### performance-monitor.sh
+### 📈 performance-monitor.sh
 
 - Commands: `startup`, `profile`, `system`, `config`, `plugins`,
   `recommendations`, `optimize`, `history`, `benchmark`, `all`
 - Options: `--runs`, `--threshold`
 
-### setup-git-hooks.sh
+### 🎣 setup-git-hooks.sh
 
 - Commands: `install`, `test`, `status`, `remove`, `help`
 
-### setup-interactive.sh
+### 🗺️ setup-interactive.sh
 
 - Options: `--profile`, `--backup`, `--yes`, `--categories`
 
-### setup-profile.sh
+### 🗃️ setup-profile.sh
 
 - Commands: `list`, `show`, `apply`, `create`, `delete`, `interactive`,
   `status`, `backup`, `restore`
 - Options: `--force`, `--backup`
 
-### setup-stow.sh
+### 📦 setup-stow.sh
 
 - Options: `--target`, `--simulate`, `--verbose`, `--restow`, `--delete`
 - Packages: Dynamically detects available stow packages
 
-### setup.sh
+### ⚙️ setup.sh
 
 - Options: `--force`, `--skip-brew`, `--skip-stow`, `--profile`
 
-## Usage Examples
+## 📚 Usage Examples
 
 ```bash
 # Tab completion for commands
@@ -132,16 +132,16 @@ Completions are automatically installed when you run:
 # Shows: 3  5  10  20
 ```
 
-## Customization
+## ⚙️ Customization
 
 You can customize completion behavior by modifying the completion files in:
 
 - `stow/zsh/.config/zsh/completions/_dotfiles`
 - Individual completion files: `stow/zsh/.config/zsh/completions/_<script>`
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
-### Completions not working
+### ⚠️ Completions not working
 
 1. Ensure completion system is enabled:
 
@@ -162,7 +162,7 @@ You can customize completion behavior by modifying the completion files in:
    exec zsh
    ```
 
-### Debugging completions
+### 🔍 Debugging completions
 
 1. Test completion loading:
 
@@ -176,7 +176,7 @@ You can customize completion behavior by modifying the completion files in:
    zstyle ':completion:*' verbose yes
    ```
 
-## Development
+## 🛠️ Development
 
 To add completions for new scripts:
 

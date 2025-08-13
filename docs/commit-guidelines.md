@@ -1,10 +1,10 @@
-# Git Commit Guidelines
+# 📝 Git Commit Guidelines
 
 This repository follows the
 [Conventional Emoji Commits](https://conventional-emoji-commits.site/)
 convention for commit messages.
 
-## Commit Format
+## 📋 Commit Format
 
 ```text
 <emoji> <type>(<scope>): <description>
@@ -14,7 +14,7 @@ convention for commit messages.
 [optional footer(s)]
 ```
 
-## Common Types and Emojis
+## 🎨 Common Types and Emojis
 
 - `✨ feat(<scope>):` - New features
 - `🐛 fix(<scope>):` - Bug fixes
@@ -29,7 +29,7 @@ convention for commit messages.
 - `🎨 improve(<scope>):` - General improvements
 - `🔒 security(<scope>):` - Security fixes
 
-## Common Scopes
+## 🎯 Common Scopes
 
 - `zsh` - Zsh shell configuration
 - `nvim` - Neovim editor configuration
@@ -43,7 +43,7 @@ convention for commit messages.
 - `bin` - Utility scripts
 - `docs` - Documentation files
 
-## Examples
+## 💡 Examples
 
 ```bash
 ✨ feat(zsh): add modular configuration system with custom functions
@@ -56,9 +56,9 @@ convention for commit messages.
 🎨 improve(bin): enhance scripts with better error handling
 ```
 
-## Best Practices
+## ✨ Best Practices
 
-### Commit Message Guidelines
+### 📝 Commit Message Guidelines
 
 1. **Use present tense**: "Add feature" not "Added feature"
 2. **Be descriptive**: Explain what and why, not just what
@@ -66,14 +66,14 @@ convention for commit messages.
 4. **Use body for detailed explanations** when necessary
 5. **Reference issues and PRs** when applicable
 
-### Scope Guidelines
+### 🎯 Scope Guidelines
 
 1. **Use specific scopes**: Prefer `tmux` over `config`
 2. **Be consistent**: Use the same scope for related changes
 3. **Omit scope if change affects multiple areas**: Use general type only
 4. **New scopes**: Add to the list above when introducing new components
 
-### Type Selection
+### 🏷️ Type Selection
 
 1. **feat**: Only for new functionality visible to users
 2. **fix**: For bug fixes that resolve issues
@@ -81,9 +81,9 @@ convention for commit messages.
 4. **refactor**: For code changes that don't fix bugs or add features
 5. **chore**: For maintenance tasks like dependency updates
 
-## Commit Hygiene
+## 🧹 Commit Hygiene
 
-### Before Committing
+### ✅ Before Committing
 
 1. **Run linting tools** to ensure code quality
 2. **Test changes** in appropriate environments
@@ -91,16 +91,16 @@ convention for commit messages.
 4. **Check file permissions** and executable flags
 5. **Review staged changes** to ensure intentionality
 
-### Commit Frequency
+### ⏰ Commit Frequency
 
 - **Commit often**: Small, focused commits are preferred
 - **Logical grouping**: Related changes should be in the same commit
 - **Atomic commits**: Each commit should represent one logical change
 - **Avoid mixing concerns**: Don't combine refactoring with new features
 
-### Special Cases
+### 🚨 Special Cases
 
-#### Breaking Changes
+#### 💥 Breaking Changes
 
 For breaking changes, include `BREAKING CHANGE:` in the footer:
 
@@ -110,7 +110,7 @@ For breaking changes, include `BREAKING CHANGE:` in the footer:
 BREAKING CHANGE: Configuration files moved from ~/.zshrc to ~/.config/zsh/
 ```
 
-#### Co-authored Commits
+#### 🤝 Co-authored Commits
 
 When working with Claude Code, include co-author information:
 

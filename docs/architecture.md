@@ -1,19 +1,19 @@
-# Architecture Overview
+# 🏗️ Architecture Overview
 
 This document describes the overall architecture and structure of the
 dotfiles repository.
 
-## Navigation
+## 🧭 Navigation
 
-**📖 Documentation:** [← Back to Main README](../README.md) |
-**🚀 Setup:** [Installation Guide →](setup-guide.md)
-
-**📋 Next Steps:** See [Workflow Guide](workflow-guide.md) for daily
-usage patterns
+| Direction | Link | Description |
+|-----------|------|-------------|
+| ⬅️ **Back** | [Main README](../README.md) | Return to repository overview |
+| 🚀 **Setup** | [Installation Guide](setup-guide.md) | Get started with installation |
+| 📋 **Next** | [Workflow Guide](workflow-guide.md) | Learn daily usage patterns |
 
 ---
 
-## Repository Structure Diagram
+## 🗂️ Repository Structure Diagram
 
 ```text
 ~/.dotfiles/                          # Main dotfiles repository
@@ -42,9 +42,9 @@ usage patterns
 └── 📁 terminfo/                     # 🖥️  Terminal compatibility files
 ```
 
-## Core Structure Components
+## 🏛️ Core Structure Components
 
-### Configuration Management (`stow/`)
+### 🏠 Configuration Management (`stow/`)
 
 The heart of the dotfiles system - 29+ tool configurations organized as
 Stow packages:
@@ -73,13 +73,13 @@ Stow packages:
 - `brew/` - Homebrew package definitions
 - Custom Brewfiles for work and personal environments
 
-## Configuration Management
+## ⚙️ Configuration Management
 
 Uses GNU Stow for symlink management. Each application configuration lives
 in its own `stow/` subdirectory and gets symlinked to the appropriate
 location in `$HOME` during setup.
 
-## Key Configuration Categories
+## 🔑 Key Configuration Categories
 
 - **Development**: `nvim/`, `tmux/`, `git/`, `gh-dash/`
 - **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`,
@@ -89,7 +89,7 @@ location in `$HOME` during setup.
 - **Scripts**: `custom-bin/` with enhanced utilities for Docker, colors,
   macOS
 
-## Enhanced Script Management
+## 🔧 Enhanced Script Management
 
 The `stow/custom-bin/bin/` directory contains improved utilities:
 
@@ -98,30 +98,30 @@ The `stow/custom-bin/bin/` directory contains improved utilities:
 - **macOS dark mode detection** with cross-platform checks
 - All scripts include `--help` flags and robust error handling
 
-## Theme System
+## 🎨 Theme System
 
 Consistent Catppuccin theming across all applications via
 `external/catppuccin/` configurations.
 
-## macOS-Specific Components
+## 🍎 macOS-Specific Components
 
-### Window Management
+### 🪟 Window Management
 
 - **AeroSpace** (`stow/aerospace/`) - Tiling window manager
 - **Yabai/SKHD** - Alternative window management (legacy)
 
-### System Customization
+### ⚙️ System Customization
 
 - **Karabiner-Elements** - Keyboard customization
 - **Raycast** - Application launcher with custom TypeScript extensions
 
-## Package Dependencies
+## 📦 Package Dependencies
 
 - Main packages in `.Brewfile`
 - Work-specific packages in `.Brewfile.zendesk`
 - Version managers (asdf, nvm, jenv) handle language runtimes
 
-## Custom Extensions
+## 🚀 Custom Extensions
 
 Raycast extensions in `raycast/` are TypeScript-based Node.js projects with
 their own package.json files.
