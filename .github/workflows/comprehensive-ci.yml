@@ -55,10 +55,11 @@ jobs:
     - name: Lint YAML files
       run: |
         find . -type f \( -name "*.yml" -o -name "*.yaml" \) \
-          -not -path "./external/*" \
-          -not -path "./stow/k9s/.config/k9s/skins/*" \
-          -not -path "./stow/gh-dash/.config/gh-dash/config.yml" \
-          -not -path "./stow/tmux/.tmux/plugins/*" | \
+             -not -path "./external/*" \
+             -not -path "./stow/k9s/.config/k9s/skins/*" \
+             -not -path "./stow/gh-dash/.config/gh-dash/config.yml" \
+             -not -path "./stow/tmux/.tmux/plugins/*" \
+             -not -path "./raycast/extensions/*/node_modules/*" | \
         xargs yamllint -d "{extends: default, rules: {line-length: {max: 120}}}"
     
     - name: Check for security issues
