@@ -1,15 +1,25 @@
-name: CI
+name: CI (Legacy)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
+    paths:
+      - '**.md'
+      - '**.sh'
+      - '**.yml'
+      - '**.yaml'
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
+    paths:
+      - '**.md'
+      - '**.sh'
+      - '**.yml'
+      - '**.yaml'
 
 jobs:
-  lint:
+  quick-lint:
     runs-on: ubuntu-latest
-    name: Lint and validate
+    name: Quick Lint (Legacy)
     
     steps:
     - name: Checkout repository

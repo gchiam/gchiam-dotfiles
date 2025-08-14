@@ -1,0 +1,420 @@
+name: Automated Maintenance
+
+on:
+  schedule:
+    # Weekly maintenance on Sundays at 3 AM UTC
+    - cron: '0 3 * * 0'
+  workflow_dispatch: # Manual trigger
+    inputs:
+      maintenance_type:
+        description: 'Type of maintenance to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - performance
+          - dependencies
+          - cleanup
+          - health-check
+
+env:
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_CLEANUP: 1
+
+jobs:
+  # === Performance Monitoring ===
+  performance-monitoring:
+    name: Performance Monitoring & Benchmarking
+    runs-on: macos-latest
+    if: github.event.inputs.maintenance_type == 'all' || github.event.inputs.maintenance_type == 'performance' || github.event_name == 'schedule'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        
+    - name: Install benchmarking tools
+      run: |
+        brew install hyperfine jq bc
+    
+    - name: Performance baseline measurement
+      run: |
+        # Create performance report directory
+        mkdir -p performance-reports
+        
+        # Shell performance benchmarking
+        if [ -f "bin/measure-shell-performance.sh" ]; then
+          chmod +x bin/measure-shell-performance.sh
+          echo "## Shell Performance Benchmark - $(date)" > performance-reports/shell-performance.md
+          echo "" >> performance-reports/shell-performance.md
+          
+          # Run comprehensive performance test
+          timeout 300 ./bin/measure-shell-performance.sh 20 > shell-perf-raw.log || true
+          
+          if [ -f "shell-perf-raw.log" ]; then
+            echo "### Results" >> performance-reports/shell-performance.md
+            echo '```' >> performance-reports/shell-performance.md
+            cat shell-perf-raw.log >> performance-reports/shell-performance.md
+            echo '```' >> performance-reports/shell-performance.md
+          fi
+        fi
+        
+        # System resource usage
+        echo "## System Resource Usage" >> performance-reports/system-resources.md
+        echo "" >> performance-reports/system-resources.md
+        echo "- **Date**: $(date)" >> performance-reports/system-resources.md
+        echo "- **System**: $(sw_vers -productName) $(sw_vers -productVersion)" >> performance-reports/system-resources.md
+        echo "- **Architecture**: $(uname -m)" >> performance-reports/system-resources.md
+        echo "- **Memory**: $(system_profiler SPHardwareDataType | grep "Memory:" | awk '{print $2 $3}')" >> performance-reports/system-resources.md
+        
+        # Repository size analysis
+        echo "- **Repository Size**: $(du -sh . | awk '{print $1}')" >> performance-reports/system-resources.md
+        echo "- **External Dependencies**: $(du -sh external/ | awk '{print $1}')" >> performance-reports/system-resources.md
+        echo "- **Documentation Size**: $(du -sh docs/ | awk '{print $1}')" >> performance-reports/system-resources.md
+    
+    - name: Upload performance reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: performance-reports
+        path: performance-reports/
+        retention-days: 30
+
+  # === Health Check and Validation ===
+  health-check:
+    name: Comprehensive Health Check
+    runs-on: macos-latest
+    if: github.event.inputs.maintenance_type == 'all' || github.event.inputs.maintenance_type == 'health-check' || github.event_name == 'schedule'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Install testing dependencies
+      run: |
+        brew install stow shellcheck
+    
+    - name: Run comprehensive health check
+      run: |
+        mkdir -p health-reports
+        
+        # Test all scripts are executable and syntactically correct
+        echo "## Script Health Check - $(date)" > health-reports/script-health.md
+        echo "" >> health-reports/script-health.md
+        
+        for script in bin/*.sh; do
+          if [ -f "$script" ]; then
+            echo "### Testing $script" >> health-reports/script-health.md
+            
+            # Check syntax
+            if bash -n "$script"; then
+              echo "- ✅ Syntax: OK" >> health-reports/script-health.md
+            else
+              echo "- ❌ Syntax: FAILED" >> health-reports/script-health.md
+            fi
+            
+            # Check if executable
+            if [ -x "$script" ]; then
+              echo "- ✅ Executable: OK" >> health-reports/script-health.md
+            else
+              echo "- ⚠️ Executable: Not set" >> health-reports/script-health.md
+            fi
+            
+            # Check for help flag
+            if chmod +x "$script" && timeout 10 "$script" --help >/dev/null 2>&1; then
+              echo "- ✅ Help flag: Available" >> health-reports/script-health.md
+            else
+              echo "- ⚠️ Help flag: Not available or timed out" >> health-reports/script-health.md
+            fi
+            
+            echo "" >> health-reports/script-health.md
+          fi
+        done
+    
+    - name: Test stow configurations
+      run: |
+        echo "## Stow Configuration Test - $(date)" > health-reports/stow-test.md
+        echo "" >> health-reports/stow-test.md
+        
+        # Create test directory
+        mkdir -p test-stow-target
+        cd test-stow-target
+        
+        # Test each stow package
+        for package in ../stow/*/; do
+          package_name=$(basename "$package")
+          echo "### Testing package: $package_name" >> ../health-reports/stow-test.md
+          
+          if stow -d ../stow -t . --no-folding "$package_name" 2>/dev/null; then
+            echo "- ✅ Stow installation: OK" >> ../health-reports/stow-test.md
+            
+            # Count symlinks created
+            symlink_count=$(find . -type l | wc -l | tr -d ' ')
+            echo "- 📊 Symlinks created: $symlink_count" >> ../health-reports/stow-test.md
+            
+            # Clean up for next test
+            stow -d ../stow -t . -D "$package_name" 2>/dev/null || true
+          else
+            echo "- ❌ Stow installation: FAILED" >> ../health-reports/stow-test.md
+          fi
+          
+          echo "" >> ../health-reports/stow-test.md
+        done
+        
+        cd ..
+        rm -rf test-stow-target
+    
+    - name: Check external dependencies
+      run: |
+        echo "## External Dependencies Health - $(date)" > health-reports/dependencies-health.md
+        echo "" >> health-reports/dependencies-health.md
+        
+        # Check git submodules
+        echo "### Git Submodules Status" >> health-reports/dependencies-health.md
+        echo '```' >> health-reports/dependencies-health.md
+        git submodule status >> health-reports/dependencies-health.md
+        echo '```' >> health-reports/dependencies-health.md
+        echo "" >> health-reports/dependencies-health.md
+        
+        # Check for uncommitted changes in submodules
+        echo "### Submodule Changes" >> health-reports/dependencies-health.md
+        for submodule in $(git submodule foreach --quiet 'echo $name'); do
+          cd external/$submodule || continue
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "- ⚠️ $submodule has uncommitted changes" >> ../../health-reports/dependencies-health.md
+          else
+            echo "- ✅ $submodule is clean" >> ../../health-reports/dependencies-health.md
+          fi
+          cd - >/dev/null
+        done
+    
+    - name: Upload health reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: health-reports
+        path: health-reports/
+        retention-days: 30
+
+  # === Repository Cleanup ===
+  cleanup:
+    name: Repository Cleanup
+    runs-on: ubuntu-latest
+    if: github.event.inputs.maintenance_type == 'all' || github.event.inputs.maintenance_type == 'cleanup' || github.event_name == 'schedule'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for cleanup analysis
+    
+    - name: Analyze repository size and cleanup opportunities
+      run: |
+        mkdir -p cleanup-reports
+        
+        echo "## Repository Cleanup Analysis - $(date)" > cleanup-reports/cleanup-analysis.md
+        echo "" >> cleanup-reports/cleanup-analysis.md
+        
+        # Repository size analysis
+        echo "### Repository Size Breakdown" >> cleanup-reports/cleanup-analysis.md
+        echo '```' >> cleanup-reports/cleanup-analysis.md
+        du -sh * | sort -hr >> cleanup-reports/cleanup-analysis.md
+        echo '```' >> cleanup-reports/cleanup-analysis.md
+        echo "" >> cleanup-reports/cleanup-analysis.md
+        
+        # Find large files
+        echo "### Large Files (>1MB)" >> cleanup-reports/cleanup-analysis.md
+        echo '```' >> cleanup-reports/cleanup-analysis.md
+        find . -type f -size +1M -not -path "./.git/*" -exec ls -lh {} \; | \
+          awk '{print $5 " " $9}' | sort -hr >> cleanup-reports/cleanup-analysis.md || true
+        echo '```' >> cleanup-reports/cleanup-analysis.md
+        echo "" >> cleanup-reports/cleanup-analysis.md
+        
+        # Git repository statistics
+        echo "### Git Statistics" >> cleanup-reports/cleanup-analysis.md
+        echo "- **Total commits**: $(git rev-list --all --count)" >> cleanup-reports/cleanup-analysis.md
+        echo "- **Total branches**: $(git branch -a | wc -l)" >> cleanup-reports/cleanup-analysis.md
+        echo "- **Repository objects**: $(git count-objects -v | grep "count" | awk '{print $2}')" >> cleanup-reports/cleanup-analysis.md
+        echo "- **Repository size**: $(git count-objects -vH | grep "size-pack" | awk '{print $2 $3}')" >> cleanup-reports/cleanup-analysis.md
+        
+        # Check for potential cleanup opportunities
+        echo "" >> cleanup-reports/cleanup-analysis.md
+        echo "### Cleanup Opportunities" >> cleanup-reports/cleanup-analysis.md
+        
+        # Check for backup files
+        backup_files=$(find . -name "*.bak" -o -name "*.backup" -o -name "*~" | wc -l)
+        echo "- **Backup files found**: $backup_files" >> cleanup-reports/cleanup-analysis.md
+        
+        # Check for log files
+        log_files=$(find . -name "*.log" | wc -l)
+        echo "- **Log files found**: $log_files" >> cleanup-reports/cleanup-analysis.md
+        
+        # Check for temporary files
+        temp_files=$(find . -name "*.tmp" -o -name "*.temp" | wc -l)
+        echo "- **Temporary files found**: $temp_files" >> cleanup-reports/cleanup-analysis.md
+    
+    - name: Upload cleanup reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: cleanup-reports
+        path: cleanup-reports/
+        retention-days: 30
+
+  # === Dependency Analysis ===
+  dependency-analysis:
+    name: Dependency Analysis
+    runs-on: ubuntu-latest
+    if: github.event.inputs.maintenance_type == 'all' || github.event.inputs.maintenance_type == 'dependencies' || github.event_name == 'schedule'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Setup Node.js for analysis
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Analyze dependencies
+      run: |
+        mkdir -p dependency-reports
+        
+        echo "## Dependency Analysis - $(date)" > dependency-reports/dependency-analysis.md
+        echo "" >> dependency-reports/dependency-analysis.md
+        
+        # Git submodules analysis
+        echo "### Git Submodules" >> dependency-reports/dependency-analysis.md
+        echo '```' >> dependency-reports/dependency-analysis.md
+        git submodule foreach --recursive 'echo "=== $name ===" && git log --oneline -3' >> dependency-reports/dependency-analysis.md || true
+        echo '```' >> dependency-reports/dependency-analysis.md
+        echo "" >> dependency-reports/dependency-analysis.md
+        
+        # NPM dependencies analysis
+        echo "### NPM Dependencies" >> dependency-reports/dependency-analysis.md
+        for package_json in $(find . -name "package.json" -not -path "./external/*" -not -path "./node_modules/*"); do
+          echo "#### $(dirname $package_json)" >> dependency-reports/dependency-analysis.md
+          echo '```json' >> dependency-reports/dependency-analysis.md
+          jq '.dependencies // {}, .devDependencies // {}' "$package_json" >> dependency-reports/dependency-analysis.md || true
+          echo '```' >> dependency-reports/dependency-analysis.md
+          echo "" >> dependency-reports/dependency-analysis.md
+          
+          # Run npm audit if node_modules exists
+          package_dir=$(dirname "$package_json")
+          if [ -d "$package_dir/node_modules" ]; then
+            cd "$package_dir"
+            echo "##### Security Audit" >> ../dependency-reports/dependency-analysis.md
+            echo '```' >> ../dependency-reports/dependency-analysis.md
+            npm audit --audit-level=moderate || true >> ../dependency-reports/dependency-analysis.md
+            echo '```' >> ../dependency-reports/dependency-analysis.md
+            cd - >/dev/null
+          fi
+        done
+    
+    - name: Upload dependency reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: dependency-reports
+        path: dependency-reports/
+        retention-days: 30
+
+  # === Generate Summary Report ===
+  summary-report:
+    name: Generate Maintenance Summary
+    runs-on: ubuntu-latest
+    needs: [performance-monitoring, health-check, cleanup, dependency-analysis]
+    if: always()
+    
+    steps:
+    - name: Download all reports
+      uses: actions/download-artifact@v4
+      with:
+        path: all-reports/
+    
+    - name: Generate summary
+      run: |
+        echo "# Weekly Maintenance Report - $(date)" > maintenance-summary.md
+        echo "" >> maintenance-summary.md
+        echo "## Job Status" >> maintenance-summary.md
+        echo "- **Performance Monitoring**: ${{ needs.performance-monitoring.result }}" >> maintenance-summary.md
+        echo "- **Health Check**: ${{ needs.health-check.result }}" >> maintenance-summary.md
+        echo "- **Cleanup Analysis**: ${{ needs.cleanup.result }}" >> maintenance-summary.md
+        echo "- **Dependency Analysis**: ${{ needs.dependency-analysis.result }}" >> maintenance-summary.md
+        echo "" >> maintenance-summary.md
+        
+        # Count artifacts and files
+        if [ -d "all-reports" ]; then
+          report_count=$(find all-reports -name "*.md" | wc -l)
+          echo "## Generated Reports" >> maintenance-summary.md
+          echo "- **Total reports generated**: $report_count" >> maintenance-summary.md
+          echo "- **Report artifacts available for 30 days**" >> maintenance-summary.md
+          echo "" >> maintenance-summary.md
+          
+          # List all generated reports
+          echo "### Available Reports" >> maintenance-summary.md
+          find all-reports -name "*.md" | while read report; do
+            echo "- $(basename "$report")" >> maintenance-summary.md
+          done
+        fi
+        
+        echo "" >> maintenance-summary.md  
+        echo "## Next Steps" >> maintenance-summary.md
+        echo "1. Review performance reports for any regressions" >> maintenance-summary.md
+        echo "2. Address any health check failures" >> maintenance-summary.md
+        echo "3. Consider cleanup opportunities if repository size is growing" >> maintenance-summary.md
+        echo "4. Update dependencies showing security vulnerabilities" >> maintenance-summary.md
+        
+        cat maintenance-summary.md
+    
+    - name: Upload summary report
+      uses: actions/upload-artifact@v4
+      with:
+        name: maintenance-summary
+        path: maintenance-summary.md
+        retention-days: 90
+
+  # === Create Issue for Manual Review ===
+  create-maintenance-issue:
+    name: Create Maintenance Issue
+    runs-on: ubuntu-latest
+    needs: [summary-report]
+    if: github.event_name == 'schedule' && (needs.performance-monitoring.result == 'failure' || needs.health-check.result == 'failure')
+    
+    steps:
+    - name: Create issue for failed maintenance
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const title = `🔧 Weekly Maintenance Review - ${new Date().toISOString().split('T')[0]}`;
+          const body = `## Automated Maintenance Report
+          
+          Some maintenance tasks have failed and require manual review.
+          
+          ### Job Results
+          - Performance Monitoring: ${{ needs.performance-monitoring.result }}
+          - Health Check: ${{ needs.health-check.result }}
+          - Cleanup Analysis: ${{ needs.cleanup.result }}
+          - Dependency Analysis: ${{ needs.dependency-analysis.result }}
+          
+          ### Action Required
+          - [ ] Review workflow logs for failure details
+          - [ ] Download and review maintenance reports
+          - [ ] Address any identified issues
+          - [ ] Update this issue with resolution status
+          
+          ### Reports
+          Check the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId}) for detailed reports.
+          
+          ---
+          *This issue was automatically created by the maintenance workflow.*`;
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: ['maintenance', 'automated', 'needs-review']
+          });
