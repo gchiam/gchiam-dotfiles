@@ -91,9 +91,11 @@ jobs:
             // More detailed check logic
             const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
             
-            // Check if all check runs are completed and successful
+            // Check if all check runs are completed and successful (including skipped)
             const completedCheckRuns = checkRuns.check_runs.filter(check => check.status === 'completed');
-            const successfulCheckRuns = completedCheckRuns.filter(check => check.conclusion === 'success');
+            const successfulCheckRuns = completedCheckRuns.filter(check => 
+              check.conclusion === 'success' || check.conclusion === 'skipped'
+            );
             const allCheckRunsSuccess = checkRuns.check_runs.length === 0 || 
               (completedCheckRuns.length === checkRuns.check_runs.length && 
                successfulCheckRuns.length === completedCheckRuns.length);
@@ -151,9 +153,11 @@ jobs:
             // More detailed check logic
             const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
             
-            // Check if all check runs are completed and successful
+            // Check if all check runs are completed and successful (including skipped)
             const completedCheckRuns = checkRuns.check_runs.filter(check => check.status === 'completed');
-            const successfulCheckRuns = completedCheckRuns.filter(check => check.conclusion === 'success');
+            const successfulCheckRuns = completedCheckRuns.filter(check => 
+              check.conclusion === 'success' || check.conclusion === 'skipped'
+            );
             const allCheckRunsSuccess = checkRuns.check_runs.length === 0 || 
               (completedCheckRuns.length === checkRuns.check_runs.length && 
                successfulCheckRuns.length === completedCheckRuns.length);
