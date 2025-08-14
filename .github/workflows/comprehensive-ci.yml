@@ -83,7 +83,6 @@ jobs:
         brew install --cask font-fira-code-nerd-font || true
     
     - name: Test basic setup
-      shell: ${{ matrix.shell }} {0}
       run: |
         set -e
         echo "Testing with ${{ matrix.shell }}"
@@ -98,11 +97,15 @@ jobs:
         cd test-home
         stow -d ../stow -t . zsh || echo "Stow test completed"
         
-        # Test environment detection
-        export ZSH_ENV_WORK=false
-        export ZSH_ENV_PERSONAL=true
-        source ../stow/zsh/.config/zsh/environment.zsh || true
-        echo "Environment detection: Work=$ZSH_ENV_WORK, Personal=$ZSH_ENV_PERSONAL"
+        # Test environment detection with the matrix shell
+        if [ "${{ matrix.shell }}" = "zsh" ]; then
+          export ZSH_ENV_WORK=false
+          export ZSH_ENV_PERSONAL=true
+          zsh -c "source ../stow/zsh/.config/zsh/environment.zsh || true"
+          echo "Environment detection: Work=$ZSH_ENV_WORK, Personal=$ZSH_ENV_PERSONAL"
+        else
+          echo "Skipping zsh-specific environment test for ${{ matrix.shell }}"
+        fi
     
     - name: Test performance measurement
       run: |
