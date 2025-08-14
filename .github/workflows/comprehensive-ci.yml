@@ -1,8 +1,9 @@
+---
 name: Comprehensive CI/CD Pipeline
 
 on:
-  push:
-  pull_request:
+  push: {}
+  pull_request: {}
   schedule:
     - cron: '0 2 * * 1'  # Weekly on Monday at 2 AM UTC
 
@@ -22,36 +23,39 @@ jobs:
   lint:
     name: Code Quality & Linting
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
         fetch-depth: 0  # Full history for better analysis
         submodules: recursive  # Initialize and update submodules
-    
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
-    
+
     - name: Install linting tools
       run: |
         npm install -g markdownlint-cli2 @typescript-eslint/eslint-plugin
         sudo apt-get update && sudo apt-get install -y shellcheck yamllint
-    
+
     - name: Lint markdown files
       run: |
         markdownlint-cli2 "**/*.md" \
           "!external/**/*.md" \
           "!stow/alacritty/.config/alacritty/catppuccin/**/*.md" \
           "!stow/tmux/.tmux/plugins/**/*.md"
-    
+
     - name: Lint shell scripts
       run: |
-        find . -type f -name "*.sh" -not -path "./external/*" -not -path "./raycast/extensions/*/node_modules/*" -not -path "./stow/tmux/.tmux/plugins/*" | \
+        find . -type f -name "*.sh" \
+             -not -path "./external/*" \
+             -not -path "./raycast/extensions/*/node_modules/*" \
+             -not -path "./stow/tmux/.tmux/plugins/*" | \
         xargs shellcheck -x --severity=warning --format=gcc
-    
+
     - name: Lint YAML files
       run: |
         find . -type f \( -name "*.yml" -o -name "*.yaml" \) \
@@ -60,61 +64,64 @@ jobs:
              -not -path "./stow/gh-dash/.config/gh-dash/config.yml" \
              -not -path "./stow/tmux/.tmux/plugins/*" \
              -not -path "./raycast/extensions/*/node_modules/*" | \
-        xargs yamllint -d "{extends: default, rules: {line-length: {max: 120}}}"
-    
+        xargs yamllint
+
     - name: Check for security issues
       run: |
         # Check for potential secrets (excluding common false positives)
         if grep -r -E "(password|secret|key|token)" --include="*.sh" --include="*.zsh" --exclude-dir=external . | \
-           grep -v -E "(#.*|//.*|export.*=.*\$|bindkey|mode-keys|list-keys|SSH.*key|API.*key.*=|password.*generator|completion)" | \
+           grep -v -E "(#.*|//.*|export.*=.*\$|bindkey|mode-keys|list-keys)" | \
+           grep -v -E "(SSH.*key|API.*key.*=|password.*generator|completion)" | \
            grep -v -E "(work-secrets|\.key\$|\<key\>|_key=|function.*key|local.*key)" | \
            grep -E "=.*[\"'][^\"']*[\"']"; then
           echo "::warning::Potential secrets found in code"
         fi
-        
+
         # Check for unsafe curl|sh practices (excluding documented examples with safety notes)
         temp_file=$(mktemp)
-        grep -r -B2 -A1 "curl.*|.*sh" --include="*.sh" --include="*.md" --exclude-dir=external . > "$temp_file" || true
-        if grep -q "curl.*|.*sh" "$temp_file" && ! grep -q -E "(# Note:.*trusted|# Note:.*official|# Note:.*safe)" "$temp_file"; then
+        grep -r -B2 -A1 "curl.*|.*sh" \
+             --include="*.sh" --include="*.md" --exclude-dir=external . > "$temp_file" || true
+        if grep -q "curl.*|.*sh" "$temp_file" && \
+           ! grep -q -E "(# Note:.*trusted|# Note:.*official|# Note:.*safe)" "$temp_file"; then
           echo "::warning::Potentially unsafe curl|sh patterns found"
         fi
         rm -f "$temp_file"
 
-  # === macOS Testing Environment ===  
+  # === macOS Testing Environment ===
   test-macos:
     name: macOS Integration Tests
     runs-on: macos-latest
     strategy:
       matrix:
         shell: [zsh, bash]
-        
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
         submodules: recursive
-    
+
     - name: Install Homebrew dependencies
       run: |
         # Install essential tools for testing
         brew install stow shellcheck gnu-sed
         brew install --cask font-fira-code-nerd-font || true
-    
+
     - name: Test basic setup
       run: |
         set -e
         echo "Testing with ${{ matrix.shell }}"
-        
+
         # Test basic script syntax
         bash -n bin/setup.sh
         bash -n bin/health-check.sh
         bash -n bin/measure-shell-performance.sh
-        
+
         # Test stow functionality
         mkdir -p test-home/.config
         cd test-home
         stow -d ../stow -t . zsh || echo "Stow test completed"
-        
+
         # Test environment detection with the matrix shell
         if [ "${{ matrix.shell }}" = "zsh" ]; then
           export ZSH_ENV_WORK=false
@@ -124,13 +131,13 @@ jobs:
         else
           echo "Skipping zsh-specific environment test for ${{ matrix.shell }}"
         fi
-    
+
     - name: Test performance measurement
       run: |
         # Test the performance measurement script
         chmod +x bin/measure-shell-performance.sh
         timeout 60 ./bin/measure-shell-performance.sh 3 zsh || echo "Performance test completed with timeout"
-    
+
     - name: Test health checks
       run: |
         # Test health check script
@@ -145,7 +152,7 @@ jobs:
     name: Performance Regression Tests
     runs-on: macos-latest
     if: github.event_name == 'pull_request'
-    
+
     steps:
     - name: Checkout base branch
       uses: actions/checkout@v5
@@ -153,17 +160,17 @@ jobs:
         ref: ${{ github.base_ref }}
         path: base
         submodules: recursive
-    
-    - name: Checkout PR branch  
+
+    - name: Checkout PR branch
       uses: actions/checkout@v5
       with:
         path: pr
         submodules: recursive
-    
+
     - name: Install testing tools
       run: |
         brew install hyperfine jq bc coreutils
-    
+
     - name: Performance baseline (base branch)
       working-directory: base
       run: |
@@ -173,15 +180,15 @@ jobs:
             echo "Performance script failed, skipping detailed analysis"
           fi
         fi
-        
+
         # Measure basic shell startup
         if ! hyperfine --warmup 3 --runs 10 --export-json ../baseline-hyperfine.json \
           'zsh -c exit'; then
           echo "Baseline hyperfine measurement failed"
         fi
-    
+
     - name: Performance test (PR branch)
-      working-directory: pr  
+      working-directory: pr
       run: |
         if [ -f "bin/measure-shell-performance.sh" ]; then
           chmod +x bin/measure-shell-performance.sh
@@ -189,36 +196,36 @@ jobs:
             echo "Performance script failed, skipping detailed analysis"
           fi
         fi
-        
+
         # Measure basic shell startup
         if ! hyperfine --warmup 3 --runs 10 --export-json ../pr-hyperfine.json \
           'zsh -c exit'; then
           echo "PR hyperfine measurement failed"
         fi
-    
+
     - name: Compare performance
       run: |
         echo "## Performance Comparison" >> performance-report.md
         echo "" >> performance-report.md
-        
+
         if [ -f "baseline-hyperfine.json" ] && [ -f "pr-hyperfine.json" ]; then
           baseline_mean=$(jq -r '.results[0].mean' baseline-hyperfine.json)
           pr_mean=$(jq -r '.results[0].mean' pr-hyperfine.json)
-          
+
           echo "- **Baseline**: ${baseline_mean}s" >> performance-report.md
           echo "- **PR**: ${pr_mean}s" >> performance-report.md
-          
+
           # Calculate percentage change
           change=$(echo "scale=2; ($pr_mean - $baseline_mean) / $baseline_mean * 100" | bc -l || echo "0")
           echo "- **Change**: ${change}%" >> performance-report.md
-          
+
           if (( $(echo "$change > 20" | bc -l) )); then
             echo "::warning::Performance regression detected: ${change}% slower"
           elif (( $(echo "$change < -10" | bc -l) )); then
             echo "::notice::Performance improvement detected: ${change}% faster"
           fi
         fi
-        
+
         # Output comparison if measure-shell-performance.sh results exist
         if [ -f "baseline-performance.log" ] && [ -f "pr-performance.log" ]; then
           echo "" >> performance-report.md
@@ -234,9 +241,9 @@ jobs:
           tail -5 pr-performance.log >> performance-report.md || true
           echo '```' >> performance-report.md
         fi
-        
+
         cat performance-report.md
-    
+
     - name: Comment PR with performance results
       if: github.event_name == 'pull_request'
       uses: actions/github-script@v7
@@ -257,13 +264,13 @@ jobs:
   security-scan:
     name: Security & Dependency Scan
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
         submodules: recursive
-    
+
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
@@ -272,14 +279,14 @@ jobs:
         format: 'sarif'
         output: 'trivy-results.sarif'
         severity: 'CRITICAL,HIGH,MEDIUM'
-    
+
     - name: Upload Trivy scan results to GitHub Security tab
       uses: actions/upload-artifact@v4
       if: always()
       with:
         name: trivy-results
         path: trivy-results.sarif
-    
+
     - name: Check Raycast extensions for vulnerabilities
       run: |
         for ext_dir in raycast/extensions/*/; do
@@ -296,51 +303,51 @@ jobs:
     name: Integration Tests
     runs-on: macos-latest
     needs: [lint, test-macos]
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
         submodules: recursive
-    
+
     - name: Install dependencies
       run: |
         # Install stow for integration testing
         brew install stow
-    
+
     - name: Full installation test
       run: |
         # Create test environment
         export DOTFILES_TEST_MODE=true
         export HOMEBREW_NO_AUTO_UPDATE=1
-        
+
         # Test installation scripts
         bash -n bin/setup.sh
         bash -n bin/setup-stow.sh
         bash -n bin/health-check.sh
-        
+
         # Test configuration validation
         mkdir -p test-install
         cd test-install
-        
+
         # Test stow installation with packages that exist
         stow -d ../stow -t . --no-folding zsh bash tmux
-        
+
         # Test that symlinks were created correctly
         [ -L .zshenv ] && echo "✓ zsh symlink created"
         [ -L .bashrc ] && echo "✓ bash symlink created"
         [ -L .tmux.conf ] && echo "✓ tmux symlink created"
-    
+
     - name: Test automation scripts
       run: |
         # Test automation scripts exist and are executable
         chmod +x bin/*.sh
-        
+
         # Test help flags
         ./bin/health-check.sh --help
         ./bin/measure-shell-performance.sh --help
         ./bin/auto-sync.sh --help || echo "auto-sync help completed"
-        
+
         echo "All automation scripts tested successfully"
 
 
@@ -350,7 +357,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [lint, test-macos, performance-test, security-scan, integration-test]
     if: always()
-    
+
     steps:
     - name: Prepare notification
       run: |
@@ -364,16 +371,24 @@ jobs:
         echo "" >> notification.md
         echo "Commit: ${{ github.sha }}" >> notification.md
         echo "Branch: ${{ github.ref }}" >> notification.md
-        
+
         cat notification.md
-    
+
     - name: Success notification
-      if: needs.lint.result == 'success' && needs.test-macos.result == 'success' && needs.security-scan.result == 'success' && needs.integration-test.result == 'success'
+      if: >
+        needs.lint.result == 'success' &&
+        needs.test-macos.result == 'success' &&
+        needs.security-scan.result == 'success' &&
+        needs.integration-test.result == 'success'
       run: |
         echo "::notice::✅ All CI/CD pipeline jobs completed successfully!"
-    
-    - name: Failure notification  
-      if: needs.lint.result == 'failure' || needs.test-macos.result == 'failure' || needs.security-scan.result == 'failure' || needs.integration-test.result == 'failure'
+
+    - name: Failure notification
+      if: >
+        needs.lint.result == 'failure' ||
+        needs.test-macos.result == 'failure' ||
+        needs.security-scan.result == 'failure' ||
+        needs.integration-test.result == 'failure'
       run: |
         echo "::error::❌ CI/CD pipeline has failures that need attention"
         exit 1

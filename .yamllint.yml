@@ -1,0 +1,45 @@
+---
+# yamllint configuration for gchiam-dotfiles
+# Validates YAML files with reasonable rules for configuration files and GitHub Actions
+
+extends: default
+
+rules:
+  # Line length: Allow up to 120 characters for readability
+  line-length:
+    max: 120
+
+  # Disable indentation checking for GitHub Actions workflows
+  # GitHub Actions uses inconsistent indentation patterns that don't follow yamllint defaults
+  indentation: disable
+
+  # Disable truthy value checking
+  # GitHub Actions uses 'on:' triggers that yamllint incorrectly flags
+  truthy: disable
+
+  # Disable document start requirement
+  # Not all YAML files need document start markers in this context
+  document-start: disable
+
+  # Enable trailing spaces detection
+  trailing-spaces: enable
+
+  # Require newline at end of files
+  new-line-at-end-of-file: enable
+
+  # Allow empty values (useful for GitHub Actions triggers)
+  empty-values: enable
+
+  # Comments configuration
+  comments:
+    min-spaces-from-content: 1
+
+  # Brackets configuration
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+  # Braces configuration
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
