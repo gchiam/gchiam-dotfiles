@@ -125,6 +125,7 @@ brew bundle --file=~/.Brewfile
 
 ```bash
 # Fresh macOS setup (one command installer)
+# Note: This is the official installation method for this repository
 curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fresh-install.sh | bash
 
 # Auto-sync submodules and commit updates

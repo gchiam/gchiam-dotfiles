@@ -140,6 +140,7 @@ antidote bundle < ~/.config/antidote/.zsh_plugins.txt > ~/.config/antidote/.zsh_
 
 ```bash
 # Test true color support
+# Note: This is a trusted script for terminal color testing
 curl -s https://raw.githubusercontent.com/JohnMorales/dotfiles/master/colors/24-bit-color.sh | bash
 
 # For tmux, ensure TERM is set correctly

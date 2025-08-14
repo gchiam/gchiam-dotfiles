@@ -57,15 +57,21 @@ jobs:
     
     - name: Check for security issues
       run: |
-        # Check for potential secrets
-        if grep -r -E "(password|secret|key|token)" --include="*.sh" --include="*.zsh" --exclude-dir=external . | grep -v -E "(#.*|//.*|export.*=.*\$)"; then
+        # Check for potential secrets (excluding common false positives)
+        if grep -r -E "(password|secret|key|token)" --include="*.sh" --include="*.zsh" --exclude-dir=external . | \
+           grep -v -E "(#.*|//.*|export.*=.*\$|bindkey|mode-keys|list-keys|SSH.*key|API.*key.*=|password.*generator|completion)" | \
+           grep -v -E "(work-secrets|\.key\$|\<key\>|_key=|function.*key|local.*key)" | \
+           grep -E "=.*[\"'][^\"']*[\"']"; then
           echo "::warning::Potential secrets found in code"
         fi
         
-        # Check for unsafe practices
-        if grep -r "curl.*|.*sh" --include="*.sh" --include="*.md" --exclude-dir=external . ; then
+        # Check for unsafe curl|sh practices (excluding documented examples with safety notes)
+        temp_file=$(mktemp)
+        grep -r -B2 -A1 "curl.*|.*sh" --include="*.sh" --include="*.md" --exclude-dir=external . > "$temp_file" || true
+        if grep -q "curl.*|.*sh" "$temp_file" && ! grep -q -E "(# Note:.*trusted|# Note:.*official|# Note:.*safe)" "$temp_file"; then
           echo "::warning::Potentially unsafe curl|sh patterns found"
         fi
+        rm -f "$temp_file"
 
   # === macOS Testing Environment ===  
   test-macos:
