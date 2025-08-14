@@ -292,13 +292,13 @@ jobs:
         mkdir -p test-install
         cd test-install
         
-        # Test stow installation  
-        stow -d ../stow -t . --no-folding zsh bash git
+        # Test stow installation with packages that exist
+        stow -d ../stow -t . --no-folding zsh bash tmux
         
         # Test that symlinks were created correctly
         [ -L .zshenv ] && echo "✓ zsh symlink created"
-        [ -L .bashrc ] && echo "✓ bash symlink created" 
-        [ -L .gitconfig ] && echo "✓ git symlink created"
+        [ -L .bashrc ] && echo "✓ bash symlink created"
+        [ -L .tmux.conf ] && echo "✓ tmux symlink created"
     
     - name: Test automation scripts
       run: |
