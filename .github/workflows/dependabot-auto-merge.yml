@@ -134,10 +134,11 @@ jobs:
             
             console.log("Initial check failed, waiting and rechecking with retries...");
             
-            // Try up to 3 times with increasing wait times
-            for (let attempt = 1; attempt <= 3; attempt++) {
-              const waitTime = attempt * 60000; // 1, 2, 3 minutes
-              console.log(`Attempt ${attempt}/3: Waiting ${waitTime/1000} seconds before rechecking...`);
+            // Try up to 6 times: 1min first, then 30s intervals
+            const waitTimes = [60000, 30000, 30000, 30000, 30000, 30000]; // 1min, then 30s each
+            for (let attempt = 1; attempt <= waitTimes.length; attempt++) {
+              const waitTime = waitTimes[attempt - 1];
+              console.log(`Attempt ${attempt}/${waitTimes.length}: Waiting ${waitTime/1000} seconds before rechecking...`);
               await new Promise(resolve => setTimeout(resolve, waitTime));
               
               const { data: pr } = await github.rest.pulls.get({
@@ -191,7 +192,7 @@ jobs:
                 return true;
               }
               
-              if (attempt < 3) {
+              if (attempt < waitTimes.length) {
                 console.log(`Attempt ${attempt} failed, will retry...`);
               }
             }
