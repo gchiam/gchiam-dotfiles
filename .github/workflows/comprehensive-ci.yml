@@ -272,6 +272,11 @@ jobs:
       with:
         submodules: recursive
     
+    - name: Install dependencies
+      run: |
+        # Install stow for integration testing
+        brew install stow
+    
     - name: Full installation test
       run: |
         # Create test environment
