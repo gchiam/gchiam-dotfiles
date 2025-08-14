@@ -33,11 +33,14 @@ measure_startup_time() {
         echo -n "Run $i/$ITERATIONS: "
         
         # Measure time for shell to start and exit
-        local start_time=$(python3 -c "import time; print(time.time())")
+        local start_time
+        start_time=$(python3 -c "import time; print(time.time())")
         $shell_cmd -c "exit" 2>/dev/null
-        local end_time=$(python3 -c "import time; print(time.time())")
+        local end_time
+        end_time=$(python3 -c "import time; print(time.time())")
         
-        local duration=$(python3 -c "print(f'{$end_time - $start_time:.3f}')")
+        local duration
+        duration=$(python3 -c "print(f'{$end_time - $start_time:.3f}')")
         times+=("$duration")
         echo "${duration}s"
     done
@@ -57,7 +60,8 @@ measure_startup_time() {
         fi
     done
     
-    local avg=$(python3 -c "print(f'{$total / $ITERATIONS:.3f}')")
+    local avg
+    avg=$(python3 -c "print(f'{$total / $ITERATIONS:.3f}')")
     
     echo
     echo -e "${GREEN}Results:${NC}"
