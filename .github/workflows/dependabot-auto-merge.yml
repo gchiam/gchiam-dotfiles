@@ -92,17 +92,22 @@ jobs:
             const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
             
             // Check if all check runs are completed and successful (including skipped)
-            const completedCheckRuns = checkRuns.check_runs.filter(check => check.status === 'completed');
+            // Exclude this workflow's own check runs to avoid circular dependency
+            const relevantCheckRuns = checkRuns.check_runs.filter(check => 
+              check.name !== 'auto-rebase-and-merge'
+            );
+            const completedCheckRuns = relevantCheckRuns.filter(check => check.status === 'completed');
             const successfulCheckRuns = completedCheckRuns.filter(check => 
               check.conclusion === 'success' || check.conclusion === 'skipped'
             );
-            const allCheckRunsSuccess = checkRuns.check_runs.length === 0 || 
-              (completedCheckRuns.length === checkRuns.check_runs.length && 
+            const allCheckRunsSuccess = relevantCheckRuns.length === 0 || 
+              (completedCheckRuns.length === relevantCheckRuns.length && 
                successfulCheckRuns.length === completedCheckRuns.length);
             
             const allChecksPass = allStatusesSuccess && allCheckRunsSuccess;
             
             console.log(`Total check runs: ${checkRuns.check_runs.length}`);
+            console.log(`Relevant check runs (excluding auto-merge): ${relevantCheckRuns.length}`);
             console.log(`Completed check runs: ${completedCheckRuns.length}`);
             console.log(`Successful check runs: ${successfulCheckRuns.length}`);
             
@@ -159,18 +164,23 @@ jobs:
               const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
               
               // Check if all check runs are completed and successful (including skipped)
-              const completedCheckRuns = checkRuns.check_runs.filter(check => check.status === 'completed');
+              // Exclude this workflow's own check runs to avoid circular dependency
+              const relevantCheckRuns = checkRuns.check_runs.filter(check => 
+                check.name !== 'auto-rebase-and-merge'
+              );
+              const completedCheckRuns = relevantCheckRuns.filter(check => check.status === 'completed');
               const successfulCheckRuns = completedCheckRuns.filter(check => 
                 check.conclusion === 'success' || check.conclusion === 'skipped'
               );
-              const allCheckRunsSuccess = checkRuns.check_runs.length === 0 || 
-                (completedCheckRuns.length === checkRuns.check_runs.length && 
+              const allCheckRunsSuccess = relevantCheckRuns.length === 0 || 
+                (completedCheckRuns.length === relevantCheckRuns.length && 
                  successfulCheckRuns.length === completedCheckRuns.length);
               
               const allChecksPass = allStatusesSuccess && allCheckRunsSuccess;
               
               console.log(`Attempt ${attempt} - Combined status state: ${status.state}`);
               console.log(`Attempt ${attempt} - Total check runs: ${checkRuns.check_runs.length}`);
+              console.log(`Attempt ${attempt} - Relevant check runs (excluding auto-merge): ${relevantCheckRuns.length}`);
               console.log(`Attempt ${attempt} - Completed check runs: ${completedCheckRuns.length}`);
               console.log(`Attempt ${attempt} - Successful check runs: ${successfulCheckRuns.length}`);
               console.log(`Attempt ${attempt} - All checks pass: ${allChecksPass}`);
