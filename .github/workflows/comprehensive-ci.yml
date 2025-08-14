@@ -6,6 +6,12 @@ on:
   schedule:
     - cron: '0 2 * * 1'  # Weekly on Monday at 2 AM UTC
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  security-events: write
+
 env:
   NODE_VERSION: '20'
   HOMEBREW_NO_AUTO_UPDATE: 1
