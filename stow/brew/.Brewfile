@@ -71,6 +71,7 @@ brew 'uv'
 brew 'watch'
 brew 'wget'
 # brew 'yabai'
+brew 'yamllint'
 brew 'yq'
 brew 'zsh'
 
