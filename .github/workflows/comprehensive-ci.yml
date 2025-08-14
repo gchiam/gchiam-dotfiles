@@ -147,31 +147,39 @@ jobs:
     
     - name: Install testing tools
       run: |
-        brew install hyperfine jq bc
+        brew install hyperfine jq bc coreutils
     
     - name: Performance baseline (base branch)
       working-directory: base
       run: |
         if [ -f "bin/measure-shell-performance.sh" ]; then
           chmod +x bin/measure-shell-performance.sh
-          timeout 120 ./bin/measure-shell-performance.sh 10 > ../baseline-performance.log || true
+          if ! gtimeout 120 ./bin/measure-shell-performance.sh 10 > ../baseline-performance.log; then
+            echo "Performance script failed, skipping detailed analysis"
+          fi
         fi
         
         # Measure basic shell startup
-        hyperfine --warmup 3 --runs 10 --export-json ../baseline-hyperfine.json \
-          'zsh -i -c exit' || echo "Baseline measurement completed"
+        if ! hyperfine --warmup 3 --runs 10 --export-json ../baseline-hyperfine.json \
+          'zsh -c exit'; then
+          echo "Baseline hyperfine measurement failed"
+        fi
     
     - name: Performance test (PR branch)
       working-directory: pr  
       run: |
         if [ -f "bin/measure-shell-performance.sh" ]; then
           chmod +x bin/measure-shell-performance.sh
-          timeout 120 ./bin/measure-shell-performance.sh 10 > ../pr-performance.log || true
+          if ! gtimeout 120 ./bin/measure-shell-performance.sh 10 > ../pr-performance.log; then
+            echo "Performance script failed, skipping detailed analysis"
+          fi
         fi
         
         # Measure basic shell startup
-        hyperfine --warmup 3 --runs 10 --export-json ../pr-hyperfine.json \
-          'zsh -i -c exit' || echo "PR measurement completed"
+        if ! hyperfine --warmup 3 --runs 10 --export-json ../pr-hyperfine.json \
+          'zsh -c exit'; then
+          echo "PR hyperfine measurement failed"
+        fi
     
     - name: Compare performance
       run: |
