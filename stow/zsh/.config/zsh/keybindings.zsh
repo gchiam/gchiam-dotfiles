@@ -2,20 +2,9 @@
 # Zsh Keybindings
 # Custom key bindings for improved productivity
 
-# Vi-mode configuration (for zsh-vi-mode plugin)
+# Minimal zsh-vi-mode plugin configuration
 zvm_config() {
-    # jeffreytse/zsh-vi-mode
-    ZVM_INIT_MODE=sourcing
-    ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
-    ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
-    ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-    ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
-    # Always starting with insert mode for each command line
-    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-
-    # zsh-users/zsh-history-substring-search
-    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black,bold'
-    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
+    ZVM_VI_INSERT_ESCAPE_BINDKEY=jk  # jk to escape insert mode
 }
 
 function zvm_after_init() {
@@ -32,9 +21,9 @@ function zvm_after_init() {
     bindkey -M vicmd 'j' history-substring-search-down
 }
 
-# Use emacs-style key bindings by default (works well with zsh-vi-mode plugin)
-# The zsh-vi-mode plugin will override this when it loads
-bindkey -e
+# Simple fallback: just enable basic vi mode
+# The zsh-vi-mode plugin will override this if it loads successfully
+bindkey -v
 
 # History search
 bindkey '^R' history-incremental-search-backward
@@ -42,17 +31,39 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
-# Line editing shortcuts
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-bindkey '^B' backward-char
-bindkey '^F' forward-char
-bindkey '^D' delete-char
-bindkey '^H' backward-delete-char
-bindkey '^W' backward-kill-word
-bindkey '^K' kill-line
-bindkey '^U' kill-whole-line
-bindkey '^Y' yank
+# Line editing shortcuts - conditional based on vi mode setup
+# These are set after vi mode is established to avoid conflicts
+setup_line_editing_shortcuts() {
+    if ! zle -l zvm_enter_vi_mode 2>/dev/null; then
+        # Native vi mode - set emacs-style bindings only in insert mode
+        bindkey -M viins '^A' beginning-of-line
+        bindkey -M viins '^E' end-of-line
+        bindkey -M viins '^B' backward-char
+        bindkey -M viins '^F' forward-char
+        bindkey -M viins '^D' delete-char
+        bindkey -M viins '^H' backward-delete-char
+        bindkey -M viins '^W' backward-kill-word
+        bindkey -M viins '^K' kill-line
+        bindkey -M viins '^U' kill-whole-line
+        bindkey -M viins '^Y' yank
+    else
+        # zsh-vi-mode plugin handles its own bindings
+        # These global bindings work with the plugin
+        bindkey '^A' beginning-of-line
+        bindkey '^E' end-of-line
+        bindkey '^B' backward-char
+        bindkey '^F' forward-char
+        bindkey '^D' delete-char
+        bindkey '^H' backward-delete-char
+        bindkey '^W' backward-kill-word
+        bindkey '^K' kill-line
+        bindkey '^U' kill-whole-line
+        bindkey '^Y' yank
+    fi
+}
+
+# Don't call immediately - will be called after vi mode setup in environment.zsh
+# setup_line_editing_shortcuts
 
 # Word movement (Alt/Option key combinations)
 bindkey '^[b' backward-word

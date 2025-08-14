@@ -257,6 +257,10 @@ show_env_info() {
 # Initialize environment-specific configurations
 init_environment() {
     load_env_plugins
+    
+    # Note: vi mode is enabled in keybindings.zsh
+    # zsh-vi-mode plugin will override if it loads successfully
+    
     load_development_tools
     setup_git_config
     setup_ssh_config
