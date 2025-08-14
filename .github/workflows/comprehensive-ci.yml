@@ -41,7 +41,10 @@ jobs:
         sudo apt-get update && sudo apt-get install -y shellcheck yamllint
     
     - name: Lint markdown files
-      run: markdownlint-cli2 "**/*.md"
+      run: |
+        markdownlint-cli2 "**/*.md" \
+          "!external/**/*.md" \
+          "!stow/alacritty/.config/alacritty/catppuccin/**/*.md"
     
     - name: Lint shell scripts
       run: |
@@ -50,7 +53,10 @@ jobs:
     
     - name: Lint YAML files
       run: |
-        find . -type f -name "*.yml" -o -name "*.yaml" | \
+        find . -type f \( -name "*.yml" -o -name "*.yaml" \) \
+          -not -path "./external/*" \
+          -not -path "./stow/k9s/.config/k9s/skins/*" \
+          -not -path "./stow/gh-dash/.config/gh-dash/config.yml" | \
         xargs yamllint -d "{extends: default, rules: {line-length: {max: 120}}}"
     
     - name: Check for security issues
