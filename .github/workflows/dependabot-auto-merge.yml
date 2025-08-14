@@ -127,55 +127,68 @@ jobs:
                              context.payload.pull_request?.number || 
                              context.issue?.number;
             
-            console.log("Initial check failed, waiting 30 seconds and rechecking...");
-            await new Promise(resolve => setTimeout(resolve, 30000));
+            console.log("Initial check failed, waiting and rechecking with retries...");
             
-            const { data: pr } = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr_number
-            });
-            
-            // Get combined status for the head SHA
-            const { data: status } = await github.rest.repos.getCombinedStatusForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: pr.head.sha
-            });
-            
-            // Get check runs for the head SHA
-            const { data: checkRuns } = await github.rest.checks.listForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: pr.head.sha
-            });
-            
-            // More detailed check logic
-            const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
-            
-            // Check if all check runs are completed and successful (including skipped)
-            const completedCheckRuns = checkRuns.check_runs.filter(check => check.status === 'completed');
-            const successfulCheckRuns = completedCheckRuns.filter(check => 
-              check.conclusion === 'success' || check.conclusion === 'skipped'
-            );
-            const allCheckRunsSuccess = checkRuns.check_runs.length === 0 || 
-              (completedCheckRuns.length === checkRuns.check_runs.length && 
-               successfulCheckRuns.length === completedCheckRuns.length);
-            
-            const allChecksPass = allStatusesSuccess && allCheckRunsSuccess;
-            
-            console.log(`After wait - Combined status state: ${status.state}`);
-            console.log(`After wait - Total check runs: ${checkRuns.check_runs.length}`);
-            console.log(`After wait - Completed check runs: ${completedCheckRuns.length}`);
-            console.log(`After wait - Successful check runs: ${successfulCheckRuns.length}`);
-            console.log(`After wait - All checks pass: ${allChecksPass}`);
-            
-            core.setOutput('all_checks_pass_after_wait', allChecksPass);
-            
-            if (!allChecksPass) {
-              console.log("Checks still not complete after wait. Exiting.");
-              process.exit(0);
+            // Try up to 3 times with increasing wait times
+            for (let attempt = 1; attempt <= 3; attempt++) {
+              const waitTime = attempt * 60000; // 1, 2, 3 minutes
+              console.log(`Attempt ${attempt}/3: Waiting ${waitTime/1000} seconds before rechecking...`);
+              await new Promise(resolve => setTimeout(resolve, waitTime));
+              
+              const { data: pr } = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr_number
+              });
+              
+              // Get combined status for the head SHA
+              const { data: status } = await github.rest.repos.getCombinedStatusForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha
+              });
+              
+              // Get check runs for the head SHA
+              const { data: checkRuns } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha
+              });
+              
+              // More detailed check logic
+              const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
+              
+              // Check if all check runs are completed and successful (including skipped)
+              const completedCheckRuns = checkRuns.check_runs.filter(check => check.status === 'completed');
+              const successfulCheckRuns = completedCheckRuns.filter(check => 
+                check.conclusion === 'success' || check.conclusion === 'skipped'
+              );
+              const allCheckRunsSuccess = checkRuns.check_runs.length === 0 || 
+                (completedCheckRuns.length === checkRuns.check_runs.length && 
+                 successfulCheckRuns.length === completedCheckRuns.length);
+              
+              const allChecksPass = allStatusesSuccess && allCheckRunsSuccess;
+              
+              console.log(`Attempt ${attempt} - Combined status state: ${status.state}`);
+              console.log(`Attempt ${attempt} - Total check runs: ${checkRuns.check_runs.length}`);
+              console.log(`Attempt ${attempt} - Completed check runs: ${completedCheckRuns.length}`);
+              console.log(`Attempt ${attempt} - Successful check runs: ${successfulCheckRuns.length}`);
+              console.log(`Attempt ${attempt} - All checks pass: ${allChecksPass}`);
+              
+              if (allChecksPass) {
+                console.log(`All checks passed on attempt ${attempt}!`);
+                core.setOutput('all_checks_pass_after_wait', true);
+                return true;
+              }
+              
+              if (attempt < 3) {
+                console.log(`Attempt ${attempt} failed, will retry...`);
+              }
             }
+            
+            console.log("All retry attempts exhausted. Checks still not complete after maximum wait time.");
+            core.setOutput('all_checks_pass_after_wait', false);
+            process.exit(0);
 
       - name: Check if PR is ready to merge
         id: check-mergeable
