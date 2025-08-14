@@ -173,8 +173,8 @@ jobs:
               process.exit(0);
             }
 
-      - name: Check if rebase is needed
-        id: check-rebase
+      - name: Check if PR is ready to merge
+        id: check-mergeable
         if: steps.check-dependabot.outputs.is_dependabot == 'true' && (steps.check-status.outputs.all_checks_pass == 'true' || steps.wait-and-recheck.outputs.all_checks_pass_after_wait == 'true')
         uses: actions/github-script@v7
         with:
@@ -189,49 +189,27 @@ jobs:
               pull_number: pr_number
             });
             
-            // Check if PR is behind the base branch
-            const isBehind = pr.mergeable_state === 'behind';
-            const isOutOfDate = !pr.mergeable || pr.mergeable_state === 'behind';
+            // Check if PR is ready to merge (not behind base branch)
+            const isClean = pr.mergeable_state === 'clean';
+            const isUnstable = pr.mergeable_state === 'unstable'; // checks still running but mergeable
+            const canMerge = isClean || isUnstable;
             
             console.log(`PR mergeable: ${pr.mergeable}`);
             console.log(`PR mergeable_state: ${pr.mergeable_state}`);
-            console.log(`Is behind base branch: ${isBehind}`);
-            console.log(`Needs rebase: ${isOutOfDate}`);
+            console.log(`Can merge without rebase: ${canMerge}`);
             
-            core.setOutput('needs_rebase', isOutOfDate);
-            core.setOutput('is_behind', isBehind);
+            if (!canMerge) {
+              console.log(`Skipping PR #${pr_number} - needs rebase (mergeable_state: ${pr.mergeable_state})`);
+              console.log("PR will be auto-merged when Dependabot updates it or base branch changes.");
+            }
             
-            return isOutOfDate;
-
-      - name: Auto-rebase PR
-        id: rebase
-        if: steps.check-dependabot.outputs.is_dependabot == 'true' && (steps.check-status.outputs.all_checks_pass == 'true' || steps.wait-and-recheck.outputs.all_checks_pass_after_wait == 'true') && steps.check-rebase.outputs.needs_rebase == 'true'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const pr_number = context.payload.inputs?.pr_number || 
-                             context.payload.pull_request?.number || 
-                             context.issue?.number;
+            core.setOutput('can_merge', canMerge);
+            core.setOutput('mergeable_state', pr.mergeable_state);
             
-            // Comment to trigger Dependabot rebase
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: pr_number,
-              body: '@dependabot rebase'
-            });
-            
-            console.log(`Triggered rebase for PR #${pr_number}`);
-            core.setOutput('rebased', 'true');
-
-      - name: Wait after rebase
-        if: steps.rebase.outputs.rebased == 'true'
-        run: |
-          echo "Waiting 30 seconds for rebase to complete..."
-          sleep 30
+            return canMerge;
 
       - name: Auto-approve PR
-        if: steps.check-dependabot.outputs.is_dependabot == 'true' && (steps.check-status.outputs.all_checks_pass == 'true' || steps.wait-and-recheck.outputs.all_checks_pass_after_wait == 'true')
+        if: steps.check-dependabot.outputs.is_dependabot == 'true' && (steps.check-status.outputs.all_checks_pass == 'true' || steps.wait-and-recheck.outputs.all_checks_pass_after_wait == 'true') && steps.check-mergeable.outputs.can_merge == 'true'
         uses: actions/github-script@v7
         with:
           script: |
@@ -272,7 +250,7 @@ jobs:
             }
 
       - name: Auto-merge PR
-        if: steps.check-dependabot.outputs.is_dependabot == 'true' && (steps.check-status.outputs.all_checks_pass == 'true' || steps.wait-and-recheck.outputs.all_checks_pass_after_wait == 'true')
+        if: steps.check-dependabot.outputs.is_dependabot == 'true' && (steps.check-status.outputs.all_checks_pass == 'true' || steps.wait-and-recheck.outputs.all_checks_pass_after_wait == 'true') && steps.check-mergeable.outputs.can_merge == 'true'
         uses: actions/github-script@v7
         with:
           script: |
@@ -318,8 +296,6 @@ jobs:
           echo "All Checks Pass: ${{ steps.check-status.outputs.all_checks_pass }}"
           echo "Status State: ${{ steps.check-status.outputs.status_state }}"
           echo "Check Runs Count: ${{ steps.check-status.outputs.check_runs_count }}"
-          echo "Needs Rebase: ${{ steps.check-rebase.outputs.needs_rebase }}"
-          echo "Is Behind: ${{ steps.check-rebase.outputs.is_behind }}"
-          echo "Rebased: ${{ steps.rebase.outputs.rebased }}"
-          echo "Auto-approved: Attempted if all checks passed"
-          echo "Auto-merged: Attempted if all checks passed and PR is mergeable"
+          echo "Can Merge: ${{ steps.check-mergeable.outputs.can_merge }}"
+          echo "Auto-approved: Attempted if all checks passed and can merge"
+          echo "Auto-merged: Attempted if all checks passed and can merge"
