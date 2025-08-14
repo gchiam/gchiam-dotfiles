@@ -41,19 +41,16 @@ jobs:
     
     - name: Lint markdown files
       run: markdownlint-cli2 "**/*.md"
-      continue-on-error: true
     
     - name: Lint shell scripts
       run: |
         find . -type f -name "*.sh" -not -path "./external/*" -not -path "./raycast/extensions/*/node_modules/*" | \
         xargs shellcheck -x --severity=warning --format=gcc
-      continue-on-error: true
     
     - name: Lint YAML files
       run: |
         find . -type f -name "*.yml" -o -name "*.yaml" | \
         xargs yamllint -d "{extends: default, rules: {line-length: {max: 120}}}"
-      continue-on-error: true
     
     - name: Check for security issues
       run: |
