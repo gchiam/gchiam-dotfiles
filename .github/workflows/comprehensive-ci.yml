@@ -46,7 +46,7 @@ jobs:
     - name: Lint shell scripts
       run: |
         find . -type f -name "*.sh" -not -path "./external/*" -not -path "./raycast/extensions/*/node_modules/*" | \
-        xargs shellcheck -x --severity=warning --format=github
+        xargs shellcheck -x --severity=warning --format=gcc
       continue-on-error: true
     
     - name: Lint YAML files
