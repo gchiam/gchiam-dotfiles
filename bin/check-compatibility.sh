@@ -256,11 +256,11 @@ check_tool_compatibility() {
     local tools_to_check=("alacritty" "aerospace" "yabai" "docker" "gh")
     
     for tool in "${tools_to_check[@]}"; do
-        local min_macos_key="${tool}:min_macos"
-        local arch_key="${tool}:arch"
+        local min_macos_lookup="${tool}:min_macos"
+        local arch_lookup="${tool}:arch"
         
         local min_macos
-        min_macos="$(get_tool_compatibility "$min_macos_key")"
+        min_macos="$(get_tool_compatibility "$min_macos_lookup")"
         if [[ -n "$min_macos" ]]; then
             
             if version_compare "$MACOS_VERSION" "$min_macos"; then
@@ -271,7 +271,7 @@ check_tool_compatibility() {
         fi
         
         local supported_archs
-        supported_archs="$(get_tool_compatibility "$arch_key")"
+        supported_archs="$(get_tool_compatibility "$arch_lookup")"
         if [[ -n "$supported_archs" ]]; then
             if [[ "$supported_archs" == *"$ARCHITECTURE"* ]]; then
                 print_success "$tool: Compatible with $ARCHITECTURE architecture"
