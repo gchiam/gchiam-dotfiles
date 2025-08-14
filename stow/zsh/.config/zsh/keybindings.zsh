@@ -21,9 +21,9 @@ function zvm_after_init() {
     bindkey -M vicmd 'j' history-substring-search-down
 }
 
-# Simple fallback: just enable basic vi mode
-# The zsh-vi-mode plugin will override this if it loads successfully
-bindkey -v
+# Let zsh-vi-mode plugin initialize first
+# Only enable fallback vi mode if plugin doesn't work
+# (This will be handled after plugin loading in environment.zsh)
 
 # History search
 bindkey '^R' history-incremental-search-backward

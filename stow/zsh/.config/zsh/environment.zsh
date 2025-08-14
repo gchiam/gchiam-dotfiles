@@ -258,8 +258,13 @@ show_env_info() {
 init_environment() {
     load_env_plugins
     
-    # Note: vi mode is enabled in keybindings.zsh
-    # zsh-vi-mode plugin will override if it loads successfully
+    # Simple approach: always enable vi mode
+    # Let zsh-vi-mode plugin override if it loads successfully
+    bindkey -v
+    export KEYTIMEOUT=1
+    
+    # Add jk binding (plugin will override if it loads)
+    bindkey -M viins 'jk' vi-cmd-mode 2>/dev/null || true
     
     load_development_tools
     setup_git_config
