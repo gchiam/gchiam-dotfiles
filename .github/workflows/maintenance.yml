@@ -1,6 +1,16 @@
 name: Automated Maintenance
 
 on:
+  push:
+    paths:
+      - 'bin/**'
+      - 'stow/**'
+      - '.github/workflows/maintenance.yml'
+  pull_request:
+    paths:
+      - 'bin/**'
+      - 'stow/**'
+      - '.github/workflows/maintenance.yml'
   schedule:
     # Weekly maintenance on Sundays at 3 AM UTC
     - cron: '0 3 * * 0'
@@ -85,7 +95,7 @@ jobs:
   health-check:
     name: Comprehensive Health Check
     runs-on: macos-latest
-    if: github.event.inputs.maintenance_type == 'all' || github.event.inputs.maintenance_type == 'health-check' || github.event_name == 'schedule'
+    if: github.event.inputs.maintenance_type == 'all' || github.event.inputs.maintenance_type == 'health-check' || github.event_name == 'schedule' || github.event_name == 'push' || github.event_name == 'pull_request'
     
     steps:
     - name: Checkout repository
