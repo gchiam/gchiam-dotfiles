@@ -24,3 +24,26 @@ bin/migrate-to-submodules.sh
 *~
 .*.swp
 .*.swo
+
+# Temporary files and logs
+*.log
+*.tmp
+*.temp
+.vscode/
+.idea/
+
+# macOS system files
+.Trashes
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+
+# Node.js (for Raycast extensions)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Performance monitoring files
+performance-*.log
+health-*.log

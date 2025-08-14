@@ -2,40 +2,48 @@
 # Zsh Aliases
 # Modern aliases for improved productivity and safety
 
-# Core command improvements
-unalias ls 2>/dev/null || true  # Remove any existing ls alias
-ls() { command ls --color=auto "$@" 2>/dev/null || command ls -G "$@"; }
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias lh='ls -lah'
-alias lt='ls -lart'  # Sort by time, newest last
+# Load shared aliases (common across all shells)
+source "${ZDOTDIR:-$HOME/.config/zsh}/shared-aliases.zsh"
 
-# Safe operations
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias ln='ln -i'
+# Zsh-specific aliases and overrides
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
 
-# Directory operations
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias -- -='cd -'
-alias md='mkdir -p'
-alias rd='rmdir'
+# Zsh global aliases (unique to zsh)
+alias -g L='| less'
+alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g N='>/dev/null 2>&1'
+alias -g J='| jq'
+alias -g Y='| yq'
+alias -g C='| wc -l'
+alias -g S='| sort'
+alias -g U='| uniq'
 
-# Directory listing shortcuts
-alias tree='tree -C'
-alias t='tree -L 2'
-alias tt='tree -L 3'
+# Zsh suffix aliases (unique to zsh)
+alias -s txt=nvim
+alias -s md=nvim
+alias -s json=nvim
+alias -s yaml=nvim
+alias -s yml=nvim
+alias -s toml=nvim
+alias -s sh=nvim
+alias -s zsh=nvim
+alias -s py=nvim
+alias -s js=nvim
+alias -s ts=nvim
+alias -s html=nvim
+alias -s css=nvim
 
-# Git aliases (modern and efficient)
-# Note: More sophisticated git aliases are configured via git config in bin/setup-git.sh
-# These provide quick shell shortcuts, while git aliases provide feature-rich commands
-alias g='git'
-alias ga='git add'
+# Archive suffix aliases
+alias -s tar='tar -tf'
+alias -s tar.gz='tar -tzf'
+alias -s tar.bz2='tar -tjf'
+alias -s zip='unzip -l'
+
+# Extended git aliases (zsh-specific expansions)
 alias gaa='git add --all'
 alias gb='git branch'
 alias gba='git branch -a'
@@ -47,7 +55,6 @@ alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
 alias gco='git checkout'
 alias gcb='git checkout -b'
-alias gd='git diff'
 alias gds='git diff --staged'
 alias gdt='git difftool'
 alias gf='git fetch'

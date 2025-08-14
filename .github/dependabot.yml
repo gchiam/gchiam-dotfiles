@@ -1,16 +1,18 @@
 version: 2
 updates:
-  # Homebrew packages
-  - package-ecosystem: "bundler"
-    directory: "/stow/brew"
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "06:00"
+      time: "04:00"
     open-pull-requests-limit: 3
     commit-message:
       prefix: "⬆️"
       include: "scope"
+    labels:
+      - "dependencies"
 
   # Node.js packages in Raycast extensions
   - package-ecosystem: "npm"
@@ -18,20 +20,28 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday" 
-      time: "06:00"
-    open-pull-requests-limit: 3
-    commit-message:
-      prefix: "⬆️"
-      include: "scope"
-
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
+      time: "04:00"
     open-pull-requests-limit: 2
     commit-message:
       prefix: "⬆️"
       include: "scope"
+    labels:
+      - "dependencies"
+    ignore:
+      # Ignore major version updates for stability
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # Git submodules (external dependencies)
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"  
+      time: "04:00"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
+    labels:
+      - "dependencies"

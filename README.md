@@ -193,6 +193,7 @@ Comprehensive documentation organized by workflow and expertise level.
 |-------|-------------|
 | **[Development Notes](docs/development-notes.md)** | Development practices, testing patterns, and advanced customization |
 | **[Quality Assurance](docs/quality-assurance.md)** | Linting standards, code quality, and validation processes |
+| **[Performance Tuning](docs/performance-tuning.md)** | Shell optimization, performance monitoring, and tuning strategies |
 | **[Commit Guidelines](docs/commit-guidelines.md)** | Git commit conventions and best practices |
 
 ### 🔧 Tool References and Keybindings
