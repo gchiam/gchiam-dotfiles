@@ -264,6 +264,10 @@ if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions/_dotfiles" ]]; then
     compdef _dotfiles setup
 fi
 
+# Completion error handling - prevent nesting issues
+zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' use-compctl false
+
 # Rebuild completion cache if needed
 if [[ ! -f "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache/.zcompdump" ]]; then
     mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
