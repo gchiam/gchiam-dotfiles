@@ -1,0 +1,184 @@
+name: Dependabot Auto-Merge
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  check_suite:
+    types: [completed]
+  status: {}
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  auto-rebase-and-merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    
+    steps:
+      - name: Check if PR is from Dependabot
+        id: check-dependabot
+        run: |
+          if [[ "${{ github.actor }}" == "dependabot[bot]" ]]; then
+            echo "is_dependabot=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_dependabot=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get PR details
+        id: pr-details
+        if: steps.check-dependabot.outputs.is_dependabot == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number || context.payload.pull_request.number
+            });
+            
+            core.setOutput('pr_number', pr.number);
+            core.setOutput('pr_state', pr.state);
+            core.setOutput('mergeable', pr.mergeable);
+            core.setOutput('mergeable_state', pr.mergeable_state);
+            
+            return pr;
+
+      - name: Check all status checks
+        id: check-status
+        if: steps.check-dependabot.outputs.is_dependabot == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = steps['pr-details'].outputs.pr_number || context.payload.pull_request.number;
+            
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            // Get combined status for the head SHA
+            const { data: status } = await github.rest.repos.getCombinedStatusForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: pr.head.sha
+            });
+            
+            // Get check runs for the head SHA
+            const { data: checkRuns } = await github.rest.checks.listForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: pr.head.sha
+            });
+            
+            const allStatusesSuccess = status.state === 'success' || status.statuses.length === 0;
+            const allCheckRunsSuccess = checkRuns.check_runs.every(check => 
+              check.status === 'completed' && check.conclusion === 'success'
+            ) || checkRuns.check_runs.length === 0;
+            
+            const allChecksPass = allStatusesSuccess && allCheckRunsSuccess;
+            
+            console.log(`Combined status state: ${status.state}`);
+            console.log(`Status checks count: ${status.statuses.length}`);
+            console.log(`Check runs count: ${checkRuns.check_runs.length}`);
+            console.log(`All checks pass: ${allChecksPass}`);
+            
+            core.setOutput('all_checks_pass', allChecksPass);
+            core.setOutput('status_state', status.state);
+            core.setOutput('check_runs_count', checkRuns.check_runs.length);
+            
+            return allChecksPass;
+
+      - name: Wait for checks to complete
+        if: steps.check-dependabot.outputs.is_dependabot == 'true' && steps.check-status.outputs.all_checks_pass == 'false'
+        run: |
+          echo "Checks are still running or some have failed. Workflow will retry when status changes."
+          exit 0
+
+      - name: Check if rebase is needed
+        id: check-rebase
+        if: steps.check-dependabot.outputs.is_dependabot == 'true' && steps.check-status.outputs.all_checks_pass == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = steps['pr-details'].outputs.pr_number;
+            
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            // Check if PR is behind the base branch
+            const isBehind = pr.mergeable_state === 'behind';
+            const isOutOfDate = !pr.mergeable || pr.mergeable_state === 'behind';
+            
+            console.log(`PR mergeable: ${pr.mergeable}`);
+            console.log(`PR mergeable_state: ${pr.mergeable_state}`);
+            console.log(`Is behind base branch: ${isBehind}`);
+            console.log(`Needs rebase: ${isOutOfDate}`);
+            
+            core.setOutput('needs_rebase', isOutOfDate);
+            core.setOutput('is_behind', isBehind);
+            
+            return isOutOfDate;
+
+      - name: Auto-rebase PR
+        id: rebase
+        if: steps.check-dependabot.outputs.is_dependabot == 'true' && steps.check-status.outputs.all_checks_pass == 'true' && steps.check-rebase.outputs.needs_rebase == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = steps['pr-details'].outputs.pr_number;
+            
+            // Comment to trigger Dependabot rebase
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: '@dependabot rebase'
+            });
+            
+            console.log(`Triggered rebase for PR #${pr_number}`);
+            core.setOutput('rebased', 'true');
+
+      - name: Wait after rebase
+        if: steps.rebase.outputs.rebased == 'true'
+        run: |
+          echo "Waiting 30 seconds for rebase to complete..."
+          sleep 30
+
+      - name: Auto-merge PR
+        if: steps.check-dependabot.outputs.is_dependabot == 'true' && steps.check-status.outputs.all_checks_pass == 'true' && (steps.check-rebase.outputs.needs_rebase == 'false' || steps.rebase.outputs.rebased == 'true')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = steps['pr-details'].outputs.pr_number;
+            
+            // Comment to trigger Dependabot merge
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: '@dependabot merge'
+            });
+            
+            console.log(`Triggered merge for PR #${pr_number}`);
+
+      - name: Log workflow completion
+        if: steps.check-dependabot.outputs.is_dependabot == 'true'
+        run: |
+          echo "=== Dependabot Auto-Merge Workflow Summary ==="
+          echo "PR Number: ${{ steps.pr-details.outputs.pr_number }}"
+          echo "PR State: ${{ steps.pr-details.outputs.pr_state }}"
+          echo "Mergeable: ${{ steps.pr-details.outputs.mergeable }}"
+          echo "Mergeable State: ${{ steps.pr-details.outputs.mergeable_state }}"
+          echo "All Checks Pass: ${{ steps.check-status.outputs.all_checks_pass }}"
+          echo "Status State: ${{ steps.check-status.outputs.status_state }}"
+          echo "Check Runs Count: ${{ steps.check-status.outputs.check_runs_count }}"
+          echo "Needs Rebase: ${{ steps.check-rebase.outputs.needs_rebase }}"
+          echo "Is Behind: ${{ steps.check-rebase.outputs.is_behind }}"
+          echo "Rebased: ${{ steps.rebase.outputs.rebased }}"
