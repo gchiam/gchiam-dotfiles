@@ -1,8 +1,15 @@
 # Zsh Configuration
 # vim: set ft=zsh:
 
-# Performance monitoring: record startup time if enabled
-[[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && ZSH_STARTUP_START="$EPOCHREALTIME"
+# Performance monitoring: record startup time if enabled and EPOCHREALTIME available
+if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]]; then
+    if [[ -n "$EPOCHREALTIME" ]]; then
+        ZSH_STARTUP_START="$EPOCHREALTIME"
+    else
+        echo "Warning: Performance monitoring requires zsh 5.0.2+ (EPOCHREALTIME not available)" >&2
+        export ZSH_PERFORMANCE_MONITORING=false
+    fi
+fi
 
 # Safe sourcing function
 safe_source() {
@@ -89,6 +96,53 @@ nvm() {
 # Create lazy-loaded aliases for common commands
 node() { nvm >/dev/null 2>&1; command node "$@"; }
 npm() { nvm >/dev/null 2>&1; command npm "$@"; }
+
+# Lazy load kubectl completions on first use
+kubectl() {
+    unfunction kubectl
+    if command -v kubectl >/dev/null; then
+        source <(kubectl completion zsh 2>/dev/null)
+        compdef __start_kubectl k
+    fi
+    command kubectl "$@"
+}
+
+# Lazy load docker completions on first use  
+docker() {
+    unfunction docker
+    if command -v docker >/dev/null && [[ -f /usr/local/etc/bash_completion.d/docker ]]; then
+        source /usr/local/etc/bash_completion.d/docker
+    fi
+    command docker "$@"
+}
+
+# Lazy load terraform completions on first use
+terraform() {
+    unfunction terraform
+    if command -v terraform >/dev/null; then
+        autoload -U +X bashcompinit && bashcompinit
+        complete -o nospace -C terraform terraform
+    fi
+    command terraform "$@"
+}
+
+# Lazy load helm completions on first use
+helm() {
+    unfunction helm
+    if command -v helm >/dev/null; then
+        source <(helm completion zsh 2>/dev/null)
+    fi
+    command helm "$@"
+}
+
+# Lazy load aws cli completions on first use
+aws() {
+    unfunction aws
+    if command -v aws >/dev/null; then
+        complete -C aws_completer aws
+    fi
+    command aws "$@"
+}
 
 # Java environment (jenv)
 if [[ -d "$HOME/.jenv" ]]; then
