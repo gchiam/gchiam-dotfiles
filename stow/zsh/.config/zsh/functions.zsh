@@ -252,12 +252,68 @@ note() {
     fi
 }
 
+# Performance monitoring control
+zsh-perf() {
+    case "$1" in
+        enable|on)
+            export ZSH_PERFORMANCE_MONITORING=true
+            echo "✓ Zsh performance monitoring enabled"
+            echo "ℹ Restart your shell to begin tracking startup times"
+            ;;
+        disable|off)
+            unset ZSH_PERFORMANCE_MONITORING
+            echo "✓ Zsh performance monitoring disabled"
+            ;;
+        status)
+            if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]]; then
+                echo "✓ Performance monitoring: enabled"
+                if [[ -n "$ZSH_STARTUP_TIME" ]]; then
+                    echo "ℹ Current session startup time: ${ZSH_STARTUP_TIME}s"
+                fi
+            else
+                echo "✗ Performance monitoring: disabled"
+            fi
+            ;;
+        log)
+            if [[ -f "$HOME/.dotfiles-performance.log" ]]; then
+                tail -"${2:-20}" "$HOME/.dotfiles-performance.log"
+            else
+                echo "No performance log found"
+            fi
+            ;;
+        analyze)
+            local perf_script
+            # Find performance-monitor.sh in common locations
+            for path in "$HOME/bin/performance-monitor.sh" "$HOME/.local/bin/performance-monitor.sh" "$HOME/projects/gchiam-dotfiles/bin/performance-monitor.sh" "$HOME/.dotfiles/bin/performance-monitor.sh"; do
+                if [[ -x "$path" ]]; then
+                    perf_script="$path"
+                    break
+                fi
+            done
+            
+            if [[ -n "$perf_script" ]]; then
+                "$perf_script" startup
+            else
+                echo "Performance monitor script not found in standard locations"
+                echo "Searched: ~/bin, ~/.local/bin, ~/projects/gchiam-dotfiles/bin, ~/.dotfiles/bin"
+            fi
+            ;;
+        *)
+            echo "Usage: zsh-perf {enable|disable|status|log [lines]|analyze}"
+            echo "  enable   - Enable performance monitoring"
+            echo "  disable  - Disable performance monitoring"
+            echo "  status   - Show current monitoring status"
+            echo "  log      - Show recent performance log entries"
+            echo "  analyze  - Run detailed performance analysis"
+            ;;
+    esac
+}
 
 # Clean up function definitions on shell exit
 cleanup_functions() {
     unset -f mkcd extract killp backup git-branch-clean git-last git-size myip port dush json
     unset -f urlencode urldecode b64encode b64decode docker-clean docker-stop-all k8s-ctx k8s-ns
-    unset -f ff fd sysinfo topcpu topmem upper lower genpass note cleanup_functions
+    unset -f ff fd sysinfo topcpu topmem upper lower genpass note zsh-perf cleanup_functions
 }
 
 # Register cleanup function to run on shell exit

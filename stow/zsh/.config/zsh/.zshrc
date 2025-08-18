@@ -1,6 +1,9 @@
 # Zsh Configuration
 # vim: set ft=zsh:
 
+# Performance monitoring: record startup time if enabled
+[[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && ZSH_STARTUP_START="$EPOCHREALTIME"
+
 # Safe sourcing function
 safe_source() {
     [[ -r "$1" ]] && source "$1"
@@ -60,7 +63,10 @@ safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindings.zsh"
 
-# FZF integration (also loaded in keybindings.zsh for vi-mode compatibility)
+# FZF integration: Loaded here for standard functionality
+# Note: FZF is also loaded in keybindings.zsh:zvm_after_init() to ensure
+# compatibility with zsh-vi-mode plugin, which overrides key bindings.
+# This dual loading ensures FZF works whether vi-mode plugin loads or not.
 safe_source "$HOME/.fzf.zsh"
 
 # Language environment
@@ -151,3 +157,8 @@ fi
 
 # Completion system already initialized at top of file
 # Additional completion styles are handled by completion.zsh
+
+# Performance monitoring: calculate and export startup time if enabled
+if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]]; then
+    export ZSH_STARTUP_TIME="$(( EPOCHREALTIME - ZSH_STARTUP_START ))"
+fi

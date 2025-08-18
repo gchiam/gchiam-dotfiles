@@ -260,8 +260,38 @@ show_env_info() {
     echo "Terminal: $TERM_PROGRAM"
     echo "Minimal Mode: $ZSH_MINIMAL_MODE"
     echo "Antidote Loaded: ${ZSH_ANTIDOTE_LOADED:-unknown}"
+    if [[ "$ZSH_ANTIDOTE_LOADED" == true ]]; then
+        local plugins_file="${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins.txt"
+        if [[ "$ZSH_ENV_WORK" == true ]] && [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins_work.txt" ]]; then
+            plugins_file="${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins_work.txt"
+        fi
+        echo "Plugin File: $(basename "$plugins_file")"
+    fi
     echo "OS Type: $OSTYPE"
     echo "=================================="
+}
+
+# Performance monitoring integration
+setup_performance_monitoring() {
+    # Optional performance monitoring if enabled and not in minimal mode
+    if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ "$ZSH_MINIMAL_MODE" == false ]]; then
+        # Record shell startup time for performance tracking
+        local perf_script
+        # Find performance-monitor.sh in common locations
+        for path in "$HOME/bin/performance-monitor.sh" "$HOME/.local/bin/performance-monitor.sh" "$HOME/projects/gchiam-dotfiles/bin/performance-monitor.sh" "$HOME/.dotfiles/bin/performance-monitor.sh"; do
+            if [[ -x "$path" ]]; then
+                perf_script="$path"
+                break
+            fi
+        done
+        
+        if [[ -n "$ZSH_STARTUP_TIME" ]] && [[ -n "$perf_script" ]]; then
+            # Log startup time asynchronously to avoid blocking shell startup
+            (
+                echo "$(date '+%Y-%m-%d %H:%M:%S') Shell startup: ${ZSH_STARTUP_TIME}s ($$)" >> "$HOME/.dotfiles-performance.log" 2>/dev/null
+            ) &!
+        fi
+    fi
 }
 
 # Initialize environment-specific configurations
@@ -274,11 +304,13 @@ init_environment() {
     load_development_tools
     setup_git_config
     setup_ssh_config
+    setup_performance_monitoring
 }
 
 # Export environment variables for use in other scripts
 export ZSH_ENV_WORK ZSH_ENV_PERSONAL ZSH_ENV_REMOTE ZSH_ENV_CONTAINER ZSH_MINIMAL_MODE
 export ZSH_TERM_VSCODE ZSH_TERM_ITERM ZSH_TERM_TERMINAL ZSH_TERM_TMUX ZSH_ANTIDOTE_LOADED
+export ZSH_PERFORMANCE_MONITORING
 
 # Auto-initialize on source
 init_environment
