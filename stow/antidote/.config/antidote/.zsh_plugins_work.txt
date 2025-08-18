@@ -1,0 +1,31 @@
+# Work Environment Plugin Configuration
+# Optimized plugin set for work environments with focus on productivity and security
+
+# Core completion system (required)
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+
+# Essential productivity plugins
+Aloxaf/fzf-tab # Enhanced completion menu with fzf
+jeffreytse/zsh-vi-mode # Vi mode for terminal efficiency
+mattmc3/zfunctions # Function utilities
+rupa/z # Smart directory jumping
+
+# Work-specific plugins
+zsh-users/zsh-autosuggestions # Command suggestions (helpful for complex work commands)
+zsh-users/zsh-history-substring-search # Enhanced history search
+
+# Security-focused plugins (deferred for performance)
+zdharma-continuum/fast-syntax-highlighting kind:defer # Syntax validation
+
+# Work productivity plugins
+olets/zsh-abbr kind:defer # Abbreviation expansion for common work commands
+
+# Enterprise tooling support
+# gradle/gradle-completion kind:fpath path:gradle-completion  # Enable if Gradle is installed
+
+# Docker and Kubernetes completions (work environments often need these)
+# These will be handled by lazy loading in environment.zsh for better performance
+
+# Run completion setup at the end
+belak/zsh-utils path:completion
