@@ -8,7 +8,9 @@ zvm_config() {
 }
 
 function zvm_after_init() {
-    # Load FZF after vi-mode is initialized
+    # Load FZF after vi-mode is initialized to preserve FZF key bindings
+    # This ensures FZF Ctrl+R, Ctrl+T work correctly with zsh-vi-mode plugin
+    # FZF is also loaded in .zshrc as fallback if vi-mode plugin fails to load
     [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
 
     bindkey '^[OA' history-substring-search-up   # Up
