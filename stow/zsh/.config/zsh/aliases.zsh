@@ -243,10 +243,9 @@ alias ohmyzsh='${EDITOR:-vim} ~/.oh-my-zsh'
 alias aliases='${EDITOR:-vim} ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh'
 alias functions='${EDITOR:-vim} ${ZDOTDIR:-$HOME/.config/zsh}/functions.zsh'
 
-# Safety aliases
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+# Safety aliases (macOS compatible)
+alias chown='chown -R'
+alias chgrp='chgrp -R'
 
 # Time and date
 alias now='date +"%T"'
