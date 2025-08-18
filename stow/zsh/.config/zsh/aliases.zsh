@@ -292,7 +292,7 @@ alias vimrc='${EDITOR:-vim} ~/.vimrc'
 alias tmuxconf='${EDITOR:-vim} ~/.tmux.conf'
 
 # Modern alternatives (install with package manager)
-command -v eza >/dev/null && {
+if command -v eza >/dev/null; then
     alias ls='eza --color=auto'
     alias ll='eza -l --git'
     alias la='eza -la --git'
@@ -300,7 +300,7 @@ command -v eza >/dev/null && {
     alias lh='eza -lah --git'
     alias lt='eza -la --sort=modified --git'
     alias tree='eza --tree'
-}
+fi
 
 command -v bat >/dev/null && alias cat='bat --paging=never'
 command -v fd >/dev/null && alias find='fd'

@@ -26,13 +26,13 @@ zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 
-# Complete options and arguments
-zstyle ':completion:*' completer _complete _match _approximate _ignored
+# Complete options and arguments (removed _ignored to prevent recursion)
+zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-slashes 'yes'
 
-# Fuzzy matching
-zstyle ':completion:*:approximate:*' max-errors 2
+# Fuzzy matching (limit to 1 error to prevent deep recursion)
+zstyle ':completion:*:approximate:*' max-errors 1
 
 # Directory completion
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
@@ -265,11 +265,23 @@ if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions/_dotfiles" ]]; then
 fi
 
 # Completion error handling - prevent nesting issues
-zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' max-errors 1
 zstyle ':completion:*' use-compctl false
 
-# Rebuild completion cache if needed
-if [[ ! -f "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache/.zcompdump" ]]; then
+# Additional safety guards to prevent recursion
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' list-max-items 50
+
+# Prevent _tags recursion issues  
+zstyle ':completion:*' tag-order ''
+zstyle ':completion:*' group-order ''
+
+# Specific fix for ls completion issues with eza
+zstyle ':completion:*:ls:*' tag-order 'files'
+
+# Completion system is already initialized in .zshrc
+# Cache directory setup only
+if [[ ! -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache" ]]; then
     mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
-    compinit
 fi

@@ -8,6 +8,10 @@ safe_source() {
 
 # Initialize completion system early to prevent compdef errors
 autoload -Uz compinit
+
+# Set stack limit to prevent deep recursion in completions
+ulimit -s 8192
+
 # shellcheck disable=SC1072,SC1073,SC1036 # Zsh-specific glob patterns
 if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
     compinit
@@ -145,16 +149,5 @@ if [[ -f "$HOME/.config/zsh/completions/_dotfiles" ]]; then
     autoload -U _dotfiles
 fi
 
-# Enable completion system
-autoload -U compinit && compinit -d "$HOME/.zcompdump"
-
-# Completion style configuration
-zstyle ':completion:*' menu select
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
-zstyle ':completion:*:messages' format '%F{purple}-- %d --%f'
-zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# Completion system already initialized at top of file
+# Additional completion styles are handled by completion.zsh
