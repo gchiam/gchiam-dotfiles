@@ -149,11 +149,20 @@ load_env_plugins() {
             plugins_file="${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins_work.txt"
         fi
         
-        # Load plugins with antidote (simplified approach like original)
+        # Load plugins with antidote with status checking
         local antidote_path="${HOMEBREW_PREFIX:-/opt/homebrew}/share/antidote/antidote.zsh"
         if [[ -f "$antidote_path" ]] && [[ -f "$plugins_file" ]]; then
             source "$antidote_path"
-            antidote load "$plugins_file"
+            if antidote load "$plugins_file" 2>/dev/null; then
+                export ZSH_ANTIDOTE_LOADED=true
+            else
+                export ZSH_ANTIDOTE_LOADED=false
+                echo "Warning: Antidote plugin loading failed" >&2
+            fi
+        else
+            export ZSH_ANTIDOTE_LOADED=false
+            [[ ! -f "$antidote_path" ]] && echo "Warning: Antidote not found at $antidote_path" >&2
+            [[ ! -f "$plugins_file" ]] && echo "Warning: Plugin file not found at $plugins_file" >&2
         fi
     fi
 }
@@ -250,6 +259,7 @@ show_env_info() {
     echo "Container Environment: $ZSH_ENV_CONTAINER"
     echo "Terminal: $TERM_PROGRAM"
     echo "Minimal Mode: $ZSH_MINIMAL_MODE"
+    echo "Antidote Loaded: ${ZSH_ANTIDOTE_LOADED:-unknown}"
     echo "OS Type: $OSTYPE"
     echo "=================================="
 }
@@ -268,7 +278,7 @@ init_environment() {
 
 # Export environment variables for use in other scripts
 export ZSH_ENV_WORK ZSH_ENV_PERSONAL ZSH_ENV_REMOTE ZSH_ENV_CONTAINER ZSH_MINIMAL_MODE
-export ZSH_TERM_VSCODE ZSH_TERM_ITERM ZSH_TERM_TERMINAL ZSH_TERM_TMUX
+export ZSH_TERM_VSCODE ZSH_TERM_ITERM ZSH_TERM_TERMINAL ZSH_TERM_TMUX ZSH_ANTIDOTE_LOADED
 
 # Auto-initialize on source
 init_environment

@@ -309,10 +309,7 @@ command -v htop >/dev/null && alias top='htop'
 command -v prettyping >/dev/null && alias ping='prettyping --nolegend'
 command -v ncdu >/dev/null && alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 
-# Global aliases (zsh specific)
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+# Additional global aliases (zsh specific)
 alias -g CA="2>&1 | cat -A"
 alias -g C='| wc -l'
 alias -g D="DISPLAY=:0.0"

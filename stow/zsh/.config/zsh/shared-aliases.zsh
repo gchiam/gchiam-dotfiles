@@ -115,7 +115,6 @@ if command -v kubectl >/dev/null; then
 fi
 
 # Development shortcuts
-alias reload='source ~/.zshrc 2>/dev/null || source ~/.bashrc 2>/dev/null || echo "No shell rc file found"'
 alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T"'
 alias today='date +"%d-%m-%Y"'
