@@ -70,7 +70,6 @@ alias gss='git st'  # Use git alias for branch status (from setup-git.sh)
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gstl='git stash list'
-alias gw='git worktree'
 
 # Additional git shortcuts leveraging git aliases from setup-git.sh
 alias gmain='git main'      # Quick switch to main branch
@@ -139,6 +138,9 @@ alias py2='python2'
 alias ipy='ipython'
 alias serve='python3 -m http.server'
 alias jsonpp='python3 -m json.tool'
+
+# Gradle
+alias gw='./gradlew'
 
 # Node.js / npm
 alias ni='npm install'
