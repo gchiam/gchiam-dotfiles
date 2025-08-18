@@ -149,12 +149,31 @@ load_env_plugins() {
             plugins_file="${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins_work.txt"
         fi
         
-        # Load plugins with antidote with status checking
+        # Load plugins with antidote with performance tracking
         local antidote_path="${HOMEBREW_PREFIX:-/opt/homebrew}/share/antidote/antidote.zsh"
         if [[ -f "$antidote_path" ]] && [[ -f "$plugins_file" ]]; then
             source "$antidote_path"
+            
+            # Track plugin loading time if performance monitoring is enabled
+            local plugin_start_time
+            if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$EPOCHREALTIME" ]]; then
+                plugin_start_time="$EPOCHREALTIME"
+            fi
+            
             if antidote load "$plugins_file" 2>/dev/null; then
                 export ZSH_ANTIDOTE_LOADED=true
+                
+                # Log plugin loading time
+                if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$plugin_start_time" ]]; then
+                    local plugin_end_time="$EPOCHREALTIME"
+                    local plugin_load_time=$(( plugin_end_time - plugin_start_time ))
+                    export ZSH_PLUGIN_LOAD_TIME="$plugin_load_time"
+                    
+                    # Log plugin performance asynchronously
+                    (
+                        echo "$(date '+%Y-%m-%d %H:%M:%S') Plugin loading: ${plugin_load_time}s ($(basename "$plugins_file" .txt)) ($$)" >> "$HOME/.dotfiles-performance.log" 2>/dev/null
+                    ) &!
+                fi
             else
                 export ZSH_ANTIDOTE_LOADED=false
                 echo "Warning: Antidote plugin loading failed" >&2
@@ -213,6 +232,62 @@ _setup_npm_completion() {
     fi
 }
 
+_setup_yarn_completion() {
+    if command -v yarn >/dev/null; then
+        eval "$(yarn completions 2>/dev/null)"
+    fi
+}
+
+_setup_pip_completion() {
+    if command -v pip >/dev/null; then
+        eval "$(pip completion --zsh 2>/dev/null)"
+    fi
+    if command -v pip3 >/dev/null; then
+        eval "$(pip3 completion --zsh 2>/dev/null)"
+    fi
+}
+
+_setup_poetry_completion() {
+    if command -v poetry >/dev/null; then
+        eval "$(poetry completions zsh 2>/dev/null)"
+    fi
+}
+
+_setup_helm_completion() {
+    if command -v helm >/dev/null; then
+        eval "$(helm completion zsh 2>/dev/null)"
+    fi
+}
+
+_setup_aws_completion() {
+    if command -v aws >/dev/null; then
+        complete -C aws_completer aws
+    fi
+}
+
+_setup_gcloud_completion() {
+    if command -v gcloud >/dev/null; then
+        # Source gcloud completion if available
+        local gcloud_completion
+        for path in /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc \
+                    /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc \
+                    "$HOME/google-cloud-sdk/completion.zsh.inc"; do
+            if [[ -f "$path" ]]; then
+                gcloud_completion="$path"
+                break
+            fi
+        done
+        [[ -n "$gcloud_completion" ]] && source "$gcloud_completion"
+    fi
+}
+
+_setup_rust_completion() {
+    if command -v rustup >/dev/null; then
+        eval "$(rustup completions zsh 2>/dev/null)"
+        eval "$(rustup completions zsh cargo 2>/dev/null)"
+    fi
+}
+
 # Conditional loading functions
 load_development_tools() {
     if [[ "$ZSH_ENV_CONTAINER" == false ]] && [[ "$ZSH_MINIMAL_MODE" == false ]]; then
@@ -222,6 +297,13 @@ load_development_tools() {
         _lazy_load_tool "kubectl-completion" "_setup_kubectl_completion"
         _lazy_load_tool "gh-completion" "_setup_gh_completion"
         _lazy_load_tool "npm-completion" "_setup_npm_completion"
+        _lazy_load_tool "yarn-completion" "_setup_yarn_completion"
+        _lazy_load_tool "pip-completion" "_setup_pip_completion"
+        _lazy_load_tool "poetry-completion" "_setup_poetry_completion"
+        _lazy_load_tool "helm-completion" "_setup_helm_completion"
+        _lazy_load_tool "aws-completion" "_setup_aws_completion"
+        _lazy_load_tool "gcloud-completion" "_setup_gcloud_completion"
+        _lazy_load_tool "rust-completion" "_setup_rust_completion"
     fi
 }
 
@@ -266,6 +348,9 @@ show_env_info() {
             plugins_file="${XDG_CONFIG_HOME:-$HOME/.config}/antidote/.zsh_plugins_work.txt"
         fi
         echo "Plugin File: $(basename "$plugins_file")"
+        if [[ -n "$ZSH_PLUGIN_LOAD_TIME" ]]; then
+            echo "Plugin Load Time: ${ZSH_PLUGIN_LOAD_TIME}s"
+        fi
     fi
     echo "OS Type: $OSTYPE"
     echo "=================================="
@@ -310,7 +395,7 @@ init_environment() {
 # Export environment variables for use in other scripts
 export ZSH_ENV_WORK ZSH_ENV_PERSONAL ZSH_ENV_REMOTE ZSH_ENV_CONTAINER ZSH_MINIMAL_MODE
 export ZSH_TERM_VSCODE ZSH_TERM_ITERM ZSH_TERM_TERMINAL ZSH_TERM_TMUX ZSH_ANTIDOTE_LOADED
-export ZSH_PERFORMANCE_MONITORING
+export ZSH_PERFORMANCE_MONITORING ZSH_PLUGIN_LOAD_TIME
 
 # Auto-initialize on source
 init_environment

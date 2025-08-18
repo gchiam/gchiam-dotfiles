@@ -256,9 +256,27 @@ note() {
 zsh-perf() {
     case "$1" in
         enable|on)
-            export ZSH_PERFORMANCE_MONITORING=true
-            echo "✓ Zsh performance monitoring enabled"
-            echo "ℹ Restart your shell to begin tracking startup times"
+            # Check if we're in zsh and have EPOCHREALTIME support
+            if [[ -n "$ZSH_VERSION" ]]; then
+                local major_version="${ZSH_VERSION%%.*}"
+                if (( major_version >= 5 )); then
+                    export ZSH_PERFORMANCE_MONITORING=true
+                    echo "✓ Zsh performance monitoring enabled"
+                    echo "ℹ Restart your shell to begin tracking startup times"
+                    if [[ -n "$EPOCHREALTIME" ]]; then
+                        echo "✓ EPOCHREALTIME support confirmed"
+                    else
+                        echo "ℹ EPOCHREALTIME will be available in zsh sessions"
+                    fi
+                else
+                    echo "❌ Cannot enable performance monitoring"
+                    echo "⚠️  Requires zsh 5.0+ (current: zsh $ZSH_VERSION)"
+                fi
+            else
+                echo "❌ Cannot enable performance monitoring"
+                echo "⚠️  This function requires zsh shell"
+                echo "ℹ Current shell: $0"
+            fi
             ;;
         disable|off)
             unset ZSH_PERFORMANCE_MONITORING
@@ -268,7 +286,27 @@ zsh-perf() {
             if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]]; then
                 echo "✓ Performance monitoring: enabled"
                 if [[ -n "$ZSH_STARTUP_TIME" ]]; then
-                    echo "ℹ Current session startup time: ${ZSH_STARTUP_TIME}s"
+                    local startup_time="$ZSH_STARTUP_TIME"
+                    echo "ℹ Current session startup time: ${startup_time}s"
+                    
+                    # Performance threshold warnings
+                    if (( $(echo "$startup_time > 3.0" | bc -l 2>/dev/null || echo 0) )); then
+                        echo "🚨 SLOW: Startup time > 3.0s - consider optimization"
+                    elif (( $(echo "$startup_time > 2.0" | bc -l 2>/dev/null || echo 0) )); then
+                        echo "⚠️  WARNING: Startup time > 2.0s - may need attention"
+                    elif (( $(echo "$startup_time > 1.0" | bc -l 2>/dev/null || echo 0) )); then
+                        echo "⚡ GOOD: Startup time > 1.0s but acceptable"
+                    else
+                        echo "🚀 EXCELLENT: Fast startup time"
+                    fi
+                    
+                    # Show plugin loading time if available
+                    if [[ -n "$ZSH_PLUGIN_LOAD_TIME" ]]; then
+                        echo "🔌 Plugin load time: ${ZSH_PLUGIN_LOAD_TIME}s"
+                        if (( $(echo "$ZSH_PLUGIN_LOAD_TIME > 1.0" | bc -l 2>/dev/null || echo 0) )); then
+                            echo "   ⚠️  Plugins are taking significant time to load"
+                        fi
+                    fi
                 fi
             else
                 echo "✗ Performance monitoring: disabled"
@@ -298,12 +336,51 @@ zsh-perf() {
                 echo "Searched: ~/bin, ~/.local/bin, ~/projects/gchiam-dotfiles/bin, ~/.dotfiles/bin"
             fi
             ;;
+        summary)
+            if [[ -f "$HOME/.dotfiles-performance.log" ]]; then
+                echo "=== Performance Summary (Last 24 hours) ==="
+                local today=$(date '+%Y-%m-%d')
+                local log_entries=$(grep "^$today" "$HOME/.dotfiles-performance.log" 2>/dev/null | wc -l | tr -d ' ')
+                
+                if [[ "$log_entries" -gt 0 ]]; then
+                    echo "📊 Shell sessions today: $log_entries"
+                    
+                    # Calculate average startup time (requires bc)
+                    if command -v bc >/dev/null; then
+                        local avg_time=$(grep "^$today" "$HOME/.dotfiles-performance.log" 2>/dev/null | \
+                            grep -o '[0-9]*\.[0-9]*s' | sed 's/s$//' | \
+                            awk '{sum+=$1; count++} END {if(count>0) printf "%.3f", sum/count; else print "0"}')
+                        
+                        if [[ -n "$avg_time" ]] && [[ "$avg_time" != "0" ]]; then
+                            echo "⏱️  Average startup time: ${avg_time}s"
+                            
+                            # Performance assessment
+                            if (( $(echo "$avg_time > 2.0" | bc -l) )); then
+                                echo "💡 Suggestion: Consider running 'zsh-perf analyze' for optimization tips"
+                            elif (( $(echo "$avg_time < 1.0" | bc -l) )); then
+                                echo "🚀 Excellent performance - no action needed"
+                            fi
+                        fi
+                    else
+                        echo "ℹ️  Install 'bc' for detailed performance analytics"
+                    fi
+                    
+                    echo "📈 Recent startup times:"
+                    tail -5 "$HOME/.dotfiles-performance.log" | sed 's/^/   /'
+                else
+                    echo "ℹ️  No performance data for today"
+                fi
+            else
+                echo "No performance log found - enable monitoring with 'zsh-perf enable'"
+            fi
+            ;;
         *)
-            echo "Usage: zsh-perf {enable|disable|status|log [lines]|analyze}"
+            echo "Usage: zsh-perf {enable|disable|status|log [lines]|analyze|summary}"
             echo "  enable   - Enable performance monitoring"
             echo "  disable  - Disable performance monitoring"
-            echo "  status   - Show current monitoring status"
+            echo "  status   - Show current monitoring status with thresholds"
             echo "  log      - Show recent performance log entries"
+            echo "  summary  - Show performance summary and trends"
             echo "  analyze  - Run detailed performance analysis"
             ;;
     esac
@@ -316,5 +393,8 @@ cleanup_functions() {
     unset -f ff fd sysinfo topcpu topmem upper lower genpass note zsh-perf cleanup_functions
 }
 
-# Register cleanup function to run on shell exit
-trap cleanup_functions EXIT
+# Register cleanup function to run on shell exit (only for non-interactive shells)
+# Interactive shells should keep functions available
+if [[ ! -o interactive ]]; then
+    trap cleanup_functions EXIT
+fi
