@@ -79,23 +79,16 @@ safe_source "$HOME/.fzf.zsh"
 # Language environment
 export LANG=en_US.UTF-8
 
-# Lazy load NVM for better performance
-nvm() {
-    unset -f nvm node npm
-    export NVM_DIR="$HOME/.nvm"
-    if command -v brew >/dev/null; then
-        local nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
-        [[ -s "$nvm_dir/nvm.sh" ]] && source "$nvm_dir/nvm.sh"
-        [[ -s "$nvm_dir/etc/bash_completion.d/nvm" ]] && source "$nvm_dir/etc/bash_completion.d/nvm"
-    else
-        [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-        [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
-    fi
-    nvm "$@"
-}
-# Create lazy-loaded aliases for common commands
-node() { nvm >/dev/null 2>&1; command node "$@"; }
-npm() { nvm >/dev/null 2>&1; command npm "$@"; }
+# Load NVM immediately
+export NVM_DIR="$HOME/.nvm"
+if command -v brew >/dev/null; then
+    local nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
+    [[ -s "$nvm_dir/nvm.sh" ]] && source "$nvm_dir/nvm.sh"
+    [[ -s "$nvm_dir/etc/bash_completion.d/nvm" ]] && source "$nvm_dir/etc/bash_completion.d/nvm"
+else
+    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+    [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+fi
 
 # Lazy load kubectl completions on first use
 kubectl() {
