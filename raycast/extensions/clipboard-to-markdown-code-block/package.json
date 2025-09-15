@@ -16,7 +16,7 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.102.6",
+    "@raycast/api": "^1.102.7",
     "@raycast/utils": "^2.2.1"
   },
   "devDependencies": {
