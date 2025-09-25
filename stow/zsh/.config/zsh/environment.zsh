@@ -199,113 +199,7 @@ _lazy_load_tool() {
     }"
 }
 
-# Development tools lazy loading setup functions
-_setup_docker_completion() {
-    if command -v docker >/dev/null && [[ -f /usr/local/etc/bash_completion.d/docker ]]; then
-        source /usr/local/etc/bash_completion.d/docker
-    fi
-}
 
-_setup_terraform_completion() {
-    if command -v terraform >/dev/null; then
-        autoload -U +X bashcompinit && bashcompinit
-        complete -o nospace -C terraform terraform
-    fi
-}
-
-_setup_kubectl_completion() {
-    if command -v kubectl >/dev/null; then
-        source <(kubectl completion zsh 2>/dev/null)
-        compdef __start_kubectl k
-    fi
-}
-
-_setup_gh_completion() {
-    if command -v gh >/dev/null; then
-        eval "$(gh completion -s zsh)"
-    fi
-}
-
-_setup_npm_completion() {
-    if command -v npm >/dev/null; then
-        eval "$(npm completion 2>/dev/null)"
-    fi
-}
-
-_setup_yarn_completion() {
-    if command -v yarn >/dev/null; then
-        eval "$(yarn completions 2>/dev/null)"
-    fi
-}
-
-_setup_pip_completion() {
-    if command -v pip >/dev/null; then
-        eval "$(pip completion --zsh 2>/dev/null)"
-    fi
-    if command -v pip3 >/dev/null; then
-        eval "$(pip3 completion --zsh 2>/dev/null)"
-    fi
-}
-
-_setup_poetry_completion() {
-    if command -v poetry >/dev/null; then
-        eval "$(poetry completions zsh 2>/dev/null)"
-    fi
-}
-
-_setup_helm_completion() {
-    if command -v helm >/dev/null; then
-        eval "$(helm completion zsh 2>/dev/null)"
-    fi
-}
-
-_setup_aws_completion() {
-    if command -v aws >/dev/null; then
-        complete -C aws_completer aws
-    fi
-}
-
-_setup_gcloud_completion() {
-    if command -v gcloud >/dev/null; then
-        # Source gcloud completion if available
-        local gcloud_completion
-        for path in /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc \
-                    /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc \
-                    "$HOME/google-cloud-sdk/completion.zsh.inc"; do
-            if [[ -f "$path" ]]; then
-                gcloud_completion="$path"
-                break
-            fi
-        done
-        [[ -n "$gcloud_completion" ]] && source "$gcloud_completion"
-    fi
-}
-
-_setup_rust_completion() {
-    if command -v rustup >/dev/null; then
-        eval "$(rustup completions zsh 2>/dev/null)"
-        eval "$(rustup completions zsh cargo 2>/dev/null)"
-    fi
-}
-
-# Conditional loading functions
-load_development_tools() {
-    if [[ "$ZSH_ENV_CONTAINER" == false ]] && [[ "$ZSH_MINIMAL_MODE" == false ]]; then
-        # Setup lazy loading for development tools
-        _lazy_load_tool "docker-completion" "_setup_docker_completion"
-        _lazy_load_tool "terraform-completion" "_setup_terraform_completion"
-        _lazy_load_tool "kubectl-completion" "_setup_kubectl_completion"
-        _lazy_load_tool "gh-completion" "_setup_gh_completion"
-        _lazy_load_tool "npm-completion" "_setup_npm_completion"
-        _lazy_load_tool "yarn-completion" "_setup_yarn_completion"
-        _lazy_load_tool "pip-completion" "_setup_pip_completion"
-        _lazy_load_tool "poetry-completion" "_setup_poetry_completion"
-        _lazy_load_tool "helm-completion" "_setup_helm_completion"
-        _lazy_load_tool "aws-completion" "_setup_aws_completion"
-        _lazy_load_tool "gcloud-completion" "_setup_gcloud_completion"
-        _lazy_load_tool "rust-completion" "_setup_rust_completion"
-    fi
-}
 
 # Git configuration based on environment
 setup_git_config() {
@@ -386,7 +280,6 @@ init_environment() {
     # Note: vi mode is enabled in keybindings.zsh
     # zsh-vi-mode plugin will override if it loads successfully
     
-    load_development_tools
     setup_git_config
     setup_ssh_config
     setup_performance_monitoring

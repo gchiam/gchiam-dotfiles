@@ -16,24 +16,10 @@ safe_source() {
     [[ -r "$1" ]] && source "$1"
 }
 
-# Initialize completion system early to prevent compdef errors
+# Initialize completion system for compdef support
 autoload -Uz compinit
+compinit -C
 
-# Set stack limit to prevent deep recursion in completions
-ulimit -s 8192
-
-# shellcheck disable=SC1072,SC1073,SC1036 # Zsh-specific glob patterns
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-else
-    compinit -C
-fi
-
-# Load menu selection widget
-zmodload zsh/complist
-
-# Enable bash completion compatibility
-autoload -U +X bashcompinit && bashcompinit
 
 # History configuration handled by environment.zsh
 
@@ -52,7 +38,6 @@ if [[ -z "$BREW_PREFIX" ]] && command -v brew >/dev/null; then
     export BREW_PREFIX="$(brew --prefix)"
 fi
 
-# Completion initialization handled by completion.zsh
 
 # PATH configuration
 export PATH="${PATH}:${HOME}/.local/bin"
@@ -66,7 +51,6 @@ safe_source "$HOME/.bash_local"
 # Load modular zsh configuration
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/environment.zsh"  # Load first for environment detection
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
-safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindings.zsh"
 
@@ -84,58 +68,14 @@ export NVM_DIR="$HOME/.nvm"
 if command -v brew >/dev/null; then
     local nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
     [[ -s "$nvm_dir/nvm.sh" ]] && source "$nvm_dir/nvm.sh"
-    [[ -s "$nvm_dir/etc/bash_completion.d/nvm" ]] && source "$nvm_dir/etc/bash_completion.d/nvm"
 else
     [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-    [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 fi
 
-# Lazy load kubectl completions on first use
-kubectl() {
-    unfunction kubectl
-    if command -v kubectl >/dev/null; then
-        source <(kubectl completion zsh 2>/dev/null)
-        compdef __start_kubectl k
-    fi
-    command kubectl "$@"
-}
 
-# Lazy load docker completions on first use  
-docker() {
-    unfunction docker
-    if command -v docker >/dev/null && [[ -f /usr/local/etc/bash_completion.d/docker ]]; then
-        source /usr/local/etc/bash_completion.d/docker
-    fi
-    command docker "$@"
-}
 
-# Lazy load terraform completions on first use
-terraform() {
-    unfunction terraform
-    if command -v terraform >/dev/null; then
-        autoload -U +X bashcompinit && bashcompinit
-        complete -o nospace -C terraform terraform
-    fi
-    command terraform "$@"
-}
 
-# Lazy load helm completions on first use
-helm() {
-    unfunction helm
-    if command -v helm >/dev/null; then
-        source <(helm completion zsh 2>/dev/null)
-    fi
-    command helm "$@"
-}
 
-# Lazy load aws cli completions on first use
-aws() {
-    unfunction aws
-    if command -v aws >/dev/null; then
-        complete -C aws_completer aws
-    fi
-    command aws "$@"
-}
 
 # Java environment (jenv)
 if [[ -d "$HOME/.jenv" ]]; then
@@ -149,23 +89,11 @@ fi
 autoload -Uz select-word-style
 select-word-style bash
 
-# Brew completions handled by completion.zsh
 
 # Plugin management handled by environment.zsh
 
-# Command completions (with error handling)
-command -v cicd >/dev/null && source <(cicd completion zsh) 2>/dev/null && compdef _cicd cicd
-command -v zetup >/dev/null && source <(zetup completion zsh) 2>/dev/null
-command -v uv >/dev/null && eval "$(uv generate-shell-completion zsh)" 2>/dev/null
-command -v uvx >/dev/null && eval "$(uvx --generate-shell-completion zsh)" 2>/dev/null
 
-# Completion styling handled by completion.zsh
 
-# Gradle completion (with error handling)
-if command -v antidote >/dev/null; then
-    local gradle_completion="$(antidote path gradle/gradle-completion 2>/dev/null)/_gradle"
-    [[ -f "$gradle_completion" ]] && source "$gradle_completion" 2>/dev/null
-fi
 
 # SDKMAN initialization (lazy load could be added here too)
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -192,18 +120,7 @@ if command -v oh-my-posh >/dev/null && [[ -f "$HOME/.config/oh-my-posh/oh-my-pos
     eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
 fi
 
-# Custom completions setup
-if [[ -d "$HOME/.config/zsh/completions" ]]; then
-    fpath=("$HOME/.config/zsh/completions" $fpath)
-fi
 
-# Load custom dotfiles completions
-if [[ -f "$HOME/.config/zsh/completions/_dotfiles" ]]; then
-    autoload -U _dotfiles
-fi
-
-# Completion system already initialized at top of file
-# Additional completion styles are handled by completion.zsh
 
 # Performance monitoring: calculate and export startup time if enabled
 if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]]; then
