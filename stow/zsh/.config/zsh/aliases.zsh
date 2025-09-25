@@ -92,30 +92,16 @@ alias dex='docker exec -it'
 alias dlogs='docker logs -f'
 
 # Network and system
-alias ping='ping -c 5'
 alias ports='netstat -tulanp'
-alias wget='wget -c'
-alias curl='curl -L'
 alias pubip='curl -s https://ipinfo.io/ip'
 alias localip="ifconfig | grep -E 'inet [0-9]' | grep -v 127.0.0.1 | awk '{print \$2}'"
 
 # File operations
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias rg='rg --pretty'
-alias find='find . -name'
-alias du='du -h'
-alias df='df -h'
-alias free='free -h'
 alias mount='mount | column -t'
 
 # Process management
-alias ps='ps aux'
 alias psg='ps aux | grep'
-alias top='top -o %CPU'
-alias htop='htop -C'
-alias jobs='jobs -l'
 
 # Archive operations
 alias targz='tar -czf'
@@ -124,13 +110,7 @@ alias tarbz='tar -cjf'
 alias untarbz='tar -xjf'
 
 # Text processing
-alias h='head'
-alias t='tail'
 alias tf='tail -f'
-alias less='less -R'
-alias more='less'
-alias cat='cat -n'  # Show line numbers
-alias nl='nl -ba'   # Number all lines
 
 # Development shortcuts
 alias py='python3'
@@ -245,9 +225,6 @@ alias ohmyzsh='${EDITOR:-vim} ~/.oh-my-zsh'
 alias aliases='${EDITOR:-vim} ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh'
 alias functions='${EDITOR:-vim} ${ZDOTDIR:-$HOME/.config/zsh}/functions.zsh'
 
-# Safety aliases (macOS compatible)
-alias chown='chown -R'
-alias chgrp='chgrp -R'
 
 # Time and date
 alias now='date +"%T"'
@@ -293,7 +270,6 @@ alias tmuxconf='${EDITOR:-vim} ~/.tmux.conf'
 
 # Modern alternatives (install with package manager)
 if command -v eza >/dev/null; then
-    alias ls='eza --color=auto'
     alias ll='eza -l --git'
     alias la='eza -la --git'
     alias l='eza --color=auto'
@@ -301,13 +277,6 @@ if command -v eza >/dev/null; then
     alias lt='eza -la --sort=modified --git'
     alias tree='eza --tree'
 fi
-
-command -v bat >/dev/null && alias cat='bat --paging=never'
-command -v fd >/dev/null && alias find='fd'
-command -v rg >/dev/null && alias grep='rg'
-command -v htop >/dev/null && alias top='htop'
-command -v prettyping >/dev/null && alias ping='prettyping --nolegend'
-command -v ncdu >/dev/null && alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 
 # Additional global aliases (zsh specific)
 alias -g CA="2>&1 | cat -A"
