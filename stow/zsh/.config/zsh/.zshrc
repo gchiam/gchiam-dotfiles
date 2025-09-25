@@ -52,6 +52,7 @@ safe_source "$HOME/.bash_local"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/environment.zsh"  # Load first for environment detection
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.zsh"
+safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions.zsh"
 safe_source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindings.zsh"
 
 # FZF integration: Loaded here for standard functionality
