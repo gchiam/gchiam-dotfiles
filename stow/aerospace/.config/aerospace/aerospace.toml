@@ -293,3 +293,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor AI Editor
+run = 'move-node-to-workspace c' # mnemonics C - Cursor
