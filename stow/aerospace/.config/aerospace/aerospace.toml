@@ -248,6 +248,9 @@ j = 'resize height +50'
 k = 'resize height -50'
 l = 'resize width +50'
 
+# How to get the app-id (bundle identifier)
+# ❯ osascript -e 'id of app "Visual Studio Code"'
+# com.microsoft.VSCode
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
