@@ -8,7 +8,7 @@ with code in this repository.
 This is a personal dotfiles repository for managing macOS development
 environment configurations using GNU Stow for symlink management. The
 repository follows a modular architecture where each tool/application has its
-own configuration directory under `stow/`.
+own configuration directory under `stow/` (29+ tool configurations).
 
 ## Documentation Structure
 
@@ -49,14 +49,21 @@ For immediate development needs, refer to the appropriate documentation:
 - **Configuration Management**: GNU Stow for symlink management
 - **Shell Environment**: Zsh with modular configuration system
 - **Theme**: Consistent Catppuccin theming across all applications
+- **External Dependencies**: Git submodules for themes and plugins in
+  `external/`
+- **Custom Extensions**: TypeScript-based Raycast extensions with separate
+  package.json files
 
 ### Development Workflow
 
-1. **Before making changes**: Read relevant documentation in `docs/`
+1. **Before making changes**: Read relevant documentation in `docs/` and
+   consult [README.md](README.md) for high-level overview
 2. **During development**: Follow patterns established in existing configurations
-3. **Before committing**: Automatic linting validation via pre-commit hooks
-4. **When committing**: Use Conventional Emoji Commits format
-5. **After changes**: Update relevant documentation if functionality changes
+3. **Before committing**: Test configurations in appropriate environments
+   (see Quality Assurance guide)
+4. **Before committing**: Automatic linting validation via pre-commit hooks
+5. **When committing**: Use Conventional Emoji Commits format
+6. **After changes**: Update relevant documentation if functionality changes
 
 ### Linting and Quality Assurance
 
@@ -90,6 +97,10 @@ The linting system is designed to be **commit-based** rather than
   via GitHub Actions - no manual intervention needed for standard workflow
 - **For immediate feedback**, run linting tools manually as documented in
   Quality Assurance guide
+- **Automation available**: Use `./bin/health-check.sh` for validation,
+  `./bin/auto-sync.sh` for submodule management
+- **Scripts are executable**: Files in `bin/` have execute permissions and
+  should be run directly (e.g., `./bin/setup.sh`)
 - **Test configurations** in appropriate environments
 - **Update documentation** when adding new features or changing workflows
 - **Follow established patterns** when adding new configurations
@@ -105,6 +116,10 @@ Most configurations follow XDG Base Directory Specification:
 - **Legacy configs**: `~/.*` (when required by tools)
 - **Scripts**: `~/bin/` (personal utilities)
 - **Documentation**: `docs/` (reference guides)
+- **Logs**: `~/.local/log/` (service logs and debugging)
+- **Caches**: `~/.cache/` (application caches)
+- **Application data**: `~/.local/share/` (persistent data)
+- **Application state**: `~/.local/state/` (state files)
 
 For detailed information on any aspect of this repository, consult the
 appropriate documentation file in the `docs/` directory.
