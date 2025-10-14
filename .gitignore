@@ -47,3 +47,6 @@ yarn-error.log*
 # Performance monitoring files
 performance-*.log
 health-*.log
+
+.gemini/
+gha-creds-*.json
