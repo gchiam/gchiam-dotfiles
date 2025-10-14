@@ -61,7 +61,10 @@ jobs:
           ISSUE_TITLE: '${{ github.event.issue.title }}'
           ISSUE_BODY: '${{ github.event.issue.body }}'
           AVAILABLE_LABELS: '${{ steps.get_labels.outputs.available_labels }}'
+          GITHUB_ENV: ${{ env.GITHUB_ENV }}
+          GITHUB_ENV: ${{ env.GITHUB_ENV }}
         with:
+          gemini_model: 'gemini-1.5-pro-latest'
           gcp_location: '${{ vars.GOOGLE_CLOUD_LOCATION }}'
           gcp_project_id: '${{ vars.GOOGLE_CLOUD_PROJECT }}'
           gcp_service_account: '${{ vars.SERVICE_ACCOUNT_EMAIL }}'
