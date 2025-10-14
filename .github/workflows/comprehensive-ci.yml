@@ -60,6 +60,7 @@ jobs:
       run: |
         find . -type f \( -name "*.yml" -o -name "*.yaml" \) \
              -not -path "./external/*" \
+             -not -path "./.github/workflows/gemini-*.yml" \
              -not -path "./stow/k9s/.config/k9s/skins/*" \
              -not -path "./stow/gh-dash/.config/gh-dash/config.yml" \
              -not -path "./stow/tmux/.tmux/plugins/*" \
