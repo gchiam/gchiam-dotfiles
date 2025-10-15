@@ -1,5 +1,7 @@
 # 🔧 My dotfiles
 
+![GitHub banner](images/banner.png)
+
 Personal macOS development environment configuration files managed with GNU
 Stow.
 
