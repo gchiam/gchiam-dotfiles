@@ -271,7 +271,8 @@ Comprehensive documentation organized by workflow and expertise level.
 
 ### 🤖 Meta Documentation
 
-[CLAUDE.md](./CLAUDE.md) - AI assistant guidance for repository development
+- [CLAUDE.md](./CLAUDE.md) - Claude (Anthropic) AI assistant guide
+- [GEMINI.md](./GEMINI.md) - Gemini (Google) AI assistant guide
 
 ---
 
