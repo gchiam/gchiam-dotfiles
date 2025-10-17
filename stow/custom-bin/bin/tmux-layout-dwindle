@@ -258,8 +258,8 @@ exec tmux "$({
       else move_b=$corner_tb
       fi
     fi
-    echo resize-pane -t $pane_id -y $window_height # make room for move
-    echo select-pane -t $pane_id # for relative pane addressing in move
+    echo resize-pane -t "$pane_id" -y "$window_height" # make room for move
+    echo select-pane -t "$pane_id" # for relative pane addressing in move
     echo move-pane -d -s .+1 -t . ${move_h:+-h} ${move_b:+-b} # move it
     count=$(( count + 1 ))
   done
@@ -278,13 +278,13 @@ exec tmux "$({
       then resize_y=$parent_height
       else resize_y=$branch_height
       fi
-      echo resize-pane -t $pane_id -y $resize_y
+      echo resize-pane -t "$pane_id" -y "$resize_y"
     fi
     count=$(( count + 1 ))
   done
 
   # restore pane selection back to how it was before we did any of this
-  test -n "$historic_pane" && echo select-pane -t $historic_pane
-  echo select-pane -t $selected_pane
+  test -n "$historic_pane" && echo select-pane -t "$historic_pane"
+  echo select-pane -t "$selected_pane"
 
 } | sed 's/$/ ;/')"
