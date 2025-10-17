@@ -280,8 +280,8 @@ init_environment() {
     # Note: vi mode is enabled in keybindings.zsh
     # zsh-vi-mode plugin will override if it loads successfully
     
-    setup_git_config
-    setup_ssh_config
+    _lazy_load_tool git setup_git_config
+    _lazy_load_tool ssh setup_ssh_config
     setup_performance_monitoring
 }
 
