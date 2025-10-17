@@ -52,10 +52,10 @@ measure_startup_time() {
     
     for time in "${times[@]}"; do
         total=$(python3 -c "print($total + $time)")
-        if (( $(python3 -c "print($time < $min)") )); then
+        if (( $(python3 -c "print(1 if $time < $min else 0)") )); then
             min=$time
         fi
-        if (( $(python3 -c "print($time > $max)") )); then
+        if (( $(python3 -c "print(1 if $time > $max else 0)") )); then
             max=$time
         fi
     done
@@ -71,11 +71,11 @@ measure_startup_time() {
     echo "Range: $(python3 -c "print(f'{$max - $min:.3f}')")s"
     
     # Performance assessment
-    if (( $(python3 -c "print($avg < 0.1)") )); then
+    if (( $(python3 -c "print(1 if $avg < 0.1 else 0)") )); then
         echo -e "${GREEN}✓ Excellent performance${NC}"
-    elif (( $(python3 -c "print($avg < 0.3)") )); then
+    elif (( $(python3 -c "print(1 if $avg < 0.3 else 0)") )); then
         echo -e "${YELLOW}⚠ Good performance${NC}"
-    elif (( $(python3 -c "print($avg < 0.5)") )); then
+    elif (( $(python3 -c "print(1 if $avg < 0.5 else 0)") )); then
         echo -e "${YELLOW}⚠ Fair performance - consider optimization${NC}"
     else
         echo -e "${RED}✗ Slow performance - optimization recommended${NC}"

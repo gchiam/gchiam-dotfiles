@@ -19,17 +19,17 @@ WARNED=0
 # Helper functions
 check_pass() {
     echo -e "${GREEN}✓${NC} $1"
-    ((PASSED++))
+    PASSED=$((PASSED + 1))
 }
 
 check_fail() {
     echo -e "${RED}✗${NC} $1"
-    ((FAILED++))
+    FAILED=$((FAILED + 1))
 }
 
 check_warn() {
     echo -e "${YELLOW}⚠${NC} $1"
-    ((WARNED++))
+    WARNED=$((WARNED + 1))
 }
 
 check_info() {
@@ -70,13 +70,13 @@ check_shell_setup() {
     if [[ "$SHELL" == *"zsh"* ]]; then
         check_pass "Zsh is the default shell"
         
-        if [[ -f "${HOME}/.zshrc" ]]; then
+        if [[ -f "${ZDOTDIR:-$HOME/.config/zsh}/.zshrc" ]]; then
             check_pass "Zsh configuration exists"
             
-            if grep -q "antidote" "${HOME}/.zshrc" 2>/dev/null; then
+            if grep -q "antidote" "${ZDOTDIR:-$HOME/.config/zsh}/.zshrc" 2>/dev/null; then
                 check_pass "Antidote plugin manager is configured"
             else
-                check_warned "Antidote plugin manager not found in .zshrc"
+                check_warn "Antidote plugin manager not found in .zshrc"
             fi
         else
             check_fail "Zsh configuration (.zshrc) not found"
@@ -229,7 +229,7 @@ check_dotfiles_structure() {
     fi
     
     # Check for key stow directories
-    stow_dirs=("zsh" "nvim" "tmux" "git")
+    stow_dirs=("zsh" "nvim" "tmux")
     for dir in "${stow_dirs[@]}"; do
         if [[ -d "${HOME}/dotfiles/stow/$dir" ]] || [[ -d "${HOME}/.dotfiles/stow/$dir" ]]; then
             check_pass "Stow directory '$dir' exists"
