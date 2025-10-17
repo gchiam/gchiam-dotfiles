@@ -210,12 +210,12 @@
 
 # parse any orientation flags specified among the command-line arguments
 case "$*" in
-  (*t*)   corner_tb=+ spiral_tb=        ;; # top
-  (*b*|*) corner_tb=  spiral_tb=+       ;; # bottom
+  (*t*)   corner_tb=+; spiral_tb=        ;; # top
+  (*b*|*) corner_tb=;  spiral_tb=+       ;; # bottom
 esac
 case "$*" in
-  (*l*)   corner_lr=+ spiral_lr=        ;; # left
-  (*r*|*) corner_lr=  spiral_lr=+       ;; # right
+  (*l*)   corner_lr=+; spiral_lr=        ;; # left
+  (*r*|*) corner_lr=;  spiral_lr=+       ;; # right
 esac
 case "$*" in
   (*h*)   modulo_hv=0 is_vertical=false ;; # horizontal
