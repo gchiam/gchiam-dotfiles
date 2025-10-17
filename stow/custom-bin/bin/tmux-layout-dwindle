@@ -227,7 +227,7 @@ case "$*" in
 esac
 
 # gather information about the current state of the window and its panes
-set -- $(tmux list-panes -F '#{pane_id}')
+set -- "$(tmux list-panes -F '#{pane_id}')"
 selected_pane=$(tmux display-message -p '#{pane_id}')
 historic_pane=$(tmux last-pane 2>/dev/null \;\
                      display-message -p '#{pane_id}' \;\
@@ -235,7 +235,7 @@ historic_pane=$(tmux last-pane 2>/dev/null \;\
 window_height=$(tmux display-message -p '#{window_height}')
 
 # execute all tmux commands in one shot to avoid flickering and slowness
-exec tmux $({
+exec tmux "$({
 
   # flatten current layout, stacking all panes vertically like pancakes
   echo select-layout even-vertical
@@ -287,4 +287,4 @@ exec tmux $({
   test -n "$historic_pane" && echo select-pane -t $historic_pane
   echo select-pane -t $selected_pane
 
-} | sed 's/$/ ;/')
+} | sed 's/$/ ;/')"
