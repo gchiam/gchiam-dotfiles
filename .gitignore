@@ -50,3 +50,4 @@ health-*.log
 
 .gemini/
 gha-creds-*.json
+.gemini-clipboard/
