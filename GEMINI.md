@@ -113,9 +113,18 @@ shellcheck bin/*.sh stow/*/bin/*
 * **CI/CD:** The project uses GitHub Actions for comprehensive CI/CD, including
   linting, testing on macOS, performance regression testing, and security
   scanning.
-* **Commit Style:** Based on the commit history, the project follows the
-  [Conventional Commits](https://www.conventionalcommits.org/) specification.
-  Commits should be in the format `type(scope): message`.
+## Commit Style: Based on the commit history, the project follows the
+[Conventional Commits](https://www.conventionalcommits.org/) specification.
+Commits should be in the format `type(scope): message`.
+
+## Commit Message Guidelines
+
+All commit messages MUST follow the [Conventional Emoji Commits](httpshttps://conventional-emoji-commits.site/) format as specified in [docs/commit-guidelines.md](docs/commit-guidelines.md).
+
+- **Format:** `<emoji> <type>(<scope>): <description>`
+- **Example:** `✨ feat(zsh): add modular configuration system`
+
+
 * **File Locations:** Most configurations follow the XDG Base Directory
   Specification:
   * **Modern configs**: `~/.config/` (preferred)
