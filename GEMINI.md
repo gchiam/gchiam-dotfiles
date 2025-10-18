@@ -114,15 +114,13 @@ shellcheck bin/*.sh stow/*/bin/*
   linting, testing on macOS, performance regression testing, and security
   scanning.
 * **Commit Style**:
-    * Based on the commit history, the project follows the
-      [Conventional Commits](https://www.conventionalcommits.org/) specification.
-    * All commit messages MUST follow the
-      [Conventional Emoji Commits](https://conventional-emoji-commits.site/) format as
-      specified in [docs/commit-guidelines.md](docs/commit-guidelines.md).
-    * **Format:** `<emoji> <type>(<scope>): <description>`
-    * **Example:** `✨ feat(zsh): add modular configuration system`
-
-
+  * Based on the commit history, the project follows the
+    [Conventional Commits](https://www.conventionalcommits.org/) specification.
+  * All commit messages MUST follow the
+    [Conventional Emoji Commits](https://conventional-emoji-commits.site/) format
+    as specified in [docs/commit-guidelines.md](docs/commit-guidelines.md).
+  * **Format:** `<emoji> <type>(<scope>): <description>`
+  * **Example:** `✨ feat(zsh): add modular configuration system`
 * **File Locations:** Most configurations follow the XDG Base Directory
   Specification:
   * **Modern configs**: `~/.config/` (preferred)
