@@ -210,12 +210,12 @@
 
 # parse any orientation flags specified among the command-line arguments
 case "$*" in
-  (*t*)   corner_tb=+ spiral_tb=        ;; # top
-  (*b*|*) corner_tb=  spiral_tb=+       ;; # bottom
+  (*t*)   corner_tb=+; spiral_tb=        ;; # top
+  (*b*|*) corner_tb=;  spiral_tb=+       ;; # bottom
 esac
 case "$*" in
-  (*l*)   corner_lr=+ spiral_lr=        ;; # left
-  (*r*|*) corner_lr=  spiral_lr=+       ;; # right
+  (*l*)   corner_lr=+; spiral_lr=        ;; # left
+  (*r*|*) corner_lr=;  spiral_lr=+       ;; # right
 esac
 case "$*" in
   (*h*)   modulo_hv=0 is_vertical=false ;; # horizontal
@@ -227,7 +227,7 @@ case "$*" in
 esac
 
 # gather information about the current state of the window and its panes
-set -- $(tmux list-panes -F '#{pane_id}')
+set -- "$(tmux list-panes -F '#{pane_id}')"
 selected_pane=$(tmux display-message -p '#{pane_id}')
 historic_pane=$(tmux last-pane 2>/dev/null \;\
                      display-message -p '#{pane_id}' \;\
@@ -235,7 +235,7 @@ historic_pane=$(tmux last-pane 2>/dev/null \;\
 window_height=$(tmux display-message -p '#{window_height}')
 
 # execute all tmux commands in one shot to avoid flickering and slowness
-exec tmux $({
+exec tmux "$({
 
   # flatten current layout, stacking all panes vertically like pancakes
   echo select-layout even-vertical
@@ -258,8 +258,8 @@ exec tmux $({
       else move_b=$corner_tb
       fi
     fi
-    echo resize-pane -t $pane_id -y $window_height # make room for move
-    echo select-pane -t $pane_id # for relative pane addressing in move
+    echo resize-pane -t "$pane_id" -y "$window_height" # make room for move
+    echo select-pane -t "$pane_id" # for relative pane addressing in move
     echo move-pane -d -s .+1 -t . ${move_h:+-h} ${move_b:+-b} # move it
     count=$(( count + 1 ))
   done
@@ -278,13 +278,13 @@ exec tmux $({
       then resize_y=$parent_height
       else resize_y=$branch_height
       fi
-      echo resize-pane -t $pane_id -y $resize_y
+      echo resize-pane -t "$pane_id" -y "$resize_y"
     fi
     count=$(( count + 1 ))
   done
 
   # restore pane selection back to how it was before we did any of this
-  test -n "$historic_pane" && echo select-pane -t $historic_pane
-  echo select-pane -t $selected_pane
+  test -n "$historic_pane" && echo select-pane -t "$historic_pane"
+  echo select-pane -t "$selected_pane"
 
-} | sed 's/$/ ;/')
+} | sed 's/$/ ;/')"

@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/bin/bash
 set -e
 
 # Git Hooks Setup Script
@@ -66,8 +66,7 @@ install_pre_commit_hook() {
     local hook_file="$HOOKS_DIR/pre-commit"
     
     cat > "$hook_file" << 'EOF'
-#!/opt/homebrew/bin/bash
-# Pre-commit hook for dotfiles validation
+#!/bin/bash
 
 set -e
 
@@ -304,8 +303,8 @@ install_commit_msg_hook() {
     
     local hook_file="$HOOKS_DIR/commit-msg"
     
-    cat > "$hook_file" << 'EOF'
-#!/opt/homebrew/bin/bash
+cat > "$hook_file" << 'EOF'
+#!/bin/bash
 # Commit message validation hook
 
 set -e
@@ -409,8 +408,8 @@ install_prepare_commit_msg_hook() {
     
     local hook_file="$HOOKS_DIR/prepare-commit-msg"
     
-    cat > "$hook_file" << 'EOF'
-#!/opt/homebrew/bin/bash
+cat > "$hook_file" << 'EOF'
+#!/bin/bash
 # Prepare commit message hook
 
 commit_msg_file="$1"
@@ -475,8 +474,8 @@ install_post_commit_hook() {
     
     local hook_file="$HOOKS_DIR/post-commit"
     
-    cat > "$hook_file" << 'EOF'
-#!/opt/homebrew/bin/bash
+cat > "$hook_file" << 'EOF'
+#!/bin/bash
 # Post-commit hook for additional actions
 
 # Colors
@@ -525,8 +524,8 @@ install_pre_push_hook() {
     
     local hook_file="$HOOKS_DIR/pre-push"
     
-    cat > "$hook_file" << 'EOF'
-#!/opt/homebrew/bin/bash
+cat > "$hook_file" << 'EOF'
+#!/bin/bash
 # Pre-push hook for additional validation
 
 set -e

@@ -33,6 +33,6 @@ fi
 echo "$(date): Starting tmux theme fswatch monitor..." >> "$LOG_FILE"
 
 # Monitor the global preferences file for changes
-fswatch -o "$PREFS_FILE" | while read -r num; do
+fswatch -o "$PREFS_FILE" | while read -r _; do
     reload_tmux_if_theme_changed
 done
