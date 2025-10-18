@@ -44,3 +44,11 @@ rules:
   braces:
     min-spaces-inside: 0
     max-spaces-inside: 1
+
+ignore:
+  - "external/"
+  - ".github/workflows/gemini-*.yml"
+  - "stow/k9s/.config/k9s/skins/"
+  - "stow/gh-dash/.config/gh-dash/config.yml"
+  - "stow/tmux/.tmux/plugins/"
+  - "raycast/extensions/*/node_modules/"
