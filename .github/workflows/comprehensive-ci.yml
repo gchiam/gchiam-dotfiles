@@ -177,7 +177,7 @@ jobs:
       run: |
         if [ -f "bin/measure-shell-performance.sh" ]; then
           chmod +x bin/measure-shell-performance.sh
-          if ! gtimeout 120 ./bin/measure-shell-performance.sh 10 > ../baseline-performance.log; then
+          if ! gtimeout 120 ./bin/measure-shell-performance.sh --no-color 10 > ../baseline-performance.log; then
             echo "Performance script failed, skipping detailed analysis"
           fi
         fi
@@ -193,7 +193,7 @@ jobs:
       run: |
         if [ -f "bin/measure-shell-performance.sh" ]; then
           chmod +x bin/measure-shell-performance.sh
-          if ! gtimeout 120 ./bin/measure-shell-performance.sh 10 > ../pr-performance.log; then
+          if ! gtimeout 120 ./bin/measure-shell-performance.sh --no-color 10 > ../pr-performance.log; then
             echo "Performance script failed, skipping detailed analysis"
           fi
         fi

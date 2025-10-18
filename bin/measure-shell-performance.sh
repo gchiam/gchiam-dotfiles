@@ -4,12 +4,27 @@ set -euo pipefail
 # Shell Performance Measurement Script
 # Measures zsh startup time and provides optimization recommendations
 
+# Handle --no-color flag
+NO_COLOR=false
+if [[ "${1:-}" == "--no-color" ]]; then
+    NO_COLOR=true
+    shift
+fi
+
 # Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+if [[ "$NO_COLOR" = true ]]; then
+    RED=''
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    NC=''
+else
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    NC='\033[0m'
+fi
 
 # Configuration
 ITERATIONS=${1:-10}
