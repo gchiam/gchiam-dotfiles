@@ -36,36 +36,28 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    - name: Install linting tools
-      run: |
-        npm install -g markdownlint-cli2 @typescript-eslint/eslint-plugin
-        sudo apt-get update && sudo apt-get install -y shellcheck yamllint
-
     - name: Lint markdown files
-      run: |
-        markdownlint-cli2 "**/*.md" \
-          "!external/**/*.md" \
-          "!stow/alacritty/.config/alacritty/catppuccin/**/*.md" \
+      uses: DavidAnson/markdownlint-cli2-action@v15
+      with:
+        globs: |
+          "**/*.md"
+          "!external/**/*.md"
+          "!stow/alacritty/.config/alacritty/catppuccin/**/*.md"
           "!stow/tmux/.tmux/plugins/**/*.md"
 
     - name: Lint shell scripts
-      run: |
-        find . -type f -name "*.sh" \
-             -not -path "./external/*" \
-             -not -path "./raycast/extensions/*/node_modules/*" \
-             -not -path "./stow/tmux/.tmux/plugins/*" | \
-        xargs shellcheck -x --severity=warning --format=gcc
+      uses: ludeeus/action-shellcheck@master
+      with:
+        ignore_paths: >-
+          ./external/**
+          ./stow/bash/**
+          ./stow/tmux/**
+          ./stow/zsh/**
 
     - name: Lint YAML files
-      run: |
-        find . -type f \( -name "*.yml" -o -name "*.yaml" \) \
-             -not -path "./external/*" \
-             -not -path "./.github/workflows/gemini-*.yml" \
-             -not -path "./stow/k9s/.config/k9s/skins/*" \
-             -not -path "./stow/gh-dash/.config/gh-dash/config.yml" \
-             -not -path "./stow/tmux/.tmux/plugins/*" \
-             -not -path "./raycast/extensions/*/node_modules/*" | \
-        xargs yamllint
+      uses: ibiqlik/action-yamllint@v3
+      with:
+        config_file: .yamllint.yml
 
     - name: Check for security issues
       run: |
