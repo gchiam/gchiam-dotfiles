@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set filetype=sh:
 # Login shell configuration - runs once per login session
 

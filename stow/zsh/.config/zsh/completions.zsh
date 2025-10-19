@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Zsh Completions Configuration
 # Custom completion functions and settings
@@ -30,7 +31,8 @@ _gradlew_completion() {
 
     # Read tasks from cache
     if [[ -f "$cache_file" ]]; then
-        gradle_tasks=(${(f)"$(< $cache_file)"})
+        # shellcheck disable=SC2034,SC2206,SC2296
+        gradle_tasks=(${(f)"$(< "$cache_file")"})
         _describe 'gradle tasks' gradle_tasks
     fi
 }

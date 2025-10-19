@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Environment-specific Configuration
 # Sources modular configuration files for a cleaner and more maintainable setup.
@@ -11,6 +12,7 @@ for file in "${ZDOTDIR:-$HOME/.config/zsh}/detect-env.zsh" \
             "${ZDOTDIR:-$HOME/.config/zsh}/git-ssh.zsh" \
             "${ZDOTDIR:-$HOME/.config/zsh}/utils.zsh"; do
     if [[ -f "$file" ]]; then
+        # shellcheck disable=SC1090
         source "$file"
     fi
 done
@@ -30,16 +32,19 @@ setopt HIST_VERIFY               # Show command before executing from history
 if [[ "$ZSH_ENV_WORK" == true ]]; then
     # Work-specific aliases
     if [[ -f "${ZDOTDIR:-$HOME/.config/zsh}/work-aliases.zsh" ]]; then
+        # shellcheck source=/dev/null
         source "${ZDOTDIR:-$HOME/.config/zsh}/work-aliases.zsh"
     fi
     
     # Work-specific functions
     if [[ -f "${ZDOTDIR:-$HOME/.config/zsh}/work-functions.zsh" ]]; then
+        # shellcheck source=/dev/null
         source "${ZDOTDIR:-$HOME/.config/zsh}/work-functions.zsh"
     fi
     
     # Work proxy settings (if needed)
     if [[ -f "$HOME/.work_proxy" ]]; then
+        # shellcheck source=/dev/null
         source "$HOME/.work_proxy"
     fi
 fi

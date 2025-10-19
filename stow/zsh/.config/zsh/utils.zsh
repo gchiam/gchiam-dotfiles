@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Utility Functions
 # Provides utility functions for lazy loading, environment information, and performance monitoring.
@@ -6,12 +7,18 @@
 _lazy_load_tool() {
     local tool="$1"
     local setup_func="$2"
+
+    if ! [[ "$tool" =~ ^[A-Za-z0-9_]+$ ]] || ! [[ "$setup_func" =~ ^[A-Za-z0-9_]+$ ]]; then
+        echo "Invalid tool or setup function name for lazy loading: $tool, $setup_func" >&2
+        return 1
+    fi
     
     # Create a wrapper function that loads the tool on first use
+    # shellcheck disable=SC2145,SC2294
     eval "${tool}() {
-        unfunction ${tool}
-        ${setup_func}
-        ${tool} \"$@\"
+        unfunction \"${tool}\"
+        \"${setup_func}\"
+        \"${tool}\" \"\\$@\"
     }"
 }
 
@@ -57,7 +64,7 @@ setup_performance_monitoring() {
             # Log startup time asynchronously to avoid blocking shell startup
             (
                 echo "$(date '+%Y-%m-%d %H:%M:%S') Shell startup: ${ZSH_STARTUP_TIME}s ($$)" >> "$HOME/.dotfiles-performance.log" 2>/dev/null
-            ) &!
+            ) & disown
         fi
     fi
 }

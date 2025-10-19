@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Shared Aliases Configuration
 # Common aliases used across bash, zsh, and fish shells

@@ -1,10 +1,13 @@
+# shellcheck shell=bash
 # vim: set filetype=sh:
 
 # =============================================================================
 # django bash completion
 # https://github.com/django/django/blob/master/extras/django_bash_completion
 # =============================================================================
+# shellcheck source=/dev/null
 . ~/.django_bash_completion
+# shellcheck source=/dev/null
 test -e ~/.git-completion.bash && source ~/.git-completion.bash
 
 

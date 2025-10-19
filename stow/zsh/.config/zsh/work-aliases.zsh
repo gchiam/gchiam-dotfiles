@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Work-Specific Aliases
 # Aliases and shortcuts specific to work environments

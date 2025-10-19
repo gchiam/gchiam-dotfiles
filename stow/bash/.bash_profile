@@ -1,10 +1,12 @@
+# shellcheck shell=bash
 # vim: set filetype=sh:
 
 export LANG=en_US.UTF-8
 
 # Load ~/.extra, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{bash_path,ash_extra,bash_exports,bash_aliases,bash_functions,bash_completion,bash_completion-homebrew,bash_local,bash_private,bash_motd}; do
+for file in ~/.{bash_path,bash_extra,bash_exports,bash_aliases,bash_functions,bash_completion,bash_completion-homebrew,bash_local,bash_private,bash_motd}; do
+	# shellcheck disable=SC1090
 	[ -r "$file" ] && . "$file"
 done
 unset file
@@ -28,4 +30,5 @@ umask 002
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
+# shellcheck source=/dev/null
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"

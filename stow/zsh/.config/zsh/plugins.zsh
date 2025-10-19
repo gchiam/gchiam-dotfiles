@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Plugin Loading
 # Loads zsh plugins using antidote.
@@ -15,6 +16,7 @@ load_env_plugins() {
         # Load plugins with antidote with performance tracking
         local antidote_path="${HOMEBREW_PREFIX:-/opt/homebrew}/share/antidote/antidote.zsh"
         if [[ -f "$antidote_path" ]] && [[ -f "$plugins_file" ]]; then
+            # shellcheck source=/dev/null
             source "$antidote_path"
             
             # Track plugin loading time if performance monitoring is enabled
@@ -35,7 +37,7 @@ load_env_plugins() {
                     # Log plugin performance asynchronously
                     (
                         echo "$(date '+%Y-%m-%d %H:%M:%S') Plugin loading: ${plugin_load_time}s ($(basename "$plugins_file" .txt)) ($$)" >> "$HOME/.dotfiles-performance.log" 2>/dev/null
-                    ) &!
+                    ) & disown
                 fi
             else
                 export ZSH_ANTIDOTE_LOADED=false

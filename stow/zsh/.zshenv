@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Environment variables - loaded for all zsh instances
 
@@ -16,6 +17,7 @@ export VISUAL="${VISUAL:-nvim}"
 export PAGER="${PAGER:-less}"
 
 # Less configuration
+# shellcheck disable=SC2016
 export LESS='-R --use-color -Dd+r$Du+b$'
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 

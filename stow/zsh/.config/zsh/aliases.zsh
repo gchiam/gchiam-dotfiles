@@ -1,8 +1,10 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Zsh Aliases
 # Modern aliases for improved productivity and safety
 
 # Load shared aliases (common across all shells)
+# shellcheck source=/dev/null
 source "${ZDOTDIR:-$HOME/.config/zsh}/shared-aliases.zsh"
 
 # Zsh-specific aliases and overrides
@@ -91,7 +93,9 @@ alias dlogs='docker logs -f'
 # Network and system
 alias ports='netstat -tulanp'
 alias pubip='curl -s https://ipinfo.io/ip'
-alias localip="ifconfig | grep -E 'inet [0-9]' | grep -v 127.0.0.1 | awk '{print \$2}'"
+localip() {
+    ifconfig | grep -E 'inet [0-9]' | grep -v 127.0.0.1 | awk '{print $2}'
+}
 
 # File operations
 alias rg='rg --pretty'
