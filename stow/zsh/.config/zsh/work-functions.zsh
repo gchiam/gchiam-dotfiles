@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Work-Specific Functions
 # Custom functions for work environments and productivity
@@ -92,7 +93,8 @@ work-meeting() {
             # Restore normal status
             ;;
         notes)
-            local notes_file="$HOME/work-meeting-notes-$(date '+%Y-%m-%d').md"
+            local notes_file
+            notes_file="$HOME/work-meeting-notes-$(date '+%Y-%m-%d').md"
             ${EDITOR:-vim} "$notes_file"
             ;;
         *)

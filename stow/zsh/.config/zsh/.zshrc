@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # Zsh Configuration
 # vim: set ft=zsh:
 
@@ -13,6 +14,7 @@ fi
 
 # Safe sourcing function
 safe_source() {
+    # shellcheck disable=SC1090
     [[ -r "$1" ]] && source "$1"
 }
 
@@ -35,7 +37,8 @@ setopt GLOB_DOTS                 # Include dotfiles in glob patterns
 
 # Performance: Cache brew prefix
 if [[ -z "$BREW_PREFIX" ]] && command -v brew >/dev/null; then
-    export BREW_PREFIX="$(brew --prefix)"
+    BREW_PREFIX="$(brew --prefix)"
+    export BREW_PREFIX
 fi
 
 
@@ -67,9 +70,11 @@ export LANG=en_US.UTF-8
 # Load NVM immediately
 export NVM_DIR="$HOME/.nvm"
 if command -v brew >/dev/null; then
-    local nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
+    nvm_dir="${BREW_PREFIX:-$(brew --prefix)}/opt/nvm"
+    # shellcheck source=/dev/null
     [[ -s "$nvm_dir/nvm.sh" ]] && source "$nvm_dir/nvm.sh"
 else
+    # shellcheck source=/dev/null
     [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 fi
 
@@ -102,6 +107,7 @@ if [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]]; then
     # Lazy load SDKMAN for better performance
     sdk() {
         unset -f sdk
+        # shellcheck source=/dev/null
         source "$SDKMAN_DIR/bin/sdkman-init.sh"
         sdk "$@"
     }

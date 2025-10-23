@@ -1,9 +1,11 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Zsh Keybindings
 # Custom key bindings for improved productivity
 
 # Minimal zsh-vi-mode plugin configuration
 zvm_config() {
+    # shellcheck disable=SC2034
     ZVM_VI_INSERT_ESCAPE_BINDKEY=jk  # jk to escape insert mode
 }
 
@@ -11,6 +13,7 @@ function zvm_after_init() {
     # Load FZF after vi-mode is initialized to preserve FZF key bindings
     # This ensures FZF Ctrl+R, Ctrl+T work correctly with zsh-vi-mode plugin
     # FZF is also loaded in .zshrc as fallback if vi-mode plugin fails to load
+    # shellcheck source=/dev/null
     [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
 
     bindkey '^[OA' history-substring-search-up   # Up
@@ -200,10 +203,11 @@ bindkey '^K^P' kubectl-pods          # Ctrl+K Ctrl+P
 search-replace() {
     local search replace
     echo -n "Search for: "
-    read search
+    read -r search
     echo -n "Replace with: "
-    read replace
-    BUFFER="${BUFFER//$search/$replace}"
+    read -r replace
+    local esc_search=${search//(#m)[*?[\\]]/\\$MATCH}
+    BUFFER="${BUFFER//$esc_search/$replace}"
     zle redisplay
 }
 zle -N search-replace
@@ -212,6 +216,7 @@ bindkey '^[%' search-replace         # Alt+%
 # Toggle between command and its output
 toggle-command-output() {
     if [[ $BUFFER =~ ^(.*)\s*\|\s*less\s*$ ]]; then
+        # shellcheck disable=SC1087,SC2154
         BUFFER="$match[1]"
     else
         BUFFER="$BUFFER | less"
@@ -224,9 +229,11 @@ bindkey '^[p' toggle-command-output  # Alt+P
 # Quick file operations
 quick-mkdir() {
     echo -n "Directory name: "
-    read dirname
+    read -r dirname
     if [[ -n "$dirname" ]]; then
-        BUFFER="mkdir -p \"$dirname\" && cd \"$dirname\""
+        local safe_dir="${dirname//\\/\\\\}"
+        safe_dir="${safe_dir//\"/\\\"}"
+        BUFFER="mkdir -p \"$safe_dir\" && cd \"$safe_dir\""
         zle accept-line
     fi
 }
@@ -236,9 +243,10 @@ bindkey '^[m' quick-mkdir            # Alt+M
 # Quick find files
 quick-find() {
     echo -n "Find: "
-    read pattern
+    read -r pattern
     if [[ -n "$pattern" ]]; then
-        BUFFER="find . -name '*$pattern*'"
+        local safe_pattern="${pattern//\"/\\\"}"
+        BUFFER="find . -name \"*${safe_pattern}*\""
         zle accept-line
     fi
 }
@@ -249,7 +257,7 @@ bindkey '^[f' quick-find             # Alt+F
 if command -v fzf >/dev/null; then
     fzf-cd() {
         local dir
-        dir=$(find . -type d 2>/dev/null | fzf +m) && cd "$dir"
+        dir=$(find . -type d 2>/dev/null | fzf +m) && cd "$dir" || return
         zle redisplay
     }
     zle -N fzf-cd
@@ -342,7 +350,7 @@ bindkey '^[h' run-help               # Alt+H for help on current command
 if command -v bc >/dev/null; then
     quick-calc() {
         echo -n "Calculate: "
-        read expression
+        read -r expression
         if [[ -n "$expression" ]]; then
             result=$(echo "$expression" | bc -l)
             LBUFFER="${LBUFFER}$result"

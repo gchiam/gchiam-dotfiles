@@ -50,9 +50,7 @@ jobs:
       with:
         ignore_paths: >-
           ./external/**
-          ./stow/bash/**
           ./stow/tmux/**
-          ./stow/zsh/**
 
     - name: Lint YAML files
       uses: ibiqlik/action-yamllint@v3

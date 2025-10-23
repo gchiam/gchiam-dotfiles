@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Performance Settings
 # Configures performance-related options based on the detected environment.
@@ -10,11 +11,13 @@ if [[ "$ZSH_ENV_REMOTE" == true ]] || [[ "$ZSH_ENV_CONTAINER" == true ]]; then
     export ZSH_DISABLE_COMPFIX=true
     # Reduce history size
     HISTSIZE=1000
+    # shellcheck disable=SC2034
     SAVEHIST=1000
 else
     # Full configuration for local environments
     export ZSH_MINIMAL_MODE=false
     HISTSIZE=10000
+    # shellcheck disable=SC2034
     SAVEHIST=10000
 fi
 
