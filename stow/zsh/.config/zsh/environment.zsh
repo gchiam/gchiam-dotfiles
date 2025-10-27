@@ -47,12 +47,13 @@ fi
 # Initialize environment-specific configurations
 init_environment() {
     load_env_plugins
-    
+
     # Note: vi mode is enabled in keybindings.zsh
     # zsh-vi-mode plugin will override if it loads successfully
-    
-    _lazy_load_tool git setup_git_config
-    _lazy_load_tool ssh setup_ssh_config
+
+    # Setup git and ssh configurations directly (no lazy loading needed)
+    setup_git_config
+    setup_ssh_config
     setup_performance_monitoring
 }
 
