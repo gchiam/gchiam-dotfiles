@@ -81,18 +81,24 @@ time (ZSH_MINIMAL_MODE=true zsh -c 'exit')
 
 ### 🔧 **Lazy Loading Configuration**
 
-The dotfiles implement intelligent lazy loading:
+The dotfiles include a `_lazy_load_tool` utility function for lazy loading expensive
+operations. This function is available but not currently in active use, as
+performance testing showed that directly initializing lightweight configurations
+(git, ssh) is faster than the lazy loading overhead.
+
+The function is preserved in `stow/zsh/.config/zsh/utils.zsh` for future use cases
+where lazy loading provides measurable benefits, such as:
+
+- Heavy completion systems (kubectl, AWS CLI, etc.)
+- Language version managers (nvm, rbenv, pyenv)
+- Large environment setups
 
 ```bash
-# Check which tools are lazy-loaded
+# Check if any tools are currently lazy-loaded
 grep -r "_lazy_load_tool" ~/.config/zsh/
 
-# Test lazy loading behavior
-echo "Before first kubectl use:"
-time kubectl version --client  # First use loads completion
-
-echo "After completion loaded:"
-time kubectl version --client  # Subsequent uses are fast
+# Example usage (for future implementation):
+# _lazy_load_tool kubectl setup_kubectl_completion
 ```
 
 ### 📊 **Performance Monitoring Dashboard**
