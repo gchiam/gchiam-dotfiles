@@ -93,7 +93,7 @@ jobs:
           >> performance-reports/system-resources.md
 
     - name: Upload performance reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: performance-reports
         path: performance-reports/
@@ -216,7 +216,7 @@ jobs:
         done
 
     - name: Upload health reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: health-reports
         path: health-reports/
@@ -287,7 +287,7 @@ jobs:
         echo "- **Temporary files found**: $temp_files" >> cleanup-reports/cleanup-analysis.md
 
     - name: Upload cleanup reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: cleanup-reports
         path: cleanup-reports/
@@ -353,7 +353,7 @@ jobs:
         done
 
     - name: Upload dependency reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: dependency-reports
         path: dependency-reports/
@@ -411,7 +411,7 @@ jobs:
         cat maintenance-summary.md
 
     - name: Upload summary report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: maintenance-summary
         path: maintenance-summary.md
