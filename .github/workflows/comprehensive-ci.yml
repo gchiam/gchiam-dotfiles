@@ -37,7 +37,7 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
 
     - name: Lint markdown files
-      uses: DavidAnson/markdownlint-cli2-action@v20
+      uses: DavidAnson/markdownlint-cli2-action@v22
       with:
         globs: |
           "**/*.md"
