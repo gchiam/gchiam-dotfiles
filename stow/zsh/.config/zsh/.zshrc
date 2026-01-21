@@ -127,3 +127,7 @@ fi
 if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]]; then
     export ZSH_STARTUP_TIME="$(( EPOCHREALTIME - ZSH_STARTUP_START ))"
 fi
+
+
+
+alias claude="/Users/gchiam/.claude/local/claude"
