@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Git and SSH Configuration
 # Configures git and ssh based on the detected environment.

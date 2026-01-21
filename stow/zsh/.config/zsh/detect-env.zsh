@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Environment Detection
 # Detects work, personal, remote, and container environments, and terminal program.
@@ -20,7 +21,7 @@ if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; 
 fi
 
 # Container detection
-if [[ -f /.dockerenv ]] || [[ -n "$KUBERNETES_SERVICE_HOST" ]] || [[ "$container" == "podman" ]]; then
+if [[ -f /.dockerenv ]] || [[ -n "$KUBERNETES_SERVICE_HOST" ]] || [[ -f /run/.containerenv ]]; then
     ZSH_ENV_CONTAINER=true
 fi
 

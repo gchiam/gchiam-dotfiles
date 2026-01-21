@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # OS-specific Optimizations
 # Sets OS-specific options for macOS and Linux.

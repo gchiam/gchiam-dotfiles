@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 # vim: set ft=zsh:
 # Custom Zsh Functions
 # Useful utility functions for development and system administration
@@ -8,7 +9,7 @@ mkcd() {
         echo "Usage: mkcd <directory_name>" >&2
         return 1
     fi
-    mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1" || return
 }
 
 # Extract various archive formats
@@ -47,6 +48,7 @@ killp() {
     fi
     
     local pids
+    # shellcheck disable=SC2207
     pids=($(pgrep -f "$1"))
     
     if [[ ${#pids[@]} -eq 0 ]]; then
@@ -79,7 +81,8 @@ backup() {
         return 1
     fi
     
-    local backup_name="${1}.backup.$(date +%Y%m%d_%H%M%S)"
+    local backup_name
+    backup_name="${1}.backup.$(date +%Y%m%d_%H%M%S)"
     cp -r "$1" "$backup_name"
     echo "Backup created: $backup_name"
 }
@@ -167,6 +170,7 @@ docker-stop-all() {
     local containers
     containers=$(docker ps -q)
     if [[ -n "$containers" ]]; then
+        # shellcheck disable=SC2086
         docker stop $containers
         echo "All running containers stopped"
     else
@@ -339,15 +343,18 @@ zsh-perf() {
         summary)
             if [[ -f "$HOME/.dotfiles-performance.log" ]]; then
                 echo "=== Performance Summary (Last 24 hours) ==="
-                local today=$(date '+%Y-%m-%d')
-                local log_entries=$(grep "^$today" "$HOME/.dotfiles-performance.log" 2>/dev/null | wc -l | tr -d ' ')
+                local today
+                today=$(date '+%Y-%m-%d')
+                local log_entries
+                log_entries=$(grep -c "^$today" "$HOME/.dotfiles-performance.log" 2>/dev/null || echo 0)
                 
                 if [[ "$log_entries" -gt 0 ]]; then
                     echo "📊 Shell sessions today: $log_entries"
                     
                     # Calculate average startup time (requires bc)
                     if command -v bc >/dev/null; then
-                        local avg_time=$(grep "^$today" "$HOME/.dotfiles-performance.log" 2>/dev/null | \
+                        local avg_time
+                        avg_time=$(grep "^$today" "$HOME/.dotfiles-performance.log" 2>/dev/null | \
                             grep -o '[0-9]*\.[0-9]*s' | sed 's/s$//' | \
                             awk '{sum+=$1; count++} END {if(count>0) printf "%.3f", sum/count; else print "0"}')
                         
