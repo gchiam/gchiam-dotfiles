@@ -49,6 +49,8 @@ git config --global alias.search "log --no-merges -i -E --pretty='%C(magenta)%h%
 git config --global alias.sm "submodule"
 git config --global alias.st "status -b"
 git config --global alias.unstage "reset HEAD --"
+git config --global alias.wt "worktree"
+git config --global alias.wtl "worktree list"
 
 git config --global pull.rebase true
 git config --global rebase.autoStash true
