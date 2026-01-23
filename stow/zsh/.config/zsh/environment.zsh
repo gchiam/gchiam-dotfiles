@@ -9,6 +9,7 @@ for file in "${ZDOTDIR:-$HOME/.config/zsh}/detect-env.zsh" \
             "${ZDOTDIR:-$HOME/.config/zsh}/terminal.zsh" \
             "${ZDOTDIR:-$HOME/.config/zsh}/plugins.zsh" \
             "${ZDOTDIR:-$HOME/.config/zsh}/git-ssh.zsh" \
+            "${ZDOTDIR:-$HOME/.config/zsh}/git-worktree-helper.zsh" \
             "${ZDOTDIR:-$HOME/.config/zsh}/utils.zsh"; do
     if [[ -f "$file" ]]; then
         source "$file"

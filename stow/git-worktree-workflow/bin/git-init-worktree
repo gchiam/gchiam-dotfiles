@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Usage: git-init-worktree <repo_url>
+REPO_URL=$1
+
+# Ensure the base directory exists
+if [ -z "$PROJECT_BASE" ]; then
+    echo "❌ Error: \$PROJECT_BASE is not set."
+    exit 1
+fi
+
+if [ -z "$REPO_URL" ]; then
+    echo "Usage: $0 <repo_url>"
+    exit 1
+fi
+
+# Extract project name from URL (handles both HTTPS and SSH formats)
+PROJECT_NAME=$(basename "$REPO_URL" .git)
+
+echo "🏠 Moving to Project base: $PROJECT_BASE"
+cd "$PROJECT_BASE" || exit
+
+echo "📂 Creating project directory: $PROJECT_NAME..."
+mkdir -p "$PROJECT_NAME" && cd "$PROJECT_NAME" || exit 1
+
+# 1. Clone Bare
+git clone --bare "$REPO_URL" .bare
+
+# 2. Setup Pointer
+echo "gitdir: ./.bare" > .git
+
+# 3. CRITICAL: Configure the refspec so 'fetch' brings in all remote branches
+# Without this, 'origin/branch' references won't exist locally!
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+
+echo "🔄 Initializing data..."
+git fetch origin
+
+# 4. Get Default Branch
+DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+DEFAULT_FOLDER="${DEFAULT_BRANCH//[\/\\]/_}"
+
+echo "🌳 Adding worktree for $DEFAULT_BRANCH..."
+git worktree add "$DEFAULT_FOLDER" "$DEFAULT_BRANCH"
+
+echo "✅ Ready! Project at: $(pwd)"
