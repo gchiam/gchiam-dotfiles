@@ -3,6 +3,29 @@
 # Git Worktree Helper Functions
 # Provides helper functions for managing git worktrees in bare-clone projects.
 
+function gwt-init() {
+    if [[ -z "$PROJECT_BASE" ]]; then
+        echo "❌ Error: \$PROJECT_BASE is not set."
+        return 1
+    fi
+
+    local REPO_URL=$1
+    if [[ -z "$REPO_URL" ]]; then
+        echo "Usage: gwt-init <repo_url>"
+        return 1
+    fi
+
+    # Extract project name from URL
+    local PROJECT_NAME
+    PROJECT_NAME=$(basename "$REPO_URL" .git)
+
+    # Run the init script
+    git-init-worktree "$REPO_URL" || return 1
+
+    # Change to the worktree directory
+    cd "$PROJECT_BASE/$PROJECT_NAME/$PROJECT_NAME" || return 1
+}
+
 function gwt-add() {
     if [[ ! -d ".bare" ]]; then
         echo "❌ Error: Not in a bare-worktree project root."

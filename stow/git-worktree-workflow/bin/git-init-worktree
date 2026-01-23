@@ -38,9 +38,8 @@ git fetch origin
 
 # 4. Get Default Branch
 DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
-DEFAULT_FOLDER="${DEFAULT_BRANCH//[\/\\]/_}"
 
 echo "🌳 Adding worktree for $DEFAULT_BRANCH..."
-git worktree add "$DEFAULT_FOLDER" "$DEFAULT_BRANCH"
+git worktree add "$PROJECT_NAME" "$DEFAULT_BRANCH"
 
 echo "✅ Ready! Project at: $(pwd)"
