@@ -62,8 +62,34 @@ For immediate development needs, refer to the appropriate documentation:
 3. **Before committing**: Test configurations in appropriate environments
    (see Quality Assurance guide)
 4. **Before committing**: Automatic linting validation via pre-commit hooks
-5. **When committing**: Use Conventional Emoji Commits format
+5. **When committing**: Use Conventional Emoji Commits format (see below)
 6. **After changes**: Update relevant documentation if functionality changes
+
+### Commit Emoji Convention
+
+Use these emojis for commit messages:
+
+| Emoji | Type | Description |
+| ----- | ---- | ----------- |
+| 🎉 | feat | A new feature |
+| 🐛 | fix | A bug fix |
+| 📚 | docs | Documentation only changes |
+| 🎨 | style | Changes that do not affect the meaning of the code |
+| ♻️ | refactor | A code change that neither fixes a bug nor adds a feature |
+| ⚡ | perf | A code change that improves performance |
+| 🧪 | test | Adding missing tests or correcting existing tests |
+| 🏗️ | build | Changes that affect the build system or external dependencies |
+| 👷 | ci | Changes to CI configuration files and scripts |
+| 🔧 | chore | Other changes that don't modify src or test files |
+| 🔥 | remove | Remove code or files |
+| 🚑️ | hotfix | Critical hotfix |
+
+**Examples:**
+
+- `🎉 feat(auth): add OAuth2 integration`
+- `🐛 fix(api): resolve timeout issue in user endpoint`
+- `📚 docs: update README with new installation steps`
+- `🔧 chore: update dependencies to latest versions`
 
 ### Linting and Quality Assurance
 
