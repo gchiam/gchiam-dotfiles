@@ -222,6 +222,10 @@ ctrl-shift-r = 'mode resize'
 cmd-h = [] # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
 
+# workspace navigation using mouse scroll on desktop
+cmd-alt-j = ['workspace prev']
+cmd-alt-k = ['workspace next']
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
