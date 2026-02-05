@@ -130,4 +130,3 @@ fi
 
 
 
-alias claude="/Users/gchiam/.claude/local/claude"
