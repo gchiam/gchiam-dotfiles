@@ -57,3 +57,16 @@ function gwt-add() {
         git worktree add -b "$BRANCH" "$FOLDER_NAME"
     fi
 }
+
+function gwt-switch() {
+  local selected_worktree
+  
+  # Get selection from fzf
+  selected_worktree=$(git worktree list | fzf --height 40% --layout=reverse --border --prompt="Switch Worktree > ")
+
+  # If user didn't escape/cancel, extract path and CD
+  if [[ -n "$selected_worktree" ]]; then
+    local worktree_path=$(echo "$selected_worktree" | awk '{print $1}')
+    cd "$worktree_path"
+  fi
+}
