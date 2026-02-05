@@ -26,8 +26,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=fg:15,hl:3,hl+:11,fg+:7,bg+:4,prompt:7,pointer:7,info:6,header:3  --algo=v2"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-. /usr/local/opt/asdf/asdf.sh
+_asdf_init="${BREW_PREFIX:-/opt/homebrew}/opt/asdf/libexec/asdf.sh"
+[[ -f "$_asdf_init" ]] && . "$_asdf_init"
+[[ -f ~/.asdf/plugins/java/set-java-home.bash ]] && . ~/.asdf/plugins/java/set-java-home.bash
+unset _asdf_init
 
 # nvm
-export NVM_DIR="~/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
