@@ -254,8 +254,7 @@ analyze_plugin_performance() {
             "nvm"
             "pyenv"
             "rbenv"
-            "jenv"
-            "sdkman"
+            "asdf"
         )
         
         for plugin in "${heavy_plugins[@]}"; do
