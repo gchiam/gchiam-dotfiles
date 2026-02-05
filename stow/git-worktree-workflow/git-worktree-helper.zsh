@@ -66,7 +66,8 @@ function gwt-switch() {
 
   # If user didn't escape/cancel, extract path and CD
   if [[ -n "$selected_worktree" ]]; then
-    local worktree_path=$(echo "$selected_worktree" | awk '{print $1}')
-    cd "$worktree_path"
+    local worktree_path
+    worktree_path=$(echo "$selected_worktree" | awk '{print $1}')
+    cd "$worktree_path" || return 1
   fi
 }
