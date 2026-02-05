@@ -48,7 +48,7 @@ nvim
 tmux
 
 # Shell environment uses zsh with antidote plugin manager
-# Version managers: asdf, nvm, jenv are configured
+# Version managers: asdf (Java, etc.), nvm are configured
 ```
 
 ## 🎨 Additional Setup

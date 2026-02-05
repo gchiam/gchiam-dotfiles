@@ -550,7 +550,7 @@ ZSH_TERM_TMUX                      # tmux session
 
 ### ⚡ Startup Optimization
 
-- **Lazy loading** of NVM, SDKMAN, and other tools
+- **Lazy loading** of NVM, asdf, and other tools
 - **Conditional plugin loading** based on environment
 - **Completion caching** for faster subsequent loads
 - **Deferred loading** of syntax highlighting and other plugins
@@ -566,12 +566,16 @@ nvm() {
     nvm "$@"
 }
 
-# SDKMAN lazy loading
-sdk() {
-    unset -f sdk
-    source "$SDKMAN_DIR/bin/sdkman-init.sh"
-    sdk "$@"
+# asdf lazy loading (with java/javac wrappers)
+asdf() {
+    unset -f asdf java javac
+    source "${BREW_PREFIX:-/opt/homebrew}/opt/asdf/libexec/asdf.sh"
+    [[ -f "${HOME}/.asdf/plugins/java/set-java-home.zsh" ]] && \
+        source "${HOME}/.asdf/plugins/java/set-java-home.zsh"
+    asdf "$@"
 }
+java() { asdf >/dev/null; command java "$@"; }
+javac() { asdf >/dev/null; command javac "$@"; }
 ```
 
 ### 🎨 Minimal Mode

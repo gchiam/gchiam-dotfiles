@@ -16,6 +16,9 @@ safe_source() {
     [[ -r "$1" ]] && source "$1"
 }
 
+# asdf completions (must be before compinit)
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
 # Initialize completion system for compdef support
 autoload -Uz compinit
 compinit -C
@@ -44,7 +47,7 @@ export PATH="${PATH}:${HOME}/.local/bin"
 export PATH="$HOME/bin:${BREW_PREFIX:-/opt/homebrew}/bin:/usr/local/bin:$PATH"
 
 # Safe sourcing of configuration files
-safe_source "$HOME/.bash_path"      # Only source once (was duplicated)  
+safe_source "$HOME/.bash_path"      # Only source once (was duplicated)
 safe_source "$HOME/.bash_exports"
 safe_source "$HOME/.bash_local"
 
@@ -76,12 +79,17 @@ fi
 
 
 
-
-
-# Java environment (jenv)
-if [[ -d "$HOME/.jenv" ]]; then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    command -v jenv >/dev/null && eval "$(jenv init -)"
+# asdf version manager (lazy loaded for performance)
+if [[ -f "${BREW_PREFIX:-/opt/homebrew}/opt/asdf/libexec/asdf.sh" ]]; then
+    asdf() {
+        unset -f asdf java javac
+        source "${BREW_PREFIX:-/opt/homebrew}/opt/asdf/libexec/asdf.sh"
+        [[ -f "${HOME}/.asdf/plugins/java/set-java-home.zsh" ]] && \
+            source "${HOME}/.asdf/plugins/java/set-java-home.zsh"
+        asdf "$@"
+    }
+    java() { asdf >/dev/null; command java "$@"; }
+    javac() { asdf >/dev/null; command javac "$@"; }
 fi
 
 # Vi-mode configuration moved to keybindings.zsh
@@ -93,19 +101,6 @@ select-word-style bash
 
 # Plugin management handled by environment.zsh
 
-
-
-
-# SDKMAN initialization (lazy load could be added here too)
-export SDKMAN_DIR="$HOME/.sdkman"
-if [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]]; then
-    # Lazy load SDKMAN for better performance
-    sdk() {
-        unset -f sdk
-        source "$SDKMAN_DIR/bin/sdkman-init.sh"
-        sdk "$@"
-    }
-fi
 
 # Load profile-specific configuration
 safe_source "$HOME/.zshrc.local"
@@ -127,7 +122,3 @@ fi
 if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]]; then
     export ZSH_STARTUP_TIME="$(( EPOCHREALTIME - ZSH_STARTUP_START ))"
 fi
-
-
-
-alias claude="/Users/gchiam/.claude/local/claude"

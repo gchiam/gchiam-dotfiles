@@ -3,7 +3,7 @@
 export LANG=en_US.UTF-8
 
 # Load ~/.extra, ~/.exports, ~/.aliases and ~/.functions
-# ~/.extra can be used for settings you don’t want to commit
+# ~/.extra can be used for settings you don't want to commit
 for file in ~/.{bash_path,ash_extra,bash_exports,bash_aliases,bash_functions,bash_completion,bash_completion-homebrew,bash_local,bash_private,bash_motd}; do
 	[ -r "$file" ] && . "$file"
 done
@@ -25,7 +25,3 @@ HISTFILESIZE=2000
 # shopt -s checkwinsize
 
 umask 002
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"

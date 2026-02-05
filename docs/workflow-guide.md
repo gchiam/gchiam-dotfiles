@@ -355,7 +355,7 @@ Ctrl+x                   # Skip current occurrence
 ```bash
 # Lazy loading configuration (already implemented)
 # - NVM loads only when needed
-# - SDKMAN loads only when needed
+# - asdf loads only when needed
 # - Heavy plugins use lazy loading
 
 # Monitor shell startup

@@ -9,7 +9,7 @@ The zsh configuration has been completely modernized with a modular system:
 
 - **Main config**: `.zshrc` loads all modules with safe sourcing
 - **Environment detection**: Work/personal/remote/container environments
-- **Performance optimization**: Lazy loading for NVM, SDKMAN, and heavy tools
+- **Performance optimization**: Lazy loading for NVM, asdf, and heavy tools
 - **Modular files**: `aliases.zsh`, `functions.zsh`, `completion.zsh`, etc.
 - **XDG compliance**: All configs moved to `~/.config/zsh/`
 
