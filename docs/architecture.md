@@ -119,7 +119,7 @@ Consistent Catppuccin theming across all applications via
 
 - Main packages in `.Brewfile`
 - Work-specific packages in `.Brewfile.zendesk`
-- Version managers (asdf, nvm, jenv) handle language runtimes
+- Version managers (asdf, nvm) handle language runtimes
 
 ## 🚀 Custom Extensions
 
