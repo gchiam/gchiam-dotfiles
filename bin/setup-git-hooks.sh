@@ -573,7 +573,7 @@ while IFS= read -r line; do
     echo "Checking commits in range: $commit_range"
     
     # Look for potentially sensitive patterns in commit messages
-    sensitive_commits=$(git log --oneline "$commit_range" | grep -iE "(password|secret|key|token|api_key)" || true)
+    sensitive_commits=$(git log --oneline "$commit_range" | grep -iE "\b(password|secret|key|token|api_key)\b" || true)
     if [[ -n "$sensitive_commits" ]]; then
         print_warning "Potentially sensitive information in commit messages:"
         echo "$sensitive_commits"
