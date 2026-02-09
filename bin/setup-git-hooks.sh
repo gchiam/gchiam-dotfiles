@@ -266,12 +266,12 @@ fi
 
 # 7. Validate Lua files (for Neovim config)
 lua_files=$(echo "$staged_files" | grep -E '\.lua$' || true)
-if [[ -n "$lua_files" ]] && command -v lua &> /dev/null; then
+if [[ -n "$lua_files" ]] && command -v luac &> /dev/null; then
     echo
     echo "Validating Lua files..."
     while IFS= read -r lua_file; do
         if [[ -f "$lua_file" ]]; then
-            if lua -l "$lua_file" -e "" 2>/dev/null; then
+            if luac -p "$lua_file" 2>/dev/null; then
                 print_success "$lua_file Lua syntax OK"
             else
                 print_error "$lua_file has Lua syntax errors"
