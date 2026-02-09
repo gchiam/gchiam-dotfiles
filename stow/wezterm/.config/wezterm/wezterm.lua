@@ -44,15 +44,6 @@ config.colors = {
 }
 config.audible_bell = "Disabled"
 
--- Allow Shift+Enter to send a raw newline (for Claude Code multi-line input)
-config.keys = {
-  {
-    key = 'Enter',
-    mods = 'SHIFT',
-    action = wezterm.action.SendString '\x0a',
-  },
-}
-
 -- and finally, return the configuration to wezterm
 return config
 
