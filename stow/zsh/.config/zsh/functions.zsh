@@ -133,15 +133,6 @@ json() {
     fi
 }
 
-# URL encode/decode
-urlencode() {
-    python3 -c "import urllib.parse; print(urllib.parse.quote('$1'))"
-}
-
-urldecode() {
-    python3 -c "import urllib.parse; print(urllib.parse.unquote('$1'))"
-}
-
 # Base64 encode/decode shortcuts
 b64encode() {
     echo -n "$1" | base64
@@ -389,7 +380,7 @@ zsh-perf() {
 # Clean up function definitions on shell exit
 cleanup_functions() {
     unset -f mkcd extract killp backup git-branch-clean git-last git-size myip port dush json
-    unset -f urlencode urldecode b64encode b64decode docker-clean docker-stop-all k8s-ctx k8s-ns
+    unset -f b64encode b64decode docker-clean docker-stop-all k8s-ctx k8s-ns
     unset -f ff fd sysinfo topcpu topmem upper lower genpass note zsh-perf cleanup_functions
 }
 
