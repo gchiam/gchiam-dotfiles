@@ -114,6 +114,25 @@ fi
 # Prompt initialization (keep at end)
 if command -v oh-my-posh >/dev/null && [[ -f "$HOME/.config/oh-my-posh/oh-my-posh.toml" ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.toml)"
+    # Pin config path to prevent fallback to default theme after cache invalidation
+    _omp_config_path="$HOME/.config/oh-my-posh/oh-my-posh.toml"
+    function _omp_get_prompt() {
+      local type=$1
+      local args=("${@[2,-1]}")
+      $_omp_executable print $type \
+        --config="$_omp_config_path" \
+        --save-cache \
+        --shell=zsh \
+        --shell-version=$ZSH_VERSION \
+        --status=$_omp_status \
+        --pipestatus="${_omp_pipestatus[*]}" \
+        --no-status=$_omp_no_status \
+        --execution-time=$_omp_execution_time \
+        --job-count=$_omp_job_count \
+        --stack-count=$_omp_stack_count \
+        --terminal-width="${COLUMNS-0}" \
+        ${args[@]}
+    }
 fi
 
 
