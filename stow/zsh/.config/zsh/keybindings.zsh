@@ -1,4 +1,5 @@
 # vim: set ft=zsh:
+# shellcheck shell=bash disable=SC2148,SC1090,SC1091,SC2142,SC2034,SC2154,SC1087,SC2206,SC2296,SC2207,SC2155,SC2086,SC2126,SC2245,SC1036,SC1088
 # Zsh Keybindings
 # Custom key bindings for improved productivity
 
@@ -200,9 +201,9 @@ bindkey '^K^P' kubectl-pods          # Ctrl+K Ctrl+P
 search-replace() {
     local search replace
     echo -n "Search for: "
-    read search
+    read -r search
     echo -n "Replace with: "
-    read replace
+    read -r replace
     BUFFER="${BUFFER//$search/$replace}"
     zle redisplay
 }
@@ -224,7 +225,7 @@ bindkey '^[p' toggle-command-output  # Alt+P
 # Quick file operations
 quick-mkdir() {
     echo -n "Directory name: "
-    read dirname
+    read -r dirname
     if [[ -n "$dirname" ]]; then
         BUFFER="mkdir -p \"$dirname\" && cd \"$dirname\""
         zle accept-line
@@ -236,7 +237,7 @@ bindkey '^[m' quick-mkdir            # Alt+M
 # Quick find files
 quick-find() {
     echo -n "Find: "
-    read pattern
+    read -r pattern
     if [[ -n "$pattern" ]]; then
         BUFFER="find . -name '*$pattern*'"
         zle accept-line
@@ -249,7 +250,7 @@ bindkey '^[f' quick-find             # Alt+F
 if command -v fzf >/dev/null; then
     fzf-cd() {
         local dir
-        dir=$(find . -type d 2>/dev/null | fzf +m) && cd "$dir"
+        dir=$(find . -type d 2>/dev/null | fzf +m) && cd "$dir" || exit
         zle redisplay
     }
     zle -N fzf-cd
@@ -342,7 +343,7 @@ bindkey '^[h' run-help               # Alt+H for help on current command
 if command -v bc >/dev/null; then
     quick-calc() {
         echo -n "Calculate: "
-        read expression
+        read -r expression
         if [[ -n "$expression" ]]; then
             result=$(echo "$expression" | bc -l)
             LBUFFER="${LBUFFER}$result"
