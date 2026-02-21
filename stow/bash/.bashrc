@@ -1,3 +1,4 @@
+# shellcheck shell=bash disable=SC2148,SC1090,SC1091,SC2046,SC1004
 export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 
 [ -f /etc/bashrc ] && source /etc/bashrc

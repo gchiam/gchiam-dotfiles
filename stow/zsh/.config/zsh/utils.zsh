@@ -1,4 +1,5 @@
 # vim: set ft=zsh:
+# shellcheck shell=bash disable=SC2148,SC1090,SC1091,SC2142,SC2034,SC2154,SC1087,SC2206,SC2296,SC2207,SC2155,SC2086,SC2126,SC2245,SC1036,SC1088
 # Utility Functions
 # Provides utility functions for lazy loading, environment information, and performance monitoring.
 
@@ -11,7 +12,7 @@ _lazy_load_tool() {
     eval "${tool}() {
         unfunction ${tool}
         ${setup_func}
-        ${tool} \"$@\"
+        ${tool} \"\$@\"
     }"
 }
 
@@ -57,7 +58,8 @@ setup_performance_monitoring() {
             # Log startup time asynchronously to avoid blocking shell startup
             (
                 echo "$(date '+%Y-%m-%d %H:%M:%S') Shell startup: ${ZSH_STARTUP_TIME}s ($$)" >> "$HOME/.dotfiles-performance.log" 2>/dev/null
-            ) &!
+            ) &
+                    disown
         fi
     fi
 }

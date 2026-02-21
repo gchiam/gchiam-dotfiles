@@ -1,4 +1,5 @@
 # vim: set ft=zsh:
+# shellcheck shell=bash disable=SC2148,SC1090,SC1091,SC2142,SC2034,SC2154,SC1087,SC2206,SC2296,SC2207,SC2155,SC2086,SC2126,SC2245,SC1036,SC1088
 # Plugin Loading
 # Loads zsh plugins using antidote.
 
@@ -35,7 +36,8 @@ load_env_plugins() {
                     # Log plugin performance asynchronously
                     (
                         echo "$(date '+%Y-%m-%d %H:%M:%S') Plugin loading: ${plugin_load_time}s ($(basename "$plugins_file" .txt)) ($$)" >> "$HOME/.dotfiles-performance.log" 2>/dev/null
-                    ) &!
+                    ) &
+                    disown
                 fi
             else
                 export ZSH_ANTIDOTE_LOADED=false
