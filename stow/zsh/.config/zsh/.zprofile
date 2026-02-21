@@ -1,4 +1,5 @@
 # vim: set filetype=sh:
+# shellcheck shell=bash disable=SC2148,SC1090,SC1091,SC2046,SC1004
 # Login shell configuration - runs once per login session
 
 #BEGIN ZETUP
