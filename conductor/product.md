@@ -31,6 +31,8 @@ or fork.
 - **Automated Setup**: One-command installation for new macOS machines.
 - **Profile Management**: Support for environment-specific configurations
   (Work vs. Personal).
+- **Unified Theme Orchestration**: System-wide synchronization of Catppuccin
+  theme flavors (Dark/Light) across all supported applications.
 - **Health & Performance Monitoring**: Built-in scripts to validate setup
   integrity and monitor startup performance.
 

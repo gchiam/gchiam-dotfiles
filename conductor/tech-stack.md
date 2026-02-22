@@ -29,6 +29,8 @@
 
 - **AeroSpace**: Tiling window manager for macOS, optimizing for
   keyboard-driven workspace management.
+- **fswatch**: Used for efficient, event-driven monitoring of system
+  preferences to trigger theme orchestration.
 - **Karabiner-Elements**: Advanced keyboard customization for remapping and
   complex modifications.
 - **Raycast**: Extensible application launcher with custom TypeScript-based
