@@ -29,6 +29,8 @@ or fork.
 ## Key Features
 
 - **Automated Setup**: One-command installation for new macOS machines.
+- **Robust Symlink Management**: Interactive conflict detection and resolution
+  (backup/diff/overwrite) during setup to safely migrate existing systems.
 - **Profile Management**: Support for environment-specific configurations
   (Work vs. Personal).
 - **Unified Theme Orchestration**: System-wide synchronization of Catppuccin
