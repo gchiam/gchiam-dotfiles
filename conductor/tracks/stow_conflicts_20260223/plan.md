@@ -13,7 +13,7 @@
 - [x] **Task: Conductor - User Manual Verification 'Foundation and Detection
       Logic' (Protocol in workflow.md)**
 
-## Phase 2: Interactive Resolution Interface
+## Phase 2: Interactive Resolution Interface [checkpoint: 0bc258c]
 
 - [x] **Task: Build Resolution Prompt**
   - [x] Implement the `resolve_conflict` function to present the [b]ackup,
@@ -22,7 +22,7 @@
 - [x] **Task: Implement Diff Integration**
   - [x] Add logic to check for `delta` and execute it for the [d]iff option.
   - [x] Provide a fallback to standard `diff -u` if `delta` is missing.
-- [ ] **Task: Conductor - User Manual Verification 'Interactive Resolution
+- [x] **Task: Conductor - User Manual Verification 'Interactive Resolution
       Interface' (Protocol in workflow.md)**
 
 ## Phase 3: Backup and Execution
