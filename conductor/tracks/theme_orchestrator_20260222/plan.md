@@ -19,16 +19,20 @@
 
 ## Phase 2: Application Integration
 
-- [~] **Task: Tmux Integration**
+- [x] **Task: Tmux Integration**
   - [ ] Update `bin/theme-sync.sh` to trigger `tmux source-file`.
   - [ ] Remove or deprecate old tmux theme watchers in `stow/custom-bin/bin/`.
-- [ ] **Task: Neovim Integration**
+- [x] **Task: Neovim Integration**
   - [ ] Modify Neovim config to listen for the unified theme signal.
   - [ ] Verify `auto-dark-mode.nvim` compatibility or replace with orchestrator
         signal.
-- [ ] **Task: Terminal Integration**
+- [x] **Task: Terminal Integration**
   - [ ] Ensure `alacritty.toml` and `wezterm.lua` correctly import the managed
         theme file.
   - [ ] Update orchestrator to rewrite the imported theme file on change.
 - [ ] **Task: Conductor - User Manual Verification 'Application Integration'
       (Protocol in workflow.md)**
+
+## Phase: Review Fixes
+
+- [x] Task: Apply review suggestions
