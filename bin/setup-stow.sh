@@ -10,24 +10,64 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 # Stow all configuration directories
 stow_dir="$DOTFILES_DIR/stow"
 
+resolve_conflict() {
+    local target="$1"
+    local source="$2"
+    local choice=""
+
+    while true; do
+        echo -n "Conflict at $target. [b]ackup, [d]iff, [o]verwrite, [s]kip? "
+        read -r choice
+        case "$choice" in
+            b|backup)
+                echo "Backing up $target to ${target}.bak"
+                mv "$target" "${target}.bak"
+                return 0
+                ;;
+            d|diff)
+                if command -v delta >/dev/null 2>&1; then
+                    delta "$target" "$source"
+                else
+                    diff -u "$target" "$source" | less
+                fi
+                ;;
+            o|overwrite)
+                echo "Overwriting $target"
+                rm -rf "$target"
+                return 0
+                ;;
+            s|skip)
+                echo "Skipping $target"
+                return 1
+                ;;
+            *)
+                echo "Invalid choice. Please enter b, d, o, or s."
+                ;;
+        esac
+    done
+}
+
 check_stow_conflicts() {
     local pkg="$1"
     local pkg_dir="$stow_dir/$pkg"
-    local conflict_found=0
+    local skip_pkg=0
 
     if [[ ! -d "$pkg_dir" ]]; then
         return 0
     fi
 
     # Find all files in the package (relative to package root)
-    # We use a temporary file to handle filenames with spaces
     local temp_files
     temp_files=$(mktemp)
     (cd "$pkg_dir" && find . -type f -o -type l) | sed 's|^\./||' > "$temp_files"
 
-    while IFS= read -r f; do
+    while IFS= read -u 3 -r f; do
         local target="$HOME/$f"
+        local source="$pkg_dir/$f"
+        
         if [[ -e "$target" || -L "$target" ]]; then
+            local is_conflict=0
+            
             # If it's a symlink, check where it points
             if [[ -L "$target" ]]; then
                 local link_target
@@ -37,22 +77,27 @@ check_stow_conflicts() {
                 local abs_link_target
                 abs_link_target=$(python3 -c "import os; print(os.path.abspath(os.path.join(os.path.dirname('$target'), '$link_target')))")
                 local abs_pkg_file
-                abs_pkg_file=$(python3 -c "import os; print(os.path.abspath('$pkg_dir/$f'))")
+                abs_pkg_file=$(python3 -c "import os; print(os.path.abspath('$source'))")
 
                 if [[ "$abs_link_target" != "$abs_pkg_file" ]]; then
-                    echo "Conflict detected: $target is a symlink pointing to $link_target"
-                    conflict_found=1
+                    is_conflict=1
                 fi
             else
                 # It's a regular file or directory
-                echo "Conflict detected: $target exists and is not a symlink"
-                conflict_found=1
+                is_conflict=1
+            fi
+
+            if [[ $is_conflict -eq 1 ]]; then
+                if ! resolve_conflict "$target" "$source"; then
+                    skip_pkg=1
+                    break
+                fi
             fi
         fi
-    done < "$temp_files"
+    done 3< "$temp_files"
     rm "$temp_files"
 
-    if [[ $conflict_found -eq 1 ]]; then
+    if [[ $skip_pkg -eq 1 ]]; then
         return 1
     fi
     return 0

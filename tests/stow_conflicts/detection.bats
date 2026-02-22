@@ -30,9 +30,10 @@ teardown() {
     mkdir -p "$MOCK_HOME/.config"
     echo "existing content" > "$MOCK_HOME/.config/test_file"
     
-    run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg"
+    # Pipe 's' to avoid hanging on read
+    run bash -c "source bin/setup-stow.sh && echo 's' | check_stow_conflicts test_pkg"
     [ "$status" -eq 1 ]
-    [[ "$output" == *"Conflict detected"* ]]
+    [[ "$output" == *"Conflict at"* ]]
 }
 
 @test "detects conflict when target is a symlink to somewhere else" {
@@ -41,9 +42,10 @@ teardown() {
     echo "other content" > "$TEST_DIR/other_place/other_file"
     ln -s "$TEST_DIR/other_place/other_file" "$MOCK_HOME/.config/test_file"
     
-    run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg"
+    # Pipe 's' to avoid hanging on read
+    run bash -c "source bin/setup-stow.sh && echo 's' | check_stow_conflicts test_pkg"
     [ "$status" -eq 1 ]
-    [[ "$output" == *"Conflict detected"* ]]
+    [[ "$output" == *"Conflict at"* ]]
 }
 
 @test "detects no conflict when target is already the correct symlink" {

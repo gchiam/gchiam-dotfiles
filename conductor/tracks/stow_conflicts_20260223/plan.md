@@ -15,13 +15,13 @@
 
 ## Phase 2: Interactive Resolution Interface
 
-- [ ] **Task: Build Resolution Prompt**
-  - [ ] Implement the `resolve_conflict` function to present the [b]ackup,
+- [x] **Task: Build Resolution Prompt**
+  - [x] Implement the `resolve_conflict` function to present the [b]ackup,
         [d]iff, [o]verwrite, [s]kip options.
-  - [ ] Add the input loop to handle user choices and validate input.
-- [ ] **Task: Implement Diff Integration**
-  - [ ] Add logic to check for `delta` and execute it for the [d]iff option.
-  - [ ] Provide a fallback to standard `diff -u` if `delta` is missing.
+  - [x] Add the input loop to handle user choices and validate input.
+- [x] **Task: Implement Diff Integration**
+  - [x] Add logic to check for `delta` and execute it for the [d]iff option.
+  - [x] Provide a fallback to standard `diff -u` if `delta` is missing.
 - [ ] **Task: Conductor - User Manual Verification 'Interactive Resolution
       Interface' (Protocol in workflow.md)**
 
