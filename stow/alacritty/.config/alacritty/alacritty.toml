@@ -569,6 +569,6 @@ y = 5
 
 [general]
 live_config_reload = true
-import = ["/Users/gchiam/.config/alacritty/catppuccin/catppuccin-frappe.toml"]
+import = ["/Users/gchiam/.config/alacritty/current_theme.toml"]
 
 [terminal]

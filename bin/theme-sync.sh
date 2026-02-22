@@ -6,6 +6,8 @@ set -euo pipefail
 
 PREFS_FILE="$HOME/Library/Preferences/.GlobalPreferences.plist"
 STATE_FILE="${CATPPUCCIN_STATE_FILE:-/tmp/catppuccin_flavor}"
+ALACRITTY_THEME_LINK="$HOME/.config/alacritty/current_theme.toml"
+ALACRITTY_THEMES_DIR="$HOME/.config/alacritty/catppuccin"
 
 get_system_theme() {
     if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q "Dark"; then
@@ -28,14 +30,19 @@ get_catppuccin_flavor() {
 broadcast_theme() {
     local flavor=$1
     echo "Broadcasting flavor: $flavor"
-    
+
     # 1. Update state file
     echo "$flavor" > "$STATE_FILE"
-    
-    # 2. Update Tmux
+
+    # 2. Update Alacritty symlink
+    local theme_file="$ALACRITTY_THEMES_DIR/catppuccin-$flavor.toml"
+    if [[ -f "$theme_file" ]]; then
+        ln -sf "$theme_file" "$ALACRITTY_THEME_LINK"
+    fi
+
+    # 3. Update Tmux
     if command -v tmux >/dev/null && tmux list-sessions >/dev/null 2>&1; then
         echo "Updating Tmux..."
-        # Source the main config which has the dynamic theme logic
         tmux source-file ~/.tmux.conf
     fi
 }
