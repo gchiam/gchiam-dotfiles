@@ -52,6 +52,10 @@ broadcast_theme() {
     if command -v zsh >/dev/null 2>&1; then
         echo "Updating Zsh Fast Syntax Highlighting..."
         zsh -c "source ~/.zshrc && fast-theme XDG:catppuccin-$flavor" >/dev/null 2>&1 || true
+        
+        # Notify all active zsh sessions via SIGUSR1
+        echo "Notifying active Zsh sessions..."
+        pkill -USR1 zsh || true
         echo "Done updating Zsh Fast Syntax Highlighting."
     fi
 

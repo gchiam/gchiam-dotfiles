@@ -378,6 +378,24 @@ zsh-perf() {
     esac
 }
 
+# Synchronize theme with the central orchestrator
+sync-theme() {
+    local state_file="/tmp/catppuccin_flavor"
+    if [[ -f "$state_file" ]]; then
+        local flavor
+        flavor=$(cat "$state_file" | tr -d '[:space:]')
+        if [[ -n "$flavor" ]]; then
+            # fast-theme is provided by fast-syntax-highlighting
+            if (( $+functions[fast-theme] )); then
+                fast-theme "XDG:catppuccin-$flavor" >/dev/null 2>&1
+            fi
+        fi
+    fi
+}
+
+# Listen for USR1 signal to trigger theme synchronization
+trap 'sync-theme' USR1
+
 # Clean up function definitions on shell exit
 cleanup_functions() {
     unset -f mkcd extract killp backup git-branch-clean git-last git-size myip port dush json

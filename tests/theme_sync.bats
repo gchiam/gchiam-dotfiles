@@ -26,6 +26,20 @@ echo "changed"
 EOF
     chmod +x "$MOCK_BIN_DIR/fswatch"
 
+    # Mock pkill
+    cat > "$MOCK_BIN_DIR/pkill" << 'EOF'
+#!/bin/bash
+echo "pkill $@" >> "$MOCK_BIN_DIR/pkill_log"
+EOF
+    chmod +x "$MOCK_BIN_DIR/pkill"
+
+    # Mock tmux
+    cat > "$MOCK_BIN_DIR/tmux" << 'EOF'
+#!/bin/bash
+echo "tmux $@" >> "$MOCK_BIN_DIR/tmux_log"
+EOF
+    chmod +x "$MOCK_BIN_DIR/tmux"
+
     export STATE_FILE=$(mktemp)
 }
 
@@ -65,8 +79,15 @@ teardown() {
 @test "broadcasts flavor to state file" {
     export MOCK_THEME="Dark"
     export CATPPUCCIN_STATE_FILE="$STATE_FILE"
-    # Run in watch mode, but fswatch is mocked to exit immediately
     run bin/theme-sync.sh --watch
     [ "$status" -eq 0 ]
     [ "$(cat "$STATE_FILE")" = "frappe" ]
+}
+
+@test "broadcasts signal to zsh sessions" {
+    export MOCK_THEME="Dark"
+    export CATPPUCCIN_STATE_FILE="$STATE_FILE"
+    run bin/theme-sync.sh --watch
+    [ "$status" -eq 0 ]
+    grep -q "pkill -USR1 zsh" "$MOCK_BIN_DIR/pkill_log"
 }
