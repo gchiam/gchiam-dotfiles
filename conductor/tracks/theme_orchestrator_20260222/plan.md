@@ -2,7 +2,7 @@
 
 ## Phase 1: Core Orchestrator Development
 
-- [ ] **Task: Foundation - Setup Test Environment**
+- [x] **Task: Foundation - Setup Test Environment**
   - [ ] Create a BATS test suite for theme detection.
   - [ ] Define the test cases for Dark and Light mode outputs.
 - [ ] **Task: Implement Core Script - `bin/theme-sync.sh`**
