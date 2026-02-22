@@ -27,13 +27,13 @@
 
 ## Phase 3: Backup and Execution
 
-- [ ] **Task: Implement Backup Logic**
-  - [ ] Add the actual `mv` command for the [b]ackup option, appending `.bak`.
-  - [ ] Implement the [o]verwrite logic using `rm -rf`.
-- [ ] **Task: Integrate with Main Stowing Loop**
-  - [ ] Update the main loop in `bin/setup-stow.sh` to call the detection engine
+- [x] **Task: Implement Backup Logic**
+  - [x] Add the actual `mv` command for the [b]ackup option, appending `.bak`.
+  - [x] Implement the [o]verwrite logic using `rm -rf`.
+- [x] **Task: Integrate with Main Stowing Loop**
+  - [x] Update the main loop in `bin/setup-stow.sh` to call the detection engine
         before stowing each package.
-  - [ ] Ensure that selecting [s]kip correctly prevents the `stow` command for
+  - [x] Ensure that selecting [s]kip correctly prevents the `stow` command for
         that package.
 - [ ] **Task: Conductor - User Manual Verification 'Backup and Execution'
       (Protocol in workflow.md)**
