@@ -6,6 +6,7 @@ set -euo pipefail
 
 # Configuration
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
+NON_INTERACTIVE=false
 
 # Stow all configuration directories
 stow_dir="$DOTFILES_DIR/stow"
@@ -15,11 +16,20 @@ resolve_conflict() {
     local source="$2"
     local choice=""
 
+    if [[ "$NON_INTERACTIVE" == true ]]; then
+        echo "Non-interactive mode: Skipping conflict at $target"
+        return 1
+    fi
+
     while true; do
         echo -n "Conflict at $target. [b]ackup, [d]iff, [o]verwrite, [s]kip? "
         read -r choice
         case "$choice" in
             b|backup)
+                if [[ ! -w "$(dirname "$target")" ]]; then
+                    echo "Error: No write permission for $(dirname "$target")" >&2
+                    return 1
+                fi
                 echo "Backing up $target to ${target}.bak"
                 mv "$target" "${target}.bak"
                 return 0
@@ -32,6 +42,12 @@ resolve_conflict() {
                 fi
                 ;;
             o|overwrite)
+                if [[ ! -w "$target" ]] && [[ -e "$target" ]]; then
+                     if [[ ! -w "$(dirname "$target")" ]]; then
+                        echo "Error: No write permission to delete $target" >&2
+                        return 1
+                     fi
+                fi
                 echo "Overwriting $target"
                 rm -rf "$target"
                 return 0
@@ -104,6 +120,24 @@ check_stow_conflicts() {
 }
 
 main() {
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --non-interactive)
+                NON_INTERACTIVE=true
+                shift
+                ;;
+            -h|--help)
+                echo "Usage: $0 [--non-interactive]"
+                exit 0
+                ;;
+            *)
+                echo "Unknown option: $1" >&2
+                exit 1
+                ;;
+        esac
+    done
+
     if [[ ! -d "$stow_dir" ]]; then
         echo "Error: Stow directory $stow_dir does not exist" >&2
         exit 1

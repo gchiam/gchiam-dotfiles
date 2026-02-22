@@ -40,10 +40,10 @@
 
 ## Phase 4: Finalization and Safety Checks
 
-- [ ] **Task: Add Safety Guards**
-  - [ ] Ensure the script handles edge cases like file permission errors.
-  - [ ] Add a `--non-interactive` flag to bypass prompts (defaulting to skip).
-- [ ] **Task: Final Verification and Documentation**
+- [x] **Task: Add Safety Guards**
+  - [x] Ensure the script handles edge cases like file permission errors.
+  - [x] Add a `--non-interactive` flag to bypass prompts (defaulting to skip).
+- [~] **Task: Final Verification and Documentation**
   - [ ] Run full BATS test suite across all resolution scenarios.
   - [ ] Update `docs/troubleshooting.md` or similar with notes on conflict
         resolution.

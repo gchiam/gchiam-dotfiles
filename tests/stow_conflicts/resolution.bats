@@ -19,7 +19,6 @@ teardown() {
 }
 
 @test "resolves conflict with backup" {
-    # Simulate typing 'b'
     run bash -c "source bin/setup-stow.sh && echo 'b' | check_stow_conflicts test_pkg"
     [ "$status" -eq 0 ]
     [ -f "$MOCK_HOME/.config/test_file.bak" ]
@@ -28,16 +27,21 @@ teardown() {
 }
 
 @test "resolves conflict with overwrite" {
-    # Simulate typing 'o'
     run bash -c "source bin/setup-stow.sh && echo 'o' | check_stow_conflicts test_pkg"
     [ "$status" -eq 0 ]
     [ ! -e "$MOCK_HOME/.config/test_file" ]
 }
 
 @test "resolves conflict with skip" {
-    # Simulate typing 's'
     run bash -c "source bin/setup-stow.sh && echo 's' | check_stow_conflicts test_pkg"
     [ "$status" -eq 1 ]
     [ -f "$MOCK_HOME/.config/test_file" ]
     [ "$(cat "$MOCK_HOME/.config/test_file")" = "existing content" ]
+}
+
+@test "skips automatically in non-interactive mode" {
+    run bash -c "source bin/setup-stow.sh && NON_INTERACTIVE=true check_stow_conflicts test_pkg"
+    [ "$status" -eq 1 ]
+    [[ "$output" == *"Non-interactive mode: Skipping"* ]]
+    [ -f "$MOCK_HOME/.config/test_file" ]
 }
