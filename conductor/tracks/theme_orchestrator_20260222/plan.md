@@ -5,7 +5,7 @@
 - [x] **Task: Foundation - Setup Test Environment**
   - [ ] Create a BATS test suite for theme detection.
   - [ ] Define the test cases for Dark and Light mode outputs.
-- [ ] **Task: Implement Core Script - `bin/theme-sync.sh`**
+- [x] **Task: Implement Core Script - `bin/theme-sync.sh`**
   - [ ] Create the script with basic shebang and error handling.
   - [ ] Implement macOS theme detection logic using `defaults`.
   - [ ] Add `fswatch` integration for real-time monitoring.

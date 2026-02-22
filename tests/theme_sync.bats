@@ -1,21 +1,29 @@
 #!/usr/bin/env bats
 
 setup() {
-    # Mock defaults command
-    mock_defaults() {
-        if [[ "$*" == "read -g AppleInterfaceStyle" ]]; then
-            if [[ "$MOCK_THEME" == "Dark" ]]; then
-                echo "Dark"
-                return 0
-            else
-                echo "Error: The Windows key has not been defined" >&2
-                return 1
-            fi
-        fi
-        command defaults "$@"
-    }
-    export -f mock_defaults
-    alias defaults=mock_defaults
+    # Create a temporary directory for our mock commands
+    MOCK_BIN_DIR=$(mktemp -d)
+    export PATH="$MOCK_BIN_DIR:$PATH"
+    
+    # Create mock defaults command
+    cat > "$MOCK_BIN_DIR/defaults" << 'EOF'
+#!/bin/bash
+if [[ "$*" == "read -g AppleInterfaceStyle" ]]; then
+    if [[ "$MOCK_THEME" == "Dark" ]]; then
+        echo "Dark"
+        exit 0
+    else
+        echo "Error: The Windows key has not been defined" >&2
+        exit 1
+    fi
+fi
+exec /usr/bin/defaults "$@"
+EOF
+    chmod +x "$MOCK_BIN_DIR/defaults"
+}
+
+teardown() {
+    rm -rf "$MOCK_BIN_DIR"
 }
 
 @test "detects Dark mode correctly" {
