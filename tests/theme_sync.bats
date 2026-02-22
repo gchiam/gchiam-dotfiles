@@ -1,11 +1,9 @@
 #!/usr/bin/env bats
 
 setup() {
-    # Create a temporary directory for our mock commands
     MOCK_BIN_DIR=$(mktemp -d)
     export PATH="$MOCK_BIN_DIR:$PATH"
     
-    # Create mock defaults command
     cat > "$MOCK_BIN_DIR/defaults" << 'EOF'
 #!/bin/bash
 if [[ "$*" == "read -g AppleInterfaceStyle" ]]; then
@@ -20,10 +18,20 @@ fi
 exec /usr/bin/defaults "$@"
 EOF
     chmod +x "$MOCK_BIN_DIR/defaults"
+
+    # Mock fswatch to run once and exit
+    cat > "$MOCK_BIN_DIR/fswatch" << 'EOF'
+#!/bin/bash
+echo "changed"
+EOF
+    chmod +x "$MOCK_BIN_DIR/fswatch"
+
+    export STATE_FILE=$(mktemp)
 }
 
 teardown() {
     rm -rf "$MOCK_BIN_DIR"
+    rm -f "$STATE_FILE"
 }
 
 @test "detects Dark mode correctly" {
@@ -52,4 +60,13 @@ teardown() {
     run bin/theme-sync.sh --flavor
     [ "$status" -eq 0 ]
     [ "$output" = "latte" ]
+}
+
+@test "broadcasts flavor to state file" {
+    export MOCK_THEME="Dark"
+    export CATPPUCCIN_STATE_FILE="$STATE_FILE"
+    # Run in watch mode, but fswatch is mocked to exit immediately
+    run bin/theme-sync.sh --watch
+    [ "$status" -eq 0 ]
+    [ "$(cat "$STATE_FILE")" = "frappe" ]
 }

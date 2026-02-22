@@ -10,7 +10,7 @@
   - [ ] Implement macOS theme detection logic using `defaults`.
   - [ ] Add `fswatch` integration for real-time monitoring.
   - [ ] Ensure the script handles the initial state on startup.
-- [ ] **Task: Implement Theme Broadcasting Logic**
+- [x] **Task: Implement Theme Broadcasting Logic**
   - [ ] Add logic to determine Catppuccin flavor (Frappe/Latte).
   - [ ] Implement a mechanism to notify other shells (e.g., via a state file in
         `/tmp/`).

@@ -5,6 +5,7 @@ set -euo pipefail
 # Centralizes and automates system-wide theme switching (Dark/Light mode)
 
 PREFS_FILE="$HOME/Library/Preferences/.GlobalPreferences.plist"
+STATE_FILE="${CATPPUCCIN_STATE_FILE:-/tmp/catppuccin_flavor}"
 
 get_system_theme() {
     if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q "Dark"; then
@@ -22,6 +23,12 @@ get_catppuccin_flavor() {
     else
         echo "latte"
     fi
+}
+
+broadcast_theme() {
+    local flavor=$1
+    echo "Broadcasting flavor: $flavor"
+    echo "$flavor" > "$STATE_FILE"
 }
 
 # Handle command line arguments
@@ -58,14 +65,14 @@ echo "Monitoring $PREFS_FILE for appearance changes..."
 
 # Handle initial state
 CURRENT_FLAVOR=$(get_catppuccin_flavor)
-echo "Initial flavor: $CURRENT_FLAVOR"
+broadcast_theme "$CURRENT_FLAVOR"
 
 # Watch for changes
 fswatch -o "$PREFS_FILE" | while read -r _; do
     NEW_FLAVOR=$(get_catppuccin_flavor)
     if [[ "$NEW_FLAVOR" != "$CURRENT_FLAVOR" ]]; then
         echo "$(date): Theme changed to $NEW_FLAVOR"
-        # Broadcasting logic will be added in the next task
+        broadcast_theme "$NEW_FLAVOR"
         CURRENT_FLAVOR="$NEW_FLAVOR"
     fi
 done
