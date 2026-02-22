@@ -25,7 +25,7 @@
 - [x] **Task: Conductor - User Manual Verification 'Interactive Resolution
       Interface' (Protocol in workflow.md)**
 
-## Phase 3: Backup and Execution
+## Phase 3: Backup and Execution [checkpoint: 431df88]
 
 - [x] **Task: Implement Backup Logic**
   - [x] Add the actual `mv` command for the [b]ackup option, appending `.bak`.
@@ -35,7 +35,7 @@
         before stowing each package.
   - [x] Ensure that selecting [s]kip correctly prevents the `stow` command for
         that package.
-- [ ] **Task: Conductor - User Manual Verification 'Backup and Execution'
+- [x] **Task: Conductor - User Manual Verification 'Backup and Execution'
       (Protocol in workflow.md)**
 
 ## Phase 4: Finalization and Safety Checks
