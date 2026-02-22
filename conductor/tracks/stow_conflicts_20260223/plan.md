@@ -2,13 +2,13 @@
 
 ## Phase 1: Foundation and Detection Logic
 
-- [ ] **Task: Setup Test Environment**
-  - [ ] Create a dedicated directory structure for testing conflicts (simulated
+- [x] **Task: Setup Test Environment**
+  - [x] Create a dedicated directory structure for testing conflicts (simulated
         `$HOME` and dotfiles).
-  - [ ] Write initial BATS tests to detect existing files vs. symlinks.
-- [ ] **Task: Implement Core Detection Engine**
-  - [ ] Create a helper function `check_stow_conflicts` in `bin/setup-stow.sh`.
-  - [ ] Implement logic to identify regular files, different symlinks, and
+  - [x] Write initial BATS tests to detect existing files vs. symlinks.
+- [x] **Task: Implement Core Detection Engine**
+  - [x] Create a helper function `check_stow_conflicts` in `bin/setup-stow.sh`.
+  - [x] Implement logic to identify regular files, different symlinks, and
         directories in target paths.
 - [ ] **Task: Conductor - User Manual Verification 'Foundation and Detection
       Logic' (Protocol in workflow.md)**
