@@ -1,6 +1,6 @@
 # Implementation Plan: Stow Conflict Detection and Backup
 
-## Phase 1: Foundation and Detection Logic
+## Phase 1: Foundation and Detection Logic [checkpoint: a5463b1]
 
 - [x] **Task: Setup Test Environment**
   - [x] Create a dedicated directory structure for testing conflicts (simulated
@@ -10,7 +10,7 @@
   - [x] Create a helper function `check_stow_conflicts` in `bin/setup-stow.sh`.
   - [x] Implement logic to identify regular files, different symlinks, and
         directories in target paths.
-- [ ] **Task: Conductor - User Manual Verification 'Foundation and Detection
+- [x] **Task: Conductor - User Manual Verification 'Foundation and Detection
       Logic' (Protocol in workflow.md)**
 
 ## Phase 2: Interactive Resolution Interface
