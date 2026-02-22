@@ -44,13 +44,18 @@ broadcast_theme() {
     if command -v tmux >/dev/null && tmux list-sessions >/dev/null 2>&1; then
         echo "Updating Tmux..."
         tmux source-file ~/.tmux.conf
+        echo "Done updating Tmux."
     fi
 
     # 4. Update Zsh Fast Syntax Highlighting
-    if command -v fast-theme >/dev/null 2>&1; then
+    # fast-theme is a zsh function, so we need to run it via zsh -c
+    if command -v zsh >/dev/null 2>&1; then
         echo "Updating Zsh Fast Syntax Highlighting..."
-        fast-theme "XDG:catppuccin-$flavor"
+        zsh -c "source ~/.zshrc && fast-theme XDG:catppuccin-$flavor" >/dev/null 2>&1 || true
+        echo "Done updating Zsh Fast Syntax Highlighting."
     fi
+
+    echo "Theme broadcast complete."
 }
 
 # Handle command line arguments
