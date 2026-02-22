@@ -19,7 +19,7 @@
 
 ## Phase 2: Application Integration
 
-- [ ] **Task: Tmux Integration**
+- [~] **Task: Tmux Integration**
   - [ ] Update `bin/theme-sync.sh` to trigger `tmux source-file`.
   - [ ] Remove or deprecate old tmux theme watchers in `stow/custom-bin/bin/`.
 - [ ] **Task: Neovim Integration**

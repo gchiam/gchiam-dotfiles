@@ -28,7 +28,16 @@ get_catppuccin_flavor() {
 broadcast_theme() {
     local flavor=$1
     echo "Broadcasting flavor: $flavor"
+    
+    # 1. Update state file
     echo "$flavor" > "$STATE_FILE"
+    
+    # 2. Update Tmux
+    if command -v tmux >/dev/null && tmux list-sessions >/dev/null 2>&1; then
+        echo "Updating Tmux..."
+        # Source the main config which has the dynamic theme logic
+        tmux source-file ~/.tmux.conf
+    fi
 }
 
 # Handle command line arguments
