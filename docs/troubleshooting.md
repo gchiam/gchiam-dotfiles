@@ -41,15 +41,27 @@ sudo chown -R $USER:$USER ~/.dotfiles
 
 **Solutions**:
 
+The `bin/setup-stow.sh` script now includes an **Interactive Resolution Mode**
+to handle these conflicts automatically. When a conflict is detected, you will
+be prompted with several options:
+
+- **[b]ackup**: Renames the existing file to `<filename>.bak` and proceeds with
+  stowing.
+- **[d]iff**: Shows a side-by-side comparison between your existing file and the
+  dotfiles version (uses `delta` if installed).
+- **[o]verwrite**: Deletes the existing file/directory and replaces it with the
+  dotfiles symlink.
+- **[s]kip**: Skips stowing the current package and leaves your existing file
+  untouched.
+
+**Manual fixes**:
+
 ```bash
-# Remove conflicting files/directories first
+# Use the --non-interactive flag to skip all conflicts automatically
+./bin/setup-stow.sh --non-interactive
+
+# Or manually remove conflicting files/directories
 rm ~/.zshrc  # or move to backup
-
-# Use --adopt flag to adopt existing files
-stow --adopt -d stow -t ~ zsh
-
-# Force restow (overwrites existing)
-stow -R -d stow -t ~ zsh
 ```
 
 ### 🍺 Homebrew Installation Fails

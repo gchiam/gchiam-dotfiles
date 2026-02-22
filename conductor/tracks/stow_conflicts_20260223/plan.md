@@ -43,9 +43,9 @@
 - [x] **Task: Add Safety Guards**
   - [x] Ensure the script handles edge cases like file permission errors.
   - [x] Add a `--non-interactive` flag to bypass prompts (defaulting to skip).
-- [~] **Task: Final Verification and Documentation**
-  - [ ] Run full BATS test suite across all resolution scenarios.
-  - [ ] Update `docs/troubleshooting.md` or similar with notes on conflict
+- [x] **Task: Final Verification and Documentation**
+  - [x] Run full BATS test suite across all resolution scenarios.
+  - [x] Update `docs/troubleshooting.md` or similar with notes on conflict
         resolution.
-- [ ] **Task: Conductor - User Manual Verification 'Finalization and Safety
+- [x] **Task: Conductor - User Manual Verification 'Finalization and Safety
       Checks' (Protocol in workflow.md)**
