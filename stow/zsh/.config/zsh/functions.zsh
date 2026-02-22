@@ -389,6 +389,13 @@ sync-theme() {
             if (( $+functions[fast-theme] )); then
                 fast-theme "XDG:catppuccin-$flavor" >/dev/null 2>&1
             fi
+
+            # Update FZF theme
+            local dotfiles_dir="${DOTFILES_DIR:-$HOME/projects/gchiam-dotfiles}"
+            local fzf_theme="$dotfiles_dir/external/catppuccin/fzf/themes/catppuccin-fzf-$flavor.sh"
+            if [[ -f "$fzf_theme" ]]; then
+                source "$fzf_theme"
+            fi
         fi
     fi
 }

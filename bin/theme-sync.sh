@@ -47,16 +47,29 @@ broadcast_theme() {
         echo "Done updating Tmux."
     fi
 
-    # 4. Update Zsh Fast Syntax Highlighting
+    # 4. Update Zsh and FZF
     # fast-theme is a zsh function, so we need to run it via zsh -c
     if command -v zsh >/dev/null 2>&1; then
-        echo "Updating Zsh Fast Syntax Highlighting..."
+        echo "Updating Zsh Fast Syntax Highlighting and FZF..."
+        
+        # Determine dotfiles directory
+        local script_dir
+        script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+        local dotfiles_dir
+        dotfiles_dir="${DOTFILES_DIR:-$(dirname "$script_dir")}"
+        
+        # Update current shell environment (for the script process itself)
+        local fzf_theme="$dotfiles_dir/external/catppuccin/fzf/themes/catppuccin-fzf-$flavor.sh"
+        if [[ -f "$fzf_theme" ]]; then
+            source "$fzf_theme"
+        fi
+
         zsh -c "source ~/.zshrc && fast-theme XDG:catppuccin-$flavor" >/dev/null 2>&1 || true
         
         # Notify all active zsh sessions via SIGUSR1
         echo "Notifying active Zsh sessions..."
         pkill -USR1 zsh || true
-        echo "Done updating Zsh Fast Syntax Highlighting."
+        echo "Done updating Zsh and FZF."
     fi
 
     echo "Theme broadcast complete."

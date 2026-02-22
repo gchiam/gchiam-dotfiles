@@ -19,3 +19,6 @@
 [submodule "external/catppuccin/alacritty"]
 	path = external/catppuccin/alacritty
 	url = https://github.com/catppuccin/alacritty.git
+[submodule "external/catppuccin/fzf"]
+	path = external/catppuccin/fzf
+	url = https://github.com/catppuccin/fzf

@@ -29,14 +29,14 @@ EOF
     # Mock pkill
     cat > "$MOCK_BIN_DIR/pkill" << 'EOF'
 #!/bin/bash
-echo "pkill $@" >> "$MOCK_BIN_DIR/pkill_log"
+echo "pkill $@" >> "$(dirname "$0")/pkill_log"
 EOF
     chmod +x "$MOCK_BIN_DIR/pkill"
 
     # Mock tmux
     cat > "$MOCK_BIN_DIR/tmux" << 'EOF'
 #!/bin/bash
-echo "tmux $@" >> "$MOCK_BIN_DIR/tmux_log"
+echo "tmux $@" >> "$(dirname "$0")/tmux_log"
 EOF
     chmod +x "$MOCK_BIN_DIR/tmux"
 
