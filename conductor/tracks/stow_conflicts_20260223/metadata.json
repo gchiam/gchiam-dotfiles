@@ -1,0 +1,8 @@
+{
+  "track_id": "stow_conflicts_20260223",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-23T00:00:00Z",
+  "updated_at": "2026-02-23T00:00:00Z",
+  "description": "Add conflict detection and backup to setup-stow.sh"
+}
