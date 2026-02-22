@@ -45,6 +45,12 @@ broadcast_theme() {
         echo "Updating Tmux..."
         tmux source-file ~/.tmux.conf
     fi
+
+    # 4. Update Zsh Fast Syntax Highlighting
+    if command -v fast-theme >/dev/null 2>&1; then
+        echo "Updating Zsh Fast Syntax Highlighting..."
+        fast-theme "XDG:catppuccin-$flavor"
+    fi
 }
 
 # Handle command line arguments
