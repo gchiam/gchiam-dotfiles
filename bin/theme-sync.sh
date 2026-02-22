@@ -61,6 +61,7 @@ broadcast_theme() {
         # Update current shell environment (for the script process itself)
         local fzf_theme="$dotfiles_dir/external/catppuccin/fzf/themes/catppuccin-fzf-$flavor.sh"
         if [[ -f "$fzf_theme" ]]; then
+            # shellcheck disable=SC1090
             source "$fzf_theme"
         fi
 
