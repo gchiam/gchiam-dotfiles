@@ -65,7 +65,7 @@ broadcast_theme() {
             source "$fzf_theme"
         fi
 
-        fast-theme XDG:catppuccin-$flavor >/dev/null 2>&1 || true
+        fast-theme XDG:catppuccin-"$flavor" >/dev/null 2>&1 || true
         
         # Notify all active zsh sessions via SIGUSR1
         echo "Notifying active Zsh sessions..."
