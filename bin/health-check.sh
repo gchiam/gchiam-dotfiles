@@ -264,6 +264,32 @@ check_theme_setup() {
     fi
 }
 
+check_xdg_compliance() {
+    echo -e "\n${BLUE}=== XDG Compliance ===${NC}"
+    
+    xdg_vars=("XDG_CONFIG_HOME" "XDG_DATA_HOME" "XDG_CACHE_HOME" "XDG_STATE_HOME")
+    for var in "${xdg_vars[@]}"; do
+        if [[ -n "${!var:-}" ]]; then
+            check_pass "$var is set to ${!var}"
+            if [[ -d "${!var}" ]]; then
+                check_pass "Directory ${!var} exists"
+            else
+                check_warn "Directory ${!var} does not exist"
+            fi
+        else
+            check_warn "$var is not set explicitly (using defaults)"
+        fi
+    done
+    
+    # Check for stateful files that should be relocated
+    deprecated_files=(".notes" ".work-time.log" ".dotfiles-sync.log" ".dotfiles-performance.log" ".dotfiles-health-monitor.log")
+    for file in "${deprecated_files[@]}"; do
+        if [[ -f "${HOME}/$file" ]]; then
+            check_warn "Deprecated file found in HOME: ~/$file (should be in XDG paths)"
+        fi
+    done
+}
+
 check_performance() {
     echo -e "\n${BLUE}=== Performance ===${NC}"
     
@@ -297,6 +323,7 @@ main() {
     check_development_tools
     check_dotfiles_structure
     check_theme_setup
+    check_xdg_compliance
     check_performance
     
     # Summary

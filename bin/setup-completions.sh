@@ -212,7 +212,7 @@ if [[ -f \"\$HOME/.config/zsh/completions/_dotfiles\" ]]; then
 fi
 
 # Enable completion system
-autoload -U compinit && compinit -d \"\$HOME/.zcompdump\"
+autoload -U compinit && compinit -d \"\${XDG_CACHE_HOME:-\$HOME/.cache}/zsh/zcompdump\"
 
 # Completion style configuration
 zstyle ':completion:*' menu select

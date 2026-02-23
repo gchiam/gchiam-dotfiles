@@ -103,6 +103,19 @@ The `stow/custom-bin/bin/` directory contains improved utilities:
 Consistent Catppuccin theming across all applications via
 `external/catppuccin/` configurations.
 
+## 📁 XDG Compliance Standards
+
+The project adheres to the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+to keep the `$HOME` directory clean:
+
+- **Configuration**: `${XDG_CONFIG_HOME:-$HOME/.config}`
+- **Data**: `${XDG_DATA_HOME:-$HOME/.local/share}`
+- **State/Logs**: `${XDG_STATE_HOME:-$HOME/.local/state}`
+- **Cache**: `${XDG_CACHE_HOME:-$HOME/.cache}`
+
+All custom scripts and shell configurations are designed to use these paths
+with standard defaults when environment variables are not explicitly set.
+
 ## 🍎 macOS-Specific Components
 
 ### 🪟 Window Management

@@ -37,6 +37,9 @@ or fork.
   theme flavors (Dark/Light) across all supported applications.
 - **Health & Performance Monitoring**: Built-in scripts to validate setup
   integrity and monitor startup performance.
+- **Standardized XDG Compliance**: Redirects all stateful files, logs, and
+  persistent data to standard XDG Base Directory locations to maintain a
+  clean $HOME directory.
 
 ## Success Metrics
 

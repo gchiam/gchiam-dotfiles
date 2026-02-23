@@ -24,7 +24,14 @@ else
 fi
 
 # Configuration
-PERFORMANCE_LOG="$HOME/.dotfiles-performance.log"
+# Constants
+REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+# shellcheck source=bin/utils.sh
+source "$REPO_ROOT/bin/utils.sh"
+
+# XDG paths for logs
+PERFORMANCE_LOG="$(get_xdg_path STATE)/dotfiles/performance.log"
+ensure_dir "$PERFORMANCE_LOG"
 BENCHMARK_RUNS=5
 STARTUP_THRESHOLD=1.0  # seconds
 WARNING_THRESHOLD=2.0  # seconds
@@ -393,9 +400,10 @@ if command -v brew >/dev/null 2>&1 && [[ -z "${BREW_PREFIX:-}" ]]; then
 fi
 
 # Optimize zsh completion
-if [[ -d ~/.zcompdump ]]; then
+local zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+if [[ -f "$zcompdump" ]] || [[ -d "$zcompdump" ]]; then
     print_info "Cleaning zsh completion cache..."
-    rm -f ~/.zcompdump*
+    rm -f "$zcompdump"*
     print_success "Completion cache cleaned"
 fi
 

@@ -7,7 +7,10 @@ export EDITOR
 EDITOR="$(which nvim)"
 export BAT_PAGER="less -RF"
 export LC_CTYPE="en_US.UTF-8"
-export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export PYTHONDONTWRITEBYTECODE=1
 export CLOUDSDK_PYTHON=python3
 export HOMEBREW_BUNDLE_NO_LOCK=1

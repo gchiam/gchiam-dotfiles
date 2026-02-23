@@ -46,7 +46,8 @@ work-project() {
 # Work time tracking
 work-time() {
     local action="$1"
-    local time_file="$HOME/.work-time.log"
+    local time_file="${XDG_DATA_HOME:-$HOME/.local/share}/dotfiles/work-time.log"
+    mkdir -p "$(dirname "$time_file")"
     
     case "$action" in
         start|in)

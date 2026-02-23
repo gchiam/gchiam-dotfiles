@@ -10,7 +10,7 @@ if [ -z "$AGENTS" ]; then
   exit 1
 fi
 
-SKILLS_FILE="$HOME/.agents/.skill-lock.json"
+SKILLS_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/agents/skill-lock.json"
 
 # Validate skills file existence
 if [ ! -f "$SKILLS_FILE" ]; then

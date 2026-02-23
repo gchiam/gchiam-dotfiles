@@ -49,3 +49,8 @@
 
 - **Catppuccin**: A unified, high-quality color scheme applied across all
   supported applications for visual consistency.
+
+## Standards
+
+- **XDG Base Directory Specification**: Adherence to standard paths for
+  configuration, data, state, and cache across all custom scripts.

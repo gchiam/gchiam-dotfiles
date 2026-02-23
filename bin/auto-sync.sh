@@ -42,16 +42,21 @@ print_info() {
 }
 
 # Configuration
-SYNC_LOG="$HOME/.dotfiles-sync.log"
 DRY_RUN=false
 FORCE_SYNC=false
 AUTO_COMMIT=true
 AUTO_PUSH=false
 CHECK_INTERVAL=7  # days
-LAST_SYNC_FILE="$HOME/.dotfiles-last-sync"
 
 # Get repository root
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+# shellcheck source=bin/utils.sh
+source "$REPO_ROOT/bin/utils.sh"
+
+# XDG paths for logs and state
+SYNC_LOG="$(get_xdg_path STATE)/dotfiles/sync.log"
+LAST_SYNC_FILE="$(get_xdg_path STATE)/dotfiles/last-sync"
+ensure_dir "$SYNC_LOG"
 
 # Logging function
 log_action() {
@@ -336,9 +341,9 @@ setup_automation() {
     <key>RunAtLoad</key>
     <false/>
     <key>StandardOutPath</key>
-    <string>$HOME/.dotfiles-sync-stdout.log</string>
+    <string>$(get_xdg_path STATE)/dotfiles/sync-stdout.log</string>
     <key>StandardErrorPath</key>
-    <string>$HOME/.dotfiles-sync-stderr.log</string>
+    <string>$(get_xdg_path STATE)/dotfiles/sync-stderr.log</string>
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>
@@ -404,6 +409,7 @@ show_status() {
     echo "Check interval: $CHECK_INTERVAL days"
     echo "Auto commit: $AUTO_COMMIT"
     echo "Auto push: $AUTO_PUSH"
+    echo "Sync log: $SYNC_LOG"
     
     # Check automation status
     if [[ -f "$HOME/Library/LaunchAgents/com.gchiam.dotfiles-sync.plist" ]]; then

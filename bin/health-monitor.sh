@@ -48,9 +48,16 @@ print_metric() {
 }
 
 # Configuration
-MONITOR_LOG="$HOME/.dotfiles-health-monitor.log"
-ALERT_LOG="$HOME/.dotfiles-alerts.log"
-STATUS_FILE="$HOME/.dotfiles-health-status.json"
+# Constants
+REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+# shellcheck source=bin/utils.sh
+source "$REPO_ROOT/bin/utils.sh"
+
+# XDG paths for logs and status
+MONITOR_LOG="$(get_xdg_path STATE)/dotfiles/health-monitor.log"
+ALERT_LOG="$(get_xdg_path STATE)/dotfiles/alerts.log"
+STATUS_FILE="$(get_xdg_path STATE)/dotfiles/health-status.json"
+ensure_dir "$MONITOR_LOG"
 CONFIG_DIR="$HOME/.config/dotfiles-monitor"
 ALERTS_ENABLED=true
 MONITORING_INTERVAL=300  # 5 minutes
@@ -537,9 +544,9 @@ setup_automation() {
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>$HOME/.dotfiles-health-monitor-stdout.log</string>
+    <string>$(get_xdg_path STATE)/dotfiles/health-monitor-stdout.log</string>
     <key>StandardErrorPath</key>
-    <string>$HOME/.dotfiles-health-monitor-stderr.log</string>
+    <string>$(get_xdg_path STATE)/dotfiles/health-monitor-stderr.log</string>
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>

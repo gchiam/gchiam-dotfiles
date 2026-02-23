@@ -7,7 +7,14 @@ set -euo pipefail
 # Configuration
 DOTFILES_SOURCE="${DOTFILES_SOURCE:-$HOME/projects/gchiam-dotfiles}"
 PROFILES_DIR="$DOTFILES_SOURCE/profiles"
-CURRENT_PROFILE_FILE="$HOME/.dotfiles-profile"
+# Constants
+REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+# shellcheck source=bin/utils.sh
+source "$REPO_ROOT/bin/utils.sh"
+
+# XDG paths for profile state
+CURRENT_PROFILE_FILE="$(get_xdg_path STATE)/dotfiles/profile"
+ensure_dir "$CURRENT_PROFILE_FILE"
 
 # Colors
 RED='\033[0;31m'

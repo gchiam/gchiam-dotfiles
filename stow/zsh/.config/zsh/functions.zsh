@@ -231,7 +231,8 @@ genpass() {
 
 # Quick notes
 note() {
-    local notes_file="$HOME/.notes"
+    local notes_file="${XDG_DATA_HOME:-$HOME/.local/share}/dotfiles/notes"
+    mkdir -p "$(dirname "$notes_file")"
     if [[ $# -eq 0 ]]; then
         if [[ -f "$notes_file" ]]; then
             cat "$notes_file"

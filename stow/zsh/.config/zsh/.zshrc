@@ -22,7 +22,7 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 # Initialize completion system for compdef support
 autoload -Uz compinit
-compinit -C
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
 
 # History configuration handled by environment.zsh

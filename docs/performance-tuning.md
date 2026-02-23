@@ -379,7 +379,7 @@ optimize_disk_io() {
     fi
     
     # Optimize file operations
-    export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
+    export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
     
     # Batch file operations
     defer_file_operations() {
