@@ -5,11 +5,11 @@ dotfiles repository.
 
 ## 🧭 Navigation
 
-| Direction | Link | Description |
-| --------- | ---- | ----------- |
-| ⬅️ **Back** | [Main README](../README.md) | Return to repository overview |
+| Direction    | Link                                 | Description                   |
+| ------------ | ------------------------------------ | ----------------------------- |
+| ⬅️ **Back**  | [Main README](../README.md)          | Return to repository overview |
 | 🚀 **Setup** | [Installation Guide](setup-guide.md) | Get started with installation |
-| 📋 **Next** | [Workflow Guide](workflow-guide.md) | Learn daily usage patterns |
+| 📋 **Next**  | [Workflow Guide](workflow-guide.md)  | Learn daily usage patterns    |
 
 ---
 

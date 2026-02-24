@@ -627,7 +627,7 @@ bindkey '^[x' my-widget  # Alt+X
 Create files for specific environments:
 
 - `~/.config/zsh/work-aliases.zsh` - Work-specific aliases
-- `~/.config/zsh/work-functions.zsh` - Work-specific functions  
+- `~/.config/zsh/work-functions.zsh` - Work-specific functions
 - `~/.config/antidote/.zsh_plugins_work.txt` - Work-specific plugins
 
 Work environment is automatically detected by:

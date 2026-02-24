@@ -48,7 +48,7 @@ convention for commit messages.
 ```bash
 ✨ feat(zsh): add modular configuration system with custom functions
 🐛 fix(ssh): resolve SSH config overwrite vulnerability
-📝 docs(readme): update README with comprehensive setup guide  
+📝 docs(readme): update README with comprehensive setup guide
 ♻️ refactor(nvim): reorganize plugin configuration structure
 🔧 chore(brew): update package dependencies to latest versions
 🔒 security(ssh): fix SSH agent management to prevent multiple agents

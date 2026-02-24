@@ -40,89 +40,89 @@ LazyVim provides extensive default keybindings. For the complete reference, see:
 
 #### 📁 File Operations
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `<leader>ff` | Find files | Telescope file finder |
-| `<leader>fr` | Recent files | Recently opened files |
-| `<leader>fg` | Live grep | Search text in files |
+| Keybinding   | Action       | Description                 |
+| ------------ | ------------ | --------------------------- |
+| `<leader>ff` | Find files   | Telescope file finder       |
+| `<leader>fr` | Recent files | Recently opened files       |
+| `<leader>fg` | Live grep    | Search text in files        |
 | `<leader>fb` | Find buffers | Switch between open buffers |
-| `<leader>fn` | New file | Create new file |
-| `<C-s>` | Save file | Save current file |
+| `<leader>fn` | New file     | Create new file             |
+| `<C-s>`      | Save file    | Save current file           |
 
 #### 📋 Buffer Management
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `<S-h>` | Previous buffer | Navigate to previous buffer |
-| `<S-l>` | Next buffer | Navigate to next buffer |
-| `<leader>bd` | Delete buffer | Close current buffer |
+| Keybinding   | Action               | Description                      |
+| ------------ | -------------------- | -------------------------------- |
+| `<S-h>`      | Previous buffer      | Navigate to previous buffer      |
+| `<S-l>`      | Next buffer          | Navigate to next buffer          |
+| `<leader>bd` | Delete buffer        | Close current buffer             |
 | `<leader>bo` | Delete other buffers | Close all buffers except current |
-| `<leader>bb` | Switch buffer | Switch to other buffer |
+| `<leader>bb` | Switch buffer        | Switch to other buffer           |
 
 #### 🎦 Window Management
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `<C-h>` | Move left | Focus window to the left |
-| `<C-j>` | Move down | Focus window below |
-| `<C-k>` | Move up | Focus window above |
-| `<C-l>` | Move right | Focus window to the right |
-| `<C-Up>` | Increase height | Resize window height |
-| `<C-Down>` | Decrease height | Resize window height |
-| `<C-Left>` | Decrease width | Resize window width |
-| `<C-Right>` | Increase width | Resize window width |
-| `<leader>-` | Split horizontal | Create horizontal split |
-| `<leader>\|` | Split vertical | Create vertical split |
+| Keybinding   | Action           | Description               |
+| ------------ | ---------------- | ------------------------- |
+| `<C-h>`      | Move left        | Focus window to the left  |
+| `<C-j>`      | Move down        | Focus window below        |
+| `<C-k>`      | Move up          | Focus window above        |
+| `<C-l>`      | Move right       | Focus window to the right |
+| `<C-Up>`     | Increase height  | Resize window height      |
+| `<C-Down>`   | Decrease height  | Resize window height      |
+| `<C-Left>`   | Decrease width   | Resize window width       |
+| `<C-Right>`  | Increase width   | Resize window width       |
+| `<leader>-`  | Split horizontal | Create horizontal split   |
+| `<leader>\|` | Split vertical   | Create vertical split     |
 
 ### 🧭 Code Navigation
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `gd` | Go to definition | Jump to symbol definition |
-| `gr` | Go to references | Find symbol references |
-| `gI` | Go to implementation | Jump to implementation |
-| `gy` | Go to type definition | Jump to type definition |
-| `K` | Hover | Show documentation/hover info |
-| `gK` | Signature help | Show function signature |
+| Keybinding | Action                | Description                   |
+| ---------- | --------------------- | ----------------------------- |
+| `gd`       | Go to definition      | Jump to symbol definition     |
+| `gr`       | Go to references      | Find symbol references        |
+| `gI`       | Go to implementation  | Jump to implementation        |
+| `gy`       | Go to type definition | Jump to type definition       |
+| `K`        | Hover                 | Show documentation/hover info |
+| `gK`       | Signature help        | Show function signature       |
 
 #### 🔍 LSP Operations
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `<leader>ca` | Code actions | Show available code actions |
-| `<leader>cr` | Rename | Rename symbol |
-| `<leader>cf` | Format | Format document |
-| `]d` | Next diagnostic | Jump to next diagnostic |
-| `[d` | Previous diagnostic | Jump to previous diagnostic |
-| `<leader>cd` | Line diagnostics | Show line diagnostics |
-| `]e` | Next error | Jump to next error |
-| `[e` | Previous error | Jump to previous error |
+| Keybinding   | Action              | Description                 |
+| ------------ | ------------------- | --------------------------- |
+| `<leader>ca` | Code actions        | Show available code actions |
+| `<leader>cr` | Rename              | Rename symbol               |
+| `<leader>cf` | Format              | Format document             |
+| `]d`         | Next diagnostic     | Jump to next diagnostic     |
+| `[d`         | Previous diagnostic | Jump to previous diagnostic |
+| `<leader>cd` | Line diagnostics    | Show line diagnostics       |
+| `]e`         | Next error          | Jump to next error          |
+| `[e`         | Previous error      | Jump to previous error      |
 
 #### 🔍 Search and Replace
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
+| Keybinding   | Action             | Description               |
+| ------------ | ------------------ | ------------------------- |
 | `<leader>sr` | Search and replace | Find and replace in files |
-| `<leader>sg` | Grep | Search text in project |
-| `<leader>sw` | Search word | Search word under cursor |
+| `<leader>sg` | Grep               | Search text in project    |
+| `<leader>sw` | Search word        | Search word under cursor  |
 
 #### 🌳 Git Integration
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `<leader>gg` | Lazygit | Open Lazygit interface |
-| `<leader>gb` | Git blame | Show git blame |
-| `<leader>gB` | Git browse | Browse git repository |
-| `]h` | Next hunk | Next git change |
-| `[h` | Previous hunk | Previous git change |
+| Keybinding   | Action        | Description            |
+| ------------ | ------------- | ---------------------- |
+| `<leader>gg` | Lazygit       | Open Lazygit interface |
+| `<leader>gb` | Git blame     | Show git blame         |
+| `<leader>gB` | Git browse    | Browse git repository  |
+| `]h`         | Next hunk     | Next git change        |
+| `[h`         | Previous hunk | Previous git change    |
 
 #### 💻 Terminal
 
-| Keybinding | Action | Description |
-|------------|--------|-------------|
-| `<leader>tt` | Terminal | Open terminal |
+| Keybinding   | Action          | Description                   |
+| ------------ | --------------- | ----------------------------- |
+| `<leader>tt` | Terminal        | Open terminal                 |
 | `<leader>tT` | Terminal (root) | Open terminal in project root |
-| `<C-/>` | Terminal | Toggle floating terminal |
+| `<C-/>`      | Terminal        | Toggle floating terminal      |
 
 ## 🎆 Enabled LazyVim Extras
 
@@ -397,20 +397,20 @@ background = {
 
 ### 🚀 LazyVim Commands
 
-| Command | Description |
-|---------|-------------|
-| `:Lazy` | Open Lazy.nvim plugin manager |
-| `:LazyExtras` | Manage LazyVim extras |
-| `:LazyHealth` | Check LazyVim health |
-| `:LazyLog` | View plugin update logs |
+| Command       | Description                   |
+| ------------- | ----------------------------- |
+| `:Lazy`       | Open Lazy.nvim plugin manager |
+| `:LazyExtras` | Manage LazyVim extras         |
+| `:LazyHealth` | Check LazyVim health          |
+| `:LazyLog`    | View plugin update logs       |
 
 ### ⚙️ Custom Commands
 
-| Command | Description |
-|---------|-------------|
-| `:Mason` | Manage LSP servers and tools |
+| Command      | Description                    |
+| ------------ | ------------------------------ |
+| `:Mason`     | Manage LSP servers and tools   |
 | `:Telescope` | Access all Telescope functions |
-| `:Copilot` | GitHub Copilot commands |
+| `:Copilot`   | GitHub Copilot commands        |
 
 This configuration provides a powerful, modern Neovim setup that integrates
 seamlessly with the broader dotfiles ecosystem while maintaining consistency in

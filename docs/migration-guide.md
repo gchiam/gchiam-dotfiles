@@ -131,7 +131,7 @@ cd ~/.dotfiles
    ```bash
    # Old way (deprecated)
    ./bin/setup.sh
-   
+
    # New way
    ./bin/setup-interactive.sh
    ```
@@ -196,7 +196,7 @@ cd ~/.dotfiles
    ```bash
    # New compatibility checker
    ./bin/check-compatibility.sh
-   
+
    # Enhanced health check
    ./bin/health-check.sh
    ```

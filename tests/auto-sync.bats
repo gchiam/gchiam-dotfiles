@@ -51,7 +51,7 @@ teardown() {
             return 0
         elif [[ "$1" == "commit" ]]; then
             # Record commit message for verification
-            echo "COMMIT_MSG: $@" >> "$TEST_HOME/git_calls.log"
+            echo "COMMIT_MSG: $*" >> "$TEST_HOME/git_calls.log"
             return 0
         else
             command git "$@"

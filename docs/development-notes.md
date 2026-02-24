@@ -64,13 +64,13 @@ Before committing changes:
    ```bash
    # Shell scripts
    shellcheck bin/*.sh
-   
+
    # Markdown documentation
    markdownlint-cli2 docs/*.md
-   
+
    # YAML configurations
    yamllint stow/*/config.yml
-   
+
    # JSON configurations
    jq empty stow/*/*.json
    ```
@@ -89,12 +89,12 @@ Before committing changes:
    # Test zsh configuration
    zsh -n ~/.zshrc                   # Syntax check
    zsh -c "source ~/.zshrc; echo OK" # Load test
-   
+
    # Test tmux configuration
    tmux -f ~/.tmux.conf new-session -d -s test
    tmux has-session -t test && echo "tmux config OK"
    tmux kill-session -t test
-   
+
    # Test Neovim configuration
    nvim --headless -c "checkhealth" -c "qa"
    ```
@@ -104,10 +104,10 @@ Before committing changes:
    ```bash
    # Run health check after changes
    ./bin/health-check.sh all
-   
+
    # Check compatibility
    ./bin/check-compatibility.sh --report
-   
+
    # Verify package dependencies
    brew bundle check --file=~/.Brewfile
    ```
@@ -187,7 +187,7 @@ Options:
     -h, --help          Show this help message
     -v, --verbose       Enable verbose output
     -n, --dry-run       Show what would be done
-    
+
 Examples:
     $0 --dry-run        Preview changes
     $0 --verbose        Run with detailed output

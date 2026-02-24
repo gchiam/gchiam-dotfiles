@@ -88,7 +88,7 @@ stow -d stow -t ~ git     # Git config
 
 Manage different configurations for work, personal, or minimal setups:
 
-```bash  
+```bash
 # List available profiles
 ./bin/setup-profile.sh list
 
@@ -145,7 +145,7 @@ curl -fsSL https://raw.githubusercontent.com/gchiam/gchiam-dotfiles/main/bin/fre
 ### ⚡ System Optimization
 
 ```bash
-# Check macOS compatibility  
+# Check macOS compatibility
 ./bin/check-compatibility.sh
 
 # Optimize repository structure
@@ -178,68 +178,68 @@ Comprehensive documentation organized by workflow and expertise level.
 
 ### 🚀 Quick Start
 
-| Guide | Description |
-|-------|-------------|
-| **[Setup Guide](docs/setup-guide.md)** | Complete installation procedures, from one-command setup to manual configuration |
-| **[Architecture](docs/architecture.md)** | Repository structure, component overview, and design principles |
+| Guide                                    | Description                                                                      |
+| ---------------------------------------- | -------------------------------------------------------------------------------- |
+| **[Setup Guide](docs/setup-guide.md)**   | Complete installation procedures, from one-command setup to manual configuration |
+| **[Architecture](docs/architecture.md)** | Repository structure, component overview, and design principles                  |
 
 ### 📋 Daily Workflows
 
-| Guide | Description |
-|-------|-------------|
-| **[Workflow Guide](docs/workflow-guide.md)** | Daily development workflows, terminal usage, and optimization strategies |
+| Guide                                            | Description                                                                        |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **[Workflow Guide](docs/workflow-guide.md)**     | Daily development workflows, terminal usage, and optimization strategies           |
 | **[Automation Guide](docs/automation-guide.md)** | Health monitoring, auto-sync, performance optimization, and maintenance scheduling |
 
 ### ⚙️ Development and Customization
 
-| Guide | Description |
-|-------|-------------|
-| **[Development Notes](docs/development-notes.md)** | Development practices, testing patterns, and advanced customization |
-| **[Quality Assurance](docs/quality-assurance.md)** | Linting standards, code quality, and validation processes |
-| **[Performance Tuning](docs/performance-tuning.md)** | Shell optimization, performance monitoring, and tuning strategies |
-| **[Commit Guidelines](docs/commit-guidelines.md)** | Git commit conventions and best practices |
+| Guide                                                | Description                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------------- |
+| **[Development Notes](docs/development-notes.md)**   | Development practices, testing patterns, and advanced customization |
+| **[Quality Assurance](docs/quality-assurance.md)**   | Linting standards, code quality, and validation processes           |
+| **[Performance Tuning](docs/performance-tuning.md)** | Shell optimization, performance monitoring, and tuning strategies   |
+| **[Commit Guidelines](docs/commit-guidelines.md)**   | Git commit conventions and best practices                           |
 
 ### 🔧 Tool References and Keybindings
 
 #### 💻 Core Development Tools
 
-| Tool | Description |
-|------|-------------|
-| **[Neovim Reference](docs/neovim-reference.md)** | LazyVim configuration, keybindings, and development workflows |
-| **[Tmux Reference](docs/tmux-reference.md)** | Terminal multiplexer keybindings, session management, and automation |
-| **[Zsh Reference](docs/zsh-reference.md)** | Shell configuration, aliases, functions, and environment detection |
+| Tool                                             | Description                                                          |
+| ------------------------------------------------ | -------------------------------------------------------------------- |
+| **[Neovim Reference](docs/neovim-reference.md)** | LazyVim configuration, keybindings, and development workflows        |
+| **[Tmux Reference](docs/tmux-reference.md)**     | Terminal multiplexer keybindings, session management, and automation |
+| **[Zsh Reference](docs/zsh-reference.md)**       | Shell configuration, aliases, functions, and environment detection   |
 
 #### 🖥️ Terminal and Interface
 
-| Tool | Description |
-|------|-------------|
-| **[WezTerm Reference](docs/wezterm-reference.md)** | Modern terminal emulator configuration and advanced features |
+| Tool                                                   | Description                                                  |
+| ------------------------------------------------------ | ------------------------------------------------------------ |
+| **[WezTerm Reference](docs/wezterm-reference.md)**     | Modern terminal emulator configuration and advanced features |
 | **[AeroSpace Reference](docs/aerospace-reference.md)** | Tiling window manager keybindings and workspace organization |
 
 #### 🌳 Version Control and Automation
 
-| Tool | Description |
-|------|-------------|
+| Tool                                                       | Description                                   |
+| ---------------------------------------------------------- | --------------------------------------------- |
 | **[Git Aliases Reference](docs/git-aliases-reference.md)** | Comprehensive guide to enhanced git workflows |
-| **[Shell Completions](docs/shell-completions.md)** | Tab completion system for all custom scripts |
+| **[Shell Completions](docs/shell-completions.md)**         | Tab completion system for all custom scripts  |
 
 ### 🆘 Support and Maintenance
 
-| Guide | Description |
-|-------|-------------|
-| **[Troubleshooting Guide](docs/troubleshooting.md)** | Common issues, debugging steps, and recovery procedures |
-| **[Migration Guide](docs/migration-guide.md)** | Version upgrades, breaking changes, and compatibility updates |
+| Guide                                                | Description                                                   |
+| ---------------------------------------------------- | ------------------------------------------------------------- |
+| **[Troubleshooting Guide](docs/troubleshooting.md)** | Common issues, debugging steps, and recovery procedures       |
+| **[Migration Guide](docs/migration-guide.md)**       | Version upgrades, breaking changes, and compatibility updates |
 
 ### 📖 Documentation Guide
 
-| Document | Purpose | Target Audience |
-|----------|---------|-----------------|
-| [Setup Guide](docs/setup-guide.md) | Initial installation and configuration | New users, fresh installations |
-| [Workflow Guide](docs/workflow-guide.md) | Daily usage patterns and optimization | Daily users, productivity seekers |
-| [Automation Guide](docs/automation-guide.md) | Advanced automation and monitoring | Power users, system administrators |
-| [Development Notes](docs/development-notes.md) | Customization and development patterns | Developers, contributors |
-| Tool References | Specific application usage and shortcuts | All users (reference material) |
-| [Troubleshooting Guide](docs/troubleshooting.md) | Issue resolution and recovery | Users experiencing problems |
+| Document                                         | Purpose                                  | Target Audience                    |
+| ------------------------------------------------ | ---------------------------------------- | ---------------------------------- |
+| [Setup Guide](docs/setup-guide.md)               | Initial installation and configuration   | New users, fresh installations     |
+| [Workflow Guide](docs/workflow-guide.md)         | Daily usage patterns and optimization    | Daily users, productivity seekers  |
+| [Automation Guide](docs/automation-guide.md)     | Advanced automation and monitoring       | Power users, system administrators |
+| [Development Notes](docs/development-notes.md)   | Customization and development patterns   | Developers, contributors           |
+| Tool References                                  | Specific application usage and shortcuts | All users (reference material)     |
+| [Troubleshooting Guide](docs/troubleshooting.md) | Issue resolution and recovery            | Users experiencing problems        |
 
 ### 🔗 Quick Navigation
 

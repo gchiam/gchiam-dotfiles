@@ -48,9 +48,11 @@ jobs:
     - name: Lint shell scripts
       uses: ludeeus/action-shellcheck@master
       with:
+        severity: warning
         ignore_paths: >-
           ./external/**
           ./stow/tmux/**
+          ./tests/libs/**
 
     - name: Lint YAML files
       uses: ibiqlik/action-yamllint@v3
@@ -95,7 +97,7 @@ jobs:
     - name: Install Homebrew dependencies
       run: |
         # Install essential tools for testing
-        brew install stow shellcheck gnu-sed bats-core
+        brew install stow shellcheck gnu-sed bats-core bash
         brew install --cask font-fira-code-nerd-font || true
 
     - name: Test basic setup
@@ -152,7 +154,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        brew install bats-core
+        brew install bats-core bash
 
     - name: Run unit tests
       run: |
