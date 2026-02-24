@@ -5,12 +5,12 @@ dotfiles repository, from initial setup to advanced configuration.
 
 ## 🧭 Navigation
 
-| Direction | Link | Description |
-|-----------|------|-------------|
-| ⬅️ **Back** | [Main README](../README.md) | Return to repository overview |
-| ➡️ **Next** | [Architecture](architecture.md) | Understand repository structure |
-| 🔄 **After Setup** | [Workflow Guide](workflow-guide.md) | Daily usage patterns |
-| 🆘 **Help** | [Troubleshooting](troubleshooting.md) | Common issues and solutions |
+| Direction          | Link                                  | Description                     |
+| ------------------ | ------------------------------------- | ------------------------------- |
+| ⬅️ **Back**        | [Main README](../README.md)           | Return to repository overview   |
+| ➡️ **Next**        | [Architecture](architecture.md)       | Understand repository structure |
+| 🔄 **After Setup** | [Workflow Guide](workflow-guide.md)   | Daily usage patterns            |
+| 🆘 **Help**        | [Troubleshooting](troubleshooting.md) | Common issues and solutions     |
 
 ---
 

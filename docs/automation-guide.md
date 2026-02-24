@@ -27,7 +27,7 @@ for automation problems
 │   ├── health-check.sh               │   ├── Shell startup times
 │   ├── health-monitor.sh             │   ├── Resource usage
 │   └── Continuous validation         │   └── Optimization suggestions
-├── 🔄 Auto-Sync System               ├── 📋 Health Reports  
+├── 🔄 Auto-Sync System               ├── 📋 Health Reports
 │   ├── auto-sync.sh                  │   ├── Component status
 │   ├── Submodule updates             │   ├── Configuration validation
 │   └── Configuration commits         │   └── Automated fixes
@@ -35,7 +35,7 @@ for automation problems
 │   ├── performance-monitor.sh        │   ├── System notifications
 │   ├── measure-shell-performance.sh  │   ├── Email/Slack alerts
 │   ├── Resource analysis             │   └── Log aggregation
-│   └── Automated tuning              
+│   └── Automated tuning
 └── 🔧 Repository Optimization
     ├── optimize-repo.sh
     ├── Git LFS management
@@ -69,7 +69,7 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-# 2. Sync dotfiles and external dependencies  
+# 2. Sync dotfiles and external dependencies
 ./bin/auto-sync.sh sync --quiet
 
 # 3. Update Homebrew packages (weekly)
@@ -99,21 +99,21 @@ Keep configurations in sync across multiple machines:
 # ~/.local/bin/sync-configs.sh
 
 # Work laptop -> Personal laptop sync example
-WORK_REPO="git@github.com:company/work-dotfiles.git" 
+WORK_REPO="git@github.com:company/work-dotfiles.git"
 PERSONAL_REPO="git@github.com:gchiam/gchiam-dotfiles.git"
 
 sync_work_configs() {
     echo "🏢 Syncing work-specific configurations..."
-    
+
     # Pull work-specific configs
     if [[ -d ~/.dotfiles-work ]]; then
         cd ~/.dotfiles-work
         git pull origin main
-        
+
         # Sync specific work tools
         rsync -av ~/.dotfiles-work/stow/kubectl/ ~/.dotfiles/stow/kubectl/
         rsync -av ~/.dotfiles-work/stow/terraform/ ~/.dotfiles/stow/terraform/
-        
+
         # Update work aliases
         cp ~/.dotfiles-work/work-aliases.zsh ~/.config/zsh/work-aliases.zsh
     fi
@@ -121,9 +121,9 @@ sync_work_configs() {
 
 sync_personal_configs() {
     echo "🏠 Syncing personal configurations..."
-    
+
     cd ~/.dotfiles
-    
+
     # Auto-commit changes with timestamp
     if [[ -n "$(git status --porcelain)" ]]; then
         git add .
@@ -150,15 +150,15 @@ Monitor system health and automatically fix common issues:
 
 monitor_disk_space() {
     local usage=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
-    
+
     if [[ $usage -gt 85 ]]; then
         echo "⚠️ Disk usage high: ${usage}%"
-        
+
         # Auto-cleanup
         brew cleanup
         docker system prune -f
         ~/.dotfiles/bin/optimize-repo.sh --cleanup
-        
+
         # Send notification
         osascript -e 'display notification "Disk cleanup completed" with title "System Guardian"'
     fi
@@ -167,13 +167,13 @@ monitor_disk_space() {
 monitor_shell_performance() {
     local perf_log=$(~/.dotfiles/bin/measure-shell-performance.sh 3 | grep "Average:")
     local avg_time=$(echo "$perf_log" | awk '{print $2}' | sed 's/s//')
-    
+
     if (( $(echo "$avg_time > 0.5" | bc -l) )); then
         echo "🐌 Shell startup slow: ${avg_time}s"
-        
+
         # Enable minimal mode temporarily
         echo "export ZSH_MINIMAL_MODE=true" > ~/.zsh_performance_override
-        
+
         # Schedule performance analysis
         echo "Performance analysis needed" >> ~/.system_alerts
     fi
@@ -187,7 +187,7 @@ check_configurations() {
         ~/.tmux.conf
         ~/.gitconfig
     )
-    
+
     for config in "${critical_configs[@]}"; do
         if [[ ! -L "$config" ]]; then
             echo "❌ Missing symlink: $config"
@@ -200,7 +200,7 @@ check_configurations() {
 
 # Run all monitors
 monitor_disk_space
-monitor_shell_performance  
+monitor_shell_performance
 check_configurations
 
 echo "🛡️ System guardian check completed"
@@ -509,7 +509,7 @@ For macOS, automation can be configured using LaunchAgents:
 # Health monitoring LaunchAgent
 ~/Library/LaunchAgents/com.user.health-monitor.plist
 
-# Auto-sync LaunchAgent  
+# Auto-sync LaunchAgent
 ~/Library/LaunchAgents/com.user.auto-sync.plist
 
 # Performance monitoring LaunchAgent
@@ -538,7 +538,7 @@ For macOS, automation can be configured using LaunchAgents:
 if [[ -n "$ZENDESK_ENV" ]]; then
     # Additional work tool validation
     ./bin/health-check.sh --work-tools
-    
+
     # Work-specific performance monitoring
     export PERF_WORK_MODE=1
 fi
@@ -552,7 +552,7 @@ if [[ -n "$SSH_CONNECTION" || -n "$container" ]]; then
     # Disable heavy monitoring
     export HEALTH_MINIMAL_MODE=1
     export PERF_DISABLE_MONITORING=1
-    
+
     # Basic health check only
     ./bin/health-check.sh basic --quiet
 fi
@@ -612,7 +612,7 @@ export ALERT_MIN_LEVEL="warning"  # info, warning, error, critical
    ```bash
    # Fix script permissions
    chmod +x bin/*.sh
-   
+
    # Fix LaunchAgent permissions
    chmod 644 ~/Library/LaunchAgents/com.user.*.plist
    ```
@@ -622,7 +622,7 @@ export ALERT_MIN_LEVEL="warning"  # info, warning, error, critical
    ```bash
    # Check LaunchAgent status
    launchctl list | grep com.user
-   
+
    # Reload LaunchAgent
    launchctl unload ~/Library/LaunchAgents/com.user.health-monitor.plist
    launchctl load ~/Library/LaunchAgents/com.user.health-monitor.plist
@@ -633,7 +633,7 @@ export ALERT_MIN_LEVEL="warning"  # info, warning, error, critical
    ```bash
    # Enable minimal mode
    export AUTOMATION_MINIMAL_MODE=1
-   
+
    # Increase monitoring intervals
    export HEALTH_MONITOR_INTERVAL=1800  # 30 minutes
    export PERF_MONITOR_INTERVAL=7200    # 2 hours
@@ -697,9 +697,9 @@ source ~/.dotfiles/bin/lib/automation-common.sh
 # Your custom automation logic
 main() {
     log_info "Starting custom automation task"
-    
+
     # Your automation code here
-    
+
     log_success "Custom automation completed"
 }
 
@@ -714,7 +714,7 @@ main "$@"
 send_notification() {
     local message="$1"
     local webhook_url="$ALERT_WEBHOOK_URL"
-    
+
     if [[ -n "$webhook_url" ]]; then
         curl -X POST -H 'Content-type: application/json' \
              --data "{\"text\":\"$message\"}" \
@@ -727,7 +727,7 @@ send_email() {
     local subject="$1"
     local body="$2"
     local to="$ALERT_EMAIL"
-    
+
     if command -v mail >/dev/null && [[ -n "$to" ]]; then
         echo "$body" | mail -s "$subject" "$to"
     fi

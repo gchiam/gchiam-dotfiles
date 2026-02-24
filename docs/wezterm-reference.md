@@ -293,11 +293,11 @@ local act = wezterm.action
 config.keys = {
   -- Example: Disable default key
   { key = 'Enter', mods = 'ALT', action = act.DisableDefaultAssignment },
-  
+
   -- Example: Custom pane splitting (more intuitive)
   { key = '|', mods = 'CMD|SHIFT', action = act.SplitHorizontal{ domain = 'CurrentPaneDomain' } },
   { key = '_', mods = 'CMD|SHIFT', action = act.SplitVertical{ domain = 'CurrentPaneDomain' } },
-  
+
   -- Example: Quick tab switching
   { key = 'LeftArrow', mods = 'CMD', action = act.ActivateTabRelative(-1) },
   { key = 'RightArrow', mods = 'CMD', action = act.ActivateTabRelative(1) },
