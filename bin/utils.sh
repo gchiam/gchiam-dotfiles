@@ -5,8 +5,8 @@
 # Usage: get_xdg_path <TYPE> [FALLBACK]
 # Types: CONFIG, DATA, CACHE, STATE
 get_xdg_path() {
-    local type="$1"
-    local fallback="$2"
+    local type="${1:-}"
+    local fallback="${2:-}"
 
     case "$type" in
         CONFIG)
