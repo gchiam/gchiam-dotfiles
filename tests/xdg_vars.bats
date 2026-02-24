@@ -4,7 +4,6 @@
 setup() {
     TEST_HOME="${BATS_TMPDIR}/test_home_xdg"
     mkdir -p "$TEST_HOME"
-    ORIGINAL_HOME="$HOME"
 }
 
 teardown() {

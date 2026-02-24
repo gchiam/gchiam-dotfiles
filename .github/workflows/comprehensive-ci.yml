@@ -51,6 +51,7 @@ jobs:
         ignore_paths: >-
           ./external/**
           ./stow/tmux/**
+          ./tests/libs/**
 
     - name: Lint YAML files
       uses: ibiqlik/action-yamllint@v3

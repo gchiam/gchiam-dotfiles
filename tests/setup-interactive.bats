@@ -53,28 +53,28 @@ teardown() {
 @test "get_selected_stow_dirs: minimal profile returns only essential tools" {
     run get_selected_stow_dirs "minimal"
     assert_success
-    echo "$output" | grep -q "^zsh$"
-    echo "$output" | grep -q "^tmux$"
-    echo "$output" | grep -q "^brew$"
-    ! echo "$output" | grep -q "^nvim$"
-    ! echo "$output" | grep -q "^gh-dash$"
+    assert_line "zsh"
+    assert_line "tmux"
+    assert_line "brew"
+    refute_line "nvim"
+    refute_line "gh-dash"
 }
 
 @test "get_selected_stow_dirs: developer profile returns essential, development, and editors" {
     run get_selected_stow_dirs "developer"
     assert_success
-    echo "$output" | grep -q "^zsh$"
-    echo "$output" | grep -q "^nvim$"
-    echo "$output" | grep -q "^gh-dash$"
-    echo "$output" | grep -q "^k9s$"
-    ! echo "$output" | grep -q "^bat$"
+    assert_line "zsh"
+    assert_line "nvim"
+    assert_line "gh-dash"
+    assert_line "k9s"
+    refute_line "bat"
 }
 
 @test "get_selected_stow_dirs: full profile returns all directories" {
     run get_selected_stow_dirs "full"
     assert_success
-    echo "$output" | grep -q "^zsh$"
-    echo "$output" | grep -q "^nvim$"
-    echo "$output" | grep -q "^aerospace$"
-    echo "$output" | grep -q "^bat$"
+    assert_line "zsh"
+    assert_line "nvim"
+    assert_line "aerospace"
+    assert_line "bat"
 }

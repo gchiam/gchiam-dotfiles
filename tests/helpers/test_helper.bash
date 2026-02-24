@@ -63,7 +63,8 @@ assert_command_called() {
 # Common setup for all tests
 common_setup() {
     # Set up isolated home directory
-    export TEST_HOME="${BATS_TMPDIR}/test_home_$(date +%s)_${RANDOM}"
+    TEST_HOME="${BATS_TMPDIR}/test_home_$(date +%s)_${RANDOM}"
+    export TEST_HOME
     mkdir -p "$TEST_HOME"
     
     # Preserve original home and environment

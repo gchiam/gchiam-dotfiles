@@ -40,7 +40,8 @@ echo "tmux $@" >> "$(dirname "$0")/tmux_log"
 EOF
     chmod +x "$MOCK_BIN_DIR/tmux"
 
-    export STATE_FILE=$(mktemp)
+    export STATE_FILE
+    STATE_FILE=$(mktemp)
 }
 
 teardown() {
