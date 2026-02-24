@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
 set -e
 
 # Auto-Sync Script
@@ -568,4 +568,6 @@ main() {
     print_success "Auto-sync completed"
 }
 
-main "$@"
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    main "$@"
+fi
