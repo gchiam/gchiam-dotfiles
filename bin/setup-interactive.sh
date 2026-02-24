@@ -217,6 +217,7 @@ select_categories() {
 
 # Get stow directories based on profile/categories
 get_selected_stow_dirs() {
+    set +u
     local profile="$1"
     shift
     local categories=("$@")
