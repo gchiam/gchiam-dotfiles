@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 # Interactive Dotfiles Setup Script
@@ -487,4 +487,6 @@ main() {
 }
 
 # Run main function with all arguments
-main "$@"
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    main "$@"
+fi
