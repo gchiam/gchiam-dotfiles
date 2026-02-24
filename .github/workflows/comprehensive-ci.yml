@@ -138,6 +138,27 @@ jobs:
         export DOTFILES_CI_MODE=true
         ./bin/health-check.sh basic || echo "Basic health check completed"
 
+  # === Unit Testing with BATS ===
+  test-bats:
+    name: BATS Unit Tests
+    runs-on: macos-latest
+    needs: [lint]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6.0.2
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        brew install bats-core
+
+    - name: Run unit tests
+      run: |
+        chmod +x bin/test.sh
+        ./bin/test.sh
+
   # === Performance Regression Testing ===
   performance-test:
     name: Performance Regression Tests
@@ -346,7 +367,7 @@ jobs:
   notify:
     name: Notify Results
     runs-on: ubuntu-latest
-    needs: [lint, test-macos, performance-test, security-scan, integration-test]
+    needs: [lint, test-macos, test-bats, performance-test, security-scan, integration-test]
     if: always()
 
     steps:
@@ -355,7 +376,8 @@ jobs:
         echo "## CI/CD Pipeline Results" > notification.md
         echo "" >> notification.md
         echo "- **Lint**: ${{ needs.lint.result }}" >> notification.md
-        echo "- **macOS Tests**: ${{ needs.test-macos.result }}" >> notification.md
+        echo "- **macOS Integration**: ${{ needs.test-macos.result }}" >> notification.md
+        echo "- **BATS Unit Tests**: ${{ needs.test-bats.result }}" >> notification.md
         echo "- **Performance**: ${{ needs.performance-test.result }}" >> notification.md
         echo "- **Security Scan**: ${{ needs.security-scan.result }}" >> notification.md
         echo "- **Integration**: ${{ needs.integration-test.result }}" >> notification.md
@@ -369,6 +391,7 @@ jobs:
       if: >
         needs.lint.result == 'success' &&
         needs.test-macos.result == 'success' &&
+        needs.test-bats.result == 'success' &&
         needs.security-scan.result == 'success' &&
         needs.integration-test.result == 'success'
       run: |
@@ -378,6 +401,7 @@ jobs:
       if: >
         needs.lint.result == 'failure' ||
         needs.test-macos.result == 'failure' ||
+        needs.test-bats.result == 'failure' ||
         needs.security-scan.result == 'failure' ||
         needs.integration-test.result == 'failure'
       run: |
