@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 # Auto-Sync Script
 # Periodically updates submodules and commits changes automatically

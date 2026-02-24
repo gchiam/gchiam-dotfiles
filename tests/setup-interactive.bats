@@ -3,7 +3,7 @@
 load "helpers/test_helper"
 
 # Source the script under test
-source "/Users/gchiam/projects/gchiam-dotfiles/bin/setup-interactive.sh"
+source "${PROJECT_ROOT}/bin/setup-interactive.sh"
 
 setup() {
     common_setup
