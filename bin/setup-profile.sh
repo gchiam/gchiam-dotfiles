@@ -5,10 +5,9 @@ set -euo pipefail
 # Manages different configuration profiles (work, personal, etc.)
 
 # Configuration
-DOTFILES_SOURCE="${DOTFILES_SOURCE:-$HOME/projects/gchiam-dotfiles}"
-PROFILES_DIR="$DOTFILES_SOURCE/profiles"
-# Constants
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+DOTFILES_SOURCE="${DOTFILES_SOURCE:-$REPO_ROOT}"
+PROFILES_DIR="$DOTFILES_SOURCE/profiles"
 # shellcheck source=bin/lib/utils.sh
 source "$REPO_ROOT/bin/lib/utils.sh"
 
@@ -80,10 +79,10 @@ declare -A PROFILE_CONFIGS=(
 
 # Profile-specific stow directories to include/exclude
 declare -A PROFILE_STOW_INCLUDE=(
-    ["personal"]="zsh tmux nvim alacritty kitty wezterm aerospace gh-dash starship bat borders custom-bin antidote brew"
-    ["work"]="zsh tmux nvim alacritty aerospace gh-dash starship bat borders custom-bin antidote brew JetBrains"
-    ["minimal"]="zsh tmux bash custom-bin brew"
-    ["experimental"]="zsh tmux nvim alacritty kitty wezterm aerospace yabai skhd gh-dash starship oh-my-posh bat borders zsh-fsh custom-bin antidote brew fish"
+    ["personal"]="zsh tmux nvim alacritty kitty wezterm aerospace gh-dash starship bat borders custom-bin antidote"
+    ["work"]="zsh tmux nvim alacritty aerospace gh-dash starship bat borders custom-bin antidote JetBrains"
+    ["minimal"]="zsh tmux bash custom-bin"
+    ["experimental"]="zsh tmux nvim alacritty kitty wezterm aerospace yabai skhd gh-dash starship oh-my-posh bat borders zsh-fsh custom-bin antidote fish"
 )
 
 # shellcheck disable=SC2034  # Variable reserved for future use
@@ -264,51 +263,43 @@ EOF
         print_success "Created zsh config for $profile"
     fi
     
-    # Create profile-specific Brewfile
-    if [[ ! -f "$PROFILES_DIR/$profile/.Brewfile" ]]; then
-        case "$profile" in
-            "work")
-                # Copy main Brewfile and add work-specific packages
-                cp "$DOTFILES_SOURCE/stow/brew/.Brewfile.zendesk" "$PROFILES_DIR/$profile/.Brewfile" 2>/dev/null || \
-                cat > "$PROFILES_DIR/$profile/.Brewfile" << 'EOF'
-# Work-specific Homebrew packages
-
-# Essential tools
-brew 'git'
-brew 'stow'
-brew 'zsh'
-
-# Work development tools
-brew 'kubectl'
-brew 'helm'
-brew 'docker'
-brew 'aws-cli'
-
-# Communication
-cask 'slack'
-cask 'zoom'
-cask 'microsoft-teams'
-
-# Development
-cask 'visual-studio-code'
-cask 'jetbrains-toolbox'
-EOF
-                ;;
-            "minimal")
-                cat > "$PROFILES_DIR/$profile/.Brewfile" << 'EOF'
-# Minimal Homebrew packages
-
-# Essential tools only
-brew 'git'
-brew 'stow'
-brew 'zsh'
-brew 'tmux'
-brew 'vim'
-EOF
-                ;;
-        esac
-        print_success "Created Brewfile for $profile"
+    # Create profile-specific Brewfile dynamically from fragments
+    local brewfile="$PROFILES_DIR/$profile/.Brewfile"
+    
+    # Empty or create the file
+    true > "$brewfile"
+    
+    # Base utilities are included in all profiles
+    if [[ -f "$DOTFILES_SOURCE/brew/base.brew" ]]; then
+        cat "$DOTFILES_SOURCE/brew/base.brew" >> "$brewfile"
+        echo "" >> "$brewfile"
     fi
+    
+    case "$profile" in
+        "personal"|"experimental")
+            # Personal and experimental get dev and UI tools
+            for fragment in dev ui; do
+                if [[ -f "$DOTFILES_SOURCE/brew/$fragment.brew" ]]; then
+                    cat "$DOTFILES_SOURCE/brew/$fragment.brew" >> "$brewfile"
+                    echo "" >> "$brewfile"
+                fi
+            done
+            ;;
+        "work")
+            # Work gets dev, UI, and work-specific tools
+            for fragment in dev ui work; do
+                if [[ -f "$DOTFILES_SOURCE/brew/$fragment.brew" ]]; then
+                    cat "$DOTFILES_SOURCE/brew/$fragment.brew" >> "$brewfile"
+                    echo "" >> "$brewfile"
+                fi
+            done
+            ;;
+        "minimal")
+            # Minimal gets only base tools, already added
+            ;;
+    esac
+    
+    print_success "Generated dynamic Brewfile for $profile from fragments"
 }
 
 # Apply profile configuration
@@ -339,7 +330,7 @@ apply_profile() {
     fi
     
     if [[ -f "$profile_dir/.Brewfile" ]]; then
-        ln -sf "$profile_dir/.Brewfile" "$HOME/.Brewfile.profile"
+        ln -sf "$profile_dir/.Brewfile" "$HOME/.Brewfile"
         print_success "Linked Brewfile"
     fi
     
@@ -373,7 +364,7 @@ remove_profile() {
     # Remove profile-specific links
     [[ -L "$HOME/.gitconfig.profile" ]] && rm "$HOME/.gitconfig.profile"
     [[ -L "$HOME/.zshrc.local" ]] && rm "$HOME/.zshrc.local"
-    [[ -L "$HOME/.Brewfile.profile" ]] && rm "$HOME/.Brewfile.profile"
+    [[ -L "$HOME/.Brewfile" ]] && rm "$HOME/.Brewfile"
     
     # Remove current profile marker
     [[ -f "$CURRENT_PROFILE_FILE" ]] && rm "$CURRENT_PROFILE_FILE"
@@ -396,7 +387,7 @@ show_status() {
         echo -e "\nActive configurations:"
         [[ -L "$HOME/.gitconfig.profile" ]] && echo "  - Git config: $(readlink "$HOME/.gitconfig.profile")"
         [[ -L "$HOME/.zshrc.local" ]] && echo "  - Zsh local: $(readlink "$HOME/.zshrc.local")"  
-        [[ -L "$HOME/.Brewfile.profile" ]] && echo "  - Brewfile: $(readlink "$HOME/.Brewfile.profile")"
+        [[ -L "$HOME/.Brewfile" ]] && echo "  - Brewfile: $(readlink "$HOME/.Brewfile")"
     fi
 }
 

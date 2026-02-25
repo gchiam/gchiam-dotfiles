@@ -404,7 +404,7 @@ Check these locations for error logs:
 ```bash
 # Update packages regularly
 brew update && brew upgrade
-brew bundle dump --describe --force  # Update Brewfile
+brew bundle dump --describe --force --file=~/Desktop/Brewfile  # Then update fragments in brew/
 
 # Clean up old files
 brew cleanup

@@ -85,7 +85,8 @@ location in `$HOME` during setup.
 - **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`,
   `starship/`
 - **macOS Tools**: `aerospace/`, `karabiner/`, `raycast/`
-- **Package Management**: `brew/` with main and work-specific Brewfiles
+- **Package Management**: `brew/` with functional fragments
+  (`base.brew`, `dev.brew`, `ui.brew`, `work.brew`)
 - **Scripts**: `custom-bin/` with enhanced utilities for Docker, colors,
   macOS
 
@@ -130,8 +131,9 @@ with standard defaults when environment variables are not explicitly set.
 
 ## 📦 Package Dependencies
 
-- Main packages in `.Brewfile`
-- Work-specific packages in `.Brewfile.zendesk`
+- Modular package lists are split into functional fragments: `base.brew`,
+  `dev.brew`, `ui.brew`, and `work.brew`
+- A single temporary `~/.Brewfile` is dynamically generated during profile setup
 - Version managers (asdf, nvm) handle language runtimes
 
 ## 🚀 Custom Extensions

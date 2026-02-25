@@ -307,11 +307,11 @@ run_installation() {
 install_additional_tools() {
     progress_step "Installing Additional Tools"
     
-    # Check if full Brewfile exists
-    if [[ -f "stow/brew/.Brewfile" ]]; then
+    # Check if generated Brewfile exists
+    if [[ -f "$HOME/.Brewfile" ]]; then
         print_step "Installing packages from Brewfile..."
         
-        if brew bundle --file=stow/brew/.Brewfile >> "$LOG_FILE" 2>&1; then
+        if brew bundle --file="$HOME/.Brewfile" >> "$LOG_FILE" 2>&1; then
             print_success "Brewfile packages installed"
             log "Brewfile: Packages installed"
         else
@@ -319,7 +319,7 @@ install_additional_tools() {
             log "WARNING: Brewfile installation issues"
         fi
     else
-        print_info "No Brewfile found, skipping additional packages"
+        print_info "No Brewfile found at $HOME/.Brewfile, skipping additional packages"
     fi
 }
 

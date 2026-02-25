@@ -132,7 +132,7 @@ git config --global user.email "your.email@example.com"
 ├── .zshrc                   # Main zsh configuration file
 ├── .tmux.conf               # tmux configuration file
 ├── .gitconfig               # Git configuration
-└── .Brewfile*               # Homebrew package definitions
+└── .Brewfile                # Dynamically generated Homebrew packages
 
 ~/bin/                       # Personal utility scripts
 ├── setup*.sh                # Installation and setup scripts

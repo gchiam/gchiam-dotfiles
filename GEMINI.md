@@ -69,7 +69,7 @@ by symlinking the configuration files into the user's home directory.
 * **Package Installation (using Homebrew):**
 
   ```bash
-  brew bundle --file=stow/brew/.Brewfile
+  brew bundle --file=~/.Brewfile
   ```
 
 ## Development Workflow

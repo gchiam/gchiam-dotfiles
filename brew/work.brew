@@ -1,9 +1,8 @@
-# Taps
+# Work-specific tools and dependencies
 tap 'zendesk/devops'
 tap 'zendesk/zendesk'
 tap 'kubeshark/kubeshark'
 
-# Formulas
 brew 'cicd-cli'
 brew 'scooter'
 brew 'zetup'
@@ -12,10 +11,9 @@ brew 'kubernetes-cli'
 brew 'kubeshark'
 brew 'stern'
 brew 'vendir'
-
-# Casks
 brew 'k9s'
 brew 'kl'
+
 cask 'kui'
 cask 'temurin@11'
 cask 'temurin@17'

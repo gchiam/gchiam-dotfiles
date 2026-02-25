@@ -237,7 +237,7 @@ For new tool configurations in `stow/`:
 3. **Include tool in package management**:
 
    ```bash
-   echo 'brew "new-tool"' >> ~/.Brewfile
+   echo 'brew "new-tool"' >> brew/base.brew
    ```
 
 4. **Add to setup scripts if needed**:
@@ -277,7 +277,7 @@ raycast build --validate
 if [[ -n "$ZENDESK_ENV" || "$USER" =~ ^(gchiam|graham) ]]; then
     # Work-specific configurations
     source ~/.config/zsh/work.zsh
-    export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile.zendesk"
+    # The Brewfile is dynamically generated via setup-profile.sh
 fi
 
 # Remote/minimal environment
