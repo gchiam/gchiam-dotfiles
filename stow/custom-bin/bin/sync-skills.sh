@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Join all arguments into a comma-separated list
 AGENTS=$(echo "$*" | tr ' ' ',')
