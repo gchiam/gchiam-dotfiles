@@ -4,48 +4,9 @@ set -e
 # Fresh macOS Setup - One Command Installer
 # Complete dotfiles setup for new macOS installations
 
-# Colors (only if terminal supports them)
-if [[ -t 1 ]] && command -v tput &> /dev/null && [[ $(tput colors 2>/dev/null || echo 0) -ge 8 ]]; then
-    RED='\033[0;31m'
-    GREEN='\033[0;32m'
-    YELLOW='\033[1;33m'
-    BLUE='\033[0;34m'
-    CYAN='\033[0;36m'
-    PURPLE='\033[0;35m'
-    NC='\033[0m'
-else
-    RED=''
-    GREEN=''
-    YELLOW=''
-    BLUE=''
-    CYAN=''
-    PURPLE=''
-    NC=''
-fi
-
-print_header() {
-    echo -e "\n${BLUE}=== $1 ===${NC}"
-}
-
-print_success() {
-    echo -e "${GREEN}✓${NC} $1"
-}
-
-print_warning() {
-    echo -e "${YELLOW}⚠${NC} $1"
-}
-
-print_error() {
-    echo -e "${RED}✗${NC} $1"
-}
-
-print_info() {
-    echo -e "${CYAN}ℹ${NC} $1"
-}
-
-print_step() {
-    echo -e "${PURPLE}➤${NC} $1"
-}
+# Source shared utility functions
+# shellcheck source=bin/lib/utils.sh
+source "$(dirname "${BASH_SOURCE[0]}")/lib/utils.sh"
 
 # Configuration
 DOTFILES_REPO="https://github.com/gchiam/gchiam-dotfiles.git"
@@ -130,46 +91,10 @@ check_requirements() {
 install_homebrew() {
     progress_step "Installing Homebrew"
     
-    if command -v brew &> /dev/null; then
-        print_success "Homebrew already installed"
-        log "Homebrew: Already installed"
-        return 0
-    fi
-    
-    print_step "Installing Homebrew..."
-    
-    # Download and install Homebrew
-    if /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
-        print_success "Homebrew installed successfully"
-        log "Homebrew: Installed successfully"
+    if ensure_homebrew; then
+        log "Homebrew: Installed successfully or already installed"
     else
-        print_error "Failed to install Homebrew"
         log "ERROR: Homebrew installation failed"
-        exit 1
-    fi
-    
-    # Add Homebrew to PATH
-    local arch
-    arch=$(uname -m)
-    local brew_path=""
-    
-    if [[ "$arch" == "arm64" ]]; then
-        brew_path="/opt/homebrew/bin"
-    else
-        brew_path="/usr/local/bin"
-    fi
-    
-    if [[ ":$PATH:" != *":$brew_path:"* ]]; then
-        export PATH="$brew_path:$PATH"
-        print_info "Added Homebrew to PATH"
-    fi
-    
-    # Verify installation
-    if command -v brew &> /dev/null; then
-        print_success "Homebrew is ready"
-        brew --version | head -1
-    else
-        print_error "Homebrew installation verification failed"
         exit 1
     fi
 }

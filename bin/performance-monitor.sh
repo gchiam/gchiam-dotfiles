@@ -26,8 +26,8 @@ fi
 # Configuration
 # Constants
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
-# shellcheck source=bin/utils.sh
-source "$REPO_ROOT/bin/utils.sh"
+# shellcheck source=bin/lib/utils.sh
+source "$REPO_ROOT/bin/lib/utils.sh"
 
 # XDG paths for logs
 PERFORMANCE_LOG="$(get_xdg_path STATE)/dotfiles/performance.log"

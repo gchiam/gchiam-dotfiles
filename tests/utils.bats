@@ -9,8 +9,8 @@ setup() {
     
     # Source the utility script
     # We use source inside a function so we can catch errors if needed
-    if [[ -f "./bin/utils.sh" ]]; then
-        source "./bin/utils.sh"
+    if [[ -f "./bin/lib/utils.sh" ]]; then
+        source "./bin/lib/utils.sh"
     fi
 }
 
