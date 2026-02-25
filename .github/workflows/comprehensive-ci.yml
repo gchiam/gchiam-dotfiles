@@ -51,7 +51,7 @@ jobs:
         severity: warning
         ignore_paths: >-
           ./external/**
-          ./stow/tmux/**
+          ./stow/tmux/.tmux/plugins/**
           ./tests/libs/**
 
     - name: Lint YAML files
