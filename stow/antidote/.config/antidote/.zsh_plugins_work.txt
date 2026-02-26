@@ -6,14 +6,14 @@ mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 
 # Essential productivity plugins
-Aloxaf/fzf-tab # Enhanced completion menu with fzf
+Aloxaf/fzf-tab kind:defer # Enhanced completion menu with fzf
 jeffreytse/zsh-vi-mode # Vi mode for terminal efficiency
 mattmc3/zfunctions # Function utilities
-rupa/z # Smart directory jumping
+rupa/z kind:defer # Smart directory jumping
 
 # Work-specific plugins
-zsh-users/zsh-autosuggestions # Command suggestions (helpful for complex work commands)
-zsh-users/zsh-history-substring-search # Enhanced history search
+zsh-users/zsh-autosuggestions kind:defer # Command suggestions (helpful for complex work commands)
+zsh-users/zsh-history-substring-search kind:defer # Enhanced history search
 
 # Security-focused plugins (deferred for performance)
 zdharma-continuum/fast-syntax-highlighting kind:defer # Syntax validation

@@ -304,27 +304,27 @@ check_performance_alerts
 
 Target: < 0.1s startup time
 
+Using `romkatv/zsh-defer` via `antidote`'s `kind:defer` tag.
+
 ```bash
-# 1. Enable aggressive lazy loading
+# In .zsh_plugins.txt
+romkatv/zsh-defer
+zsh-users/zsh-autosuggestions kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
+```
+
+##### 1. Enable aggressive lazy loading
+
+```bash
 cat >> ~/.zshrc.local << 'EOF'
 # Ultra-performance mode
 export ZSH_ULTRA_FAST=true
-
-# Defer all non-essential loading
-zsh-defer() {
-    local cmd="$*"
-    {
-        # Run in background
-        eval "$cmd" &
-    } 2>/dev/null
-}
-
-# Lazy load heavy plugins
-zsh-defer source ~/.config/zsh/completion.zsh
-zsh-defer source ~/.config/zsh/aliases.zsh
 EOF
+```
 
-# 2. Optimize plugin loading
+##### 2. Optimize plugin loading
+
+```bash
 optimize_antidote_plugins() {
     # Create minimal plugin set
     cat > ~/.config/antidote/.zsh_plugins_minimal.txt << 'EOF'
