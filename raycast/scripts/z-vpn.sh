@@ -15,6 +15,6 @@
 # @raycast.authorURL https://raycast.com/gchiam
 
 
-osascript /Users/gchiam/Code/zendesk/kubectl_config/bin/trigger_vpn_connection.applescript &
+zetup vpn connect
 
-echo "Activating Z VPN"
+echo "Connecting to VPN"
