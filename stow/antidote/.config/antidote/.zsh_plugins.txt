@@ -2,15 +2,17 @@
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 
-Aloxaf/fzf-tab # Replace zsh's default completion selection menu with fzf
+romkatv/zsh-defer
+
+Aloxaf/fzf-tab kind:defer # Replace zsh's default completion selection menu with fzf
 # gradle/gradle-completion kind:fpath path:gradle-completion  # Disabled - gradle not installed
 # jeffreytse/zsh-vi-mode
 mattmc3/zfunctions
 olets/zsh-abbr kind:defer
-rupa/z
+rupa/z kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search kind:defer
 
 # run towards the BOTTOM of your .zsh_plugins.txt after fpath is populated
 belak/zsh-utils path:completion
