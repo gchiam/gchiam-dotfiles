@@ -11,8 +11,8 @@ config.default_prog = { 'zsh', '-l', '-c', 'tmux new -As' .. default_session }
 
 config.selection_word_boundary = ' \t\n{}[]()"\'|│'
 
-config.font = wezterm.font('Departure Mono')
--- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiLight' })
+-- config.font = wezterm.font('Departure Mono')
+config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiLight' })
 config.font_size = 16.0
 config.harfbuzz_features = { 'calt', 'clig', 'liga', 'zero' }
 config.line_height = 1.1
