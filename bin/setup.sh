@@ -59,8 +59,12 @@ fi
 # Verify and install gitleaks if needed
 if ! command -v gitleaks &> /dev/null; then
     print_info "gitleaks not found. Installing via Homebrew..."
-    ensure_homebrew || exit 1
-    brew install gitleaks
+    if ensure_homebrew; then
+        brew install gitleaks
+    else
+        print_error "Failed to install gitleaks"
+        exit 1
+    fi
 fi
 
 # Stow all configuration directories
