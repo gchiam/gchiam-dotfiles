@@ -56,6 +56,13 @@ if ! command -v stow &> /dev/null; then
     brew install stow
 fi
 
+# Verify and install gitleaks if needed
+if ! command -v gitleaks &> /dev/null; then
+    print_info "gitleaks not found. Installing via Homebrew..."
+    ensure_homebrew || exit 1
+    brew install gitleaks
+fi
+
 # Stow all configuration directories
 "$DOTFILES_SOURCE/bin/setup-stow.sh" --non-interactive "$@"
 

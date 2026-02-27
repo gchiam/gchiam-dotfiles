@@ -281,6 +281,20 @@ if [[ -n "$lua_files" ]] && command -v luac &> /dev/null; then
     done <<< "$lua_files"
 fi
 
+# 8. Run gitleaks to scan for secrets
+echo
+echo "Running gitleaks scan..."
+if command -v gitleaks &> /dev/null; then
+    if gitleaks protect --staged --verbose --redact; then
+        print_success "Gitleaks scan passed"
+    else
+        print_error "Gitleaks detected potential secrets in staged changes"
+        validation_failed=true
+    fi
+else
+    print_warning "gitleaks not available, skipping secret scanning"
+fi
+
 # Final result
 echo
 if [[ "$validation_failed" == true ]]; then

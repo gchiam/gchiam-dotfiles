@@ -225,63 +225,72 @@ git add bin/setup.sh tests/setup.bats docs/plans/2026-02-28-security-hardening.m
 git commit -m "feat(shell): add argument parsing and validation to setup.sh"
 ```
 
-## Task 4: Explore integration of `gitleaks` into pre-commit hooks
+## Task 4: Integrate `gitleaks` into custom pre-commit hook
 
 **Files:**
 
-- Modify: `.pre-commit-config.yaml`
 - Modify: `bin/setup-git-hooks.sh`
-- Create: `docs/gitleaks-integration.md` (or similar documentation for usage)
+- Modify: `bin/setup.sh` (to ensure `gitleaks` is installed)
 
-### Step 1: Research `gitleaks` pre-commit hook setup
+### Step 1: Add `gitleaks` installation to `bin/setup.sh`
 
-Use web search (e.g., Google) to find official documentation and common
-practices for integrating `gitleaks` into `pre-commit` hooks. Look for
-configurations, recommended versions, and any specific considerations
-for shell scripts.
+Modify `bin/setup.sh` to check for and install `gitleaks` using Homebrew, similar to how `stow` is handled.
 
-### Step 2: Add `gitleaks` to `.pre-commit-config.yaml`
-
-Add a new entry for `gitleaks` in the `.pre-commit-config.yaml` file.
-This will typically involve specifying the repository, revision, and hooks.
-
-```yaml
-# .pre-commit-config.yaml (excerpt)
-# ... existing hooks ...
-
-- repo: https://github.com/gitleaks/gitleaks
-  rev: v8.18.3 # Use a specific version
-  hooks:
-    - id: gitleaks
+```bash
+# Verify and install gitleaks if needed
+if ! command -v gitleaks &> /dev/null; then
+    print_info "gitleaks not found. Installing via Homebrew..."
+    ensure_homebrew || exit 1
+    brew install gitleaks
+fi
 ```
 
-### Step 3: Modify `bin/setup-git-hooks.sh` to ensure `pre-commit` is installed and hooks are updated
+### Step 2: Integrate `gitleaks` into `bin/setup-git-hooks.sh`
 
-Ensure `bin/setup-git-hooks.sh` installs `pre-commit` if it's not already
-installed and runs `pre-commit install` to set up the hooks.
+Modify the `install_pre_commit_hook` function in `bin/setup-git-hooks.sh` to include a new validation step that runs `gitleaks protect --staged --verbose`.
 
-### Step 4: Write a failing test (optional but good practice for pre-commit hooks)
+```bash
+# ... in bin/setup-git-hooks.sh within install_pre_commit_hook ...
 
-Create a temporary file with a simulated secret to verify that `gitleaks`
-correctly identifies it and prevents the commit.
+# 8. Run gitleaks to scan for secrets
+echo
+echo "Running gitleaks scan..."
+if command -v gitleaks &> /dev/null; then
+    if gitleaks protect --staged --verbose; then
+        print_success "Gitleaks scan passed"
+    else
+        print_error "Gitleaks detected potential secrets in staged changes"
+        validation_failed=true
+    fi
+else
+    print_warning "gitleaks not available, skipping secret scanning"
+fi
+```
+
+### Step 3: Run `bin/setup-git-hooks.sh install` to update the hook
+
+Execute the setup script to re-generate and install the updated `pre-commit` hook.
+
+### Step 4: Write a failing test (optional but good practice)
+
+Create a temporary file with a simulated secret to verify that `gitleaks` correctly identifies it and prevents the commit.
 
 ```bash
 # In a temporary file for testing
 echo "MY_SECRET_KEY=supersecretkey" > temp_secret.txt
 git add temp_secret.txt
-git commit -m "test: add secret" # This commit should be blocked by gitleaks
+# The next command should be blocked by the pre-commit hook
+git commit -m "test: add secret"
 ```
 
 ### Step 5: Run test to verify it fails
 
 Attempt to commit the temporary file with the secret.
-Expected: `gitleaks` should detect the secret and prevent the commit,
-showing an error message.
+Expected: `gitleaks` should detect the secret and the pre-commit hook should fail the commit.
 
 ### Task 4 - Step 6: Remove temporary secret and commit the changes
 
-Remove `temp_secret.txt` and commit the `.pre-commit-config.yaml` and `bin/setup-git-hooks.sh`
-changes.
+Remove `temp_secret.txt` and commit the `bin/setup.sh` and `bin/setup-git-hooks.sh` changes.
 
 ```bash
 rm temp_secret.txt && \
