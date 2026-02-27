@@ -14,6 +14,26 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 
 print_header "Setting up dotfiles..."
 
+# Argument parsing
+DEBUG_MODE=false
+while [[ "$#" -gt 0 ]]; do
+  key="$1"
+  case $key in
+    --debug)
+      DEBUG_MODE=true
+      shift # past argument
+      ;;
+    --help|-h)
+      echo "Usage: setup.sh [--debug]"
+      exit 0
+      ;;
+    *)
+      echo "Error: Unknown argument: $key" >&2
+      exit 1
+      ;;
+  esac
+done
+
 # Verify source directory exists
 verify_dotfiles_dir "$DOTFILES_SOURCE" || exit 1
 
@@ -33,7 +53,7 @@ if ! command -v stow &> /dev/null; then
 fi
 
 # Stow all configuration directories
-"$DOTFILES_SOURCE/bin/setup-stow.sh"
+"$DOTFILES_SOURCE/bin/setup-stow.sh" "$@"
 
 # Rebuild bat cache for themes (if bat is available)
 if command -v bat &> /dev/null; then
