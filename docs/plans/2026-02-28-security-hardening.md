@@ -51,78 +51,80 @@ git add docs/quality-assurance.md docs/plans/2026-02-28-security-hardening.md
 git commit -m "docs(security): add initial security checklist to quality assurance guide"
 ```
 
-## Task 2: Enforce `[[ ... ]]` over `[ ... ]` in `bin/setup-git.sh`
+## Task 2: Enforce `[[ ... ]]` over `[ ... ]` in `bin/lib/utils.sh`
 
 **Files:**
 
-- Modify: `bin/setup-git.sh`
-- Create: `tests/setup-git.bats`
+- Modify: `bin/lib/utils.sh`
+- Create: `tests/utils.bats`
 
-### Step 1: Write a failing test
+### Step 1: Write a failing test (by temporarily introducing `[` in the script)
 
-Create a new bats test file `tests/setup-git.bats` to initially confirm
+**IMPORTANT:** Before running this test, you will first need to manually modify `bin/lib/utils.sh` to temporarily introduce the `[` pattern that this test will look for. Change the first instance of `if [[ -t 1 ]]` to `if [ -t 1 ]`. This is a temporary modification *only* for the purpose of demonstrating the TDD flow for this task.
+
+Create a new bats test file `tests/utils.bats` to initially confirm
 the presence of the `[` pattern. This test will be designed to *pass* if the
 old pattern is found, and then *fail* once it's replaced.
 
 ```bash
-# tests/setup-git.bats
+# tests/utils.bats
 #!/usr/bin/env bats
 
-@test "setup-git.sh uses [[ for safer evaluations (initial check)" {
+@test "utils.sh uses [[ for safer evaluations (initial check)" {
   # This test checks for a specific instance of '[' usage that will be replaced.
-  # We are looking for 'if [ -z "$HOME" ]; then' as an example.
-  run grep 'if \[ -z "$HOME" \]; then' bin/setup-git.sh
+  # We are looking for 'if [ -t 1 ]' as an example.
+  run grep 'if \[ -t 1 \]' bin/lib/utils.sh
   [ "$status" -eq 0 ] # Expect to find the old pattern, so this test passes initially
 }
 ```
 
 ### Step 2: Run test to verify it passes (initially)
 
-Run: `bats tests/setup-git.bats`
-Expected: PASS (because the `[` pattern is still present)
+Run: `bats tests/utils.bats`
+Expected: PASS (because the `[` pattern is present, as per manual modification in Step 1)
 
-### Step 3: Modify `bin/setup-git.sh` to use `[[ ... ]]`
+### Step 3: Modify `bin/lib/utils.sh` to use `[[ ... ]]`
 
-Locate the line `if [ -z "$HOME" ]; then` in `bin/setup-git.sh`
-and replace it with `if [[ -z "$HOME" ]]; then`.
+Locate the line `if [ -t 1 ]` in `bin/lib/utils.sh`
+and replace it with `if [[ -t 1 ]]`.
 
 ```bash
-# bin/setup-git.sh (excerpt)
+# bin/lib/utils.sh (excerpt)
 # Old:
-# if [ -z "$HOME" ]; then
+# if [ -t 1 ]
 # New:
-# if [[ -z "$HOME" ]]; then
+# if [[ -t 1 ]]
 ```
 
 ### Step 4: Run test to verify it fails (after change)
 
-Run: `bats tests/setup-git.bats`
+Run: `bats tests/utils.bats`
 Expected: FAIL (because the `[` pattern should no longer be found)
 
 ### Step 5: Adjust test to look for `[[` and verify it passes
 
-Modify `tests/setup-git.bats` to search for `if \[\[ -z "$HOME" \]\]; then`.
+Modify `tests/utils.bats` to search for `if \[\[ -t 1 \]\]`.
 
 ```bash
-# tests/setup-git.bats
+# tests/utils.bats
 #!/usr/bin/env bats
 
-@test "setup-git.sh uses [[ for safer evaluations (final check)" {
-  run grep 'if \[\[ -z "$HOME" \]\]; then' bin/setup-git.sh
+@test "utils.sh uses [[ for safer evaluations (final check)" {
+  run grep 'if \[\[ -t 1 \]\]' bin/lib/utils.sh
   [ "$status" -eq 0 ] # Expect to find the new pattern
 }
 ```
 
 ### Task 2 - Step 6: Run test to verify it passes
 
-Run: `bats tests/setup-git.bats`
+Run: `bats tests/utils.bats`
 Expected: PASS
 
 ### Task 2 - Step 7: Commit
 
 ```bash
-git add bin/setup-git.sh tests/setup-git.bats docs/plans/2026-02-28-security-hardening.md
-git commit -m "refactor(shell): use [[ for safer evaluations in setup-git.sh and add test"
+git add bin/lib/utils.sh tests/utils.bats docs/plans/2026-02-28-security-hardening.md
+git commit -m "refactor(shell): use [[ for safer evaluations in bin/lib/utils.sh and add test"
 ```
 
 ## Task 3: Implement input validation in `bin/setup.sh`
