@@ -10,5 +10,5 @@
 @test "setup.sh enters debug mode with --debug argument" {
   run bin/setup.sh --debug
   [ "$status" -eq 0 ] # Expect zero exit status
-  [ "${lines[*]}" =~ "Debug mode is enabled." ] # Expect debug message in output
+  [[ "${lines[*]}" =~ "Debug mode is enabled." ]] # Expect debug message in output
 }

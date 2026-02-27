@@ -37,6 +37,10 @@ done
 # Verify source directory exists
 verify_dotfiles_dir "$DOTFILES_SOURCE" || exit 1
 
+if [[ "$DEBUG_MODE" == true ]]; then
+    print_info "Debug mode is enabled."
+fi
+
 # Create symlink to dotfiles directory
 print_step "Creating symlink: $DOTFILES_DIR → $DOTFILES_SOURCE"
 if [[ -L "$DOTFILES_DIR" ]] || [[ ! -e "$DOTFILES_DIR" ]]; then
@@ -53,7 +57,7 @@ if ! command -v stow &> /dev/null; then
 fi
 
 # Stow all configuration directories
-"$DOTFILES_SOURCE/bin/setup-stow.sh" "$@"
+"$DOTFILES_SOURCE/bin/setup-stow.sh" --non-interactive "$@"
 
 # Rebuild bat cache for themes (if bat is available)
 if command -v bat &> /dev/null; then
