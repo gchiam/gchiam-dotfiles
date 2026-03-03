@@ -20,8 +20,8 @@ config.line_height = 1.1
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
 -- Translucent window effect
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 30
+config.window_background_opacity = 1
+-- config.macos_window_background_blur = 30
 
 -- Command palette
 config.command_palette_fg_color = "#c6d0f5"
