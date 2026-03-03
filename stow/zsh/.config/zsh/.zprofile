@@ -30,3 +30,4 @@ add_ssh_key "$HOME/.ssh/gchiam@zendesk.com"
 
 # Clean up function
 unset -f add_ssh_key
+export NODE_USE_SYSTEM_CA=1

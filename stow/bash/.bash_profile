@@ -26,3 +26,4 @@ HISTFILESIZE=2000
 # shopt -s checkwinsize
 
 umask 002
+export NODE_USE_SYSTEM_CA=1
