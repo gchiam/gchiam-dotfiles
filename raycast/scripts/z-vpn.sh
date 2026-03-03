@@ -14,7 +14,4 @@
 # @raycast.author gchiam
 # @raycast.authorURL https://raycast.com/gchiam
 
-
-zetup vpn connect
-
-echo "Connecting to VPN"
+/opt/homebrew/bin/zetup vpn connect
