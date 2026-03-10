@@ -45,7 +45,7 @@ fi
 
 # PATH configuration
 export PATH="${PATH}:${HOME}/.local/bin"
-export PATH="$HOME/bin:${BREW_PREFIX:-/opt/homebrew}/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:${BREW_PREFIX:-/opt/homebrew}/bin:/usr/local/bin:$HOME/go/bin:$PATH"
 
 # Safe sourcing of configuration files
 safe_source "$HOME/.bash_path"      # Only source once (was duplicated)
