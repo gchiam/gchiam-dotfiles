@@ -3,6 +3,81 @@ continuation_prompt = '[▶](green) '
 # Sets user-defined palette
 palette = "catppuccin_frappe"
 
+# ── cship custom modules ──────────────────────────────────────────────────────
+
+[custom.model]
+description = "Claude Code model name (short form)"
+command = '''
+ctx=/tmp/cship-context.json
+[ -f "$ctx" ] || exit 0
+name=$(jq -r '.model.display_name // .model.id // empty' "$ctx" 2>/dev/null)
+[ -z "$name" ] && exit 0
+short=$(echo "$name" \
+  | sed -E 's/\.anthropic\.claude-/-/' \
+  | sed -E 's/-v[0-9:]+$//' \
+  | sed -E 's/([0-9])-([0-9])/\1.\2/g')
+printf "\x1b[1;38;2;140;170;238m🤖 %s\x1b[0m" "$short"
+'''
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+style = ""
+
+[custom.duration]
+description = "Claude Code session duration"
+command = '''
+ctx=/tmp/cship-context.json
+[ -f "$ctx" ] || exit 0
+wall_ms=$(jq -r '.cost.total_duration_ms // 0' "$ctx" 2>/dev/null)
+api_ms=$(jq -r '.cost.total_api_duration_ms // 0' "$ctx" 2>/dev/null)
+fmt() {
+  local s=$(( $1 / 1000 ))
+  if [ "$s" -ge 3600 ]; then printf "%dh%dm" $(( s/3600 )) $(( (s%3600)/60 ))
+  elif [ "$s" -ge 60 ]; then printf "%dm%ds" $(( s/60 )) $(( s%60 ))
+  else printf "%ds" "$s"
+  fi
+}
+printf "\x1b[38;2;115;121;148m⌚ %s 🔌 %s\x1b[0m" "$(fmt "$wall_ms")" "$(fmt "$api_ms")"
+'''
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+style = ""
+
+[custom.effort]
+description = "Claude Code effort level"
+command = '''
+level="${CLAUDE_CODE_EFFORT_LEVEL:-}"
+if [ -z "$level" ]; then
+  level=$(jq -r '.effortLevel // "high"' ~/.claude/settings.json 2>/dev/null || echo high)
+fi
+case "$level" in
+  low)    printf "⚡ \x1b[2mlow\x1b[0m" ;;
+  medium) printf "⚡ \x1b[33mmed\x1b[0m" ;;
+  *)      printf "⚡ \x1b[32mhigh\x1b[0m" ;;
+esac
+'''
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+style = ""
+
+[custom.vpn]
+description = "VPN connection status"
+command = '''
+status=$(timeout 3 /opt/homebrew/bin/zetup vpn status 2>/dev/null || echo unknown)
+case "$status" in
+  rfa-vpn)       echo "🔒🟢" ;;
+  non-rfa-vpn)   echo "🔒🟡" ;;
+  not-connected) echo "🔓🔴" ;;
+  *)             echo "🔓❓" ;;
+esac
+'''
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+format = "[$output]($style)"
+style = ""
+
 [kubernetes]
 disabled = false
 format = '[⛵[$user](yellow) on CTX:[$cluster](yellow) in NS:[$namespace](yellow)](text) '
