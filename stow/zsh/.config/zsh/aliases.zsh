@@ -314,5 +314,5 @@ alias -g XG='| xargs egrep'
 alias -g X='| xargs'
 
 # Claude Code
-alias -g claude-insights='claude -p --no-session-persistence "/insights" | grep -o "file://[^ ]*" | xargs open'
+alias claude-insights='claude -p --no-session-persistence "/insights" | grep -o "file://[^ ]*" | xargs open'
 alias claude-mem='/Users/gchiam/.bun/bin/bun "/Users/gchiam/.claude/plugins/cache/thedotmack/claude-mem/10.6.1/scripts/worker-service.cjs"'
