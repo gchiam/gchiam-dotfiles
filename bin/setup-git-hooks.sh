@@ -592,14 +592,14 @@ while IFS= read -r line; do
         print_warning "Potentially sensitive information in commit messages:"
         echo "$sensitive_commits"
         echo
-        read -p "Continue with push? (y/N): " -n 1 -r
+        read -p "Continue with push? (y/N): " -n 1 -r </dev/tty
         echo
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
             print_error "Push cancelled"
             exit 1
         fi
     fi
-    
+
     # Check for large files in commits
     large_files=$(git diff --name-only "$commit_range" | while IFS= read -r file; do
         if [[ -f "$file" ]]; then
@@ -609,13 +609,13 @@ while IFS= read -r line; do
             fi
         fi
     done)
-    
+
     if [[ -n "$large_files" ]]; then
         print_warning "Large files detected in commits:"
         echo "$large_files" | sed 's/^/  /'
         print_info "Consider using Git LFS for large binary files"
         echo
-        read -p "Continue with push? (y/N): " -n 1 -r
+        read -p "Continue with push? (y/N): " -n 1 -r </dev/tty
         echo
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
             print_error "Push cancelled"
