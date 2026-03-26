@@ -27,7 +27,14 @@ dotfiles repository, from initial setup to advanced configuration.
 ### 📦 Package Management
 
 ```bash
-# Install all packages from main Brewfile
+# Generate ~/.Brewfile from brew/ fragments (personal profile by default)
+./bin/generate-brewfile.sh
+
+# Generate for a specific profile
+./bin/generate-brewfile.sh --profile work
+./bin/generate-brewfile.sh --profile all
+
+# Install all packages from generated Brewfile
 brew bundle --file=~/.Brewfile
 
 # Update package lists

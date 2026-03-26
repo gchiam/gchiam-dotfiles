@@ -28,7 +28,8 @@ When modifying configurations:
 
 1. Create a new directory under `stow/` for the tool
 2. Place configuration files in their expected relative paths
-3. Update the main Brewfile if the tool needs to be installed
+3. Add the tool to the appropriate `brew/*.brew` fragment, then regenerate
+   `~/.Brewfile` with `./bin/generate-brewfile.sh --profile <profile>`
 4. Document any special setup requirements
 
 ### ✏️ Modifying Existing Configurations
@@ -277,7 +278,7 @@ raycast build --validate
 if [[ -n "$ZENDESK_ENV" || "$USER" =~ ^(gchiam|graham) ]]; then
     # Work-specific configurations
     source ~/.config/zsh/work.zsh
-    # The Brewfile is dynamically generated via setup-profile.sh
+    # Generate ~/.Brewfile with work profile: ./bin/generate-brewfile.sh --profile work
 fi
 
 # Remote/minimal environment
