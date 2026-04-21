@@ -8,3 +8,5 @@ export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 eval "$(starship init bash)"
+
+alias claude-mem='/Users/gchiam/.bun/bin/bun "/Users/gchiam/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
