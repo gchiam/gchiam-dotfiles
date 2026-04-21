@@ -97,7 +97,7 @@ fi
 # Custom widget functions
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line     # Ctrl+X Ctrl+E to edit command in $EDITOR
+bindkey '^V' edit-command-line     # Ctrl+V to edit command in $EDITOR
 
 # Quote current line or selection
 autoload -Uz quote-line
