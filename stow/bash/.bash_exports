@@ -27,6 +27,9 @@ GPG_TTY=$(tty)
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
+# sem cli
+export SEM_NO_TELEMETRY=1
+
 ###############################################################################
 # virtualenvwrapper
 ###############################################################################
