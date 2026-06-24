@@ -2,6 +2,11 @@
 # vim: set ft=zsh:
 # shellcheck shell=bash disable=SC2148,SC1090,SC1091,SC2142,SC2034,SC2154,SC1087,SC2206,SC2296,SC2207,SC2155,SC2086,SC2126,SC2245,SC1036,SC1088,SC2168,SC2068
 
+#BEGIN ZETUP
+eval "$( /opt/homebrew/bin/brew shellenv )"
+[ "${commands[zetup]}" ] > /dev/null && eval "$( zetup env shell-exports --zsh )"
+#END ZETUP
+
 # Performance monitoring: record startup time if enabled and EPOCHREALTIME available
 if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]]; then
     if [[ -n "$EPOCHREALTIME" ]]; then
