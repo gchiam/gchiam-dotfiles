@@ -30,3 +30,7 @@ source /Users/gchiam/Code/zendesk/zdi/dockmaster/zdi.fish
 
 # Added by Antigravity CLI installer
 set -gx PATH "/Users/gchiam/.local/bin" $PATH
+
+if status is-interactive
+    atuin init fish | source
+end

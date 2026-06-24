@@ -13,3 +13,8 @@ alias claude-mem='/Users/gchiam/.bun/bin/bun "/Users/gchiam/.claude/plugins/mark
 
 # Added by Antigravity CLI installer
 export PATH="/Users/gchiam/.local/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

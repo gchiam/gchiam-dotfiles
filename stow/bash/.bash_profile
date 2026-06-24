@@ -31,3 +31,5 @@ export NODE_USE_SYSTEM_CA=1
 
 # Added by Antigravity CLI installer
 export PATH="/Users/gchiam/.local/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"

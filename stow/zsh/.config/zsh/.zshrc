@@ -151,3 +151,7 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
