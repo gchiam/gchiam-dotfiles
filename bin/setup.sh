@@ -9,7 +9,7 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/utils.sh"
 
 # Configuration
-DOTFILES_SOURCE="${DOTFILES_SOURCE:-$HOME/projects/gchiam-dotfiles}"
+DOTFILES_SOURCE="${DOTFILES_SOURCE:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 
 print_header "Setting up dotfiles..."
