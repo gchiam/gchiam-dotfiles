@@ -7,7 +7,8 @@ require 'colorscheme'
 local config = wezterm.config_builder()
 
 local default_session = os.getenv("TMUX_DEFAULT_SESSION") or "default"
-config.default_prog = { 'zsh', '-l', '-c', 'tmux new -As' .. default_session }
+-- config.default_prog = { 'zsh', '-l', '-c', 'tmux new -As' .. default_session }
+config.default_prog = { 'zsh' }
 
 config.selection_word_boundary = ' \t\n{}[]()"\'|│'
 
