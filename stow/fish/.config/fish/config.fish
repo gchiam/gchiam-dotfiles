@@ -26,3 +26,7 @@ set -x DOCKER_IMAGES_DEBUG true
 set -x DOCKER_HOST_IP 18.142.158.166
 source /Users/gchiam/Code/zendesk/zdi/dockmaster/zdi.fish
 # END ZDI
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/Users/gchiam/.local/bin" $PATH

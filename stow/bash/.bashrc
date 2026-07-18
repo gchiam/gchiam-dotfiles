@@ -10,3 +10,6 @@ export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 eval "$(starship init bash)"
 
 alias claude-mem='/Users/gchiam/.bun/bin/bun "/Users/gchiam/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+
+# Added by Antigravity CLI installer
+export PATH="/Users/gchiam/.local/bin:$PATH"
