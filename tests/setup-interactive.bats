@@ -36,7 +36,6 @@ setup() {
     STOW_CATEGORIES["brew"]="essential"
     STOW_CATEGORIES["input"]="window-mgmt"
     STOW_CATEGORIES["autoraise"]="window-mgmt"
-    STOW_CATEGORIES["fish"]="experimental"
     STOW_CATEGORIES["ohmyzsh"]="experimental"
     STOW_CATEGORIES["k9s"]="development"
 

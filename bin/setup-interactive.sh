@@ -96,7 +96,6 @@ declare -A STOW_CATEGORIES=(
     ["autoraise"]="window-mgmt"
     
     # Shell alternatives
-    ["fish"]="experimental"
     ["ohmyzsh"]="experimental"
     
     # Monitoring

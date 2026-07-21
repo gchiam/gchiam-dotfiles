@@ -169,7 +169,7 @@ provide_recommendations() {
     echo
     
     echo "5. Check for duplicate functionality:"
-    echo "   Review aliases and functions across bash/zsh/fish configs"
+    echo "   Review aliases and functions across bash/zsh configs"
 }
 
 main() {
