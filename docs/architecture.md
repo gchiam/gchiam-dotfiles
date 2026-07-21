@@ -121,7 +121,6 @@ with standard defaults when environment variables are not explicitly set.
 ### 🪟 Window Management
 
 - **AeroSpace** (`stow/aerospace/`) - Tiling window manager
-- **Yabai/SKHD** - Alternative window management (legacy)
 
 ### ⚙️ System Customization
 

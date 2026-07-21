@@ -406,7 +406,7 @@ cd ~/.dotfiles
 - [ ] Neovim opens and loads plugins
 - [ ] Terminal emulator themes load correctly
 - [ ] Git aliases and delta integration work
-- [ ] Window manager (AeroSpace/yabai) works
+- [ ] Window manager (AeroSpace) works
 - [ ] Profile-specific settings load
 - [ ] Development tools function correctly
 

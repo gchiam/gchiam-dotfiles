@@ -43,7 +43,7 @@ declare -A CATEGORIES=(
     ["essential"]="Core tools (git, zsh, tmux)"
     ["editors"]="Text editors (neovim)"
     ["terminals"]="Terminal emulators (alacritty, kitty, wezterm)"
-    ["window-mgmt"]="Window management (aerospace, yabai)"
+    ["window-mgmt"]="Window management (aerospace)"
     ["development"]="Development tools (gh-dash, starship)"
     ["theming"]="Theming and appearance (bat, borders)"
     ["work"]="Work-specific tools (JetBrains)"
@@ -68,8 +68,6 @@ declare -A STOW_CATEGORIES=(
     
     # Window Management
     ["aerospace"]="window-mgmt"
-    ["yabai"]="window-mgmt"
-    ["skhd"]="window-mgmt"
     
     # Development
     ["gh-dash"]="development"

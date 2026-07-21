@@ -170,14 +170,6 @@ check_window_manager() {
     else
         check_warn "AeroSpace is not installed"
     fi
-    
-    if command -v yabai &> /dev/null; then
-        check_info "Yabai is available (legacy)"
-    fi
-    
-    if command -v skhd &> /dev/null; then
-        check_info "skhd is available (legacy)"
-    fi
 }
 
 check_development_tools() {

@@ -20,8 +20,6 @@ setup() {
     STOW_CATEGORIES["kitty"]="terminals"
     STOW_CATEGORIES["wezterm"]="terminals"
     STOW_CATEGORIES["aerospace"]="window-mgmt"
-    STOW_CATEGORIES["yabai"]="window-mgmt"
-    STOW_CATEGORIES["skhd"]="window-mgmt"
     STOW_CATEGORIES["gh-dash"]="development"
     STOW_CATEGORIES["starship"]="development"
     STOW_CATEGORIES["oh-my-posh"]="development"

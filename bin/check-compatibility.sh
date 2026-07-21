@@ -81,8 +81,6 @@ get_tool_compatibility() {
         
         # Window managers
         "aerospace:min_macos") echo "13.0" ;;
-        "yabai:min_macos") echo "11.0" ;;
-        "skhd:min_macos") echo "10.15" ;;
         
         # Development tools
         "gh:min_macos") echo "10.15" ;;
@@ -91,7 +89,6 @@ get_tool_compatibility() {
         
         # Architecture specific
         "aerospace:arch") echo "arm64,x86_64" ;;
-        "yabai:arch") echo "arm64,x86_64" ;;
         "docker:arch") echo "arm64,x86_64" ;;
         
         *) echo "" ;;
@@ -253,7 +250,7 @@ check_homebrew_compatibility() {
 check_tool_compatibility() {
     print_header "Tool Compatibility"
     
-    local tools_to_check=("alacritty" "aerospace" "yabai" "docker" "gh")
+    local tools_to_check=("alacritty" "aerospace" "docker" "gh")
     
     for tool in "${tools_to_check[@]}"; do
         local min_macos_lookup="${tool}:min_macos"
