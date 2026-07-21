@@ -171,18 +171,16 @@ tic ~/.dotfiles/terminfo/tmux-256color.terminfo
 - Install a Nerd Font: `brew install --cask font-fira-code-nerd-font`
 - Configure terminal to use the Nerd Font
 - For Alacritty: Check `font.normal.family` in config
-- For Kitty: Check `font_family` setting
 
 ### ❌ Terminal Emulator Won't Start
 
-**Problem**: Alacritty, Kitty, or WezTerm fails to launch.
+**Problem**: Alacritty or WezTerm fails to launch.
 
 **Solutions**:
 
 ```bash
 # Check configuration syntax
 alacritty --print-events  # Test Alacritty config
-kitty --debug-config      # Test Kitty config
 
 # Reset to default config temporarily
 mv ~/.config/alacritty ~/.config/alacritty.backup
@@ -190,7 +188,6 @@ alacritty  # Should work with defaults
 
 # Check logs
 # Alacritty: ~/Library/Logs/alacritty.log (macOS)
-# Kitty: Run with `kitty --debug-keyboard`
 ```
 
 ## 🛠️ Development Tool Issues

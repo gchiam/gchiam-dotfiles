@@ -117,7 +117,7 @@ check_editor_setup() {
 check_terminal_setup() {
     echo -e "\n${BLUE}=== Terminal Setup ===${NC}"
     
-    terminals=("alacritty" "kitty" "wezterm")
+    terminals=("alacritty" "wezterm")
     terminal_found=false
     
     for term in "${terminals[@]}"; do
@@ -133,13 +133,6 @@ check_terminal_setup() {
                         check_warn "Alacritty configuration not found"
                     fi
                     ;;
-                "kitty")
-                    if [[ -f "${HOME}/.config/kitty/kitty.conf" ]]; then
-                        check_pass "Kitty configuration exists"
-                    else
-                        check_warn "Kitty configuration not found"
-                    fi
-                    ;;
                 "wezterm")
                     if [[ -f "${HOME}/.config/wezterm/wezterm.lua" ]]; then
                         check_pass "WezTerm configuration exists"
@@ -152,7 +145,7 @@ check_terminal_setup() {
     done
     
     if ! $terminal_found; then
-        check_warn "No configured terminals found (alacritty, kitty, wezterm)"
+        check_warn "No configured terminals found (alacritty, wezterm)"
     fi
 }
 

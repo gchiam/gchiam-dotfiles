@@ -79,17 +79,17 @@ declare -A PROFILE_CONFIGS=(
 
 # Profile-specific stow directories to include/exclude
 declare -A PROFILE_STOW_INCLUDE=(
-    ["personal"]="zsh tmux nvim alacritty kitty wezterm aerospace gh-dash starship bat borders custom-bin antidote"
+    ["personal"]="zsh tmux nvim alacritty wezterm aerospace gh-dash starship bat borders custom-bin antidote"
     ["work"]="zsh tmux nvim alacritty aerospace gh-dash starship bat borders custom-bin antidote JetBrains"
     ["minimal"]="zsh tmux bash custom-bin"
-    ["experimental"]="zsh tmux nvim alacritty kitty wezterm aerospace gh-dash starship oh-my-posh bat borders zsh-fsh custom-bin antidote"
+    ["experimental"]="zsh tmux nvim alacritty wezterm aerospace gh-dash starship oh-my-posh bat borders zsh-fsh custom-bin antidote"
 )
 
 # shellcheck disable=SC2034  # Variable reserved for future use
 declare -A PROFILE_STOW_EXCLUDE=(
     ["personal"]="JetBrains"
-    ["work"]="kitty wezterm oh-my-posh zsh-fsh"
-    ["minimal"]="nvim alacritty kitty wezterm aerospace JetBrains gh-dash starship oh-my-posh bat borders zsh-fsh antidote"
+    ["work"]="wezterm oh-my-posh zsh-fsh"
+    ["minimal"]="nvim alacritty wezterm aerospace JetBrains gh-dash starship oh-my-posh bat borders zsh-fsh antidote"
     ["experimental"]=""
 )
 

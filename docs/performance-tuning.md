@@ -189,7 +189,7 @@ test_terminal_performance() {
     time seq 1 10000 | cat >/dev/null
 }
 
-# Optimize Alacritty/WezTerm/Kitty configurations
+# Optimize Alacritty/WezTerm configurations
 optimize_terminal_config() {
     # Alacritty optimizations
     cat >> ~/.config/alacritty/alacritty.toml << 'EOF'

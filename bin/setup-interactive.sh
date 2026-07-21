@@ -42,7 +42,7 @@ print_info() {
 declare -A CATEGORIES=(
     ["essential"]="Core tools (git, zsh, tmux)"
     ["editors"]="Text editors (neovim)"
-    ["terminals"]="Terminal emulators (alacritty, kitty, wezterm)"
+    ["terminals"]="Terminal emulators (alacritty, wezterm)"
     ["window-mgmt"]="Window management (aerospace)"
     ["development"]="Development tools (gh-dash, starship)"
     ["theming"]="Theming and appearance (bat, borders)"
@@ -63,7 +63,6 @@ declare -A STOW_CATEGORIES=(
     
     # Terminals
     ["alacritty"]="terminals"
-    ["kitty"]="terminals"
     ["wezterm"]="terminals"
     
     # Window Management
@@ -121,7 +120,6 @@ create_backup() {
             "nvim") config_path="$HOME/.config/nvim" ;;
             "tmux") config_path="$HOME/.tmux.conf" ;;
             "alacritty") config_path="$HOME/.config/alacritty" ;;
-            "kitty") config_path="$HOME/.config/kitty" ;;
             "wezterm") config_path="$HOME/.config/wezterm" ;;
             "aerospace") config_path="$HOME/.config/aerospace" ;;
             *) continue ;;

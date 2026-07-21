@@ -76,7 +76,6 @@ get_tool_compatibility() {
     case "$1" in
         # Terminal emulators
         "alacritty:min_macos") echo "10.15" ;;
-        "kitty:min_macos") echo "10.15" ;;
         "wezterm:min_macos") echo "10.15" ;;
         
         # Window managers

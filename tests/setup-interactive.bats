@@ -17,7 +17,6 @@ setup() {
     STOW_CATEGORIES["antidote"]="essential"
     STOW_CATEGORIES["nvim"]="editors"
     STOW_CATEGORIES["alacritty"]="terminals"
-    STOW_CATEGORIES["kitty"]="terminals"
     STOW_CATEGORIES["wezterm"]="terminals"
     STOW_CATEGORIES["aerospace"]="window-mgmt"
     STOW_CATEGORIES["gh-dash"]="development"

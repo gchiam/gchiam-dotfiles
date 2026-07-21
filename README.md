@@ -29,7 +29,6 @@ cd ~/.dotfiles
 ([LazyVim](https://github.com/LazyVim/LazyVim) distribution)
 
 💻 **Terminals**: [Alacritty](https://github.com/alacritty/alacritty),
-[Kitty](https://github.com/kovidgoyal/kitty),
 [WezTerm](https://github.com/wez/wezterm)
 
 🪟 **Window Management**: [AeroSpace](https://github.com/nikitabobko/AeroSpace)

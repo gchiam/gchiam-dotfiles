@@ -19,7 +19,7 @@ configurations for:
 * **Configuration Management**: GNU Stow for symlink management
 * **Shell Environment**: Zsh with a modular configuration system
 * **Editor**: Neovim (LazyVim distribution)
-* **Terminals**: Alacritty, Kitty, WezTerm
+* **Terminals**: Alacritty, WezTerm
 * **Window Management**: AeroSpace
 * **Theming**: Consistent Catppuccin theming across all applications
 

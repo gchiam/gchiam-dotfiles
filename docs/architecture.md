@@ -32,7 +32,7 @@ dotfiles repository.
 │   ├── zsh/                         #    Zsh shell environment
 │   ├── tmux/                        #    Terminal multiplexer
 │   ├── git/                         #    Git configuration
-│   ├── alacritty/, kitty/, wezterm/ #    Terminal emulators
+│   ├── alacritty/, wezterm/         #    Terminal emulators
 │   ├── aerospace/                   #    Window manager
 │   └── ...                          #    Other tool configs
 ├── 📁 external/                     # 🎨 External dependencies
@@ -59,7 +59,7 @@ Stow packages:
 #### 🐚 Shell & Terminal
 
 - `zsh/` - Modular zsh configuration with antidote
-- `alacritty/`, `kitty/`, `wezterm/` - Terminal emulators
+- `alacritty/`, `wezterm/` - Terminal emulators
 - `starship/` - Cross-shell prompt
 
 #### 🖥️ macOS Integration
@@ -81,7 +81,7 @@ location in `$HOME` during setup.
 ## 🔑 Key Configuration Categories
 
 - **Development**: `nvim/`, `tmux/`, `git/`, `gh-dash/`
-- **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`,
+- **Shell/Terminal**: `zsh/`, `alacritty/`, `wezterm/`,
   `starship/`
 - **macOS Tools**: `aerospace/`, `raycast/`
 - **Package Management**: `brew/` with functional fragments
