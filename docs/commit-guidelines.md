@@ -37,7 +37,6 @@ convention for commit messages.
 - `git` - Git configuration
 - `brew` - Homebrew package management
 - `aerospace` - AeroSpace window manager
-- `karabiner` - Karabiner keyboard customization
 - `raycast` - Raycast launcher and extensions
 - `alacritty` - Alacritty terminal
 - `bin` - Utility scripts

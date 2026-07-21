@@ -67,7 +67,6 @@ ignored_apps=(
     "Calculator"
     "Finder"
     "System Settings"
-    "Karabiner-Elements"
     "Plugin Updates"
     "Settings"
     "zoom.us"

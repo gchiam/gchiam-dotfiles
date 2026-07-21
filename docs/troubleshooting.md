@@ -267,17 +267,6 @@ aerospace --check-config
 aerospace --restart-config
 ```
 
-### ⌨️ Karabiner-Elements Issues
-
-**Problem**: Keyboard modifications not working.
-
-**Solutions**:
-
-- Ensure Karabiner-Elements has necessary permissions in
-  System Preferences
-- Check configuration: `~/.config/karabiner/karabiner.json`
-- Restart Karabiner-Elements from menu bar
-
 ### 🚫 macOS Gatekeeper Issues
 
 **Problem**: "App can't be opened because it is from an unidentified developer"

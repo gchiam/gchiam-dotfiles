@@ -65,7 +65,6 @@ Stow packages:
 #### 🖥️ macOS Integration
 
 - `aerospace/` - Tiling window manager
-- `karabiner/` - Keyboard customization
 - `raycast/` - Application launcher extensions
 
 #### 📦 Package Management
@@ -84,7 +83,7 @@ location in `$HOME` during setup.
 - **Development**: `nvim/`, `tmux/`, `git/`, `gh-dash/`
 - **Shell/Terminal**: `zsh/`, `alacritty/`, `kitty/`, `wezterm/`,
   `starship/`
-- **macOS Tools**: `aerospace/`, `karabiner/`, `raycast/`
+- **macOS Tools**: `aerospace/`, `raycast/`
 - **Package Management**: `brew/` with functional fragments
   (`base.brew`, `dev.brew`, `ui.brew`, `work.brew`)
 - **Scripts**: `custom-bin/` with enhanced utilities for Docker, colors,
@@ -126,7 +125,6 @@ with standard defaults when environment variables are not explicitly set.
 
 ### ⚙️ System Customization
 
-- **Karabiner-Elements** - Keyboard customization
 - **Raycast** - Application launcher with custom TypeScript extensions
 
 ## 📦 Package Dependencies

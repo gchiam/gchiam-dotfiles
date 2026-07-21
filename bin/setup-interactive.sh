@@ -70,7 +70,6 @@ declare -A STOW_CATEGORIES=(
     ["aerospace"]="window-mgmt"
     ["yabai"]="window-mgmt"
     ["skhd"]="window-mgmt"
-    ["karabiner"]="window-mgmt"
     
     # Development
     ["gh-dash"]="development"

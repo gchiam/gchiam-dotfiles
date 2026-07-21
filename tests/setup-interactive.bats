@@ -22,7 +22,6 @@ setup() {
     STOW_CATEGORIES["aerospace"]="window-mgmt"
     STOW_CATEGORIES["yabai"]="window-mgmt"
     STOW_CATEGORIES["skhd"]="window-mgmt"
-    STOW_CATEGORIES["karabiner"]="window-mgmt"
     STOW_CATEGORIES["gh-dash"]="development"
     STOW_CATEGORIES["starship"]="development"
     STOW_CATEGORIES["oh-my-posh"]="development"

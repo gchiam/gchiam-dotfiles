@@ -132,8 +132,7 @@ git config --global user.email "your.email@example.com"
 ├── nvim/                    # Neovim editor configuration
 ├── tmux/                    # tmux terminal multiplexer
 ├── alacritty/               # Alacritty terminal emulator
-├── aerospace/               # AeroSpace window manager
-└── karabiner/               # Karabiner-Elements keyboard customization
+└── aerospace/               # AeroSpace window manager
 
 ~/.*                         # Legacy dotfiles (when required)
 ├── .zshrc                   # Main zsh configuration file
