@@ -1,0 +1,562 @@
+[
+  {
+    "plugin_id": "cloudmanic.herdr-plus",
+    "name": "Herdr Plus",
+    "version": "0.1.20",
+    "min_herdr_version": "0.7.0",
+    "description": "An extension for herdr — a collection of tools that make it better. Projects: fuzzy-pick a declarative template to spin up a whole workspace — every tab, pane, and startup command. Quick Actions: a fuzzy launcher for one-off scripts, run in the directory you launched from.",
+    "manifest_path": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9/herdr-plugin.toml",
+    "plugin_root": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos",
+      "windows"
+    ],
+    "build": [
+      {
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "sh",
+          "scripts/build.sh"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "go",
+          "build",
+          "-o",
+          "bin/herdr-plus.exe",
+          "."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "ping",
+        "title": "Herdr Plus: ping",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "ping"
+        ]
+      },
+      {
+        "id": "ping-windows",
+        "title": "Herdr Plus: ping",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe ping"
+        ]
+      },
+      {
+        "id": "projects",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "projects"
+        ]
+      },
+      {
+        "id": "projects-windows",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe projects"
+        ]
+      },
+      {
+        "id": "quick-actions",
+        "title": "Herdr Plus: Quick Actions",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "quick-actions"
+        ]
+      },
+      {
+        "id": "quick-actions-windows",
+        "title": "Herdr Plus: Quick Actions",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe quick-actions"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "worktree.created",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "on-worktree"
+        ]
+      },
+      {
+        "on": "worktree.created",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe on-worktree"
+        ]
+      },
+      {
+        "on": "worktree.opened",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./bin/herdr-plus",
+          "on-worktree"
+        ]
+      },
+      {
+        "on": "worktree.opened",
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe on-worktree"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "picker",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "placement": "zoomed",
+        "command": [
+          "./bin/herdr-plus",
+          "projects-ui"
+        ]
+      },
+      {
+        "id": "picker-windows",
+        "title": "Herdr Plus: Projects",
+        "platforms": [
+          "windows"
+        ],
+        "placement": "zoomed",
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe projects-ui"
+        ]
+      },
+      {
+        "id": "quick-actions-picker",
+        "title": "Quick Actions",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "placement": "overlay",
+        "command": [
+          "./bin/herdr-plus",
+          "quick-actions-ui"
+        ]
+      },
+      {
+        "id": "quick-actions-picker-windows",
+        "title": "Quick Actions",
+        "platforms": [
+          "windows"
+        ],
+        "placement": "overlay",
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "& .\\bin\\herdr-plus.exe quick-actions-ui"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "cloudmanic",
+      "repo": "herdr-plus",
+      "resolved_commit": "a9aca9da3ca6d7406f3d878a1df1c1b9775e2723",
+      "managed_path": "/Users/gchiam/.config/herdr/plugins/github/cloudmanic.herdr-plus-0cce37b56fb9",
+      "installed_unix_ms": 1785493045317
+    }
+  },
+  {
+    "plugin_id": "copy-search",
+    "name": "Copy Search",
+    "version": "0.1.4",
+    "min_herdr_version": "0.7.0",
+    "description": "regex and copycat pattern search with extrakto token extraction for pane scrollback, landing in a tmux-style copy mode, copying via OSC 52",
+    "manifest_path": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/copy-search-c76f1e25de11/herdr-plugin.toml",
+    "plugin_root": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/copy-search-c76f1e25de11",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "build": [
+      {
+        "command": [
+          "cargo",
+          "build",
+          "--release",
+          "--locked"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "copy",
+        "title": "Open copy mode",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_BIN_PATH\" plugin pane open --plugin copy-search --entrypoint copy"
+        ]
+      },
+      {
+        "id": "extract",
+        "title": "Extract tokens",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_BIN_PATH\" plugin pane open --plugin copy-search --entrypoint extract"
+        ]
+      },
+      {
+        "id": "search",
+        "title": "Search scrollback",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_BIN_PATH\" plugin pane open --plugin copy-search --entrypoint search"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "copy",
+        "title": "copy mode",
+        "placement": "overlay",
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_PLUGIN_ROOT/target/release/herdr-copy-search\" --mode copy"
+        ]
+      },
+      {
+        "id": "extract",
+        "title": "extract",
+        "placement": "overlay",
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_PLUGIN_ROOT/target/release/herdr-copy-search\" --mode extract"
+        ]
+      },
+      {
+        "id": "search",
+        "title": "scrollback search",
+        "placement": "overlay",
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_PLUGIN_ROOT/target/release/herdr-copy-search\" --mode search"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "qq88976321",
+      "repo": "herdr-copy-search",
+      "resolved_commit": "4272cc993442d306037e3542f6c71539ef481d12",
+      "managed_path": "/Users/gchiam/.config/herdr/plugins/github/copy-search-c76f1e25de11",
+      "installed_unix_ms": 1785493015126
+    }
+  },
+  {
+    "plugin_id": "dave.token-dashboard",
+    "name": "Token Dashboard",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "Live token spend dashboard + cost notifications for Herdr agent panes",
+    "manifest_path": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/dave.token-dashboard-c1bf535be307/herdr-plugin.toml",
+    "plugin_root": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/dave.token-dashboard-c1bf535be307",
+    "enabled": true,
+    "platforms": [
+      "macos",
+      "linux"
+    ],
+    "build": [
+      {
+        "platforms": [
+          "macos",
+          "linux"
+        ],
+        "command": [
+          "./scripts/build.sh"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "open-dashboard",
+        "title": "Open Token Dashboard",
+        "contexts": [
+          "workspace"
+        ],
+        "command": [
+          "./bin/token-dashboard",
+          "--open"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "pane.agent_status_changed",
+        "command": [
+          "./bin/token-dashboard",
+          "--notify"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "dashboard",
+        "title": "Token Dashboard",
+        "placement": "tab",
+        "command": [
+          "./bin/token-dashboard"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "Davidcreador",
+      "repo": "herdr-token-dashboard",
+      "resolved_commit": "b8c9bbe5c46d976e32ed51146139b0996bf7f334",
+      "managed_path": "/Users/gchiam/.config/herdr/plugins/github/dave.token-dashboard-c1bf535be307",
+      "installed_unix_ms": 1785492960189
+    }
+  },
+  {
+    "plugin_id": "herdr-navigator",
+    "name": "Herdr Navigator",
+    "version": "0.3.3",
+    "min_herdr_version": "0.7.3",
+    "description": "Jump to any Herdr workspace, agent, project, session, remote, directory, or action from one fuzzy navigator.",
+    "manifest_path": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
+    "plugin_root": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "build": [
+      {
+        "command": [
+          "cargo",
+          "build",
+          "--release"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "jump-back",
+        "title": "Herdr Navigator: jump back",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "jump-back"
+        ]
+      },
+      {
+        "id": "open",
+        "title": "Herdr Navigator: open",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "open"
+        ]
+      },
+      {
+        "id": "open-side",
+        "title": "Herdr Navigator: side pane",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "open-side"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "picker",
+        "title": "Herdr Navigator",
+        "placement": "overlay",
+        "command": [
+          "./target/release/herdr-navigator",
+          "ui"
+        ]
+      },
+      {
+        "id": "picker-side",
+        "title": "Navigator Side",
+        "placement": "split",
+        "command": [
+          "./target/release/herdr-navigator",
+          "ui",
+          "--side"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "thanhdat77",
+      "repo": "herdr-navigator",
+      "resolved_commit": "ccacb217bccd509bd99c49c80fadd09f5cc3e354",
+      "managed_path": "/Users/gchiam/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+      "installed_unix_ms": 1785492975133
+    }
+  },
+  {
+    "plugin_id": "smart-workspace",
+    "name": "Smart Workspace",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "Switch Herdr workspaces with fzf and zoxide.",
+    "manifest_path": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/smart-workspace-f6b92f176fec/herdr-plugin.toml",
+    "plugin_root": "/Users/gchiam/projects/gchiam-dotfiles/stow/herdr/.config/herdr/plugins/github/smart-workspace-f6b92f176fec",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "switch",
+        "title": "Switch workspace",
+        "contexts": [
+          "workspace"
+        ],
+        "command": [
+          "python3",
+          "-m",
+          "smart_workspace.open_pane"
+        ]
+      },
+      {
+        "id": "switch-previous",
+        "title": "Switch to previous workspace",
+        "contexts": [
+          "workspace"
+        ],
+        "command": [
+          "python3",
+          "-m",
+          "smart_workspace.previous"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "workspace.focused",
+        "command": [
+          "python3",
+          "-m",
+          "smart_workspace.track"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "picker",
+        "title": "Smart Workspace",
+        "placement": "overlay",
+        "command": [
+          "python3",
+          "-m",
+          "smart_workspace.picker"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "nicolasvasquez",
+      "repo": "herdr-smart-workspace",
+      "resolved_commit": "8a180792d1a6043d84c942551e6f58d96d872b77",
+      "managed_path": "/Users/gchiam/.config/herdr/plugins/github/smart-workspace-f6b92f176fec",
+      "installed_unix_ms": 1785492935328
+    }
+  }
+]
