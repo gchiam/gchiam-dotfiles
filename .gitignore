@@ -15,6 +15,7 @@ stow/herdr/.config/herdr/herdr.sock
 stow/herdr/.config/herdr/herdr-client.sock
 stow/herdr/.config/herdr/herdr-client.log
 stow/JetBrains/.config/JetBrains/Fleet/backend/*
+stow/tmux/.tmux/plugins/*
 stow/nvim/.config/nvim/.luarc.json
 
 # Repository optimization
