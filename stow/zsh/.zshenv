@@ -38,12 +38,14 @@ fi
 
 # Begin JAMF Managed
 # Common Dev-tools point to Netskope CA Bundle
-export NETSKOPE_BUNDLE="$HOME/.nscacert_combined.pem"
-export AWS_CA_BUNDLE="$NETSKOPE_BUNDLE"
-export REQUESTS_CA_BUNDLE="$NETSKOPE_BUNDLE"
-export PIP_CERT="$NETSKOPE_BUNDLE"
-export CURL_CA_BUNDLE="$NETSKOPE_BUNDLE"
-export NODE_EXTRA_CA_CERTS="$NETSKOPE_BUNDLE"
-export SSL_CERT_FILE="$NETSKOPE_BUNDLE"
-export GIT_SSL_CAPATH="$NETSKOPE_BUNDLE"
+if [[ -f "$HOME/.nscacert_combined.pem" ]]; then
+    export NETSKOPE_BUNDLE="$HOME/.nscacert_combined.pem"
+    export AWS_CA_BUNDLE="$NETSKOPE_BUNDLE"
+    export REQUESTS_CA_BUNDLE="$NETSKOPE_BUNDLE"
+    export PIP_CERT="$NETSKOPE_BUNDLE"
+    export CURL_CA_BUNDLE="$NETSKOPE_BUNDLE"
+    export NODE_EXTRA_CA_CERTS="$NETSKOPE_BUNDLE"
+    export SSL_CERT_FILE="$NETSKOPE_BUNDLE"
+    export GIT_SSL_CAPATH="$NETSKOPE_BUNDLE"
+fi
 # End JAMF Managed
