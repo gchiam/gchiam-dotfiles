@@ -26,7 +26,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         fetch-depth: 0  # Full history for better analysis
         submodules: recursive  # Initialize and update submodules
@@ -90,7 +90,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         submodules: recursive
 
@@ -148,7 +148,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         submodules: recursive
 
@@ -169,14 +169,14 @@ jobs:
 
     steps:
     - name: Checkout base branch
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         ref: ${{ github.base_ref }}
         path: base
         submodules: recursive
 
     - name: Checkout PR branch
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         path: pr
         submodules: recursive
@@ -281,7 +281,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         submodules: recursive
 
@@ -320,7 +320,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v6.0.2
+      uses: actions/checkout@v7.0.1
       with:
         submodules: recursive
 
