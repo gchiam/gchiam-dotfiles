@@ -31,3 +31,6 @@
 [submodule "tests/libs/bats-file"]
 	path = tests/libs/bats-file
 	url = https://github.com/bats-core/bats-file
+[submodule "external/catppuccin/atuin"]
+	path = external/catppuccin/atuin
+	url = git@github.com:catppuccin/atuin.git
