@@ -10,6 +10,13 @@ local default_session = os.getenv("TMUX_DEFAULT_SESSION") or "default"
 -- config.default_prog = { 'zsh', '-l', '-c', 'tmux new -As' .. default_session }
 config.default_prog = { 'zsh' }
 
+-- Bootstrap env so zsh finds its modular config at ~/.config/zsh even if
+-- Netskope clobbers ~/.zshenv (which normally sets ZDOTDIR).
+config.set_environment_variables = {
+  XDG_CONFIG_HOME = os.getenv('XDG_CONFIG_HOME') or (os.getenv('HOME') .. '/.config'),
+  ZDOTDIR = (os.getenv('XDG_CONFIG_HOME') or (os.getenv('HOME') .. '/.config')) .. '/zsh',
+}
+
 config.selection_word_boundary = ' \t\n{}[]()"\'|│'
 
 config.font = wezterm.font('Iosevka Charon Mono', { weight = 'Light' })
