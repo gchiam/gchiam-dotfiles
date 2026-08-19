@@ -137,4 +137,4 @@ autoload -Uz compinit && compinit
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
-[ -x "/$HOME/.local/bin/mise" ] > /dev/null && eval "$($HOME/.local/bin/mise activate zsh)"
+[ -x "$HOME/.local/bin/mise" ] > /dev/null && eval "$($HOME/.local/bin/mise activate zsh --shims)"
