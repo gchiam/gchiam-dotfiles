@@ -36,16 +36,38 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export LSCOLORS=ExFxBxDxCxegedabagacad
 fi
 
+if [[ ! -f "$HOME/.nscacert_combined.pem" ]]; then
+    return
+fi
+
 # Begin JAMF Managed
 # Common Dev-tools point to Netskope CA Bundle
-if [[ -f "$HOME/.nscacert_combined.pem" ]]; then
-    export NETSKOPE_BUNDLE="$HOME/.nscacert_combined.pem"
-    export AWS_CA_BUNDLE="$NETSKOPE_BUNDLE"
-    export REQUESTS_CA_BUNDLE="$NETSKOPE_BUNDLE"
-    export PIP_CERT="$NETSKOPE_BUNDLE"
-    export CURL_CA_BUNDLE="$NETSKOPE_BUNDLE"
-    export NODE_EXTRA_CA_CERTS="$NETSKOPE_BUNDLE"
-    export SSL_CERT_FILE="$NETSKOPE_BUNDLE"
-    export GIT_SSL_CAPATH="$NETSKOPE_BUNDLE"
-fi
+export NETSKOPE_BUNDLE="$HOME/.nscacert_combined.pem"
+
+# Generic Fallback & OpenSSL
+export SSL_CERT_FILE="$NETSKOPE_BUNDLE"
+export CA_BUNDLE="$NETSKOPE_BUNDLE"
+export CURL_CA_BUNDLE="$NETSKOPE_BUNDLE"
+
+# Python (Requests, Pip, httpx, urllib3)
+export REQUESTS_CA_BUNDLE="$NETSKOPE_BUNDLE"
+export PIP_CERT="$NETSKOPE_BUNDLE"
+
+# Cloud & Infrastructure (AWS CLI, Boto3)
+#export AWS_CA_BUNDLE="$NETSKOPE_BUNDLE"
+
+# Node.js & Package Managers
+export NODE_EXTRA_CA_CERTS="$NETSKOPE_BUNDLE"
+export NODE_CAFILE="$NETSKOPE_BUNDLE"
+
+# Git (Uses CAINFO for single files)
+export GIT_SSL_CAINFO="$NETSKOPE_BUNDLE"
+
+# Rust / Cargo
+export CARGO_HTTP_CAINFO="$NETSKOPE_BUNDLE"
+
+# Java / JVM
+export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStore=$NETSKOPE_BUNDLE"
 # End JAMF Managed
+
+
