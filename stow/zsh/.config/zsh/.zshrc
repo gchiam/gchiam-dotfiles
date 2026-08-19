@@ -22,9 +22,6 @@ safe_source() {
     [[ -r "$1" ]] && source "$1"
 }
 
-# asdf completions (must be before compinit)
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-
 # Initialize completion system for compdef support
 autoload -Uz compinit
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
@@ -82,22 +79,6 @@ else
     [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 fi
 
-
-
-
-# asdf version manager (lazy loaded for performance)
-if [[ -f "${BREW_PREFIX:-/opt/homebrew}/opt/asdf/libexec/asdf.sh" ]]; then
-    asdf() {
-        unset -f asdf java javac
-        source "${BREW_PREFIX:-/opt/homebrew}/opt/asdf/libexec/asdf.sh"
-        [[ -f "${HOME}/.asdf/plugins/java/set-java-home.zsh" ]] && \
-            source "${HOME}/.asdf/plugins/java/set-java-home.zsh"
-        asdf "$@"
-    }
-    java() { asdf >/dev/null; command java "$@"; }
-    javac() { asdf >/dev/null; command javac "$@"; }
-fi
-
 # Vi-mode configuration moved to keybindings.zsh
 
 # Better word boundaries
@@ -150,10 +131,6 @@ if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]];
     export ZSH_STARTUP_TIME="$(( EPOCHREALTIME - ZSH_STARTUP_START ))"
 fi
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions "${fpath[@]}")
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
