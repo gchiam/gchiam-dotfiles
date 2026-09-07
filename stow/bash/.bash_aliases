@@ -34,6 +34,9 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
+# macOS app launchers
+alias edmund="open -a edmund"
+
 #https://www.reddit.com/r/neovim/comments/3hz2zv/how_to_accomodate_a_mental_failing_alias_envim/
 alias :e='nvim'
 alias :E='nvim .'
