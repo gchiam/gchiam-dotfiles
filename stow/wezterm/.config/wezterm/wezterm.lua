@@ -6,7 +6,7 @@ require 'colorscheme'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-local default_session = os.getenv("TMUX_DEFAULT_SESSION") or "default"
+-- local default_session = os.getenv("TMUX_DEFAULT_SESSION") or "default"
 -- config.default_prog = { 'zsh', '-l', '-c', 'tmux new -As' .. default_session }
 config.default_prog = { 'zsh' }
 
@@ -19,10 +19,10 @@ config.set_environment_variables = {
 
 config.selection_word_boundary = ' \t\n{}[]()"\'|│'
 
-config.font = wezterm.font('Iosevka Charon Mono', { weight = 'Light' })
--- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiLight' })
+config.font = wezterm.font('Iosevka Nerd Font Propo', { weight = 'ExtraLight' })
+-- config.font = wezterm.font('CaskaydiaCove Nerd Font', { weight = 'ExtraLight' })
 -- config.font = wezterm.font('Departure Mono')
-config.font_size = 16.0
+config.font_size = 14.0
 config.harfbuzz_features = { 'calt', 'clig', 'liga', 'zero' }
 config.line_height = 1.1
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
