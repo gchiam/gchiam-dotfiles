@@ -141,3 +141,6 @@ eval "$(atuin init zsh)"
 
 # opencode
 export PATH=/Users/gchiam/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/Users/gchiam/.bun/_bun" ] && source "/Users/gchiam/.bun/_bun"
