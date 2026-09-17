@@ -11,6 +11,11 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
+#https://www.reddit.com/r/neovim/comments/3hz2zv/how_to_accomodate_a_mental_failing_alias_envim/
+alias :e='nvim'
+alias :E='nvim .'
+alias :q='exit'
+
 # Zsh global aliases (unique to zsh)
 alias -g L='| less'
 alias -g G='| grep'
@@ -255,7 +260,7 @@ alias dl='cd ~/Downloads'
 alias doc='cd ~/Documents'
 alias dt='cd ~/Desktop'
 alias proj='cd ~/Projects'
-alias dots='cd ~/.dotfiles'
+alias dots='cd ~/dotfiles'
 
 # Quick access to configuration files
 alias zshrc='${EDITOR:-vim} ${ZDOTDIR:-$HOME/.config/zsh}/.zshrc'
@@ -316,4 +321,6 @@ alias -g X='| xargs'
 # Claude Code
 alias claude-insights='claude -p --no-session-persistence "/insights" | grep -o "file://[^ ]*" | xargs open'
 alias claude-quick='claude --model haiku -p --no-session-persistence'
-alias claude-mem='/Users/gchiam/.bun/bin/bun "/Users/gchiam/.claude/plugins/cache/thedotmack/claude-mem/10.6.1/scripts/worker-service.cjs"'
+
+# macOS app launchers
+alias edmund="open -a edmund"
