@@ -141,6 +141,7 @@ eval "$(atuin init zsh)"
 
 # opencode
 export PATH=/Users/gchiam/.opencode/bin:$PATH
+export OMO_SEND_ANONYMOUS_TELEMETRY=0
 
 # bun completions
 [ -s "/Users/gchiam/.bun/_bun" ] && source "/Users/gchiam/.bun/_bun"
