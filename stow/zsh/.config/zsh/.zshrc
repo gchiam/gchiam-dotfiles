@@ -4,7 +4,7 @@
 
 #BEGIN ZETUP
 eval "$( /opt/homebrew/bin/brew shellenv )"
-[ "${commands[zetup]}" ] > /dev/null && eval "$( zetup env shell-exports --zsh )"
+[ "${commands[zetup]}" ] > /dev/null && eval "$( zetup env shell-exports)"
 #END ZETUP
 
 # Performance monitoring: record startup time if enabled and EPOCHREALTIME available
