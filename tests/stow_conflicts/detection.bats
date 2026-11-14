@@ -55,3 +55,48 @@ teardown() {
     run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg"
     [ "$status" -eq 0 ]
 }
+
+@test "detects no conflict when target is reached through a folded directory symlink" {
+    # stow tree folding: ~/.config/test_dir -> stow/test_pkg/.config/test_dir
+    mkdir -p "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir"
+    echo "nested content" > "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir/nested_file"
+    mkdir -p "$MOCK_HOME/.config"
+    ln -s "$MOCK_DOTFILES/stow/test_pkg/.config/test_file" "$MOCK_HOME/.config/test_file"
+    ln -s "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir" "$MOCK_HOME/.config/test_dir"
+
+    run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg"
+    [ "$status" -eq 0 ]
+    [[ "$output" != *"Conflict at"* ]]
+}
+
+@test "is idempotent after a real stow run" {
+    command -v stow >/dev/null || skip "stow not installed"
+    mkdir -p "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir"
+    echo "nested content" > "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir/nested_file"
+    stow -d "$MOCK_DOTFILES/stow" -t "$MOCK_HOME" test_pkg
+
+    run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg"
+    [ "$status" -eq 0 ]
+    [[ "$output" != *"Conflict at"* ]]
+}
+
+@test "detects no conflict for package symlinks whose target is missing" {
+    # e.g. theme files linked from an uninitialised git submodule
+    mkdir -p "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir"
+    ln -s "$TEST_DIR/missing_submodule/theme.toml" "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir/theme.toml"
+    mkdir -p "$MOCK_HOME/.config"
+    ln -s "$MOCK_DOTFILES/stow/test_pkg/.config/test_file" "$MOCK_HOME/.config/test_file"
+    ln -s "$MOCK_DOTFILES/stow/test_pkg/.config/test_dir" "$MOCK_HOME/.config/test_dir"
+
+    run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg < /dev/null"
+    [ "$status" -eq 0 ]
+    [[ "$output" != *"Conflict at"* ]]
+}
+
+@test "detects no conflict for a relative per-file stow symlink" {
+    mkdir -p "$MOCK_HOME/.config"
+    ln -s "../../dotfiles/stow/test_pkg/.config/test_file" "$MOCK_HOME/.config/test_file"
+
+    run bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg < /dev/null"
+    [ "$status" -eq 0 ]
+}
