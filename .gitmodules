@@ -33,4 +33,4 @@
 	url = https://github.com/bats-core/bats-file
 [submodule "external/catppuccin/atuin"]
 	path = external/catppuccin/atuin
-	url = git@github.com:catppuccin/atuin.git
+	url = https://github.com/catppuccin/atuin.git
