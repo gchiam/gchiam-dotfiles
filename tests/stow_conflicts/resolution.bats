@@ -64,7 +64,19 @@ teardown() {
 }
 
 @test "skips instead of looping forever when input ends" {
-    run timeout 10 bash -c "source bin/setup-stow.sh && check_stow_conflicts test_pkg < /dev/null"
+    # Portable watchdog (macOS has no timeout(1)): kill the check after 10s
+    # so a regression fails the test instead of hanging CI.
+    run bash -c '
+        source bin/setup-stow.sh
+        check_stow_conflicts test_pkg < /dev/null &
+        pid=$!
+        ( sleep 10; kill "$pid" ) >/dev/null 2>&1 3>&- &
+        watchdog=$!
+        wait "$pid"
+        status=$?
+        kill "$watchdog" 2>/dev/null
+        exit "$status"
+    '
     [ "$status" -eq 1 ]
     [[ "$output" == *"No input available"* ]]
     [ "$(cat "$MOCK_HOME/.config/test_file")" = "existing content" ]
