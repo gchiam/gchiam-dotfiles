@@ -13,7 +13,7 @@ with code in this repository.
 This is a personal dotfiles repository for managing macOS development
 environment configurations using GNU Stow for symlink management. The
 repository follows a modular architecture where each tool/application has its
-own configuration directory under `stow/` (29+ tool configurations).
+own configuration directory under `stow/` (one Stow package per tool).
 
 ## Documentation Structure
 
