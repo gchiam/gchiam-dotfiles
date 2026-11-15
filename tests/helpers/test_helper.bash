@@ -55,7 +55,7 @@ assert_command_called() {
         fail "Command '$cmd' was never called"
     fi
 
-    if ! grep -qE "$pattern" "$log_file"; then
+    if ! grep -qE -- "$pattern" "$log_file"; then
         fail "Command '$cmd' was not called with arguments matching: $pattern. Actual calls: $(cat "$log_file")"
     fi
 }
