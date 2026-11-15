@@ -46,8 +46,9 @@ show_env_info                      # Show environment details
 ### 📂 File Organization
 
 ```text
-~/.zshenv                           # Environment variables (loaded first)
+~/.zshenv                           # Untracked; bootstrap block loads ~/.config/zsh/.zshenv
 ~/.config/zsh/
+├── .zshenv                        # Environment variables (XDG, ZDOTDIR, editor)
 ├── .zshrc                         # Main configuration file
 ├── .zprofile                      # Login shell configuration
 ├── aliases.zsh                    # Command aliases
@@ -62,7 +63,8 @@ show_env_info                      # Show environment details
 
 ### 🔄 Loading Order
 
-1. `~/.zshenv` - Environment variables (all shells)
+1. `~/.zshenv` - Machine-managed file; its bootstrap block sources
+   `~/.config/zsh/.zshenv`, which sets XDG variables and `ZDOTDIR` (all shells)
 2. `~/.config/zsh/.zprofile` - Login shell setup (SSH agent, brew env)
 3. `~/.config/zsh/.zshrc` - Interactive shell configuration
 4. Modular files loaded by `.zshrc`:
@@ -71,6 +73,24 @@ show_env_info                      # Show environment details
    - `completion.zsh`
    - `aliases.zsh`
    - `keybindings.zsh`
+
+### 🚀 ZDOTDIR Bootstrap
+
+`~/.zshenv` is deliberately **not** stowed: on work machines JAMF/Netskope
+rewrite it, which previously overwrote the repository through the symlink.
+Instead, `bin/setup-zshenv.sh` (run by `bin/setup.sh`) adds a marked block to
+the top of the real `~/.zshenv`:
+
+```zsh
+# >>> dotfiles zsh bootstrap >>>
+# ... sources ~/.config/zsh/.zshenv ...
+# <<< dotfiles zsh bootstrap <<<
+```
+
+The script is idempotent and keeps existing content. Re-run it if the file is
+ever rewritten without the block. When `ZDOTDIR` is preset (WezTerm sets it),
+zsh skips `~/.zshenv`, so `~/.config/zsh/.zshenv` sources it to keep
+machine-managed settings such as the Netskope CA bundle.
 
 ## 🌍 Environment Variables
 
