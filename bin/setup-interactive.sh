@@ -91,9 +91,6 @@ declare -A STOW_CATEGORIES=(
     ["input"]="window-mgmt"
     ["autoraise"]="window-mgmt"
     
-    # Shell alternatives
-    ["ohmyzsh"]="experimental"
-    
     # Monitoring
     ["k9s"]="development"
 )
