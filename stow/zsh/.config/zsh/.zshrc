@@ -17,6 +17,9 @@ if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]]; then
     fi
 fi
 
+# Keep PATH entries unique (nested shells would otherwise keep prepending)
+typeset -U path PATH
+
 # Safe sourcing function
 safe_source() {
     [[ -r "$1" ]] && source "$1"
@@ -39,9 +42,13 @@ setopt PUSHD_SILENT              # Don't print directory stack
 setopt EXTENDED_GLOB             # Extended globbing patterns
 setopt GLOB_DOTS                 # Include dotfiles in glob patterns
 
-# Performance: Cache brew prefix
-if [[ -z "$BREW_PREFIX" ]] && command -v brew >/dev/null; then
-    export BREW_PREFIX="$(brew --prefix)"
+# Performance: Cache brew prefix (`brew shellenv` already sets HOMEBREW_PREFIX)
+if [[ -z "$BREW_PREFIX" ]]; then
+    if [[ -n "$HOMEBREW_PREFIX" ]]; then
+        export BREW_PREFIX="$HOMEBREW_PREFIX"
+    elif command -v brew >/dev/null; then
+        export BREW_PREFIX="$(brew --prefix)"
+    fi
 fi
 
 
@@ -125,23 +132,23 @@ if command -v oh-my-posh >/dev/null && [[ -f "$HOME/.config/oh-my-posh/oh-my-pos
 fi
 
 
-
-# Performance monitoring: calculate and export startup time if enabled
-if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]]; then
-    export ZSH_STARTUP_TIME="$(( EPOCHREALTIME - ZSH_STARTUP_START ))"
+# Shell history (atuin)
+safe_source "$HOME/.atuin/bin/env"
+if command -v atuin >/dev/null; then
+    eval "$(atuin init zsh)"
 fi
 
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
+# Version manager (mise)
 [ -x "$HOME/.local/bin/mise" ] > /dev/null && eval "$($HOME/.local/bin/mise activate zsh --shims)"
 
 # opencode
-export PATH=/Users/gchiam/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 export OMO_SEND_ANONYMOUS_TELEMETRY=0
 
 # bun completions
-[ -s "/Users/gchiam/.bun/_bun" ] && source "/Users/gchiam/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Performance monitoring: calculate and export startup time if enabled (keep last)
+if [[ "$ZSH_PERFORMANCE_MONITORING" == true ]] && [[ -n "$ZSH_STARTUP_START" ]]; then
+    export ZSH_STARTUP_TIME="$(( EPOCHREALTIME - ZSH_STARTUP_START ))"
+fi
