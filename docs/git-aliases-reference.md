@@ -53,7 +53,7 @@ These shell aliases call git native aliases defined in `setup-git.sh`:
 | `gss`      | `git st`      | Status with branch info (setup-git.sh:50)    |
 | `gmain`    | `git main`    | Switch to main branch (setup-git.sh:37)      |
 | `gmaster`  | `git master`  | Switch to master branch (setup-git.sh:39)    |
-| `gcleanup` | `git cleanup` | Clean merged branches (setup-git.sh:33)      |
+| `gcleanup` | `git cleanup` | Clean merged branches (setup-git.sh:35)      |
 | `grecent`  | `git recent`  | Show recent branches (setup-git.sh:46)       |
 
 ### 📦 Stash Operations

@@ -30,7 +30,9 @@ git config --global alias.bo 'branch --all --verbose --verbose'
 git config --global alias.bom 'branch --all --list "*gchiam*" --verbose --verbose'
 git config --global alias.bv 'branch --verbose --verbose'
 git config --global alias.bvm 'branch --list "*gchiam*" --verbose --verbose'
-git config --global alias.cleanup '!git branch --merged | grep -v "*\|main|master" | xargs -n 1 git branch -d'
+# Delete merged local branches, keeping the current branch (*), branches
+# checked out in other worktrees (+), and main/master
+git config --global alias.cleanup '!git branch --merged | grep -vE "^[*+]|^[[:space:]]*(main|master)$" | xargs -n 1 git branch -d'
 git config --global alias.cbr "rev-parse --abbrev-ref HEAD"
 git config --global alias.co "checkout"
 git config --global alias.cp "cherry-pick"
@@ -57,7 +59,7 @@ git config --global pull.rebase true
 git config --global rebase.autoStash true
 
 # push
-git config --global push.autoSetupRemove "true"
+git config --global push.autoSetupRemote "true"
 git config --global push.default "simple"
 
 # diff
