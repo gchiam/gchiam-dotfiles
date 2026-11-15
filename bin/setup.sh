@@ -70,6 +70,9 @@ fi
 # Stow all configuration directories
 "$DOTFILES_SOURCE/bin/setup-stow.sh" --non-interactive "$@"
 
+# Make ~/.zshenv load the modular zsh config (sets ZDOTDIR)
+"$DOTFILES_SOURCE/bin/setup-zshenv.sh"
+
 # Rebuild bat cache for themes (if bat is available)
 if command -v bat &> /dev/null; then
     print_step "Rebuilding bat cache..."
