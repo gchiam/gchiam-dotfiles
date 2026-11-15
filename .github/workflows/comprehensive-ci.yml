@@ -37,7 +37,7 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
 
     - name: Lint markdown files
-      uses: DavidAnson/markdownlint-cli2-action@v22
+      uses: DavidAnson/markdownlint-cli2-action@07035fd053f7be764496c0f8d8f9f41f98305101 # v22.0.0
       with:
         globs: |
           "**/*.md"
@@ -46,7 +46,7 @@ jobs:
           "!stow/tmux/.tmux/plugins/**/*.md"
 
     - name: Lint shell scripts
-      uses: ludeeus/action-shellcheck@master
+      uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38 # 2.0.0
       with:
         severity: warning
         ignore_paths: >-
@@ -55,7 +55,7 @@ jobs:
           ./tests/libs/**
 
     - name: Lint YAML files
-      uses: ibiqlik/action-yamllint@v3
+      uses: ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c # v3.1.1
       with:
         config_file: .yamllint.yml
 
@@ -286,7 +286,7 @@ jobs:
         submodules: recursive
 
     - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
+      uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
       with:
         scan-type: 'fs'
         scan-ref: '.'
