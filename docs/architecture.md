@@ -27,11 +27,10 @@ dotfiles repository.
 │   ├── workflow-guide.md            #    Daily usage patterns
 │   ├── automation-guide.md          #    Advanced automation
 │   └── *-reference.md               #    Tool-specific guides
-├── 📁 stow/                         # 🏠 Configuration packages (29+ tools)
+├── 📁 stow/                         # 🏠 Configuration packages (one per tool)
 │   ├── nvim/                        #    Neovim (LazyVim)
 │   ├── zsh/                         #    Zsh shell environment
 │   ├── tmux/                        #    Terminal multiplexer
-│   ├── git/                         #    Git configuration
 │   ├── alacritty/, wezterm/         #    Terminal emulators
 │   ├── aerospace/                   #    Window manager
 │   └── ...                          #    Other tool configs
@@ -46,15 +45,16 @@ dotfiles repository.
 
 ### 🏠 Configuration Management (`stow/`)
 
-The heart of the dotfiles system - 29+ tool configurations organized as
-Stow packages:
+The heart of the dotfiles system - one Stow package per tool (run
+`ls stow` for the full list):
 
 #### 🔧 Development Tools
 
 - `nvim/` - Neovim with LazyVim distribution
 - `tmux/` - Terminal multiplexer with plugins
-- `git/` - Enhanced git configuration with delta
 - `gh-dash/` - GitHub CLI dashboard
+- Git itself is configured by `bin/setup-git.sh` (aliases, delta), not a
+  Stow package
 
 #### 🐚 Shell & Terminal
 
@@ -65,12 +65,12 @@ Stow packages:
 #### 🖥️ macOS Integration
 
 - `aerospace/` - Tiling window manager
-- `raycast/` - Application launcher extensions
+- Raycast extensions live in the top-level `raycast/` directory (not stowed)
 
 #### 📦 Package Management
 
-- `brew/` - Homebrew package definitions
-- Custom Brewfiles for work and personal environments
+- Homebrew package lists live in the top-level `brew/` directory (not
+  stowed): `base`, `dev`, `ui` and `work`
 
 ## ⚙️ Configuration Management
 

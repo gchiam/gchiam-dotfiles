@@ -80,7 +80,10 @@ For selective installation of specific configurations:
 # Install specific tool configurations
 stow -d stow -t ~ nvim    # Neovim config
 stow -d stow -t ~ zsh     # Zsh config
-stow -d stow -t ~ git     # Git config
+stow -d stow -t ~ tmux    # Tmux config
+
+# Git is configured by a script rather than a stow package
+./bin/setup-git.sh
 ```
 
 ## 🎭 Environment Profiles
